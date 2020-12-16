@@ -8,4 +8,9 @@ app.get('/',function(req,res){
     res.send('Home Page')
 });
 
+app.get('/',function(req,res){
+    res.send('Home Page')
+});
+
+
 app.listen(port , ()=>{ console.log(`ServerisRunning in port:http://localhost:${port}`)})
