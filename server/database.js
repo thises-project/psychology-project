@@ -35,7 +35,7 @@ const pool = mysql.createPool({
 
 pool.query('select 1 + 1', (err, rows) => { 
   if (err) throw err;  
-    console.log("Connected!");
+  console.log("Connected!");
 });
 
 module.exports = pool;
