@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 //creat a class for the sign up component 
 export default class Signup extends Component {
     constructor(props) {
