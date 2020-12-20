@@ -9,6 +9,7 @@ import Articles from "./components/articles"
 import Questions from "./components/questions"
 import Login from "./components/login"
 import Home from "./components/home"
+import DocProfile from "./components/doctorProfile"
 import "bootstrap/dist/css/bootstrap.min.css";
 
 
@@ -23,6 +24,8 @@ function App() {
       <Route path="/articles" component={Articles}/>
       <Route path="/questions" component={Questions}/>
       <Route path="/login" component={Login}/>
+      <Route path="/doctorProfile" component={DocProfile}/>
+
       </Switch>
     </div>
     </Router>
