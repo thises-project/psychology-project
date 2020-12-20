@@ -15,5 +15,12 @@ module.exports= {
         db.query(queryStr , params, function(err , result){
             callback(err,result)
         })
+    },
+     
+    getOneUser:(params,callback) => {
+        var queryStr = `SELECT * from userstable WHERE userId = ?`;
+        db.query(queryStr, params, function(err, result){
+            callback(err, result)
+        })
     }
 }

@@ -1,11 +1,13 @@
 const express= require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const cors = require('cors');
 
 const connection = require('./app/Models/database');
 
 // require the routes
 const user = require("./app/routes/user");
+app.use(cors());
 
 // define the user router
 app.use("/users",user);

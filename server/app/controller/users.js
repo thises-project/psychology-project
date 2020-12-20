@@ -27,6 +27,16 @@ module.exports =  {
         res.sendStatus(200)
     }
     })
+  },
+
+  getOneUser : function(req, res) {
+    var params = [req.params.id];
+    usersModel.getOneUser(params, function(err, result){
+      if(err){
+        console.log(err)
+      } res.send(result)
+      
+    });
   }
 
 }

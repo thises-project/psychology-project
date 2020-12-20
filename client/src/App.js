@@ -10,7 +10,7 @@ import Questions from "./components/questions"
 import Login from "./components/login"
 import Home from "./components/home"
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import UserProfile from './components/userProfile'
 
 function App() {
   return (
@@ -23,6 +23,7 @@ function App() {
       <Route path="/articles" component={Articles}/>
       <Route path="/questions" component={Questions}/>
       <Route path="/login" component={Login}/>
+      <Route path="/userPro/:id" component={UserProfile}/>
       </Switch>
     </div>
     </Router>
