@@ -1,5 +1,4 @@
-// import { combineReducers } from 'redux';
+import {combineReducers} from 'redux';
+import Adduser from './Adduser';
 
-// import AskQuestion from './AddQuestion';
-
-// export default combineReducers({ AskQuestion });
+export default combineReducers({  Adduser })
