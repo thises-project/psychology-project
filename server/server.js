@@ -4,11 +4,17 @@ const app = express();
 
 const connection = require('./app/Models/database');
 
-// require the routes
+// require the user routes
 const user = require("./app/routes/user");
+
+// require the doctor routes
+const doctor = require("./app/routes/doctor");
 
 // define the user router
 app.use("/users",user);
+
+// define the user router
+app.use("/doctor",doctor);
 
 //const cors = require('cors');
 
