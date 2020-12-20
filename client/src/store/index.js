@@ -3,7 +3,7 @@ import { createStore } from  'redux';
 // try to build store component 
 
 const initialState = {
-    inputValue : ''
+    question : ''
 };
 
 const reducer = (state = initialState, action) => {
@@ -11,7 +11,7 @@ const reducer = (state = initialState, action) => {
 
     switch ( action.type) {
         case 'INPUT_CHANGE':
-            return Object.assign({}, state, {inputValue: action.text});
+            return Object.assign({}, state, {question: action.text});
 
             default :
             return state;

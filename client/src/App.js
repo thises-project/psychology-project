@@ -2,7 +2,7 @@ import React from 'react';
 // import router from '../../server/app/routes/user';
 // import logo from './logo.svg';
 // import { Counter } from './features/counter/Counter';
-import './App.css';
+// import './App.css';
 import Navbar from './components/navbar';
 import { BrowserRouter as Router , Switch, Route } from  "react-router-dom";
 import Doctors from "./components/doctors";
