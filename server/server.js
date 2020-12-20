@@ -1,22 +1,17 @@
 const express= require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const app = express();
 
 const connection = require('./app/Models/database');
 
-// require the user routes
+// require the routes
 const user = require("./app/routes/user");
-
-// require the doctor routes
-const doctor = require("./app/routes/doctor");
-
+app.use(cors())
 // define the user router
-app.use("/users",user);
+app.use("/users", user);
 
-// define the user router
-app.use("/doctor",doctor);
 
-//const cors = require('cors');
 
 // set the port
 const port = process.env.PORT || 5000;
@@ -40,7 +35,6 @@ app.use(function (error, req, res, next) {
 app.get('/',function(req,res){
     res.send('Home Page')
 });
-
 
 
 
