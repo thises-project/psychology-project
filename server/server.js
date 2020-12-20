@@ -9,7 +9,7 @@ const connection = require('./app/Models/database');
 const user = require("./app/routes/user");
 app.use(cors())
 // define the user router
-app.use("/users",user);
+app.use("/users", user);
 
 
 

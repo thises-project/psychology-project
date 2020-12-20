@@ -4,7 +4,8 @@ import React from 'react';
 import { useEffect, useState } from "react";
 
 import { Link, useLocation } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+//import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch}  from 'react-redux';
 import user from '../reducers/Adduser';
 import {Adduser} from '../actions/adduser' 
 
@@ -37,7 +38,7 @@ function Signup (){
             }
         
             function handleSubmit(e) {
-                console.log('jjjjjjjjjjjjjjj' , user)
+              //  console.log('jjjjjjjjjjjjjjj' , user)
                 e.preventDefault();
                 dispatch(Adduser(user))
                

@@ -18,7 +18,7 @@ import {Adduser} from './actions/adduser';
 
 function App() {
 
-  const dispatch = useDispatch();
+  //const dispatch = useDispatch();
 
   // its is like componentDidMount but used for updates
   // useEffect(()=>{
