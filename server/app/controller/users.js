@@ -31,13 +31,25 @@ module.exports =  {
     }
     })
   },
-  updateUser :(req , res)=>{
+
+  getOneUser : function(req, res) {
+    var params = [req.params.id];
+    usersModel.getOneUser(params, function(err, result){
+      if(err){
+        console.log(err)
+      } res.send(result)
+      
+    })
+  },
+
+  updateUser : (req , res)=>{
     var params =[req.body.userName , req.body.age , req.body.gender , req.body.email , req.body.password , req.params.id];
     usersModel.updateUser(params , function(err , results){
       if(err){console.log("you are have an error in controller" , err)}
       res.sendStatus(200)
     })
   },
+
   deleteUser:(req,res)=>{
     var params = [req.params.id];
     usersModel.deleteUser(params,function(err,result){
@@ -47,3 +59,4 @@ module.exports =  {
   }
 
 }
+
