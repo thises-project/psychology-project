@@ -1,19 +1,25 @@
-import React, { useEffect } from 'react';
+// import React from 'react';
+// import router from '../../server/app/routes/user';
+// import React, { useEffect } from 'react';
+
+import React from 'react';
+
 // import logo from './logo.svg';
 // import { Counter } from './features/counter/Counter';
-import './App.css';
+// import './App.css';
 import Navbar from './components/navbar';
 import { BrowserRouter as Router , Switch, Route } from  "react-router-dom";
 import Doctors from "./components/doctors";
-import Articles from "./components/articles"
-import Questions from "./components/questions"
-import Login from "./components/login"
-import Home from "./components/home"
-import Signup from "./components/SignUp"
+import Articles from "./components/articles";
+import Questions from "./components/questions";
+import Login from "./components/login";
+import Home from "./components/home";
+import AddQuestion from "./components/askQuestions";
+import Signup from "./components/SignUp";
 import "bootstrap/dist/css/bootstrap.min.css";
 // allows to dispatch an action 
-import { useDispatch}  from 'react-redux';
-import {Adduser} from './actions/adduser';
+// import { useDispatch}  from 'react-redux';
+// import {Adduser} from './actions/adduser';
 
 
 function App() {
@@ -36,6 +42,7 @@ function App() {
       <Route path="/articles" component={Articles}/>
       <Route path="/questions" component={Questions}/>
       <Route path="/login" component={Login}/>
+      <Route path="/askQuestions" component = {AddQuestion}/>
       <Route path="/signup" component={Signup}/>
       </Switch>
     </div>
