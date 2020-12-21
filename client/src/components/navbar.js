@@ -1,45 +1,55 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-function Navbar (){
-
-    return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                    <Link to="/" className="nav-link" style={{fontFamily:"Cursive"}}> Home <span className="sr-only"/></Link>
-
-            <div className="container-fluid">
-                <div className="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul className="navbar-nav">
-                        <Link to="/doctors" className="nav-link" style={{fontFamily:"Cursive"}}>
-                        <li className="nav-item">
-                            Doctors
-                        </li>
-                        </Link>
-                        <Link to="/questions" className="nav-link" style={{fontFamily:"Cursive"}}>
-                        <li className="nav-item">
-                            Questions
-                        </li>
-                        </Link>
-                        <Link to="/articles" className="nav-link" style={{fontFamily:"Cursive"}}>
-                        <li className="nav-item">
-                            Articles
-                        </li>
-                        </Link>
-                        <Link to="/login" className="nav-link" style={{fontFamily:"Cursive"}}>
-                        <li className="nav-item"> 
-                            Login
-                        </li>
-                        </Link>
-                        <Link to="/doctorProfile" className="nav-link" style={{fontFamily:"Cursive"}}>
-                        <li className="nav-item"> 
-                            Doctor Profile
-                        </li>
-                        </Link>
-                    </ul>
-                </div>
-                </div>
-        </nav>
-    )
+function Navbar() {
+  return (
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <div className="container-fluid">
+        <div className="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul className="navbar-nav">
+            <Link
+              to="/"
+              className="nav-link  ml-3 mr-3"
+              style={{ fontSize: "16px" }}
+            >
+              Home <span className="sr-only" />
+            </Link>
+            <Link
+              to="/doctors"
+              className="nav-link ml-3 mr-3"
+              style={{ fontSize: "16px" }}
+            >
+              <li className="nav-item">Doctors</li>
+            </Link>
+            <Link
+              to="/questions"
+              className="nav-link  ml-3 mr-3"
+              style={{ fontSize: "16px" }}
+            >
+              <li className="nav-item">Questions</li>
+            </Link>
+            <Link
+              to="/articles"
+              className="nav-link  ml-3 mr-3"
+              style={{ fontSize: "16px" }}
+            >
+              <li className="nav-item">Articles</li>
+            </Link>
+            <Link to="/login" className="nav-link" style={{ fontSize: "16px" }}>
+              <li className="nav-item">Login</li>
+            </Link>
+            <Link
+              to="/doctorProfile"
+              className="nav-link  ml-3 mr-3"
+              style={{ fontSize: "16px" }}
+            >
+              <li className="nav-item">Doctor Profile</li>
+            </Link>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  );
 }
 
 /*
@@ -75,6 +85,6 @@ function Navbar (){
   </div>
 </nav>
 
-*/ 
+*/
 
 export default Navbar;
