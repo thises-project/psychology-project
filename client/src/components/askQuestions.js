@@ -1,42 +1,38 @@
-import React from 'react';
-import { connect } from 'react-redux';
-// import axios from 'axios';
-// import reducer from '../store/index';
+import React from "react";
+import { connect } from "react-redux";
 
-
-// build ask question component 
-// take the input value 
-
+// build ask question component
+// take the input value
 
 function AddQuestion(prpos) {
-
-    return (
-        <div>
-                <input type="text" value={prpos.question} onChange={prpos.questionChanged}/>
-            <form onSubmit={prpos.handleSubmit}>
-                <button type='submit'> ASK </button>
-           </form>
-        </div>
-    );
+  return (
+    <div>
+      <input
+        type="text"
+        value={prpos.question}
+        onChange={prpos.questionChanged}
+      />
+      <form onSubmit={prpos.handleSubmit}>
+        <button type="submit"> ASK </button>
+      </form>
+    </div>
+  );
 }
-
 
 const mapStateToProps = (state) => {
-    return {
-        question : state.question
-    }
-}
+  return {
+    question: state.question,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        questionChanged:(evt)=>{
-            
-            const action = { type:'INPUT_CHANGE',text:evt.target.value};
-            dispatch(action);
-        }
-
-    }
-}
+  return {
+    questionChanged: (evt) => {
+      const action = { type: "INPUT_CHANGE", text: evt.target.value };
+      dispatch(action);
+    },
+  };
+};
 // function sendPostRequest(props) {
 //     var handleSubmit=() =>{
 
@@ -51,5 +47,4 @@ const mapDispatchToProps = (dispatch) => {
 //         // .then(res => console.log(res.data));
 // }
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(AddQuestion) ;
+export default connect(mapStateToProps, mapDispatchToProps)(AddQuestion);
