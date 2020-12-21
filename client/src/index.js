@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+
 import App from './App';
 // import store from './app/store';
-// import { Provider } from 'react-redux';
+// provider allow to access the store from any place in my app
 import * as serviceWorker from './serviceWorker';
+
+
 
 ReactDOM.render(
       <App />,
