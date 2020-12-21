@@ -5,11 +5,12 @@ const app = express();
 
 const connection = require('./app/Models/database');
 
-// require the routes
+// require user the route
 const user = require("./app/routes/user");
+// require the doctor route
+const doctor = require("./app/routes/doctor");
 app.use(cors())
-// define the user router
-app.use("/users", user);
+
 
 
 
@@ -21,8 +22,9 @@ app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
-
+// define the user router
+app.use("/users", user);
+app.use("/doctor" ,doctor)
 app.use(function (error, req, res, next) {
   if(error instanceof SyntaxError){ //Handle SyntaxError here.
     return res.status(500).send({data : "Invalid data"});
