@@ -30,6 +30,11 @@ function Navbar (){
                             Login
                         </li>
                         </Link>
+                        <Link to="/signup" className="nav-link" style={{fontFamily:"Cursive"}}>
+                        <li className="nav-item"> 
+                            SignUp
+                        </li>
+                        </Link>
                     </ul>
                 </div>
                 </div>
