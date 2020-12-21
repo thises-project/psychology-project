@@ -1,32 +1,39 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
+// import axios from "axios";
+import { Form } from "react-bootstrap";
 
-function DoctorProfile(props) {
-  console.log(props);
-  const [doctor, setDoctor] = useState({});
-  useEffect(() => {
-    axios
-      .get("http://localhost:5000/doctor/getOneDoctor/" + props.match.params.id)
-      .then((res) => {
-        console.log(res.data[0]);
-        setDoctor({
-          doctorName: res.data[0].doctorName,
-          doctorSpeciality: res.data[0].doctorSpeciality,
-          bio: res.data[0].bio,
-          email: res.data[0].email,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [props.match.params.id]);
+const DoctorProfile = () => {
   return (
     <div>
-      <h3>{doctor.doctorName}</h3>
-      <h3>{doctor.doctorSpeciality}</h3>
-      <h3>{doctor.bio}</h3>
-      <h3>{doctor.email}</h3>
+      <h6 style={{ fontSize: "18px" }}> Doctor Profile </h6>
+      <div className="col ml-auto mr-auto" style={{ width: "50%" }}>
+        <Form>
+          <Form.Group>
+            <Form.File
+              id="exampleFormControlFile1"
+              label="Upload an profile pic"
+            />
+          </Form.Group>
+        </Form>
+      </div>
+      <div className="col ml-auto mr-auto" style={{ width: "50%" }}>
+        <Form>
+          <Form.Group controlId="exampleForm.ControlInput1">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control
+              size="lg"
+              type="email"
+              placeholder="name@example.com"
+            />
+          </Form.Group>
+          <Form.Group controlId="exampleForm.ControlSelect1">
+            <Form.Label>Example textarea</Form.Label>
+            <Form.Control size="lg" as="textarea" rows={3} />
+          </Form.Group>
+        </Form>
+      </div>
     </div>
   );
-}
+};
+
 export default DoctorProfile;

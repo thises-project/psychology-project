@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-function Doctors() {
+const Doctors = () => {
   const [docs, setDoctor] = useState([]);
   useEffect(() => {
     axios
@@ -10,8 +10,8 @@ function Doctors() {
       .catch((error) => alert("Error fetching doctors List!"));
   }, []);
 
-  return <h5>{docs.doctorName}</h5>;
-}
+  return <h5>Hii </h5>;
+};
 
 export default Doctors;
 
