@@ -1,9 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import './index.css';
 import App from './App';
-// import store from './store/index';
-// import store from './app/store';
 
 //allow us to use the store from any component in the app.
 import { Provider } from 'react-redux';
