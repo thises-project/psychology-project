@@ -17,7 +17,7 @@ module.exports= {
         db.query(queryStr , params, function(err , result){
            
             callback(err,result)
-           // console.log("gggggggggggg",result) 
+           
         })
     },
     updateUser:(params , callback)=>{
