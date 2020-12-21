@@ -8,9 +8,9 @@ const db = require("../Models/database");
 module.exports =  {
 
     createQuestions :  (req , res)=>{
-       var params =[req.body.question , req.body.user_Id ];
+       var params =[req.body.question ];
   
-      console.log(req.body.question,req.body.user_Id,"create")
+      console.log(req.body.question,"createQuestion")
       questionsModel.createQuestions(params,function(err , results){
           if(err){console.log("you are have an error in controller" , err)}
           res.json(results);

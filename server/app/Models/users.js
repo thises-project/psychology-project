@@ -20,6 +20,13 @@ module.exports= {
            
         })
     },
+     
+    getOneUser:(params,callback) => {
+        var queryStr = `SELECT * from userstable WHERE userId = ?`;
+        db.query(queryStr, params, function(err, result){
+            callback(err, result)
+        })
+    },
     updateUser:(params , callback)=>{
         var queryStr = `UPDATE userstable SET userName = ?, age = ?, gender=? , email=? , password = ? WHERE userId = ?`;
         db.query(queryStr , params , function(err , result){

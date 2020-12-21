@@ -9,7 +9,7 @@ import {  useState } from "react";
 //import { useDispatch, useSelector } from 'react-redux';
 import { useDispatch}  from 'react-redux';
 // import user from '../reducers/Adduser';
-import {Adduser} from '../actions/adduser' 
+import {Adduser} from '../actions/adduser'; 
 
 //import { userActions } from '../_actions';
 
