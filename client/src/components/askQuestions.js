@@ -15,7 +15,8 @@ function AddQ() {
 
 
     const [questions, setQuestion] = useState({
-        question :''
+        question :'',
+        
     });
 
 

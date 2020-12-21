@@ -7,11 +7,12 @@
 const db = require('./database')
 
 module.exports= {
-    createQuestions:(callback)=>{
-        var queryStr = `INSERT INTO questions ( question , user_Id  ) VALUES (?,"null")`;
-        db.query(queryStr,function(err,result){
+    createQuestions:(params,callback)=>{
+        // console.log(result);
+        var queryStr = `INSERT INTO questions ( question ) VALUES (?)`;
+        db.query(queryStr,params,function(err,result){ 
             callback(err,result)
-        });
+        })
     
-    },
+    }
 }
