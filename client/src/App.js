@@ -17,6 +17,7 @@ import Home from "./components/home";
 import AddQuestion from "./components/askQuestions";
 import Signup from "./components/SignUp";
 import "bootstrap/dist/css/bootstrap.min.css";
+import UserProfile from './components/userProfile'
 // allows to dispatch an action 
 // import { useDispatch}  from 'react-redux';
 // import {Adduser} from './actions/adduser';
@@ -42,7 +43,11 @@ function App() {
       <Route path="/articles" component={Articles}/>
       <Route path="/questions" component={Questions}/>
       <Route path="/login" component={Login}/>
+
       <Route path="/askQuestions" component = {AddQuestion}/>
+
+      <Route path="/userPro/:id" component={UserProfile}/>
+
       <Route path="/signup" component={Signup}/>
       </Switch>
     </div>
