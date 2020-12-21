@@ -1,12 +1,14 @@
-import axios from 'axios';
+// import axios from 'axios';
 import React from 'react';
 
-import { useEffect, useState } from "react";
+import {  useState } from "react";
+// import { useEffect, useState } from "react";
 
-import { Link, useLocation } from 'react-router-dom';
+
+// import { Link, useLocation } from 'react-router-dom';
 //import { useDispatch, useSelector } from 'react-redux';
 import { useDispatch}  from 'react-redux';
-import user from '../reducers/Adduser';
+// import user from '../reducers/Adduser';
 import {Adduser} from '../actions/adduser' 
 
 //import { userActions } from '../_actions';
@@ -21,7 +23,10 @@ function Signup (){
         password: ''
     });
     
-    const [submitted, setSubmitted] = useState(false);
+    // const [submitted, setSubmitted] = useState(false);
+    const [submitted] = useState(false);
+
+
     // const registering = useSelector(state => state.registration.registering);
     const dispatch = useDispatch();
 

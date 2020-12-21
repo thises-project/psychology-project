@@ -3,7 +3,6 @@ const db = require("../Models/database");
 
 
 
-
 // call back function 
 module.exports =  {
 
@@ -25,12 +24,13 @@ module.exports =  {
       console.log(params);
    // console.log(req.body.userName,"create")
     usersModel.createUser(params,function(err , results){
-        if(err){console.log("you are have an error in controller" , err)
+        if(err){console.log("you are have an error in controller" , err)}
         res.json(results);
         res.sendStatus(200)
-    }
+    
     })
   },
+
 
   getOneUser : function(req, res) {
     var params = [req.params.id];
@@ -43,6 +43,7 @@ module.exports =  {
   },
 
   updateUser : (req , res)=>{
+
     var params =[req.body.userName , req.body.age , req.body.gender , req.body.email , req.body.password , req.params.id];
     usersModel.updateUser(params , function(err , results){
       if(err){console.log("you are have an error in controller" , err)}
