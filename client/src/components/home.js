@@ -16,7 +16,7 @@ const Home = () => {
             height="500px"
           ></img>
           <Carousel.Caption>
-            <p>this is the first caption</p>
+            {/* <p>this is the first caption</p> */}
           </Carousel.Caption>
         </Carousel.Item>
 
@@ -29,7 +29,7 @@ const Home = () => {
             height="500px"
           ></img>
           <Carousel.Caption>
-            <p>this is the second caption</p>
+            {/* <p>this is the second caption</p> */}
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -41,7 +41,7 @@ const Home = () => {
             height="500px"
           ></img>
           <Carousel.Caption>
-            <p>this is the third caption</p>
+            {/* <p>this is the third caption</p> */}
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
@@ -65,7 +65,7 @@ const Home = () => {
 
       <br></br>
       <br></br>
-      <Button variant="secondary" size="lg" style={{ width: "30%" }}>
+      <Button variant="info" size="lg" style={{ width: "30%" }}>
         Get Free Counsling NOW !
       </Button>
 
@@ -173,7 +173,7 @@ const Home = () => {
         <Card style={{ width: "50%" }}>
           <Card.Body>
             <Card.Title>
-              <h3>Our Mission</h3>
+              <h3 className="info">Our Mission</h3>
             </Card.Title>
 
             <Card.Text>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const Doctors = () => {
-  const [docs, setDoctor] = useState([]);
+  const [docs, setDoctor] = useState();
   useEffect(() => {
     axios
       .get("http://localhost:5000/doctor/getAllDoctors")
@@ -10,7 +10,7 @@ const Doctors = () => {
       .catch((error) => alert("Error fetching doctors List!"));
   }, []);
 
-  return <h5>Hii </h5>;
+  return <h5> Docotrs List </h5>;
 };
 
 export default Doctors;
