@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+<<<<<<< HEAD
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -50,6 +51,47 @@ function Navbar() {
       </div>
     </nav>
   );
+=======
+function Navbar (){
+
+    return (
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                    <Link to="/" className="nav-link" style={{fontFamily:"Cursive"}}> Home <span className="sr-only"/></Link>
+
+            <div className="container-fluid">
+                <div className="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul className="navbar-nav">
+                        <Link to="/doctors" className="nav-link" style={{fontFamily:"Cursive"}}>
+                        <li className="nav-item">
+                            Doctors
+                        </li>
+                        </Link>
+                        <Link to="/questions" className="nav-link" style={{fontFamily:"Cursive"}}>
+                        <li className="nav-item">
+                            Questions
+                        </li>
+                        </Link>
+                        <Link to="/articles" className="nav-link" style={{fontFamily:"Cursive"}}>
+                        <li className="nav-item">
+                            Articles
+                        </li>
+                        </Link>
+                        <Link to="/login" className="nav-link" style={{fontFamily:"Cursive"}}>
+                        <li className="nav-item"> 
+                            Login
+                        </li>
+                        </Link>
+                        <Link to="/signup" className="nav-link" style={{fontFamily:"Cursive"}}>
+                        <li className="nav-item"> 
+                            SignUp
+                        </li>
+                        </Link>
+                    </ul>
+                </div>
+                </div>
+        </nav>
+    )
+>>>>>>> 134d3b39403944db8d60e80ec6ee71600978b3ed
 }
 
 /*

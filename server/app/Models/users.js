@@ -12,9 +12,19 @@ module.exports= {
 
     
     createUser:(params,callback)=>{
+        
         var queryStr = `INSERT INTO userstable (userName , age , gender , email , password) VALUES (?,?,?,?,?)`;
         db.query(queryStr , params, function(err , result){
+           
             callback(err,result)
+           
+        })
+    },
+     
+    getOneUser:(params,callback) => {
+        var queryStr = `SELECT * from userstable WHERE userId = ?`;
+        db.query(queryStr, params, function(err, result){
+            callback(err, result)
         })
     },
     updateUser:(params , callback)=>{
