@@ -7,11 +7,13 @@ const connection = require('./app/Models/database');
 
 // require the routes
 const user = require("./app/routes/user");
+const questions = require("./app/routes/questions.js");
 app.use(cors())
 // define the user router
 app.use("/users", user);
 
-
+// define the question router
+app.use("/questions", questions);
 
 // set the port
 const port = process.env.PORT || 5000;

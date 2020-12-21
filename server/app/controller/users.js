@@ -3,7 +3,6 @@ const db = require("../Models/database");
 
 
 
-
 // call back function 
 module.exports =  {
 

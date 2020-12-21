@@ -1,23 +1,23 @@
-import { createStore } from  'redux';
+// import { createStore } from  'redux';
 
-// try to build store component 
+// // try to build store component 
 
-const initialState = {
-    question : ''
-};
+// const initialState = {
+//     question : ''
+// };
 
-const reducer = (state = initialState, action) => {
-    console.log('reducer', action);
+// const reducer = (state = initialState, action) => {
+//     console.log('reducer', action);
 
-    switch ( action.type) {
-        case 'INPUT_CHANGE':
-            return Object.assign({}, state, {question: action.text});
+//     switch ( action.type) {
+//         case 'INPUT_CHANGE':
+//             return Object.assign({}, state, {question: action.text});
 
-            default :
-            return state;
-    }
-}
+//             default :
+//             return state;
+//     }
+// }
 
-const store = createStore(reducer);
+// const store = createStore(reducer);
 
-export default store;
+// export default store;
