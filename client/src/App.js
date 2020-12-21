@@ -1,4 +1,5 @@
 import React from "react";
+
 // import logo from './logo.svg';
 // import { Counter } from './features/counter/Counter';
 import "./App.css";
@@ -9,7 +10,8 @@ import Articles from "./components/articles";
 import Questions from "./components/questions";
 import Login from "./components/login";
 import Home from "./components/home";
-import DocProfile from "./components/doctorProfile";
+import DoctorProfile from "./components/doctorProfile";
+import Footer from "./components/footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -23,9 +25,10 @@ function App() {
           <Route path="/articles" component={Articles} />
           <Route path="/questions" component={Questions} />
           <Route path="/login" component={Login} />
-          <Route path="/doctorProfile" component={DocProfile} />
+          <Route path="/doctorProfile/:id" exact component={DoctorProfile} />
         </Switch>
       </div>
+      <Footer />
     </Router>
   );
 }
