@@ -1,6 +1,9 @@
 // import React from 'react';
 // import router from '../../server/app/routes/user';
-import React, { useEffect } from 'react';
+// import React, { useEffect } from 'react';
+
+import React from 'react';
+
 // import logo from './logo.svg';
 // import { Counter } from './features/counter/Counter';
 // import './App.css';
@@ -15,8 +18,8 @@ import AddQuestion from "./components/askQuestions";
 import Signup from "./components/SignUp";
 import "bootstrap/dist/css/bootstrap.min.css";
 // allows to dispatch an action 
-import { useDispatch}  from 'react-redux';
-import {Adduser} from './actions/adduser';
+// import { useDispatch}  from 'react-redux';
+// import {Adduser} from './actions/adduser';
 
 
 function App() {

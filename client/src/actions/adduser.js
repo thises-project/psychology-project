@@ -12,7 +12,7 @@ export const Adduser = (user) => async (dispatch)=>{
         console.log('failed')
         console.log(error)
     }
-    const action = { type : ' '}
+    // const action = { type : ' '}
 }
 
 

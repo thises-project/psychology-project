@@ -23,12 +23,13 @@ module.exports =  {
 
     console.log(req.body.userName,"create")
     usersModel.createUser(params,function(err , results){
-        if(err){console.log("you are have an error in controller" , err)
+        if(err){console.log("you are have an error in controller" , err)}
         res.json(results);
         res.sendStatus(200)
-    }
+    
     })
   },
+
   updateUser :(req , res)=>{
     var params =[req.body.userName , req.body.age , req.body.gender , req.body.email , req.body.password , req.params.id];
     usersModel.updateUser(params , function(err , results){
