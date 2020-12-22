@@ -45,7 +45,9 @@ function AddQ() {
         }
     
     return (
-        <div>
+        <div >
+        <p>WE ARE HERE FOR YOU ..</p>
+        <p>How can we help you ?</p>
            <form onSubmit={handleSubmit}>
                 <input type="text" name="question" value={questions.question} onChange={handleChange}/>
                 <button type='submit'> ASK </button>
