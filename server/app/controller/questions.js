@@ -18,13 +18,14 @@ module.exports =  {
       
       })
     },
-    getAllQuestions: (req,res)=>{
-      questionsModel.getAllQuestions(function(err,results){
-        if(err) {console.log(`You are have an error in your questions controller ${err}`)}
-        res.json(results)
+
+    getAllQuestionsAndAnswers:(req , res)=>{
+      questionsModel.getAllQuestionsAndAnswers(function(err,results){
+          if(err){console.log("you are have an error in your question controller",err)}
+          res.json(results)
+          
       })
     }
-
   
   }
   

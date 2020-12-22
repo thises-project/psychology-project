@@ -4,7 +4,7 @@
 
 export default ( AddQuestion = [], action) => {
     switch (action.type){
-        case 'FETCH_ALL':
+        case 'getAllQuestions':
             return AddQuestion;
         case 'CREATE':
             return AddQuestion;

@@ -3,6 +3,7 @@ import React from "react";
 import Navbar from './components/navbar';
 import { BrowserRouter as Router , Switch, Route } from  "react-router-dom";
 import "./App.css";
+import $ from 'jquery';
 import Doctors from "./components/doctors";
 import Articles from "./components/articles";
 import Questions from "./components/questions";
