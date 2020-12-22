@@ -1,13 +1,5 @@
-// import React from 'react';
-// import router from '../../server/app/routes/user';
-// import React, { useEffect } from 'react';
-
-import React from 'react';
-
-// import logo from './logo.svg';
-// import { Counter } from './features/counter/Counter';
-// import './App.css';
-import Navbar from './components/Navbar';
+import React , {userEffect} from 'react';
+import Navbar from './components/navbar';
 import { BrowserRouter as Router , Switch, Route } from  "react-router-dom";
 import Doctors from "./components/doctors";
 import Articles from "./components/articles";
@@ -18,14 +10,15 @@ import AddQuestion from "./components/askQuestions";
 import Signup from "./components/SignUp";
 import "bootstrap/dist/css/bootstrap.min.css";
 import UserProfile from './components/userProfile'
+import  {getAllQuestions} from './actions/AddQuestion'
 // allows to dispatch an action 
-// import { useDispatch}  from 'react-redux';
+import { useDispatch}  from 'react-redux';
 // import {Adduser} from './actions/adduser';
 
 
 function App() {
 
-  //const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   // its is like componentDidMount but used for updates
   // useEffect(()=>{

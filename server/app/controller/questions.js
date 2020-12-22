@@ -12,10 +12,16 @@ module.exports =  {
   
       console.log(req.body.question,req.body.user_Id,"create")
       questionsModel.createQuestions(params,function(err , results){
-          if(err){console.log("you are have an error in controller" , err)}
+          if(err){console.log("you are have an error in your questions controller" , err)}
           res.json(results);
           res.sendStatus(200)
       
+      })
+    },
+    getAllQuestions: (req,res)=>{
+      questionsModel.getAllQuestions(function(err,results){
+        if(err) {console.log(`You are have an error in your questions controller ${err}`)}
+        res.json(results)
       })
     }
 

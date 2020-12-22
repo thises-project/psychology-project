@@ -24,10 +24,9 @@ module.exports =  {
       console.log(params);
    // console.log(req.body.userName,"create")
     usersModel.createUser(params,function(err , results){
-        if(err){console.log("you are have an error in controller" , err)}
-        res.json(results);
+        if(err)console.log("you are have an error in controller" , err)
         res.sendStatus(200)
-    
+        
     })
   },
 

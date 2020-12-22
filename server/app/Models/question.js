@@ -14,4 +14,10 @@ module.exports= {
         });
     
     },
+    getAllQuestions:(callback)=>{
+        var questionQuery = `SELECT * FROM questions`;
+        db.query(questionQuery , function(err,result){
+            callback(err,result)
+        })
+    }
 }
