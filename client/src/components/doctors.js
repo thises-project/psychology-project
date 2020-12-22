@@ -1,16 +1,33 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Footer from "./footer";
 
-const Doctors = () => {
-  const [docs, setDoctor] = useState();
+const Doctors = (props) => {
+  const [doctors, setDoctor] = useState([]);
   useEffect(() => {
     axios
       .get("http://localhost:5000/doctor/getAllDoctors")
-      .then((response) => setDoctor(response.data))
-      .catch((error) => alert("Error fetching doctors List!"));
-  }, []);
+      .then((res) => {
+        console.log("HIIIIIIIIIII");
+        setDoctor(res.data);
+      })
+      .catch((err) => {
+        alert("Error fetching doctors List!");
+      });
+  });
 
-  return <h5> Docotrs List </h5>;
+  return (
+    <div>
+      <h5> Docotrs List </h5>
+      <ul>
+        {doctors.map((doctor) => (
+          <li key={doctor.doctorId}> {doctor.doctorName}</li>
+        ))}
+      </ul>
+
+      <Footer />
+    </div>
+  );
 };
 
 export default Doctors;
