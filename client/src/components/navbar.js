@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container-fluid">
+      <div className="container-fluid mt-3">
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
             <Link
@@ -14,7 +14,6 @@ function Navbar() {
               style={{ fontSize: "16px" }}
             >
               <img src={process.env.PUBLIC_URL + "./Images/logo.jpg"}></img>
-              Home <span className="sr-only" />
             </Link>
             <Link
               to="/doctors"

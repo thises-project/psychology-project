@@ -1,6 +1,8 @@
 import { React, useState, useEffect } from "react";
 import axios from "axios";
-// import { Form } from "react-bootstrap";
+import Footer from "./footer";
+import { Link } from "react-router-dom";
+import Doctors from "./doctors";
 
 const DoctorProfile = (props) => {
   const [doctorProfile, setDoctorProfile] = useState({});
@@ -8,12 +10,13 @@ const DoctorProfile = (props) => {
     axios
       .get("http://localhost:5000/doctor/getOneDoctor/" + props.match.params.id)
       .then((res) => {
-        console.log(res.data[0]);
+        // console.log(res.data[0]);
         setDoctorProfile({
           doctorName: res.data[0].doctorName,
           doctorSpeciality: res.data[0].doctorSpeciality,
           bio: res.data[0].bio,
           email: res.data[0].email,
+          password: res.data[0].password,
         });
       })
       .catch((err) => {
@@ -21,47 +24,71 @@ const DoctorProfile = (props) => {
       });
   }, [props.match.params.id]);
 
+  const deleteConfirm = (id) => {
+    let answer = window.confirm(
+      "Are you sure you want to delete this account?"
+    );
+    if (answer) {
+      deleteDoctor(id);
+    }
+  };
+
+  const deleteDoctor = (props) => {
+    // console.log('delete', id, ' doctor');
+    axios
+      .delete(
+        "http://localhost:5000/doctor/deleteDoctor/" + props.match.params.id
+      )
+      .then((res) => {
+        console.log("Hello from Deletedoctor");
+        Doctors();
+      })
+      .catch((err) => alert("Error Deleting this account"));
+  };
+
   return (
     <div>
-      <h2> {doctorProfile.doctorName}</h2>
-    </div>
-    // <div className="col ml-auto mr-auto" style={{ textAlign: "left" }}>
-    //   <h3 className="col ml-auto mr-auto" style={{ textAlign: "Center" }}>
-    //     {" "}
-    //     Doctor Profile
-    //   </h3>
+      <div className="col ml-4 mr-4" style={{ textAlign: "left" }}>
+        <div
+          className="row"
+          key={doctorProfile.doctorId}
+          // style={{ borderBottom: "1px solid silver" }}
+        >
+          <div className="col pt-3 pb-2">
+            <div className="row">
+              <div className="col-md-10">
+                <h2>{doctorProfile.doctorName}</h2>
+                <h4>{doctorProfile.doctorSpeciality}</h4>
+                <p className="lead">{doctorProfile.bio}</p>
+                <p>
+                  <span className="badge"> {doctorProfile.email} </span>
+                  <br></br>
+                  <span className="badge">{doctorProfile.password} </span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="col mr-5">
+          <Link
+            // to={`/doctor/updateDoctor/${doctor.id}`}
+            className="btn btn-info "
+          >
+            Edit
+          </Link>
 
-    //   <div className="col ml-auto mr-auto" style={{ width: "50%" }}>
-    //     <Form variant="info">
-    //       <Form.Group>
-    //         <Form.File
-    //           id="exampleFormControlFile1"
-    //           label="Upload an profile pic"
-    //         />
-    //       </Form.Group>
-    //     </Form>
-    //   </div>
-    //   <div className="col ml-auto mr-auto" style={{ width: "50%" }}>
-    //     <Form>
-    //       <Form.Group controlId="exampleForm.ControlInput1">
-    //         <Form.Label className="ml-auto mr-auto">Doctor Name</Form.Label>
-    //         <Form.Control size="lg" type="name" placeholder="doctor name" />
-    //       </Form.Group>
-    //       <Form.Group controlId="exampleForm.ControlInput1">
-    //         <Form.Label>DoctorSpeciality</Form.Label>
-    //         <Form.Control
-    //           size="lg"
-    //           type="speciality"
-    //           placeholder="doctor speciality"
-    //         />
-    //       </Form.Group>
-    //       <Form.Group controlId="exampleForm.ControlSelect1">
-    //         <Form.Label>Bio</Form.Label>
-    //         <Form.Control size="lg" as="textarea" rows={3} />
-    //       </Form.Group>
-    //     </Form>
-    //   </div>
-    // </div>
+          <button
+            className="btn btn-danger "
+            style={{ marginLeft: "5px" }}
+            onClick={() => deleteConfirm(doctorProfile.id)}
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+
+      <Footer />
+    </div>
   );
 };
 
