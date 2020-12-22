@@ -12,7 +12,7 @@ import {createStore, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk';
 import * as serviceWorker from './serviceWorker';
 
-// to create store it takes three arguments (reducers, compose(applyMiddleware(thunk)))
+//  create store 
 const store = createStore(reducers, compose(applyMiddleware(thunk)))
 
 ReactDOM.render(
