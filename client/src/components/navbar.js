@@ -8,12 +8,12 @@ function Navbar() {
       <div className="container-fluid">
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
-            <img src={process.env.PUBLIC_URL + "./Images/logo.jpg"}></img>
             <Link
               to="/"
               className="nav-link  ml-3 mr-3"
               style={{ fontSize: "16px" }}
             >
+              <img src={process.env.PUBLIC_URL + "./Images/logo.jpg"}></img>
               Home <span className="sr-only" />
             </Link>
             <Link
