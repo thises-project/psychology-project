@@ -8,7 +8,7 @@ const Doctors = (props) => {
     axios
       .get("http://localhost:5000/doctor/getAllDoctors")
       .then((res) => {
-        console.log("HIIIIIIIIIII");
+        // console.log("HIIIIIII");
         setDoctor(res.data);
       })
       .catch((err) => {
@@ -17,15 +17,32 @@ const Doctors = (props) => {
   });
 
   return (
-    <div>
-      <h5> Docotrs List </h5>
-      <ul>
-        {doctors.map((doctor) => (
-          <li key={doctor.doctorId}> {doctor.doctorName}</li>
-        ))}
-      </ul>
-
-      <Footer />
+    <div className="col ml-5 mr-5" style={{ textAlign: "left" }}>
+      {doctors.map((doctor) => (
+        <div
+          className="row"
+          key={doctor.doctorId}
+          style={{ borderBottom: "1px solid silver" }}
+        >
+          <div className="col pt-3 pb-2">
+            <div className="row">
+              <div className="col-md-10">
+                <h2>{doctor.doctorName}</h2>
+                <p className="lead">{doctor.bio}</p>
+                <p>
+                  <span className="badge"> {doctor.email} </span>
+                  <span className="badge">{doctor.password} </span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+      <br></br>
+      <br></br>
+      <div style={{ textAlign: "center" }}>
+        <Footer />
+      </div>
     </div>
   );
 };
