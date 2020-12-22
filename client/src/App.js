@@ -1,6 +1,4 @@
-// import React from 'react';
-// import router from '../../server/app/routes/user';
-// import React, { useEffect } from 'react';
+
 
 import React from "react";
 import "./App.css";
@@ -15,7 +13,10 @@ import AddQuestion from "./components/askQuestions";
 import Signup from "./components/SignUp";
 import DoctorProfile from "./components/doctorProfile";
 import "bootstrap/dist/css/bootstrap.min.css";
-import UserProfile from "./components/userProfile";
+import UserProfile from './components/userProfile';
+import DoctorQuestions from './components/doctorQuestions';
+
+
 
 function App() {
   return (
@@ -31,8 +32,10 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/askQuestions" component={AddQuestion} />
           <Route path="/userPro/:id" component={UserProfile} />
+          <Route path="/doctorQuestions" component={DoctorQuestions} />
           <Route path="/signup" component={Signup} />
         </Switch>
+
       </div>
     </Router>
   );

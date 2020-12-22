@@ -13,7 +13,7 @@ function Navbar() {
               className="nav-link  ml-3 mr-3"
               style={{ fontSize: "16px" }}
             >
-              <img src={process.env.PUBLIC_URL + "./Images/logo.jpg"}></img>
+              <img src={process.env.PUBLIC_URL + "./Images/logo.jpg"} alt="logo"></img>
             </Link>
             <Link
               to="/doctors"
