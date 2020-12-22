@@ -1,12 +1,11 @@
 const questionsModel = require ('../Models/question');
 const db = require("../Models/database");
 
-// const createQuestions = require('../Models/question');
-// const router = express.Router();
 
-// Create Question 
+
 module.exports =  {
 
+// Create Question 
     createQuestions :  (req , res) => {
        var params =[req.body.question ];
   
@@ -19,6 +18,7 @@ module.exports =  {
       })
     },
 
+// Get All queations
     getAllQuestions : (req, res) => {
       questionsModel.getAllQuestions(function(err, results){
         if(err){
