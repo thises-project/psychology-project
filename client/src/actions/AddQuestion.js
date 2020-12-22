@@ -2,7 +2,7 @@
 // import questions from '../../../server/app/controller/questions.js';
 import * as api from '../api/index.js'
 
-//Action Creators 
+// Create question
 export const AddQuestions = (questions) => async (dispatch)=>{
     try {
         // console.log('success')
@@ -14,3 +14,16 @@ export const AddQuestions = (questions) => async (dispatch)=>{
         console.log(error,'failed')
     }
 }
+
+// Get all question 
+
+// export const GetQuestions = () => async (dispatch)=>{
+//     try {
+//       const {data} = await api.GetQuestions();
+//       dispatch({type :'GetAllQuestions' , payload: data})
+        
+//     }
+//     catch(error){
+//         console.log(error,'failed')
+//     }
+// }

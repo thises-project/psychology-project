@@ -7,7 +7,7 @@ import React from 'react';
 // import logo from './logo.svg';
 // import { Counter } from './features/counter/Counter';
 // import './App.css';
-import Navbar from './components/navbar';
+import Navbar from './components/Navbar';
 import { BrowserRouter as Router , Switch, Route } from  "react-router-dom";
 import Doctors from "./components/doctors";
 import Articles from "./components/articles";
