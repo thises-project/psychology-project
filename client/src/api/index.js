@@ -10,4 +10,4 @@ export  const Adduser = (user) => axios.post(url+'/users/createUser', user);
 export const AddQuestions = (question) => axios.post(url+'/questions/createQuestion',question);
 
 // Get all queations
-// export  const GetQuestions = () => axios.get(url+'/...', );
+export  const GetQuestions = (data) => axios.get(url+'/questions/getAllQuestions' );
