@@ -1,12 +1,11 @@
-import React from 'react';
+import React from "react";
 
-function Articles (){
-
-    return (
-        <div>
-            <h2>Articles</h2>
-        </div>
-    )
-}
+const Articles = () => {
+  return (
+    <div>
+      <h2>Articles</h2>
+    </div>
+  );
+};
 
 export default Articles;
