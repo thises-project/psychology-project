@@ -1,5 +1,3 @@
-// import { AddQuestions } from '../'
-// import questions from '../../../server/app/controller/questions.js';
 import * as api from '../api/index.js'
 //Action Creators 
 export const AddQuestions = (questions) => async (dispatch)=>{
@@ -12,3 +10,4 @@ export const AddQuestions = (questions) => async (dispatch)=>{
         console.log(error,'failed')
     }
 }
+

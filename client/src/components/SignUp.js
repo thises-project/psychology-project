@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import axios from 'axios';
 import React from 'react';
 
@@ -5,9 +6,15 @@ import {  useState } from "react";
 import { useDispatch}  from 'react-redux';
 // import user from '../reducers/Adduser';
 import {Adduser} from '../actions/adduser' 
+=======
+import React from "react";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { Adduser } from '../actions/adduser';
+>>>>>>> 4aed0e2fa4f20431c81574472e733935374ea161
 
-//import { userActions } from '../_actions';
 
+<<<<<<< HEAD
 function Signup (){
 
     const [user, setUser] = useState({
@@ -35,6 +42,93 @@ function Signup (){
                 setUser(user => ({ ...user, [name]: value }));
               
 
+=======
+function Signup() {
+  const [user, setUser] = useState({
+    userName: "",
+    age: "",
+    gender: "",
+    email: "",
+    password: "",
+  });
+
+  const [submitted] = useState(false);
+
+  const dispatch = useDispatch();
+
+
+  function handleChange(e) {
+    const { name, value } = e.target;
+    // console.log(e.target)
+    setUser((user) => ({ ...user, [name]: value }));
+  }
+
+  function handleSubmit(e) {
+    //  console.log('jjjjjjjjjjjjjjj' , user)
+    e.preventDefault();
+    dispatch(Adduser(user));
+  }
+
+  return (
+    <div className="col-lg-8 offset-lg-2">
+      <h2>Register</h2>
+      <form name="form" onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label>Username</label>
+          <input
+            type="text"
+            name="userName"
+            value={user.userName}
+            onChange={handleChange}
+            className={
+              "form-control" +
+              (submitted && !user.userName ? " is-invalid" : "")
+            }
+          />
+          {submitted && !user.userName && (
+            <div className="invalid-feedback">Username is required</div>
+          )}
+        </div>
+        <div className="form-group">
+          <label>age</label>
+          <input
+            type="text"
+            name="age"
+            value={user.age}
+            onChange={handleChange}
+            className={
+              "form-control" + (submitted && !user.age ? " is-invalid" : "")
+            }
+          />
+          {submitted && !user.age && (
+            <div className="invalid-feedback">Age is required</div>
+          )}
+        </div>
+        <div className="form-group">
+          <label>gender</label>
+          <input
+            type="text"
+            name="gender"
+            value={user.gender}
+            onChange={handleChange}
+            className={
+              "form-control" + (submitted && !user.gender ? " is-invalid" : "")
+            }
+          />
+          {submitted && !user.gender && (
+            <div className="invalid-feedback">gender is required</div>
+          )}
+        </div>
+        <div className="form-group">
+          <label>Email</label>
+          <input
+            type="email"
+            name="email"
+            value={user.email}
+            onChange={handleChange}
+            className={
+              "form-control" + (submitted && !user.email ? " is-invalid" : "")
+>>>>>>> 4aed0e2fa4f20431c81574472e733935374ea161
             }
         
             function handleSubmit(e) {
@@ -98,6 +192,7 @@ function Signup (){
 }
 
 export default Signup;
+<<<<<<< HEAD
 
 
     /* const [submitted, setSubmitted] = useState(false);
@@ -174,3 +269,5 @@ export default Signup;
 //         </div>
 //     );
 
+=======
+>>>>>>> 4aed0e2fa4f20431c81574472e733935374ea161

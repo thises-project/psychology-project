@@ -1,17 +1,12 @@
-// const db = require('./database');
-// module.exports = {
-//     createQuestion :(params , callback)=>{
-//         var queryStr = 
-//     }
-// }
+//Connect With questions Table from our DB .. 
 const db = require('./database')
 
 module.exports= {
-    createQuestions:(callback)=>{
-        var query = `INSERT INTO questions ( question , user_Id  ) VALUES (?,?)`;
-        db.query(query,function(err,result){
+    createQuestions:(params,callback)=>{
+        var queryStr = `INSERT INTO questions ( question ) VALUES (?)`;
+        db.query(queryStr,params,function(err,result){ 
             callback(err,result)
-        });
+        })
     
     },
    
@@ -21,5 +16,13 @@ module.exports= {
             callback(err,results)
         })
     }
-    }
+    ,
   
+
+    getAllQuestions:(callback) => {
+        var query = `SELECT * FROM questions`;
+        db.query(query,function(err,result){
+            callback(err,result)
+        })
+    }
+}
