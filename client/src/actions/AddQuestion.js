@@ -23,4 +23,20 @@ export const GetQuestions = () => async (dispatch) => {
     catch (error) {
         console.log(error.message);
     }
+};
+
+// Get all question 
+export const GetAllQuestionsAndAnswers = () => async (dispatch) => {
+    try {
+        // data represent the response 
+        const { data } = await api.GetAllQuestionsAndAnswers();
+
+        dispatch({ type: 'GetAllQuestionsAndAnswers', payload: data });
+        console.log(data , "from get all questions and answers");
+    }
+    catch (error) {
+        console.log(error);
+    }
 }
+
+
