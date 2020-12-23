@@ -1,5 +1,3 @@
-
-
 import * as api from '../api/index';
 
 export const Adduser = (user) => async (dispatch) => {

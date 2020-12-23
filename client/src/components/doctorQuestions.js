@@ -25,6 +25,7 @@ function DoctorQuestions() {
     function handleChange(e) {
         const { name, value } = e.target;
         setAnswer(answers => ({ ...answers, [name]: value }));
+        // console.log(index);
     }
 
     function handleSubmit(e) {
@@ -36,17 +37,20 @@ function DoctorQuestions() {
         <div>
             <h2>Doctor Questions Page</h2>
 
-            {AddQuestion.map((question, index) => (
-                <li >{question.question}
+            {AddQuestion.map((question) => (
+                <div>
+                    <ul >
+                        <li>{question.question}</li>
 
-                    <br />
-                    <form onSubmit={handleSubmit}>
-                        <textarea key={index} rows="4" cols="50" name="answer" value={answers.answer} onChange={handleChange} />
                         <br />
+                        <form onSubmit={handleSubmit}>
+                            <textarea rows="4" cols="50" name="answer" value={answers.answer} onChange={handleChange} />
+                            <br />
 
-                        <Button type='submit' variant="info" style={{ width: "5%" }}>Reply</Button>
-                    </form><br />
-                </li>
+                            <Button type='submit' variant="info" style={{ width: "8%" }}>Reply</Button>
+                        </form><br />
+                    </ul>
+                </div>
             ))}
 
         </div>

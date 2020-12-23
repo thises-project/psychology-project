@@ -1,12 +1,10 @@
-
-
 import React from "react";
+import Navbar from './components/navbar';
+import { BrowserRouter as Router , Switch, Route } from  "react-router-dom";
 import "./App.css";
-import Navbar from "./components/navbar";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Doctors from "./components/doctors";
 import Articles from "./components/articles";
-import Questions from "./components/questions";
+import QuestionsList from "./components/questions";
 import Login from "./components/login";
 import Home from "./components/home";
 import AddQuestion from "./components/askQuestions";
@@ -19,6 +17,7 @@ import DoctorQuestions from './components/doctorQuestions';
 
 
 function App() {
+
   return (
     <Router>
       <div className="App">
@@ -27,7 +26,7 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/doctors" component={Doctors} />
           <Route path="/articles" component={Articles} />
-          <Route path="/questions" component={Questions} />
+          <Route path="/questions" component={QuestionsList} />
           <Route path="/doctorProfile/:id" exact component={DoctorProfile} />
           <Route path="/login" component={Login} />
           <Route path="/askQuestions" component={AddQuestion} />
