@@ -1,5 +1,6 @@
-import React , {useEffect }from 'react';
-import { GetQuestions } from '.././actions/AddQuestion';
+import React , {useEffect , useState }from 'react';
+
+import { GetQuestions ,createAnswer} from '.././actions/AddQuestion';
 import { useDispatch , useSelector } from 'react-redux';
 
 
