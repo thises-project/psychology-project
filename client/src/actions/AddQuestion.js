@@ -1,6 +1,6 @@
 import * as api from '../api/index.js'
 
-// Create question
+// Create question ..
 export const AddQuestions = (questions) => async (dispatch) => {
     try {
         const { data } = await api.AddQuestions(questions);
@@ -12,7 +12,7 @@ export const AddQuestions = (questions) => async (dispatch) => {
     }
 }
 
-// Get all question 
+// Get all question ..
 export const GetQuestions = () => async (dispatch) => {
     try {
         const { data } = await api.GetQuestions();
@@ -22,5 +22,17 @@ export const GetQuestions = () => async (dispatch) => {
     }
     catch (error) {
         console.log(error.message);
+    }
+}
+
+// Send The Answer ..
+export const SendAnswer = (questions) => async (dispatch) => {
+    try {
+        const { data } = await api.AddQuestions(questions);
+        dispatch({ type: 'AddQuestions', payload: data })
+
+    }
+    catch (error) {
+        console.log(error, 'failed')
     }
 }

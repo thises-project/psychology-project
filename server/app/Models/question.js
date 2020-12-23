@@ -3,19 +3,29 @@
 
 const db = require('./database')
 
-module.exports= {
-    createQuestions:(params,callback)=>{
+module.exports = {
+    // Create Questions ..
+    createQuestions: (params, callback) => {
         var queryStr = `INSERT INTO questions ( question ) VALUES (?)`;
-        db.query(queryStr,params,function(err,result){ 
-            callback(err,result)
+        db.query(queryStr, params, function (err, result) {
+            callback(err, result)
         })
-    
+
     },
 
-    getAllQuestions:(callback) => {
+    // Get All Questions ..
+    getAllQuestions: (callback) => {
         var query = `SELECT * FROM questions`;
-        db.query(query,function(err,result){
-            callback(err,result)
+        db.query(query, function (err, result) {
+            callback(err, result)
+        })
+    },
+
+    //Create Answer ..
+    createAnswer: (params, callback) => {
+        var query = `INSERT INTO answers (answer) VALUES (?)`;
+        db.query(query, params, function (err, result) {
+            callback(err, result)
         })
     }
 }
