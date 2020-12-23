@@ -23,7 +23,7 @@ module.exports = {
 
     //Create Answer ..
     createAnswer: (params, callback) => {
-        var query = `INSERT INTO answers (answer) VALUES (?)`;
+        var query = `INSERT INTO answers (answer, question_Id, doctor_Id) VALUES (?,?,?)`;
         db.query(query, params, function (err, result) {
             callback(err, result)
         })

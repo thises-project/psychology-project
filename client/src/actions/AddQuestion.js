@@ -26,10 +26,10 @@ export const GetQuestions = () => async (dispatch) => {
 }
 
 // Send The Answer ..
-export const SendAnswer = (questions) => async (dispatch) => {
+export const createAnswer = (answer) => async (dispatch) => {
     try {
-        const { data } = await api.AddQuestions(questions);
-        dispatch({ type: 'AddQuestions', payload: data })
+        const { data } = await api.createAnswer(answer);
+        dispatch({ type: 'CreateAnswer', payload: data })
 
     }
     catch (error) {
