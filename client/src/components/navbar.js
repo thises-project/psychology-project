@@ -44,13 +44,13 @@ function Navbar() {
             >
               <li className="nav-item">Login</li>
             </Link>
-            <Link
+            {/* <Link
               to="/signup"
               className="nav-link  ml-3 mr-3"
               style={{ fontSize: "16px" }}
             >
               <li className="nav-item">SignUp</li>
-            </Link>
+            </Link> */}
             <Link
               to="/doctorProfile"
               className="nav-link  ml-3 mr-3"
