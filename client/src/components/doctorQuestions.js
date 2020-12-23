@@ -43,7 +43,7 @@ function DoctorQuestions() {
                     <form onSubmit={handleSubmit}>
                         <textarea key={index} rows="4" cols="50" name="answer" value={answers.answer} onChange={handleChange} />
                         <br />
-                        
+
                         <Button type='submit' variant="info" style={{ width: "5%" }}>Reply</Button>
                     </form><br />
                 </li>
