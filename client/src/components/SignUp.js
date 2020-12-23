@@ -15,6 +15,7 @@ function Signup() {
   const dispatch = useDispatch();
   function handleChange(e) {
     const { name, value } = e.target;
+
     setUser((user) => ({ ...user, [name]: value }));
   }
   function handleSubmit(e) {
@@ -115,4 +116,11 @@ function Signup() {
     </div>
   );
 }
+
+
+
 export default Signup;
+
+
+
+

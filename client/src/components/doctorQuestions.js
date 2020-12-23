@@ -38,7 +38,7 @@ function DoctorQuestions() {
             <h2>Doctor Questions Page</h2>
 
             {AddQuestion.map((question) => (
-                <div key={question.question_Id}>
+                <div>
                     <ul >
                         <li>{question.question}</li>
 
