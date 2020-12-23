@@ -32,11 +32,21 @@ export const GetAllQuestionsAndAnswers = () => async (dispatch) => {
         const { data } = await api.GetAllQuestionsAndAnswers();
 
         dispatch({ type: 'GetAllQuestionsAndAnswers', payload: data });
-        console.log(data , "from get all questions and answers");
+        console.log(data, "from get all questions and answers");
     }
     catch (error) {
         console.log(error);
     }
 }
 
+// Send The Answer ..
+export const createAnswer = (answer) => async (dispatch) => {
+    try {
+        const { data } = await api.createAnswer(answer);
+        dispatch({ type: 'CreateAnswer', payload: data })
 
+    }
+    catch (error) {
+        console.log(error, 'failed')
+    }
+}
