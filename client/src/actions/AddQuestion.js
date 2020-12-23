@@ -1,4 +1,4 @@
-import * as api from '../api/index.js'
+import * as api from '../api/index';
 
 // Create question ..
 export const AddQuestions = (questions) => async (dispatch) => {
