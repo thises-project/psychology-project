@@ -16,20 +16,29 @@ function DoctorQuestions() {
     useEffect(() => {
         dispatch(GetQuestions())
     }, [dispatch]);
-    console.log(AddQuestion)
+    // console.log(AddQuestion)
     // Take The Input Value ..
     const [answers, setAnswer] = useState({
         answer: '',
+        question_Id: ''
     });
 
     function handleChange(e) {
-        const { name, value } = e.target;
-        setAnswer(answers => ({ ...answers, [name]: value }));
-        // console.log(index);
+        // const { name, value } = e.target;
+        // console.log(e.target.value);
+        setAnswer({ name: e.target.value });
+        // const answer = e.target.value;
+        // setAnswer({
+        //     answer: e.target.value;
+        // })
+
     }
 
     function handleSubmit(e) {
         e.preventDefault();
+        console.log(e.target.value);
+        console.log(AddQuestion.question_Id)
+
         dispatch(createAnswer(answers))
     }
 
@@ -37,14 +46,14 @@ function DoctorQuestions() {
         <div>
             <h2>Doctor Questions Page</h2>
 
-            {AddQuestion.map((question) => (
+            {AddQuestion.map((question, index) => (
                 <div>
                     <ul >
                         <li>{question.question}</li>
 
                         <br />
                         <form onSubmit={handleSubmit}>
-                            <textarea rows="4" cols="50" name="answer" value={answers.answer} onChange={handleChange} />
+                            <textarea rows="4" cols="50" name={index} value={answers.answer} onChange={handleChange} />
                             <br />
 
                             <Button type='submit' variant="info" style={{ width: "8%" }}>Reply</Button>

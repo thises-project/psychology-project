@@ -7,6 +7,8 @@ export default (AddQuestion = [], action) => {
             return action.payload;
         case 'GetAllQuestionsAndAnswers':
             return action.payload
+        case 'CreateAnswer':
+            return action.payload
         default:
             return AddQuestion;
     }
