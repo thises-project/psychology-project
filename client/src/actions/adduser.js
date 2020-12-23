@@ -18,6 +18,26 @@ export const Adduser = (user) => async (dispatch)=>{
 }
 
 
+export const updateUser = (id, user) => async(dispatch) => {
+    try {
+        const {data} = await api.updateUser(id, user); //data=response from server
+      dispatch({type :'UPDATE' , payload: data});
+        console.log(data)
+    }
+    catch(err){
+        console.log(err);
+    }
+}
+
+
+
+
+
+
+
+
+
+
 // const {data} = await axios
 // .post("http://localhost:5000/user/createUser", user)
 // .then((response) => {

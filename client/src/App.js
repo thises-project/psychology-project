@@ -1,8 +1,8 @@
-// import React from 'react';
-// import router from '../../server/app/routes/user';
-// import React, { useEffect } from 'react';
 
-import React from 'react';
+// import router from '../../server/app/routes/user';
+ import React, { useState, useEffect } from 'react';
+
+//import React from 'react';
 
 // import logo from './logo.svg';
 // import { Counter } from './features/counter/Counter';
@@ -18,19 +18,19 @@ import AddQuestion from "./components/askQuestions";
 import Signup from "./components/SignUp";
 import "bootstrap/dist/css/bootstrap.min.css";
 import UserProfile from './components/userProfile'
+import EditUser from './components/editUserProfile'
 // allows to dispatch an action 
-// import { useDispatch}  from 'react-redux';
-// import {Adduser} from './actions/adduser';
+ import { useDispatch}  from 'react-redux';
+import {updateUser} from './actions/adduser';
 
 
 function App() {
+  const [currentId, setCurrentId] = useState(null)
+  const dispatch = useDispatch();
 
-  //const dispatch = useDispatch();
-
-  // its is like componentDidMount but used for updates
-  // useEffect(()=>{
-  //      dispatch(Adduser())
-  // })
+  useEffect(() => {
+    dispatch(updateUser());
+  }, [currentId, dispatch]);
 
 
   return (
@@ -46,9 +46,11 @@ function App() {
 
       <Route path="/askQuestions" component = {AddQuestion}/>
 
-      <Route path="/userPro/:id" component={UserProfile}/>
+      <Route path="/userPro/:id" component={UserProfile} setCurrentId={setCurrentId}/>
 
-      <Route path="/signup" component={Signup}/>
+      <Route path="/signup" component={Signup} />
+      <Route path="/edit/:id" component={EditUser} currentId={currentId} setCurrentId={setCurrentId}/>
+
       </Switch>
     </div>
     </Router>

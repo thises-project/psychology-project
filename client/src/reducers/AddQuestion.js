@@ -12,4 +12,4 @@ export default ( AddQuestion = [], action) => {
             return AddQuestion;
     }
 }
-// // export default AskQuestion;
+// // export default AskQuestion; 

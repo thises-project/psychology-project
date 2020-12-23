@@ -15,6 +15,8 @@ import * as serviceWorker from './serviceWorker';
 // to create store it takes three arguments (reducers, compose(applyMiddleware(thunk)))
 const store = createStore(reducers, compose(applyMiddleware(thunk)))
 
+
+
 ReactDOM.render(
    <React.StrictMode>
      <Provider store={store}>

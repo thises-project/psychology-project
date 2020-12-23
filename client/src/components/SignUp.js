@@ -1,19 +1,14 @@
-// import axios from 'axios';
 import React from 'react';
 
 import {  useState } from "react";
-// import { useEffect, useState } from "react";
 
-
-// import { Link, useLocation } from 'react-router-dom';
-//import { useDispatch, useSelector } from 'react-redux';
 import { useDispatch}  from 'react-redux';
-// import user from '../reducers/Adduser';
+
 import {Adduser} from '../actions/adduser' 
 
-//import { userActions } from '../_actions';
 
 function Signup (){
+
 
     const [user, setUser] = useState({
         userName: '',
@@ -23,32 +18,21 @@ function Signup (){
         password: ''
     });
     
-    // const [submitted, setSubmitted] = useState(false);
     const [submitted] = useState(false);
 
-
-    // const registering = useSelector(state => state.registration.registering);
     const dispatch = useDispatch();
-
-        // useEffect(() => {
-        //         dispatch(userActions.logout());
-        //     }, []);
+    
         
              function handleChange(e) {
                 const { name, value } = e.target;
                 // console.log(e.target)
                 setUser(user => ({ ...user, [name]: value }));
-              
+            }
 
-            }
-        
-            function handleSubmit(e) {
-              //  console.log('jjjjjjjjjjjjjjj' , user)
+              function handleSubmit(e) {
                 e.preventDefault();
-                dispatch(Adduser(user))
-               
-            }
-        
+                dispatch(Adduser(user));
+              }   
 
     return (
         <div className="col-lg-8 offset-lg-2">

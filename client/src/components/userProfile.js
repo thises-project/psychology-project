@@ -1,10 +1,11 @@
 import React ,{ useState, useEffect } from 'react';
- import axios from 'axios';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
-
- function UserProfile(props){
-    
+ function UserProfile(props, setCurrentId ){
+   console.log(props)
+      
       const [user, setUser] = useState({})
     
     
@@ -13,7 +14,7 @@ import React ,{ useState, useEffect } from 'react';
         axios.get('http://localhost:5000/users/getOneUser/'+props.match.params.id)
 
         .then(res => {
-        console.log(res.data[0])
+        //console.log(res.data[0])
              
            setUser(
                  {userName:res.data[0].userName,
@@ -29,9 +30,10 @@ import React ,{ useState, useEffect } from 'react';
         })
      }, [props.match.params.id])
 
-    //  handleClick(){
-     //onClick={handleClick}
-    //  }
+    //  handleClick(() => {
+    //   window.location= '/edit/'+props.match.params.id
+      
+    //  })
 
     return (
         
@@ -80,8 +82,10 @@ import React ,{ useState, useEffect } from 'react';
 
         </div>
         </div><div>
-        <button type="button" class="btn btn-info btn-rounded" >EDIT</button>
-            <button type="button" class="btn btn-dark btn-rounded">DELETE</button>
+        <Link type="button" className="btn btn-info btn-rounded" to={"/edit/"+props.match.params.id}>edit</Link> | <a href="/calender" type="button" className="btn btn-dark btn-rounded" onClick={() => {  }}>delete</a>
+
+        {/* <button type="button" class="btn btn-info btn-rounded" onClick= {() => {props.handleClick()}} >EDIT</button>
+            <button type="button" class="btn btn-dark btn-rounded">DELETE</button> */}
         </div>
         </div>
         
