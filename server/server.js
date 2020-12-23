@@ -12,8 +12,6 @@ const doctor = require("./app/routes/doctor");
 app.use(cors())
 
 
-
-
 // set the port
 const port = process.env.PORT || 5000;
 // parse requests of content-type - application/json
@@ -24,7 +22,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // define the user router
 app.use("/users", user);
+//app.use("/log", user);
 app.use("/doctor" ,doctor)
+
 app.use(function (error, req, res, next) {
   if(error instanceof SyntaxError){ //Handle SyntaxError here.
     return res.status(500).send({data : "Invalid data"});
