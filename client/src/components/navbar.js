@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import Logo from ".../public/Images/logo.jpg";
+import Logo from "./logo.jpg";
 
 function Navbar() {
   return (
@@ -10,10 +10,10 @@ function Navbar() {
           <ul className="navbar-nav">
             <Link
               to="/"
-              className="nav-link  ml-3 mr-3"
+              className="nav-link ml-3 mr-3"
               style={{ fontSize: "16px" }}
             >
-              <img src={process.env.PUBLIC_URL + "./Images/logo.jpg"}></img>
+              <img src={Logo} alt="logo"></img>
             </Link>
             <Link
               to="/doctors"

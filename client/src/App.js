@@ -16,6 +16,7 @@ import Signup from "./components/SignUp";
 import DoctorProfile from "./components/doctorProfile";
 import "bootstrap/dist/css/bootstrap.min.css";
 import UserProfile from "./components/userProfile";
+import UpdateDoctor from "./components/updateDoctor";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/askQuestions" component={AddQuestion} />
           <Route path="/userPro/:id" component={UserProfile} />
           <Route path="/signup" component={Signup} />
+          <Route path="/updateDoctor/:id" component={UpdateDoctor} />
         </Switch>
       </div>
     </Router>

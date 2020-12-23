@@ -33,18 +33,5 @@ const mapDispatchToProps = (dispatch) => {
     },
   };
 };
-// function sendPostRequest(props) {
-//     var handleSubmit=() =>{
-
-//     }
-//     // return {
-//     //     question : state.question
-//     //         // evt.preventDefault();
-//     //         // const question = {question};
-//     //     }
-//         //     console.log(question);
-//         // axios.post("http://localhost:3000/addItems/add", question)
-//         // .then(res => console.log(res.data));
-// }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddQuestion);
