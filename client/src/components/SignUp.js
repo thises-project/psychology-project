@@ -58,7 +58,7 @@ function Signup() {
               <div className="invalid-feedback">Age is required</div>
             )
           }
-        </div >
+        </div>
         <div className="form-group">
           <label>gender</label>
           <input
@@ -112,8 +112,8 @@ function Signup() {
           </button>
           {/* <Link to="/login" className="btn btn-link">Cancel</Link> */}
         </div>
-      </form >
-    </div >
+      </form>
+    </div>
   );
 }
 
