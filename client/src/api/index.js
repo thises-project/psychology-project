@@ -17,6 +17,6 @@ export const GetQuestions = (data) => axios.get(url + '/questions/getAllQuestion
 
 // Send An Answer ..
 export const createAnswer = (answer) => axios.post(url + '/questions/createAnswer', answer);
-// export  const Adduser = (user) => axios.post(url+'/users/createUser', user);
+
 
 
