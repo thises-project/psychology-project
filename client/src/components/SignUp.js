@@ -1,4 +1,4 @@
-import React from "react";
+//import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Adduser } from '../actions/adduser';
@@ -20,12 +20,12 @@ function Signup() {
 
   function handleChange(e) {
     const { name, value } = e.target;
-    // console.log(e.target)
+
     setUser((user) => ({ ...user, [name]: value }));
   }
 
   function handleSubmit(e) {
-    //  console.log('jjjjjjjjjjjjjjj' , user)
+
     e.preventDefault();
     dispatch(Adduser(user));
   }
@@ -61,10 +61,12 @@ function Signup() {
               "form-control" + (submitted && !user.age ? " is-invalid" : "")
             }
           />
-          {submitted && !user.age && (
-            <div className="invalid-feedback">Age is required</div>
-          )}
-        </div>
+          {
+            submitted && !user.age && (
+              <div className="invalid-feedback">Age is required</div>
+            )
+          }
+        </div >
         <div className="form-group">
           <label>gender</label>
           <input
@@ -119,9 +121,12 @@ function Signup() {
           </button>
           {/* <Link to="/login" className="btn btn-link">Cancel</Link> */}
         </div>
-      </form>
-    </div>
+      </form >
+    </div >
   );
 }
 
 export default Signup;
+
+
+
