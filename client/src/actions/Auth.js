@@ -8,12 +8,13 @@ export const Auth = (authInputs) => async (dispatch) => {
 
         console.log(data, 'returnnnnnnn from auth ')
         dispatch({ type: 'Auth', payload: data })
-        console.log("daaaaaaattttttaaaa",data )
-
+        console.log("daaaaaaattttttaaaa", data)
+        // window.localStorage.setItem("token", response.data);
+        // window.localStorage.setItem( "username",this.state.username);
     }
     catch (error) {
         console.log('failed to Auth')
-        console.log(error)  
+        console.log(error)
         alert("User Doesn't Exist");
     }
 

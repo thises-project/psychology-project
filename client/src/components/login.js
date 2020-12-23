@@ -6,13 +6,13 @@ import { useEffect, useState } from "react";
 
 import { Link, useLocation } from 'react-router-dom';
 //import { useDispatch, useSelector } from 'react-redux';
-import { useDispatch}  from 'react-redux';
+import { useDispatch } from 'react-redux';
 import user from '../reducers/Adduser';
 //import {loggedUser} from '../actions/loggedUser'; 
-import {verifyUser} from '../actions/verifyUser';
+import { verifyUser } from '../actions/verifyUser';
 
 
-function Login (){
+function Login() {
 
     const [inputs, setInputs] = useState({
         userName: '',
@@ -30,7 +30,7 @@ function Login (){
     }
 
     function handleSubmit(e) {
-        e.preventDefault(); 
+        e.preventDefault();
         console.log(inputs)
         dispatch(verifyUser(inputs))
     }

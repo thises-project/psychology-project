@@ -1,21 +1,21 @@
-export default (state = [], action)=> { 
+export default (state = [], action) => {
 
-    switch (action.type){
-       case 'Adduser':
-           
-             return [state, action.payload];   
+       switch (action.type) {
+              case 'Adduser':
 
-     case 'verifyUser':
-         
-            console.log(action, "action.payload ")
-            return [state, action.payload]; 
+                     return [state, action.payload];
 
-     case 'Auth':
-         
-            console.log(action, "action.payload ")
-            return [state, action.payload]; 
-             
-    default:
-           return 0;
-    }
+              case 'verifyUser':
+
+                     console.log(action, "action.payload ")
+                     return [state, action.payload];
+
+              case 'Auth':
+
+                     console.log(action, "action.payload ")
+                     return [state, action.payload];
+
+              default:
+                     return 0;
+       }
 }
