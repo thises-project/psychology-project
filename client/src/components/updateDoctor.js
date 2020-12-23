@@ -32,85 +32,61 @@ const UpdateDoctor = (props) => {
       });
   }, [props.match.params.id]);
 
-  // useEffect(() => {
-  //   axios
-  //     .get(
-  //       "http://localhost:5000/doctor/getOneDoctor/" +
-  //         props.match.params.doctotrId
-  //     )
-  //     .then((response) => {
-  //       const {
-  //         doctorId,
-  //         doctorName,
-  //         doctorSpeciality,
-  //         bio,
-  //         email,
-  //       } = response.data;
-  //       setState({
-  //         ...state,
-  //         doctorId,
-  //         doctorName,
-  //         doctorSpeciality,
-  //         bio,
-  //         email,
-  //       });
-  //     })
-  //     .catch((error) => alert("Error getting Doctor!"));
-  //   // eslint-disable-next-line
-  // }, []);
-
   const handleChange = (name) => (event) => {
     // console.log('name', name, 'event', event.target.value);
     setState({ ...state, [name]: event.target.value });
   };
 
-  const handleSubmit = function (event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
+    // console.table({ itemName, itemDescription,itemPrice, user });
     axios
-      .put("http://localhost:5000/doctor/getOneDoctor/" + props.match.params.id)
+      .put(
+        "http://localhost:5000/doctor/updateDoctor/" + props.match.params.id,
+        { doctorId, doctorName, doctorSpeciality, bio, email }
+      )
       .then((res) => {
-        // console.log(res.data[0]);
+        console.log(res);
+        const { doctorId, doctorName, doctorSpeciality, bio, email } = res.data;
+        // empty state
         setState({
-          doctorId: res.data[0].doctotrId,
-          doctorName: res.data[0].doctorName,
-          doctorSpeciality: res.data[0].doctorSpeciality,
-          bio: res.data[0].bio,
-          email: res.data[0].email,
-          password: res.data[0].password,
+          ...state,
+          doctorId,
+          doctorName,
+          doctorSpeciality,
+          bio,
+          email,
         });
+        // show sucess alert
+        alert(`Doctor was Edited`);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        console.log(error.res);
+        alert(error.res.data.error);
       });
-
-    // axios
-    //   .put("http://localhost:5000/doctor/updateDoctor/" + doctorId, {
-    //     doctorId,
-    //     doctorName,
-    //     doctorSpeciality,
-    //     bio,
-    //     email,
-    //   })
-    //   .then((response) => {
-    //     console.log(response);
-    //     const {
-    //       doctorId,
-    //       doctorName,
-    //       doctorSpeciality,
-    //       bio,
-    //       email,
-    //     } = response.data;
-    //     setState({
-    //       ...state,
-    //       doctorId,
-    //       doctorName,
-    //       doctorSpeciality,
-    //       bio,
-    //       email,
-    //     });
-    //     alert(`Doctor ${doctorName} was edited !`);
-    //   });
   };
+
+  // const handleSubmit = function (event) {
+  //   event.preventDefault();
+  //   axios
+  //     .post(
+  //       "http://localhost:5000/doctor/updateDoctor/" + props.match.params.id
+  //     )
+  //     .then((res) => {
+  //       // console.log(res.data[0]);
+  //       setState({
+  //         doctorId: res.data[0].doctotrId,
+  //         doctorName: res.data[0].doctorName,
+  //         doctorSpeciality: res.data[0].doctorSpeciality,
+  //         bio: res.data[0].bio,
+  //         email: res.data[0].email,
+  //         password: res.data[0].password,
+  //       });
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
   const showUpdateForm = () => (
     <form onSubmit={handleSubmit}>
