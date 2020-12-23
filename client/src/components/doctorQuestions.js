@@ -1,21 +1,16 @@
-import React, { useEffect } from 'react';
-import { useState } from "react";
+import React , {useEffect }from 'react';
 import { GetQuestions } from '.././actions/AddQuestion';
-import { createAnswer } from '../actions/AddQuestion';
-import { useDispatch, useSelector } from 'react-redux';
-import { Button } from "react-bootstrap";
+import { useDispatch , useSelector } from 'react-redux';
 
-// Render All Questions With Textarea For Doctors To answer ..
-// Take the value From Input Field ..
 
-function DoctorQuestions() {
-    // Get All Questions ..
+const DoctorQuestions = () => {
     const dispatch = useDispatch();
-    const AddQuestion = useSelector((state) => state.AddQuestions);
+    const AddQuestion = useSelector((state) => state.AddQuestions );
 
     useEffect(() => {
         dispatch(GetQuestions())
     }, [dispatch]);
+
     console.log(AddQuestion)
     // Take The Input Value ..
     const [answers, setAnswer] = useState({
@@ -51,6 +46,9 @@ function DoctorQuestions() {
 
         </div>
     )
+
+  
+
 }
 
 export default DoctorQuestions;
