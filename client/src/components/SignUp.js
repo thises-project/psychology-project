@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Adduser } from '../actions/adduser';
 
-
 function Signup() {
   const [user, setUser] = useState({
     userName: "",
@@ -12,24 +11,17 @@ function Signup() {
     email: "",
     password: "",
   });
-
   const [submitted] = useState(false);
-
   const dispatch = useDispatch();
-
-
   function handleChange(e) {
     const { name, value } = e.target;
 
     setUser((user) => ({ ...user, [name]: value }));
   }
-
   function handleSubmit(e) {
-
     e.preventDefault();
     dispatch(Adduser(user));
   }
-
   return (
     <div className="col-lg-8 offset-lg-2">
       <h2>Register</h2>
@@ -113,7 +105,6 @@ function Signup() {
             <div className="invalid-feedback">Password is required</div>
           )}
         </div>
-
         <div className="form-group">
           <button className="btn btn-primary">
             {/* {registering && <span className="spinner-border spinner-border-sm mr-1"></span>} */}
@@ -126,7 +117,10 @@ function Signup() {
   );
 }
 
+
+
 export default Signup;
+
 
 
 
