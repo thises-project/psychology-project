@@ -1,14 +1,14 @@
 
-import axios from 'axios';
+
 import React from 'react';
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-import { Link, useLocation } from 'react-router-dom';
-//import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 import { useDispatch } from 'react-redux';
-import user from '../reducers/Adduser';
-//import {loggedUser} from '../actions/loggedUser'; 
+
+
 import { verifyUser } from '../actions/verifyUser';
 
 

@@ -11,7 +11,7 @@ import Login from "./components/login";
 import Home from "./components/home";
 import AddQuestion from "./components/askQuestions";
 import Signup from "./components/SignUp";
-//import DoctorProfile from "./components/doctorProfile";
+import DoctorProfile from "./components/doctorProfile";
 import "bootstrap/dist/css/bootstrap.min.css";
 import UserProfile from './components/userProfile';
 import DoctorQuestions from './components/doctorQuestions';
@@ -28,7 +28,7 @@ function App() {
           <Route path="/doctors" component={Doctors} />
           <Route path="/articles" component={Articles} />
           <Route path="/questions" component={Questions} />
-          {/* <Route path="/doctorProfile/:id" exact component={DoctorProfile} /> */}
+          <Route path="/doctorProfile/:id" exact component={DoctorProfile} />
           <Route path="/login" component={Login} />
           <Route path="/askQuestions" component={AddQuestion} />
           <Route path="/userPro/:id" component={UserProfile} />
