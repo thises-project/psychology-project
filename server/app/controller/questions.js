@@ -34,6 +34,15 @@ module.exports =  {
         }
         res.json(results);
       })
+    },
+    getAllQuestionsAndAnswersForOneUser:(req,res)=>{
+      var params = [req.params.id]
+      questionsModel.getAllQuestionsAndAnswersForOneUser(params ,function(err , results){
+        if(err){
+          console.log("you are have an error in questions controller", err)
+        }
+        res.json(results);
+      })
     }
   }
   

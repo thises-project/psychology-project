@@ -24,5 +24,13 @@ module.exports= {
         db.query(query,function(err,result){
             callback(err,result)
         })
+    },
+
+    getAllQuestionsAndAnswersForOneUser:(params ,callback)=>{
+        var query = ` SELECT questions.question , answers.answer ,doctors.doctorName  from  ((answers INNER JOIN questions ON answers.question_Id = questions.questionId) INNER JOIN doctors ON answers.doctor_Id = doctors.doctorId) WHERE questions.user_Id= ?; `;
+        db.query(query,params ,function(err,results){
+            callback(err,results)
+        })
     }
+    ,
 }
