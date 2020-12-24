@@ -1,17 +1,7 @@
-// import axios from 'axios';
-import React from "react";
-
+//import React from "react";
 import { useState } from "react";
-// import { useEffect, useState } from "react";
-
-// import { Link, useLocation } from 'react-router-dom';
-//import { useDispatch, useSelector } from 'react-redux';
 import { useDispatch } from "react-redux";
-// import user from '../reducers/Adduser';
-import { Adduser } from "../actions/adduser";
-
-//import { userActions } from '../_actions';
-
+import { Adduser } from '../actions/adduser';
 function Signup() {
   const [user, setUser] = useState({
     userName: "",
@@ -19,30 +9,57 @@ function Signup() {
     gender: "",
     email: "",
     password: "",
+    usernameError: "",
+    ageError: "",
+    genderError: "",
+    emailError: "",
+    passwordError: ""
   });
-
-  // const [submitted, setSubmitted] = useState(false);
   const [submitted] = useState(false);
-
-  // const registering = useSelector(state => state.registration.registering);
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //         dispatch(userActions.logout());
-  //     }, []);
-
   function handleChange(e) {
     const { name, value } = e.target;
-    // console.log(e.target)
     setUser((user) => ({ ...user, [name]: value }));
   }
-
   function handleSubmit(e) {
-    //  console.log('jjjjjjjjjjjjjjj' , user)
     e.preventDefault();
-    dispatch(Adduser(user));
+    if (validate() === true) {
+      dispatch(Adduser(user));
+      window.location = "/login";
+    }
   }
-
+  function validate() {
+    let usernameError = "";
+    let ageError = "";
+    let genderError = "";
+    let emailError = "";
+    let passwordError = "";
+    if (!user.userName) {
+      usernameError =
+        "your username cannot be blank, please try to make it more than 3 characters!";
+    }
+    if (!user.age) {
+      ageError =
+        "your age cannot be blank, please write your true age!";
+    }
+    if (!user.gender) {
+      genderError =
+        "your phone gender cannot be blank, please write your gender!";
+    }
+    if (!user.email) {
+      emailError =
+        "your email cannot be blank, please try to write a correct email";
+    }
+    if (!user.password) {
+      passwordError =
+        "your password cannot be blank, please try to make it more than 8 characters";
+    }
+    if (usernameError || ageError || genderError || emailError || passwordError) {
+      setUser({ usernameError, ageError, genderError, emailError, passwordError });
+      return false;
+    }
+    return true;
+  };
   return (
     <div className="col-lg-8 offset-lg-2">
       <h2>Register</h2>
@@ -62,6 +79,8 @@ function Signup() {
           {submitted && !user.userName && (
             <div className="invalid-feedback">Username is required</div>
           )}
+          <div style={{ color: "red" }}>{user.usernameError}</div>
+          <br></br>
         </div>
         <div className="form-group">
           <label>age</label>
@@ -74,10 +93,14 @@ function Signup() {
               "form-control" + (submitted && !user.age ? " is-invalid" : "")
             }
           />
-          {submitted && !user.age && (
-            <div className="invalid-feedback">Age is required</div>
-          )}
-        </div>
+          {
+            submitted && !user.age && (
+              <div className="invalid-feedback">Age is required</div>
+            )
+          }
+        </div >
+        <div style={{ color: "red" }}>{user.ageError}</div>
+        <br></br>
         <div className="form-group">
           <label>gender</label>
           <input
@@ -93,6 +116,8 @@ function Signup() {
             <div className="invalid-feedback">gender is required</div>
           )}
         </div>
+        <div style={{ color: "red" }}>{user.genderError}</div>
+        <br></br>
         <div className="form-group">
           <label>Email</label>
           <input
@@ -108,6 +133,8 @@ function Signup() {
             <div className="invalid-feedback">Email is required</div>
           )}
         </div>
+        <div style={{ color: "red" }}>{user.emailError}</div>
+        <br></br>
         <div className="form-group">
           <label>Password</label>
           <input
@@ -124,7 +151,8 @@ function Signup() {
             <div className="invalid-feedback">Password is required</div>
           )}
         </div>
-
+        <div style={{ color: "red" }}>{user.passwordError}</div>
+        <br></br>
         <div className="form-group">
           <button className="btn btn-primary">
             {/* {registering && <span className="spinner-border spinner-border-sm mr-1"></span>} */}
@@ -132,83 +160,8 @@ function Signup() {
           </button>
           {/* <Link to="/login" className="btn btn-link">Cancel</Link> */}
         </div>
-      </form>
-    </div>
+      </form >
+    </div >
   );
 }
-
 export default Signup;
-
-/* const [submitted, setSubmitted] = useState(false);
-    const registering = useSelector(state => state.registration.registering);
-    const dispatch = useDispatch();
-
-     reset login status
-    useEffect(() => { */
-//         dispatch(userActions.logout());
-//     }, []);
-
-//     function handleChange(e) {
-//         const { name, value } = e.target;
-//         setUser(user => ({ ...user, [name]: value }));
-//     }
-
-//     function handleSubmit(e) {
-//         e.preventDefault();
-
-//         setSubmitted(true);
-//         if (user.firstName && user.age && user.username && user.password) {
-//             dispatch(userActions.register(user));
-//         }
-//     }
-
-//     return (
-//         <div className="col-lg-8 offset-lg-2">
-//             <h2>Register</h2>
-//             <form name="form" onSubmit={handleSubmit}>
-//                 <div className="form-group">
-//                     <label>Username</label>
-//                     <input type="text" name="Username" value={user.Username} onChange={handleChange} className={'form-control' + (submitted && !user.Username ? ' is-invalid' : '')} />
-//                     {submitted && !user.Username &&
-//                         <div className="invalid-feedback">Username is required</div>
-//                     }
-//                 </div>
-//                 <div className="form-group">
-//                     <label>age</label>
-//                     <input type="text" name="age" value={user.age} onChange={handleChange} className={'form-control' + (submitted && !user.age ? ' is-invalid' : '')} />
-//                     {submitted && !user.age &&
-//                         <div className="invalid-feedback">Age is required</div>
-//                     }
-//                 </div>
-//                 <div className="form-group">
-//                     <label>gender</label>
-//                     <input type="text" name="gender" value={user.gender} onChange={handleChange} className={'form-control' + (submitted && !user.gender ? ' is-invalid' : '')} />
-//                     {submitted && !user.gender &&
-//                         <div className="invalid-feedback">gender is required</div>
-//                     }
-//                 </div>
-//                     <div className="form-group">
-//     //                     <label>Email</label>
-//     //                     <input type="text" name="email" value={user.email} onChange={handleChange} className={'form-control' + (submitted && !user.email ? ' is-invalid' : '')} />
-//     //                     {submitted && !user.email &&
-//     //                         <div className="invalid-feedback">Email is required</div>
-//     //                    }
-// //                 </div>
-//                 <div className="form-group">
-//                     <label>Password</label>
-//                     <input type="password" name="password" value={user.password} onChange={handleChange} className={'form-control' + (submitted && !user.password ? ' is-invalid' : '')} />
-//                     {submitted && !user.password &&
-//                         <div className="invalid-feedback">Password is required</div>
-//                     }
-//                 </div>
-
-//                 <div className="form-group">
-//                     <button className="btn btn-primary">
-//                         {registering && <span className="spinner-border spinner-border-sm mr-1"></span>}
-//                         Register
-//                     </button>
-//                     <Link to="/login" className="btn btn-link">Cancel</Link>
-//                 </div>
-//             </form>
-//         </div>
-//     );

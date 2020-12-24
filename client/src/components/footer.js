@@ -1,5 +1,4 @@
 import React from "react";
-// import footer from "mdbootstrap";
 import { Card } from "react-bootstrap";
 
 const Footer = () => {

@@ -1,12 +1,21 @@
-// eslint-disable-next-line
-export default (Adduser = [], action) => {
-  switch (action.type) {
-    case "Adduser":
-      console.log("helllooooooooooo");
-      console.log(action.payload);
-      return [Adduser, action.payload];
+export default (state = [], action) => {
 
-    default:
-      return 0;
-  }
-};
+       switch (action.type) {
+              case 'Adduser':
+
+                     return [state, action.payload];
+
+              case 'verifyUser':
+
+                     console.log(action, "action.payload ")
+                     return [state, action.payload];
+
+              case 'Auth':
+
+                     console.log(action, "action.payload ")
+                     return [state, action.payload];
+
+              default:
+                     return 0;
+       }
+}

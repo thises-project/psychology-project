@@ -1,37 +1,53 @@
-import React from "react";
-import { connect } from "react-redux";
+import React from 'react';
+import { useState } from "react";
+import { useDispatch } from 'react-redux';
+import { AddQuestions } from '../actions/AddQuestion';
 
 // build ask question component
 // take the input value
 
-function AddQuestion(prpos) {
+function AddQ() {
+
+
+  const [questions, setQuestion] = useState({
+    question: '',
+
+  });
+
+
+  const dispatch = useDispatch();
+
+  function handleChange(e) {
+
+    const { name, value } = e.target;
+
+    console.log(e.target.value)
+    setQuestion(questions => ({ ...questions, [name]: value }));
+  }
+
+  function handleSubmit(e) {
+    console.log(questions)
+
+    e.preventDefault();
+
+    dispatch(AddQuestions(questions))
+
+
+  }
+
   return (
-    <div>
-      <input
-        type="text"
-        value={prpos.question}
-        onChange={prpos.questionChanged}
-      />
-      <form onSubmit={prpos.handleSubmit}>
-        <button type="submit"> ASK </button>
+    <div >
+      <p>WE ARE HERE FOR YOU ..</p>
+      <p>How can we help you ?</p>
+      <form onSubmit={handleSubmit}>
+        <input type="text" name="question" value={questions.question} onChange={handleChange} />
+        <button type='submit'> ASK </button>
       </form>
     </div>
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    question: state.question,
-  };
-};
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    questionChanged: (evt) => {
-      const action = { type: "INPUT_CHANGE", text: evt.target.value };
-      dispatch(action);
-    },
-  };
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddQuestion);
+export default AddQ;
+
