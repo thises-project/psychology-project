@@ -1,49 +1,46 @@
-import React, { useState, useEffect } from 'react';
+import React ,{ useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
+ function UserProfile(props, setCurrentId ){
+   //console.log(props)
+      
+      const [user, setUser] = useState({})
+    
+    
+     useEffect(() =>{
+         
+        axios.get('http://localhost:5000/users/getOneUser/'+`${window.localStorage.userId}`)
 
-function UserProfile(props) {
+        .then(res => {
+        //console.log(res.data[0])
+             
+           setUser(
+                 {userName:res.data[0].userName,
+                age:res.data[0].age,
+                gender:res.data[0].gender,
+                email:res.data[0].email,
+                }
 
-  const [user, setUser] = useState({})
+            )
+        })
+        .catch(err => {
+            console.log(err)
+        })
+     }, [props.match.params.id])
 
 
-  useEffect(() => {
-
-    axios.get('http://localhost:5000/users/getOneUser/' + `${window.localStorage.userId}`)
-
-      .then(res => {
-        console.log(res.data[0])
-
-        setUser(
-          {
-            userName: res.data[0].userName,
-            age: res.data[0].age,
-            gender: res.data[0].gender,
-            email: res.data[0].email,
-          }
-
-        )
-      })
-      .catch(err => {
-        console.log(err)
-      })
-  }, [props.match.params.id])
-
-  //  handleClick(){
-  //onClick={handleClick}
-  //  }
-
-  return (
-
-    <div className="col-md-8">
-      <div className="card mb-3">
-        <div className="card-body">
-          <div className="row">
-            <div className="col-sm-3">
-              <h6 className="mb-0">User Name :</h6>
-            </div>
-            <div className="col-sm-9 text-secondary">
+    return (
+        
+        <div className="col-md-8">
+        <div className="card mb-3">
+          <div className="card-body">
+            <div className="row">
+              <div className="col-sm-3">
+                <h6 className="mb-0">User Name :</h6>
+              </div>
+              <div className="col-sm-9 text-secondary">
               {user.userName}
             </div>
           </div>
@@ -80,12 +77,12 @@ function UserProfile(props) {
 
 
         </div>
-      </div><div>
-        <button type="button" class="btn btn-info btn-rounded" >EDIT</button>
-        <button type="button" class="btn btn-dark btn-rounded">DELETE</button>
-      </div>
-    </div>
+        </div><div>
+        <Link type="button" className="btn btn-info btn-rounded" to={"/edit/"+props.match.params.id}>edit</Link> | <a href="/calender" type="button" className="btn btn-dark btn-rounded" onClick={() => {  }}>delete</a>
 
+        </div>
+        </div>
+        
 
   )
 }
