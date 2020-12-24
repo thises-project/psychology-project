@@ -5,13 +5,13 @@ module.exports =  {
 
 // Create Question 
     createQuestions :  (req , res) => {
-       var params =[req.body.question ];
+       var params =[req.body.question,req.params.id ];
   
       console.log(req.body.question,"createQuestion")
       questionsModel.createQuestions(params,function(err , results){
           if(err){console.log("you are have an error in questions controller" , err)}
           res.json(results);
-          res.sendStatus(200)
+          // res.sendStatus(200)
       
       })
     },
@@ -44,13 +44,13 @@ module.exports =  {
     },
       // Create Answer ..  
   createAnswer: (req, res) => {
-    var params = [req.body.answer, req.body.doctor_Id, req.body.question_Id];
+    var params = [req.body.answer, req.body.questionId];
 
-    console.log(req.body.answer, req.body.doctor_Id, req.body.question_Id, "createAnswer")
+    console.log(req.body.answer, req.body.questionId, "createAnswer")
     questionsModel.createAnswer(params, function (err, results) {
       if (err) { console.log("you are have an error in questions controller in createAnswer", err) }
       res.json(results);
-      res.sendStatus(200)
+      // res.sendStatus(200)
 
     })
 

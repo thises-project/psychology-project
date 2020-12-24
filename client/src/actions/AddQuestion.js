@@ -40,10 +40,12 @@ export const GetAllQuestionsAndAnswers = () => async (dispatch) => {
 }
 
 // Send The Answer ..
-export const createAnswer = (answer) => async (dispatch) => {
+export const createAnswer = (answers) => async (dispatch) => {
     try {
-        const { data } = await api.createAnswer(answer);
+        console.log(answers);
+        const { data } = await api.createAnswer(answers);
         dispatch({ type: 'CreateAnswer', payload: data })
+        console.log(data,"from action");
 
     }
     catch (error) {

@@ -12,10 +12,10 @@ export const Auth = (authInputs) => axios.post(url + '/users/authUser', authInpu
 
 
 // Add question 
-export const AddQuestions = (question) => axios.post(url + '/questions/createQuestion', question);
+export const AddQuestions = (question) => axios.post(url + '/questions/createQuestion/:id', question);
 // Get all queations
 export const GetQuestions = (data) => axios.get(url + '/questions/getAllQuestions');
 // Send An Answer ..
-export const createAnswer = (answer) => axios.post(url + '/questions/createAnswer', answer);
+export const createAnswer = (answers) => axios.post(url + '/questions/createAnswer', answers);
 
 

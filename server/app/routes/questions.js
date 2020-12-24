@@ -5,7 +5,7 @@ const router = require('express').Router();
 const controller = require("../controller");
 
 // Add Question
-router.post('/createQuestion', controller.questions.createQuestions);
+router.post('/createQuestion/:id', controller.questions.createQuestions);
 router.get('/getAllQuestionsAndAnswers', controller.questions.getAllQuestionsAndAnswers);
 router.get('/getAllQuestionsAndAnswersForOneUser/:id', controller.questions.getAllQuestionsAndAnswersForOneUser);
 

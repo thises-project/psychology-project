@@ -23,24 +23,25 @@ function DoctorQuestions() {
     // Take The Input Value ..
     const [answers, setAnswer] = useState({
         answer: '',
-        question_Id: ''
+        questionId: ''
     });
-//
+
     function handleChange(e) {
-        // const { name, value } = e.target;
-        // console.log(e.target.value);
-        setAnswer({ name: e.target.value });
-        // const answer = e.target.value;
-        // setAnswer({
-        //     answer: e.target.value;
-        // })
+        // const {name, value} = e.target;
+        // setAnswer(answers => ({ ...answers, [name]: value}));
+
+        //Nour
+        setAnswer({ answer : e.target.value ,
+        questionId : e.target.name });
+        console.log(answers, "from component");
 
     }
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log(e.target.value);
-        console.log(AddQuestion.question_Id)
+        // console.log(answers);
+        // console.log(e.target.value);
+        // console.log(AddQuestion.question_Id)
 
         dispatch(createAnswer(answers))
     }
@@ -53,11 +54,12 @@ function DoctorQuestions() {
                 <div>
                     <ul >
                         <li>{question.question}</li>
+                        <li>{question.questionId}</li>
 
                         <br />
                         <form onSubmit={handleSubmit}>
-                            <textarea rows="4" cols="50" name={index} value={answers.answer} onChange={handleChange} />
-                            <br />
+                            <textarea rows="4" cols="50" name={question.questionId} value={answers.answer} onChange={handleChange} />
+                            <br/>
 
                             <Button type='submit' variant="info" style={{ width: "8%" }}>Reply</Button>
                         </form><br />
