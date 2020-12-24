@@ -36,7 +36,7 @@ function App() {
           <Route path="/askQuestions" component={AddQuestion} />
           <Route path="/userPro/:id" component={UserProfile} />
 
-          < Route path="/doctorQuestions" component={DoctorQuestions} />
+          <Route path="/doctorQuestions" component={DoctorQuestions} />
           <Route path="/signup" component={Signup} />
           <Route path="/updateDoctor/:id" component={UpdateDoctor} />
         </Switch>
