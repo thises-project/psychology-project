@@ -22,7 +22,7 @@ function DoctorQuestions() {
         answer: '',
         question_Id: ''
     });
-
+//
     function handleChange(e) {
         // const { name, value } = e.target;
         // console.log(e.target.value);
