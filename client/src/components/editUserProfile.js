@@ -19,7 +19,7 @@ export default function EditUser (props, { currentId, setCurrentId }) {
 
     useEffect(() =>{
          
-        axios.get('http://localhost:5000/users/getOneUser/'+props.match.params.id)
+        axios.get('http://localhost:5000/users/getOneUser/'+`${window.localStorage.userId}`)
 
         .then(res => {
         //console.log(res.data[0])
@@ -61,14 +61,14 @@ export default function EditUser (props, { currentId, setCurrentId }) {
     function handleSubmit(e) {
         
           e.preventDefault();
-             var currentId = props.match.params.id
+             var currentId = `${window.localStorage.userId}`
           if(currentId){
               console.log(currentId, "kkkkkkkk")
               dispatch(updateUser(currentId, user))
               clear();
           }
              
-          window.location = "/userPro/"+props.match.params.id
+          window.location = "/userPro/"+`${window.localStorage.userId}`
 
       }
      

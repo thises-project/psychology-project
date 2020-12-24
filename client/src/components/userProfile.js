@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
     
      useEffect(() =>{
          
-        axios.get('http://localhost:5000/users/getOneUser/'+props.match.params.id)
+        axios.get('http://localhost:5000/users/getOneUser/'+`${window.localStorage.userId}`)
 
         .then(res => {
         //console.log(res.data[0])
