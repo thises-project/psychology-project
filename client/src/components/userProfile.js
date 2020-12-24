@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 
  function UserProfile(props, setCurrentId ){
-   console.log(props)
+   //console.log(props)
       
       const [user, setUser] = useState({})
     
@@ -30,10 +30,6 @@ import { Link } from 'react-router-dom';
         })
      }, [props.match.params.id])
 
-    //  handleClick(() => {
-    //   window.location= '/edit/'+props.match.params.id
-      
-    //  })
 
     return (
         
@@ -84,8 +80,6 @@ import { Link } from 'react-router-dom';
         </div><div>
         <Link type="button" className="btn btn-info btn-rounded" to={"/edit/"+props.match.params.id}>edit</Link> | <a href="/calender" type="button" className="btn btn-dark btn-rounded" onClick={() => {  }}>delete</a>
 
-        {/* <button type="button" class="btn btn-info btn-rounded" onClick= {() => {props.handleClick()}} >EDIT</button>
-            <button type="button" class="btn btn-dark btn-rounded">DELETE</button> */}
         </div>
         </div>
         
