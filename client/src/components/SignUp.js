@@ -2,7 +2,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Adduser } from '../actions/adduser';
-
 function Signup() {
   const [user, setUser] = useState({
     userName: "",
@@ -20,7 +19,6 @@ function Signup() {
   const dispatch = useDispatch();
   function handleChange(e) {
     const { name, value } = e.target;
-
     setUser((user) => ({ ...user, [name]: value }));
   }
   function handleSubmit(e) {
@@ -30,14 +28,12 @@ function Signup() {
       window.location = "/login";
     }
   }
-
   function validate() {
     let usernameError = "";
     let ageError = "";
     let genderError = "";
     let emailError = "";
     let passwordError = "";
-
     if (!user.userName) {
       usernameError =
         "your username cannot be blank, please try to make it more than 3 characters!";
@@ -58,14 +54,12 @@ function Signup() {
       passwordError =
         "your password cannot be blank, please try to make it more than 8 characters";
     }
-
     if (usernameError || ageError || genderError || emailError || passwordError) {
       setUser({ usernameError, ageError, genderError, emailError, passwordError });
       return false;
     }
     return true;
   };
-
   return (
     <div className="col-lg-8 offset-lg-2">
       <h2>Register</h2>
@@ -104,13 +98,9 @@ function Signup() {
               <div className="invalid-feedback">Age is required</div>
             )
           }
-
         </div >
         <div style={{ color: "red" }}>{user.ageError}</div>
         <br></br>
-
-        </div>
-
         <div className="form-group">
           <label>gender</label>
           <input
@@ -161,10 +151,8 @@ function Signup() {
             <div className="invalid-feedback">Password is required</div>
           )}
         </div>
-
         <div style={{ color: "red" }}>{user.passwordError}</div>
         <br></br>
-
         <div className="form-group">
           <button className="btn btn-primary">
             {/* {registering && <span className="spinner-border spinner-border-sm mr-1"></span>} */}
@@ -172,15 +160,8 @@ function Signup() {
           </button>
           {/* <Link to="/login" className="btn btn-link">Cancel</Link> */}
         </div>
-      </form>
-    </div>
+      </form >
+    </div >
   );
 }
-
-
-
 export default Signup;
-
-
-
-

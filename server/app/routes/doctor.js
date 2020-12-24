@@ -8,6 +8,6 @@ router.get('/getOneDoctor/:id',doctorsController.getOneDoctor);
 router.post('/updateDoctor/:id',doctorsController.updateDoctor);
 router.delete('/deleteDoctor/:id',doctorsController.deleteDoctor);
 // Create Answer 
-router.post('/createAnswer', controller.questions.createAnswer);
+router.post('/createAnswer', doctorsController.createAnswer);
 
 module.exports = router
