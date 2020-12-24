@@ -11,11 +11,13 @@ import AddQuestion from "./components/askQuestions";
 import Signup from "./components/SignUp";
 import DoctorProfile from "./components/doctorProfile";
 import "bootstrap/dist/css/bootstrap.min.css";
+
+import UpdateDoctor from "./components/updateDoctor";
 import UserProfile from './components/userProfile';
 import DoctorQuestions from './components/doctorQuestions';
-import PrivateRoute from "./components/privateRoute";
+// import PrivateRoute from "./components/privateRoute";
 
-var id = window.localStorage.userId;  //{"/userPro/:" + id} 
+// var id = window.localStorage.userId;  //{"/userPro/:" + id} 
 
 function App() {
 
@@ -34,8 +36,9 @@ function App() {
           <Route path="/askQuestions" component={AddQuestion} />
           <Route path="/userPro/:id" component={UserProfile} />
 
-          < Route path="/doctorQuestions" component={DoctorQuestions} />
+          <Route path="/doctorQuestions" component={DoctorQuestions} />
           <Route path="/signup" component={Signup} />
+          <Route path="/updateDoctor/:id" component={UpdateDoctor} />
         </Switch>
 
       </div>
