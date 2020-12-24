@@ -1,10 +1,14 @@
 export default (Adduser = [], action)=> { 
     
-console.log( action)
+  
 
     switch (action.type){
+        
         case 'UPDATE':
+          console.log(action.payload)
           return Adduser.map((user) => user.userId === action.payload.userId ? action.payload : user);
+          
+         
 
         
        case 'Adduser':

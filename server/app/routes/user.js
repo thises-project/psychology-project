@@ -7,7 +7,7 @@ const controller= require("../controller");
 router.post('/createUser',controller.users.createUser);
 router.get('/getAllUsers', controller.users.getAllUsers);
 router.get('/getOneUser/:id', controller.users.getOneUser);
-router.post('/updateUser/:id' , controller.users.updateUser)
+router.patch('/updateUser/:id' , controller.users.updateUser)
 router.delete('/deleteUser/:id' , controller.users.deleteUser)
 
 

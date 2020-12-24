@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {updateUser} from '../actions/adduser' 
 import { useDispatch, useSelector}  from 'react-redux';
+import axios from "axios"
 
 
 export default function EditUser (props, { currentId, setCurrentId }) {
@@ -29,32 +30,9 @@ export default function EditUser (props, { currentId, setCurrentId }) {
     const dispatch = useDispatch();
     
 
-   
-    
-    // useEffect(() =>{
-        
-    //    axios.get('http://localhost:5000/users/getOneUser/'+props.match.params.id)
-
-    //    .then(res => {
-    //    console.log(res.data[0])
-            
-    //       setUser(
-    //             {userName:res.data[0].userName,
-    //            age:res.data[0].age,
-    //            gender:res.data[0].gender,
-    //            email:res.data[0].email,
-    //            }
-
-    //        )
-    //    })
-    //    .catch(err => {
-    //        console.log(err)
-    //    })
-    // }, [props.match.params.id])
 
     const clear = () => {
-        setCurrentId(null);
-
+      
         setUser({  userName: '',
         age: '',
         gender: '',
@@ -65,18 +43,16 @@ export default function EditUser (props, { currentId, setCurrentId }) {
 
       function handleChange(e) {
         const { name, value } = e.target;
-        // console.log(e.target)
         setUser(user => ({ ...user, [name]: value }));
-      
-
     }
 
 
     function handleSubmit(e) {
-        //  console.log('jjjjjjjjjjjjjjj' , user)
+        
           e.preventDefault();
-
+             var currentId = props.match.params.id
           if(currentId){
+              console.log(currentId, "kkkkkkkk")
               dispatch(updateUser(currentId, user))
               clear();
           }

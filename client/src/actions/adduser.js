@@ -1,5 +1,6 @@
 
 import * as api from '../api/index.js'
+import axios from "axios"
 
 export const Adduser = (user) => async (dispatch)=>{
     try {
@@ -20,9 +21,11 @@ export const Adduser = (user) => async (dispatch)=>{
 
 export const updateUser = (id, user) => async(dispatch) => {
     try {
-        const {data} = await api.updateUser(id, user); //data=response from server
+      
+        
+         const {data} = await api.updateUser(id, user); //data=response from server
       dispatch({type :'UPDATE' , payload: data});
-        console.log(data)
+        console.log(data, "rrrrrrrrrrrrr")
     }
     catch(err){
         console.log(err);
