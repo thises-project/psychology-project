@@ -1,46 +1,48 @@
-const db = require("../Models/database")
+const db = require("../Models/database");
 const doctorModel = require("../Models/doctors");
 
-
-module.exports ={
-    getAllDoctors:(req , res)=>{
-        doctorModel.getAllDoctors(function(err , results){
-            if(err){console.log(`you have an error in doctor controller ${err}`)}
-            res.json(results)
-        })
-    },
-    getOneDoctor:(req , res)=>{
-        var params = [req.params.id];
-        doctorModel.getOneDoctor(params , function(err , result){
-            if(err){console.log(`you have an error in doctor controller ${err}`)}
-            res.json(result);
-        })
-
-    },
-    updateDoctor:(req , res)=>{
-        var params = [req.body.doctorName , req.body.doctorSpeciality , req.body.bio ,req.body.email,req.body.password ,req.body.image, req.params.id];
-        doctorModel.updateDoctor(params , function(err , result ){
-            if(err) {console.log(`you have an error in doctor controller ${err}`)};
-            res.sentStatus(200);
-        })
-    },
-    deleteDoctor :(req,res )=>{
-        var params = [req.params.id];
-        doctorModel.deleteDoctor(params ,function(err , result){
-            if(err){console.log(`you have an error in doctor controller ${err}`)};
-            res.sendStatus(200)
-        })
-    },
-      // Create Answer ..  
-  createAnswer: (req, res) => {
-    var params = [req.body.answer, req.body.doctor_Id, req.body.question_Id];
-    console.log(req.body.answer, req.body.doctor_Id, req.body.question_Id, "createAnswer")
-    questionsModel.createAnswer(params, function (err, results) {
-      if (err) { console.log("you are have an error in questions controller in createAnswer", err) }
+module.exports = {
+  getAllDoctors: (req, res) => {
+    doctorModel.getAllDoctors(function (err, results) {
+      if (err) {
+        console.log(`you have an error in doctor controller ${err}`);
+      }
       res.json(results);
-      res.sendStatus(200)
-    })
-  }
-    
-
-}
+    });
+  },
+  getOneDoctor: (req, res) => {
+    var params = [req.params.id];
+    doctorModel.getOneDoctor(params, function (err, result) {
+      if (err) {
+        console.log(`you have an error in doctor controller ${err}`);
+      }
+      res.json(result);
+    });
+  },
+  updateDoctor: (req, res) => {
+    var params = [
+      req.body.doctorName,
+      req.body.doctorSpeciality,
+      req.body.bio,
+      req.body.email,
+      req.body.password,
+      req.body.image,
+      req.params.id,
+    ];
+    doctorModel.updateDoctor(params, function (err, result) {
+      if (err) {
+        console.log(`you have an error in doctor controller ${err}`);
+      }
+      res.sendStatus(200);
+    });
+  },
+  deleteDoctor: (req, res) => {
+    var params = [req.params.id];
+    doctorModel.deleteDoctor(params, function (err, result) {
+      if (err) {
+        console.log(`you have an error in doctor controller ${err}`);
+      }
+      res.sendStatus(200);
+    });
+  },
+};

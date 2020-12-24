@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Footer from "./footer";
+import { Link } from "react-router-dom";
 
 const Doctors = (props) => {
   const [doctors, setDoctor] = useState([]);
@@ -17,7 +18,7 @@ const Doctors = (props) => {
   });
 
   return (
-    <div className="col ml-5 mr-5" style={{ textAlign: "left" }}>
+    <div className="container ml-5 mr-5" style={{ textAlign: "left" }}>
       {doctors.map((doctor) => (
         <div
           className="row"
@@ -33,6 +34,21 @@ const Doctors = (props) => {
                   <span className="badge"> {doctor.email} </span>
                   <span className="badge">{doctor.password} </span>
                 </p>
+                <Link
+                  //'/updateDoctor/:id'
+                  to={`/updateDoctor/${doctor.doctorId}`}
+                  className="btn btn-info "
+                  style={{ marginLeft: "5px" }}
+                >
+                  Edit
+                </Link>
+                <button
+                  className="btn btn-danger "
+                  style={{ marginLeft: "5px" }}
+                  // onClick={() => deleteDoctor(doctor.doctorId)}
+                >
+                  Delete
+                </button>
               </div>
             </div>
           </div>
@@ -48,4 +64,3 @@ const Doctors = (props) => {
 };
 
 export default Doctors;
-
