@@ -90,7 +90,7 @@ const UpdateDoctor = (props) => {
 
   const showUpdateForm = () => (
     <form onSubmit={handleSubmit}>
-      <div className="form-group">
+      {/* <div className="form-group">
         <label className="text-muted">Doctor ID</label>
         <input
           onChange={handleChange("doctorId")}
@@ -100,7 +100,7 @@ const UpdateDoctor = (props) => {
           placeholder="doctorId"
           required
         />
-      </div>
+      </div> */}
       <div className="form-group">
         <label className="text-muted"> Doctor Name</label>
         <input
