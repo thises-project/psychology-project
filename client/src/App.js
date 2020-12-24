@@ -15,8 +15,9 @@ import DoctorProfile from "./components/doctorProfile";
 import "bootstrap/dist/css/bootstrap.min.css";
 import UserProfile from './components/userProfile';
 import DoctorQuestions from './components/doctorQuestions';
+import PrivateRoute from "./components/PrivateRoute";
 
-
+var id = window.localStorage.userId;  //{"/userPro/:" + id} 
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Navbar />
         <Switch>
           <Route path="/" exact component={Home} />
+          <Route path="/HomePage" exact component={Home} />
           <Route path="/doctors" component={Doctors} />
           <Route path="/articles" component={Articles} />
           <Route path="/questions" component={Questions} />
@@ -32,7 +34,8 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/askQuestions" component={AddQuestion} />
           <Route path="/userPro/:id" component={UserProfile} />
-          <Route path="/doctorQuestions" component={DoctorQuestions} />
+
+          < Route path="/doctorQuestions" component={DoctorQuestions} />
           <Route path="/signup" component={Signup} />
         </Switch>
 
