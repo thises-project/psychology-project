@@ -31,6 +31,13 @@ module.exports= {
         db.query(query,params ,function(err,results){
             callback(err,results)
         })
+    },
+     //Create Answer ..
+     createAnswer: (params, callback) => {
+        var query = `INSERT INTO answers (answer) VALUES (?)`;
+        db.query(query, params, function (err, result) {
+            callback(err, result)
+        })
     }
-    ,
+
 }
