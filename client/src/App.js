@@ -13,7 +13,7 @@ import DoctorProfile from "./components/doctorProfile";
 import "bootstrap/dist/css/bootstrap.min.css";
 import UserProfile from './components/userProfile';
 import DoctorQuestions from './components/doctorQuestions';
-import PrivateRoute from "./components/PrivateRoute";
+import PrivateRoute from "./components/privateRoute";
 
 var id = window.localStorage.userId;  //{"/userPro/:" + id} 
 
