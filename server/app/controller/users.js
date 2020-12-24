@@ -55,7 +55,7 @@ module.exports = {
         if (err) res.status(400).send("you failed to authenticate")
         console.log(user)
         req.userId = user;
-        res.send("you are authenticated");
+        res.send(token);
         // res.json({auth:true,  accessToken: accessToken , result:"you are Authenticated"});
         //next()
       })
@@ -80,10 +80,10 @@ module.exports = {
 
         const validpassword = await bcrypt.compare(password, dbPassword);
         if (!validpassword) return res.status(400).send("Password not correct");
-        const accessToken = jwt.sign({ id: id }, `${process.env.JWT_KEY}`);
+        const accessToken = jwt.sign({ username: username }, `${process.env.JWT_KEY}`);
         console.log("toooooooooooooooooooooooken ..........", accessToken);
 
-        res.json({ result: "user exist", accessToken: accessToken });
+        res.json({ userId: id, username: username, accessToken: accessToken });
 
       }
       else {

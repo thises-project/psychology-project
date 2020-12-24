@@ -10,6 +10,11 @@ function Signup() {
     gender: "",
     email: "",
     password: "",
+    usernameError: "",
+    ageError: "",
+    genderError: "",
+    emailError: "",
+    passwordError: ""
   });
   const [submitted] = useState(false);
   const dispatch = useDispatch();
@@ -20,8 +25,47 @@ function Signup() {
   }
   function handleSubmit(e) {
     e.preventDefault();
-    dispatch(Adduser(user));
+    if (validate() === true) {
+      dispatch(Adduser(user));
+      window.location = "/login";
+    }
   }
+
+  function validate() {
+    let usernameError = "";
+    let ageError = "";
+    let genderError = "";
+    let emailError = "";
+    let passwordError = "";
+
+    if (!user.userName) {
+      usernameError =
+        "your username cannot be blank, please try to make it more than 3 characters!";
+    }
+    if (!user.age) {
+      ageError =
+        "your age cannot be blank, please write your true age!";
+    }
+    if (!user.gender) {
+      genderError =
+        "your phone gender cannot be blank, please write your gender!";
+    }
+    if (!user.email) {
+      emailError =
+        "your email cannot be blank, please try to write a correct email";
+    }
+    if (!user.password) {
+      passwordError =
+        "your password cannot be blank, please try to make it more than 8 characters";
+    }
+
+    if (usernameError || ageError || genderError || emailError || passwordError) {
+      setUser({ usernameError, ageError, genderError, emailError, passwordError });
+      return false;
+    }
+    return true;
+  };
+
   return (
     <div className="col-lg-8 offset-lg-2">
       <h2>Register</h2>
@@ -41,6 +85,8 @@ function Signup() {
           {submitted && !user.userName && (
             <div className="invalid-feedback">Username is required</div>
           )}
+          <div style={{ color: "red" }}>{user.usernameError}</div>
+          <br></br>
         </div>
         <div className="form-group">
           <label>age</label>
@@ -58,7 +104,13 @@ function Signup() {
               <div className="invalid-feedback">Age is required</div>
             )
           }
+
+        </div >
+        <div style={{ color: "red" }}>{user.ageError}</div>
+        <br></br>
+
         </div>
+
         <div className="form-group">
           <label>gender</label>
           <input
@@ -74,6 +126,8 @@ function Signup() {
             <div className="invalid-feedback">gender is required</div>
           )}
         </div>
+        <div style={{ color: "red" }}>{user.genderError}</div>
+        <br></br>
         <div className="form-group">
           <label>Email</label>
           <input
@@ -89,6 +143,8 @@ function Signup() {
             <div className="invalid-feedback">Email is required</div>
           )}
         </div>
+        <div style={{ color: "red" }}>{user.emailError}</div>
+        <br></br>
         <div className="form-group">
           <label>Password</label>
           <input
@@ -105,6 +161,10 @@ function Signup() {
             <div className="invalid-feedback">Password is required</div>
           )}
         </div>
+
+        <div style={{ color: "red" }}>{user.passwordError}</div>
+        <br></br>
+
         <div className="form-group">
           <button className="btn btn-primary">
             {/* {registering && <span className="spinner-border spinner-border-sm mr-1"></span>} */}
