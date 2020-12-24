@@ -1,7 +1,3 @@
-// import React from 'react';
-// import router from '../../server/app/routes/user';
-// import React, { useEffect } from 'react';
-
 import React from "react";
 import "./App.css";
 import Navbar from "./components/navbar";
