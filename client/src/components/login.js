@@ -15,7 +15,9 @@ function Login() {
         passwordError: ''
     });
 
-    const [submitted, setSubmitted] = useState(false);
+    // const [submitted, setSubmitted] = useState(false);
+
+    const [submitted] = useState(false);
     const { userName, password } = inputs;
     // const registering = useSelector(state => state.registration.registering);
     const dispatch = useDispatch();
