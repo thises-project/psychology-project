@@ -1,55 +1,53 @@
 import React from 'react';
-import { connect } from 'react-redux';
-// import axios from 'axios';
-// import reducer from '../store/index';
+import { useState } from "react";
+import { useDispatch } from 'react-redux';
+import { AddQuestions } from '../actions/AddQuestion';
+
+// build ask question component
+// take the input value
+
+function AddQ() {
 
 
-// build ask question component 
-// take the input value 
+  const [questions, setQuestion] = useState({
+    question: '',
+
+  });
 
 
-function AddQuestion(prpos) {
+  const dispatch = useDispatch();
 
-    return (
-        <div>
-                <input type="text" value={prpos.question} onChange={prpos.questionChanged}/>
-            <form onSubmit={prpos.handleSubmit}>
-                <button type='submit'> ASK </button>
-           </form>
-        </div>
-    );
+  function handleChange(e) {
+
+    const { name, value } = e.target;
+
+    console.log(e.target.value)
+    setQuestion(questions => ({ ...questions, [name]: value }));
+  }
+
+  function handleSubmit(e) {
+    console.log(questions)
+
+    e.preventDefault();
+
+    dispatch(AddQuestions(questions))
+
+
+  }
+
+  return (
+    <div >
+      <p>WE ARE HERE FOR YOU ..</p>
+      <p>How can we help you ?</p>
+      <form onSubmit={handleSubmit}>
+        <input type="text" name="question" value={questions.question} onChange={handleChange} />
+        <button type='submit'> ASK </button>
+      </form>
+    </div>
+  );
 }
 
 
-const mapStateToProps = (state) => {
-    return {
-        question : state.question
-    }
-}
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        questionChanged:(evt)=>{
-            
-            const action = { type:'INPUT_CHANGE',text:evt.target.value};
-            dispatch(action);
-        }
+export default AddQ;
 
-    }
-}
-// function sendPostRequest(props) {
-//     var handleSubmit=() =>{
-
-//     }
-//     // return {
-//     //     question : state.question
-//     //         // evt.preventDefault();
-//     //         // const question = {question};
-//     //     }
-//         //     console.log(question);
-//         // axios.post("http://localhost:3000/addItems/add", question)
-//         // .then(res => console.log(res.data));
-// }
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(AddQuestion) ;

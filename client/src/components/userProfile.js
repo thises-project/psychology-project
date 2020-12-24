@@ -42,39 +42,39 @@ import { Link } from 'react-router-dom';
               </div>
               <div className="col-sm-9 text-secondary">
               {user.userName}
-              </div>
             </div>
-            {/* <hr> */}
-            <div className="row">
-              <div className="col-sm-3">
-                <h6 className="mb-0">Age :</h6>
-              </div>
-              <div className="col-sm-9 text-secondary">
+          </div>
+          {/* <hr> */}
+          <div className="row">
+            <div className="col-sm-3">
+              <h6 className="mb-0">Age :</h6>
+            </div>
+            <div className="col-sm-9 text-secondary">
               {user.age}
-              </div>
             </div>
-            {/* </hr> */}
-            {/* <hr> */}
-            <div className="row">
-              <div className="col-sm-3">
-                <h6 className="mb-0">Gender :</h6>
-              </div>
-              <div className="col-sm-9 text-secondary">
+          </div>
+          {/* </hr> */}
+          {/* <hr> */}
+          <div className="row">
+            <div className="col-sm-3">
+              <h6 className="mb-0">Gender :</h6>
+            </div>
+            <div className="col-sm-9 text-secondary">
               {user.gender}
-              </div>
             </div>
-            {/* </hr> */}
-            {/* <hr> */}
-            <div className="row">
-              <div className="col-sm-3">
-                <h6 className="mb-0">Email :</h6>
-              </div>
-              <div className="col-sm-9 text-secondary">
+          </div>
+          {/* </hr> */}
+          {/* <hr> */}
+          <div className="row">
+            <div className="col-sm-3">
+              <h6 className="mb-0">Email :</h6>
+            </div>
+            <div className="col-sm-9 text-secondary">
               {user.email}
-              </div>
             </div>
-            {/* </hr> */}
-            
+          </div>
+          {/* </hr> */}
+
 
         </div>
         </div><div>
@@ -84,25 +84,9 @@ import { Link } from 'react-router-dom';
         </div>
         
 
-    )
+  )
 }
 
 export default UserProfile;
 
 
-
-  /**
-   * 
-    <div className = "container">
-        <form className="text-center border border-light p-5">
-              <h3>{user.userName}</h3>
-              <h3>{user.age}</h3>
-              <h3>{user.gender}</h3>
-              <h3>{user.email}</h3>
-            </form>
-               </div>          
-   */
-
-  /**
-   * 
-   */
