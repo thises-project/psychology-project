@@ -1,7 +1,12 @@
 import * as api from '../api/index.js'
-import { Auth } from './Auth.js';
 
-export const verifyUser = (inputs) => async (dispatch) => {
+
+
+import {Auth} from './Auth.js';
+
+export const verifyUser = (inputs) =>  async (dispatch) => {
+
+
     try {
         console.log('success to verifyUser :', inputs)
         const { data } = await api.verifyUser(inputs);
@@ -24,7 +29,17 @@ export const verifyUser = (inputs) => async (dispatch) => {
         console.log(error)
         alert("Wrong Password");
 
+
     }
+
+
+
+    }
+
+
+        
+  
+
 
 }
 
