@@ -10,7 +10,7 @@ export const Auth = (authInputs) => async (dispatch) => {
         dispatch({ type: 'Auth', payload: data })
         window.localStorage.setItem("token", data);
         console.log("daaaaaaattttttaaaa", data)
-        window.location = "/userPro/:id";
+        
     }
     catch (error) {
         console.log('failed to Auth')

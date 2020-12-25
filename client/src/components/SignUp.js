@@ -25,7 +25,7 @@ function Signup() {
     e.preventDefault();
     if (validate() === true) {
       dispatch(Adduser(user));
-      window.location = "/login";
+       window.location = "/login";
     }
   }
   function validate() {
