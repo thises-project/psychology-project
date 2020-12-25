@@ -15,8 +15,7 @@ module.exports= {
         db.query(query,function(err,results){
             callback(err,results)
         })
-    }
-    ,
+    },
   
 
     getAllQuestions:(callback) => {

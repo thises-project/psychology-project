@@ -45,7 +45,7 @@ export const createAnswer = (answers) => async (dispatch) => {
         console.log(answers);
         const { data } = await api.createAnswer(answers);
         dispatch({ type: 'CreateAnswer', payload: data })
-        console.log(data,"from action");
+        // console.log(data,"from action");
 
     }
     catch (error) {

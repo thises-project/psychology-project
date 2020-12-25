@@ -5,9 +5,9 @@ module.exports =  {
 
 // Create Question 
     createQuestions :  (req , res) => {
-       var params =[req.body.question,req.params.id ];
+       var params =[req.body.question,req.body.userId];
   
-      console.log(req.body.question,"createQuestion")
+      console.log(req.body.question,req.params.userId,"createQuestion")
       questionsModel.createQuestions(params,function(err , results){
           if(err){console.log("you are have an error in questions controller" , err)}
           res.json(results);

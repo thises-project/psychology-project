@@ -31,11 +31,10 @@ function App() {
           <Route path="/doctors" component={Doctors} />
           <Route path="/articles" component={Articles} />
           <Route path="/questions" component={QuestionsList} />
-          <Route path="/doctorProfile/:id" exact component={DoctorProfile} />
+          <Route path="/doctorProfile" exact component={DoctorProfile} />
           <Route path="/login" component={Login} />
           <Route path="/askQuestions" component={AddQuestion} />
           <Route path="/userPro/:id" component={UserProfile} />
-
           <Route path="/doctorQuestions" component={DoctorQuestions} />
           <Route path="/signup" component={Signup} />
           <Route path="/updateDoctor/:id" component={UpdateDoctor} />

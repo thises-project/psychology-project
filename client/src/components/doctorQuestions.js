@@ -39,11 +39,12 @@ function DoctorQuestions() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        // console.log(answers);
+        console.log(AddQuestion);
         // console.log(e.target.value);
         // console.log(AddQuestion.question_Id)
 
         dispatch(createAnswer(answers))
+        window.location = '/questions'
     }
 
     return (
@@ -51,14 +52,14 @@ function DoctorQuestions() {
             <h2>Doctor Questions Page</h2>
 
             {AddQuestion.map((question, index) => (
-                <div>
+                <div key ={index}>
                     <ul >
                         <li>{question.question}</li>
                         <li>{question.questionId}</li>
 
                         <br />
                         <form onSubmit={handleSubmit}>
-                            <textarea rows="4" cols="50" name={question.questionId} value={answers.answer} onChange={handleChange} />
+                            <textarea rows="4" cols="50" name={question.questionId} key={index} value={answers.answer} onChange={handleChange} />
                             <br/>
 
                             <Button type='submit' variant="info" style={{ width: "8%" }}>Reply</Button>

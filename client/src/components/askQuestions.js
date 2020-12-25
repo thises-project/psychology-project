@@ -11,6 +11,7 @@ function AddQ() {
 
   const [questions, setQuestion] = useState({
     question: '',
+    userId :'',
   });
 
 
@@ -18,10 +19,12 @@ function AddQ() {
 
   function handleChange(e) {
 
-    const { name, value } = e.target;
+    // const { name, value } = e.target;
 
-    console.log(e.target.value)
-    setQuestion(questions => ({ ...questions, [name]: value }));
+    // // console.log(e.target.value)
+    // setQuestion(questions => ({ ...questions, [name]: value }));
+    setQuestion ({question : e.target.value
+      , userId : window.localStorage.userId});
   }
 
   function handleSubmit(e) {
@@ -30,8 +33,7 @@ function AddQ() {
     e.preventDefault();
 
     dispatch(AddQuestions(questions))
-
-
+    
   }
 
   return (
