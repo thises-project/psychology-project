@@ -7,7 +7,7 @@ import AddQuestions from './AddQuestion';
 export default combineReducers({ 
      Adduser,
     AddQuestions,
-    UPDATE,
+   // UPDATE,
     GetAllQuestionsAndAnswers,
  })
 
