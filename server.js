@@ -31,9 +31,10 @@ app.use(function (error, req, res, next) {
     next();
   }
 });
-app.get("/", function (req, res) {
-  res.send("Home Page");
-});
+
+// app.get("/", function (req, res) {
+//   res.send("Home Page");
+// });
 
 //for the deployment
 

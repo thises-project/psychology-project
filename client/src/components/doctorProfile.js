@@ -7,7 +7,7 @@ const DoctorProfile = (props) => {
   const [doctorProfile, setDoctorProfile] = useState({});
   useEffect(() => {
     axios
-      .get("http://localhost:5000/doctor/getOneDoctor/" + props.match.params.id)
+      .get(`${window.location.hostname}/doctor/getOneDoctor/` + props.match.params.id)
       .then((res) => {
         // console.log(res.data[0]);
         setDoctorProfile({

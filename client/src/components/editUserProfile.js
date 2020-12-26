@@ -12,7 +12,7 @@ export default function EditUser (props, { currentId, setCurrentId }) {
         password:''
     })
     useEffect(() =>{
-        axios.get(`http://localhost:5000/users/getOneUser/+${window.localStorage.userId}`)
+        axios.get(`${window.location.hostname}/users/getOneUser/+${window.localStorage.userId}`)
         .then(res => {
         //console.log(res.data[0])
            setEditUser(
