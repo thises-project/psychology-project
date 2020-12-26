@@ -19,7 +19,7 @@ function Navbar() {
                 className="nav-link  ml-3 mr-3"
                 style={{ fontSize: "16px" }}
               >
-                <img src={process.env.PUBLIC_URL + "./Images/logo.jpg"} alt="logo"></img>
+                <img src={Logo} alt="logo"></img>
               </Link>
               <Link
                 to="/doctors"
@@ -57,13 +57,13 @@ function Navbar() {
             >
               <li className="nav-item">SignUp</li>
             </Link> */}
-              <Link
+              {/* <Link
                 to="/doctorProfile"
                 className="nav-link  ml-3 mr-3"
                 style={{ fontSize: "16px" }}
               >
                 <li className="nav-item">Doctor Profile</li>
-              </Link>
+              </Link> */}
             </ul>
           </div>
 

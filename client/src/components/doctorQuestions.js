@@ -1,6 +1,3 @@
-// CREATE ANSWER IS PUSHED FINALY ...
-
-
 import React, { useEffect } from 'react';
 import { useState } from "react";
 import { GetQuestions } from '.././actions/AddQuestion';
@@ -12,61 +9,57 @@ import { Button } from "react-bootstrap";
 // Take the value From Input Field ..
 
 function DoctorQuestions() {
+
     // Get All Questions ..
-    const dispatch = useDispatch();
-    const AddQuestion = useSelector((state) => state.AddQuestions);
+        const dispatch = useDispatch();
+        const AddQuestion = useSelector((state) => state.AddQuestions);
+        useEffect(() => {
+            dispatch(GetQuestions())
+        }, [dispatch]);
 
-    useEffect(() => {
-        dispatch(GetQuestions())
-    }, [dispatch]);
-    // console.log(AddQuestion)
     // Take The Input Value ..
-    const [answers, setAnswer] = useState({
-        answer: '',
-        question_Id: ''
-    });
-//
-    function handleChange(e) {
-        // const { name, value } = e.target;
-        // console.log(e.target.value);
-        setAnswer({ name: e.target.value });
-        // const answer = e.target.value;
-        // setAnswer({
-        //     answer: e.target.value;
-        // })
+        const [answers, setAnswer] = useState({
+            answer: '',
+            questionId: ''
+        });
 
-    }
+        function handleChange(e) {
+            setAnswer({ answer : e.target.value ,
+            questionId : e.target.name });
+            console.log(answers, "from component"); 
+        }
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        console.log(e.target.value);
-        console.log(AddQuestion.question_Id)
-
-        dispatch(createAnswer(answers))
-    }
+        function handleSubmit(e) {
+            e.preventDefault();
+            console.log(AddQuestion);
+            dispatch(createAnswer(answers))
+            window.location = '/questions'
+        }
 
     return (
         <div>
             <h2>Doctor Questions Page</h2>
-
             {AddQuestion.map((question, index) => (
                 <div>
-                    <ul >
-                        <li>{question.question}</li>
-
+                    
+                        <h3>{question.question}</h3>
                         <br />
-                        <form onSubmit={handleSubmit}>
-                            <textarea rows="4" cols="50" name={index} value={answers.answer} onChange={handleChange} />
-                            <br />
-
+                        <form onSubmit={handleSubmit} >
+                        <div key={index} >
+                            <textarea rows="3" cols="50" 
+                            name={question.questionId} 
+                            id={question.questionId} 
+                            value={answers.answer} 
+                            onChange={handleChange}
+                            />
+                            </div>
+                            <br/>
                             <Button type='submit' variant="info" style={{ width: "8%" }}>Reply</Button>
                         </form><br />
-                    </ul>
+                   
                 </div>
             ))}
-
         </div>
     )
 }
-
 export default DoctorQuestions;
