@@ -12,10 +12,9 @@ router.post('/authUser', controller.users.Auth);
 router.post('/verifyUser', controller.users.verifyUser);
 router.get('/getAllUsers', controller.users.getAllUsers);
 router.get('/getOneUser/:id', controller.users.getOneUser);
+router.patch('/updateUser/:id' , controller.users.updateUser)
+router.delete('/deleteUser/:id' , controller.users.deleteUser)
 router.post('/updateUser/:id', controller.users.updateUser)
-router.delete('/deleteUser/:id', controller.users.deleteUser)
-
-
 
 
 

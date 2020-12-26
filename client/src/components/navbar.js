@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import Logo from ".../public/Images/logo.jpg";
+import Logo from "./logo.jpg";
 
 function Navbar() {
   var value = false;
@@ -19,7 +19,7 @@ function Navbar() {
                 className="nav-link  ml-3 mr-3"
                 style={{ fontSize: "16px" }}
               >
-                <img src={process.env.PUBLIC_URL + "./Images/logo.jpg"} alt="logo"></img>
+                <img src={Logo} alt="logo"></img>
               </Link>
               <Link
                 to="/doctors"
@@ -73,7 +73,6 @@ function Navbar() {
           :
 
 
-
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav">
               <Link
@@ -81,7 +80,7 @@ function Navbar() {
                 className="nav-link  ml-3 mr-3"
                 style={{ fontSize: "16px" }}
               >
-                <img src={process.env.PUBLIC_URL + "./Images/logo.jpg"} alt="logo"></img>
+                <img src={Logo} alt="logo"></img>
               </Link>
               <Link
                 to="/doctors"
@@ -141,3 +140,35 @@ function logout() {
 
 
 export default Navbar;
+
+
+//         <div className="collapse navbar-collapse" id="navbarNavDropdown">
+//           <ul className="navbar-nav">
+//             <Link
+//               to="/"
+//               className="nav-link ml-3 mr-3"
+//               style={{ fontSize: "16px" }}
+//             >
+//               <img src={Logo} alt="logo"></img>
+//             </Link>
+//             <Link
+//               to="/doctors"
+//               className="nav-link ml-3 mr-3"
+//               style={{ fontSize: "16px" }}
+//             >
+//               <li className="nav-item">Doctors</li>
+//             </Link>
+//             <Link
+//               to="/questions"
+//               className="nav-link  ml-3 mr-3"
+//               style={{ fontSize: "16px" }}
+//             >
+//               <li className="nav-item">Questions</li>
+//             </Link>
+//             <Link
+//               to="/articles"
+//               className="nav-link  ml-3 mr-3"
+//               style={{ fontSize: "16px" }}
+//             >
+//               <li className="nav-item">Articles</li>
+//             </Link>
