@@ -2,8 +2,22 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Carousel, Button, Card } from "react-bootstrap";
 import Footer from "./footer";
+import { Link } from "react-router-dom";
+
 
 const Home = () => {
+  // var value = false;
+  // if (window.localStorage.length > 0) {
+  //   value = true;
+  // }
+    // const handleClick = (e) => {
+    //   e.preventDefault();
+    //   window.history.pushState({},'',href);
+    //   // console.log('hi from handle click home page ')
+    //   // window.location= '/askQuestions';
+
+    // }
+
   return (
     <div>
       {/* Carousel begins */}
@@ -66,9 +80,18 @@ const Home = () => {
 
       <br></br>
       <br></br>
-      <Button variant="info" size="lg" style={{ width: "30%" }}>
+      <Link
+          to={'/askQuestions'}
+          className="btn btn-info "
+          style={{ marginLeft: "5px" }}
+          
+            >
+            Get Free Counsling NOW !
+        </Link>
+      {/* <Button variant="info" size="lg" style={{ width: "30%" }}>
+      <a href={href} onClick={ handleClick ()}> Get Free Counsling NOW !</a>
         Get Free Counsling NOW !
-      </Button>
+      </Button> */}
 
       <br></br>
       <br></br>
