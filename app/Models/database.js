@@ -3,7 +3,7 @@ const mysql = require('mysql');
 
 const dbconfig= require('../../config/keys')
 
-const connection = mysql.createConnection({
+const connection = mysql.createPool({
   HOST:     dbconfig.HOST,
   USER:     dbconfig.USER,
   PASSWORD: dbconfig.PASSWORD,
