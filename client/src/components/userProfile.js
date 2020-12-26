@@ -67,7 +67,7 @@ import { deleteUser } from '../actions/adduser'
           {/* </hr> */}
         </div>
         </div><div>
-        <Link type="button" className="btn btn-info btn-rounded" to={`/edit/${window.localStorage.userId}`}>edit</Link> | <a href="/" type="button" className="btn btn-dark btn-rounded" onClick={() => { dispatch(deleteUser(window.localStorage.userId)) }}>delete</a>
+        <Link type="button" className="btn btn-info btn-rounded" to={`/edit/${window.localStorage.userId}`}>edit</Link> | <a href="/" type="button" className="btn btn-dark btn-rounded" onClick={() => { dispatch(deleteUser(window.localStorage.userId)); window.localStorage.clear(); }}>delete</a>
         </div>
         </div>
   )
