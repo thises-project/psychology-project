@@ -104,15 +104,24 @@ module.exports =  {
   },
   
 /////////////////////////////////////////////////////////////////////////////////
-updateUser:  (req, res) => {
+updateUser:  async (req, res) => {
    
   // if (globalPassword !== req.body.password)
-  // var hashed = await bcrypt.hash(req.body.password, 10);
+  var hashed = await bcrypt.hash(req.body.password, 10);
 
-  var params = [req.body.userName, req.body.age, req.body.gender, req.body.email, hashed, req.params.id];
-  
+  var params = [
+    req.body.userName, 
+    req.body.age, 
+    req.body.gender,
+    req.body.email,
+    hashed,
+    req.params.id
+  ];
+   console.log(params)
   usersModel.updateUser(params, function (err, results) {
-    if (err) { console.log("you are have an error in controller", err) }
+    if (err) { 
+      console.log("you are have an error in controller", err) 
+    }
     res.sendStatus(200)
   })
 },

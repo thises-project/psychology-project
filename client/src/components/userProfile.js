@@ -22,7 +22,7 @@ import { deleteUser } from '../actions/adduser'
         .catch(err => {
             console.log(err)
         })
-     }, [props.match.params.id])
+     }, [window.localStorage.userId])
     return (
         <div className="col-md-8">
         <div className="card mb-3">
