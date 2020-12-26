@@ -24,9 +24,11 @@ function DoctorQuestions() {
         // const {name, value} = e.target;
         // setAnswer(answers => ({ ...answers, [name]: value}));
         //Nour
+
         setAnswer({ answer : e.target.value ,
         questionId : e.target.name });
         console.log(answers, "from component");
+       
     }
     function handleSubmit(e) {
         e.preventDefault();
@@ -40,19 +42,21 @@ function DoctorQuestions() {
         <div>
             <h2>Doctor Questions Page</h2>
             {AddQuestion.map((question, index) => (
-                <div key ={index}>
+                <div>
                     
                         <h3>{question.question}</h3>
                         {/* <li>{question.questionId}</li> */}
                         <br />
-                        <form onSubmit={handleSubmit} key={index} >
+                        <form onSubmit={handleSubmit} >
+                        <div key={index} >
                             <textarea rows="3" cols="50" 
                             name={question.questionId} 
-                            // key={index} 
+                            id={question.questionId} 
                             value={answers.answer} 
                             onChange={handleChange} 
                             // id = {question.questionId} 
                             />
+                            </div>
                             <br/>
                             <Button type='submit' variant="info" style={{ width: "8%" }}>Reply</Button>
                         </form><br />

@@ -11,7 +11,7 @@ module.exports =  {
       questionsModel.createQuestions(params,function(err , results){
           if(err){console.log("you are have an error in questions controller" , err)}
           res.json(results);
-          res.sendStatus(200)
+          // res.sendStatus(200)
       
       })
     },
@@ -50,7 +50,7 @@ module.exports =  {
     questionsModel.createAnswer(params, function (err, results) {
       if (err) { console.log("you are have an error in questions controller in createAnswer", err) }
       res.json(results);
-      res.sendStatus(200)
+      // res.sendStatus(200)
 
     })
 
