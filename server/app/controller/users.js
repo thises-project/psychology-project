@@ -6,7 +6,7 @@ require("dotenv").config();
 
 
 
-var globalPassword = "";
+
 
 // call back function 
 module.exports =  {
@@ -25,7 +25,7 @@ module.exports =  {
    createUser: async (req, res) => {
     console.log("hiiiiiiiiiiiiii")
     //console.log(req.body.userName);
-    globalPassword = req.body.password;
+  
     //console.log(params);
     const salt = await bcrypt.genSalt();
     //console.log('helllloooooooooooooooooo' , salt)
@@ -83,8 +83,8 @@ module.exports =  {
         if (!validpassword) return res.status(400).send("Password not correct");
         const accessToken = jwt.sign({ username: username }, `${process.env.JWT_KEY}`);
         console.log("toooooooooooooooooooooooken ..........", accessToken);
-
-        res.json({ userId: id, username: username, accessToken: accessToken });
+         var type = "user"
+        res.json({ userId: id, username: username, accessToken: accessToken, type : type });
 
       }
       else {
@@ -104,15 +104,24 @@ module.exports =  {
   },
   
 /////////////////////////////////////////////////////////////////////////////////
-updateUser:  (req, res) => {
+updateUser:  async (req, res) => {
    
-  // if (globalPassword !== req.body.password)
-  // var hashed = await bcrypt.hash(req.body.password, 10);
-
-  var params = [req.body.userName, req.body.age, req.body.gender, req.body.email, hashed, req.params.id];
   
+  var hashed = await bcrypt.hash(req.body.password, 10);
+
+  var params = [
+    req.body.userName, 
+    req.body.age, 
+    req.body.gender,
+    req.body.email,
+    hashed,
+    req.params.id
+  ];
+   console.log(params)
   usersModel.updateUser(params, function (err, results) {
-    if (err) { console.log("you are have an error in controller", err) }
+    if (err) { 
+      console.log("you are have an error in controller", err) 
+    }
     res.sendStatus(200)
   })
 },

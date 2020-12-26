@@ -3,7 +3,7 @@ const db = require('./database')
 
 module.exports= {
     createQuestions:(params,callback)=>{
-        var queryStr = `INSERT INTO questions ( question ) VALUES (?)`;
+        var queryStr = `INSERT INTO questions ( question , user_Id ) VALUES (?,?)`;
         db.query(queryStr,params,function(err,result){ 
             callback(err,result)
         })
@@ -28,7 +28,7 @@ module.exports= {
 
     //Create Answer ..
     createAnswer: (params, callback) => {
-        var query = `INSERT INTO answers (answer) VALUES (?)`;
+        var query = `INSERT INTO answers (answer ,question_Id) VALUES (?,?)`;
         db.query(query, params, function (err, result) {
             callback(err, result)
         })

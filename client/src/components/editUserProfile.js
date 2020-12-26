@@ -4,14 +4,6 @@ import { useDispatch, useSelector}  from 'react-redux';
 import axios from 'axios'
 export default function EditUser (props, { currentId, setCurrentId }) {
 
-    //const [ setCurrentId] = useState(null)
-    //const dispatch = useDispatch();
-  
-    // useEffect(() => {
-    //   dispatch(updateUser());
-    // }, [currentId, dispatch]);
-
-   // console.log(props)
     const [editUser, setEditUser] = useState({
         userName:'',
         age:'',
@@ -28,8 +20,12 @@ export default function EditUser (props, { currentId, setCurrentId }) {
                 age:res.data[0].age,
                 gender:res.data[0].gender,
                 email:res.data[0].email,
+                password:res.data[0].password
+
+
                 }
             )
+            console.log(res.data[0])
         })
         .catch(err => {
             console.log(err)
