@@ -17,16 +17,18 @@ useEffect(()=>{
         dispatch(GetAllQuestionsAndAnswers())
         },[dispatch])
     return (
-        <div>
-            <h2>Questions</h2>
+        <div className = "containe"
+
+        >
+            <h1>Questions</h1>
 
             {questionAndAnswersList.map((questions) =>(
-                   <ul>
-                        <li>{questions.question}</li> 
-                        <li>{ questions.answer}</li> 
-                        <li>{questions.doctorName}</li> 
-
-                   </ul>
+                  <div className="questionList" >
+                        <h3 className="list-group-item question">{questions.question}</h3> 
+                        <h3 className="list-group-item answer">{ questions.answer}</h3> 
+                        <h5 className="list-group-item Dr">Dr. {questions.doctorName}</h5> 
+                 </div>
+               
                    
                    
                     

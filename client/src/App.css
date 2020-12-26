@@ -24,6 +24,21 @@
   .navbar{
     margin-bottom: 0px;
   }
+
+  .questionList{
+    border-style: none;
+  }
+
+  .questionList .question{
+    color: #428bca;
+  }
+  .questionList .answer{
+  color: #777;
+}
+.questionList .Dr{
+  font-size: 12px;
+    color: #a99e9e;
+}
   @keyframes App-logo-float {
     0% {
       transform: translateY(0);
