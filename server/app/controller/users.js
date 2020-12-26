@@ -106,7 +106,7 @@ module.exports =  {
 /////////////////////////////////////////////////////////////////////////////////
 updateUser:  async (req, res) => {
    
-  
+
   var hashed = await bcrypt.hash(req.body.password, 10);
 
   var params = [
