@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Carousel, Button, Card } from "react-bootstrap";
+import { Carousel, Card } from "react-bootstrap";
 import Footer from "./footer";
 import { Link } from "react-router-dom";
 

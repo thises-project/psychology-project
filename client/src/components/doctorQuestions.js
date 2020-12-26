@@ -41,16 +41,22 @@ function DoctorQuestions() {
             <h2>Doctor Questions Page</h2>
             {AddQuestion.map((question, index) => (
                 <div key ={index}>
-                    <ul >
-                        <li>{question.question}</li>
+                    
+                        <h3>{question.question}</h3>
                         {/* <li>{question.questionId}</li> */}
                         <br />
-                        <form onSubmit={handleSubmit}>
-                            <textarea rows="4" cols="50" name={question.questionId} key={index} value={answers.answer} onChange={handleChange} />
+                        <form onSubmit={handleSubmit} key={index} >
+                            <textarea rows="3" cols="50" 
+                            name={question.questionId} 
+                            // key={index} 
+                            value={answers.answer} 
+                            onChange={handleChange} 
+                            // id = {question.questionId} 
+                            />
                             <br/>
                             <Button type='submit' variant="info" style={{ width: "8%" }}>Reply</Button>
                         </form><br />
-                    </ul>
+                   
                 </div>
             ))}
         </div>

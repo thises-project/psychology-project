@@ -2,6 +2,9 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from 'react-redux';
 import { AddQuestions } from '../actions/AddQuestion';
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Button } from "react-bootstrap";
+
 // build ask question component
 // take the input value
 function AddQ() {
@@ -28,8 +31,12 @@ function AddQ() {
       <p>WE ARE HERE FOR YOU ..</p>
       <p>How can we help you ?</p>
       <form onSubmit={handleSubmit}>
-        <input type="text"  name="question" value={questions.question} onChange={handleChange} />
-        <button type="submi"> ASK </button>
+        <textarea rows="7" cols="100" type="text"  name="question" value={questions.question} onChange={handleChange} />
+        <br/>
+        <Button variant="info" size="lg" style={{ width: "10%" }}>
+         Ask ..
+      </Button>
+     
       </form>
     </div>
   );
