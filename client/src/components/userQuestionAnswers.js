@@ -1,6 +1,6 @@
 import Axios from 'axios';
 import React, { useEffect  ,useState} from 'react';
-import axios from 'axios'
+// import axios from 'axios'
 //use Selector to fetch data from global store 
 const url = 'http://localhost:5000';
 
