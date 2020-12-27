@@ -1,62 +1,55 @@
-import React from 'react';
-// import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import React, { useState } from 'react';
+import Navbar from './components/navbar';
+import { BrowserRouter as Router , Switch, Route } from  "react-router-dom";
+import Doctors from "./components/doctors";
+import Articles from "./components/articles"
+import Questions from "./components/questions"
+import Login from "./components/login"
+import Home from "./components/home"
+import Signup from "./components/SignUp"
+import UserProfile  from "./components/userProfile"
+import EditUser from './components/editUserProfile'
+import DoctorProfile  from "./components/doctorProfile"
+import UpdateDoctor from "./components/updateDoctor"
+import DoctorQuestions from "./components/doctorQuestions"
+import AddQuestion from "./components/askQuestions";
+import PrivateRoute from "./components/privateRoute";
+import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
 
 
-
-
-
-
 function App() {
+
+  const [currentId, setCurrentId] = useState(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+          <Switch>
+          {/* public components  */}
+          <Route path="/" exact component={Home}/>
+          <Route path="/HomePage" exact component={Home} />
+          <Route path="/doctors" component={Doctors}/>
+          <Route path="/articles" component={Articles}/>
+          <Route path="/questions" component={Questions}/>
+          <Route path="/login" component={Login}/>
+          <Route path="/signup" component={Signup}/>
+            
+          {/* user private components */}
+
+          <PrivateRoute path="/userPro" component={UserProfile} currentId={currentId} setCurrentId={setCurrentId}/>
+          <PrivateRoute path="/edit/:id" component={EditUser} currentId={currentId} setCurrentId={setCurrentId}/>
+          <PrivateRoute path="/askQuestions" component = {AddQuestion}/>
+
+          {/* doctor private components */}
+          <Route path="/doctorProfile/:id" exact component={DoctorProfile} />
+          <Route path="/updateDoctor/:id" component={UpdateDoctor} />
+          <Route path="/doctorQuestions" component={DoctorQuestions} />
+          
+          </Switch>
+      </div>
+    </Router>
   );
 }
 
