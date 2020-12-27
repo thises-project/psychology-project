@@ -6,7 +6,7 @@ require("dotenv").config();
 
 
 
-
+var globalPassword = "";
 
 // call back function 
 module.exports =  {
@@ -25,7 +25,7 @@ module.exports =  {
    createUser: async (req, res) => {
     console.log("hiiiiiiiiiiiiii")
     //console.log(req.body.userName);
-  
+    globalPassword = req.body.password;
     //console.log(params);
     const salt = await bcrypt.genSalt();
     //console.log('helllloooooooooooooooooo' , salt)
@@ -83,8 +83,8 @@ module.exports =  {
         if (!validpassword) return res.status(400).send("Password not correct");
         const accessToken = jwt.sign({ username: username }, `${process.env.JWT_KEY}`);
         console.log("toooooooooooooooooooooooken ..........", accessToken);
-         var type = "user"
-        res.json({ userId: id, username: username, accessToken: accessToken, type : type });
+
+        res.json({ userId: id, username: username, accessToken: accessToken });
 
       }
       else {
@@ -106,7 +106,7 @@ module.exports =  {
 /////////////////////////////////////////////////////////////////////////////////
 updateUser:  async (req, res) => {
    
-
+  // if (globalPassword !== req.body.password)
   var hashed = await bcrypt.hash(req.body.password, 10);
 
   var params = [
