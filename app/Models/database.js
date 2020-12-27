@@ -4,10 +4,11 @@ const mysql = require('mysql');
 const dbconfig= require('../../config/keys')
 
 const connection = mysql.createPool({
-  HOST:     dbconfig.HOST,
-  USER:     dbconfig.USER,
-  PASSWORD: dbconfig.PASSWORD,
-  DB: dbconfig.DB
+  CLEAR_DB_URL:dbconfig.CLEAR_DB_URL,
+  HOST:dbconfig.HOST,
+  USER:dbconfig.USER,
+  PASSWORD:dbconfig.PASSWORD,
+  DB:dbconfig.DB
 });
 
 connection.query('select 1 + 1', (err, rows) => { 
