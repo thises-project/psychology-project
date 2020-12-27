@@ -23,14 +23,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/users", user);
 app.use("/doctor", doctor);
 app.use("/questions", questions);
-app.use(function (error, req, res, next) {
-  if (error instanceof SyntaxError) {
-    //Handle SyntaxError here.
-    return res.status(500).send({ data: "Invalid data" });
-  } else {
-    next();
-  }
-});
+
+
+// app.use(function (error, req, res, next) {
+//   if (error instanceof SyntaxError) {
+//     //Handle SyntaxError here.
+//     return res.status(500).send({ data: "Invalid data" });
+//   } else {
+//     next();
+//   }
+// });
 
 // app.get("/", function (req, res) {
 //   res.send("Home Page");
