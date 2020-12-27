@@ -23,7 +23,7 @@ function DoctorQuestions() {
             questionId: ''
         });
 
-        function handleChange(e) {
+        function handleChange(e, key) {
             setAnswer({ answer : e.target.value ,
             questionId : e.target.name });
             console.log(answers, "from component"); 
@@ -48,7 +48,7 @@ function DoctorQuestions() {
                         <div key={index} >
                             <textarea rows="3" cols="50" 
                             name={question.questionId} 
-                            id={question.questionId} 
+                            // id={question.questionId} 
                             value={answers.answer} 
                             onChange={handleChange}
                             />
