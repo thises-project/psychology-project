@@ -15,7 +15,7 @@ const UpdateDoctor = (props) => {
 
   useEffect(() => {
     axios
-      .get(`${window.location.hostname}/doctor/getOneDoctor/` + props.match.params.id)
+      .get(`${window.location.hostname}:5000/doctor/getOneDoctor/` + props.match.params.id)
       .then((res) => {
         // console.log(res.data[0]);
         setState({
@@ -42,7 +42,7 @@ const UpdateDoctor = (props) => {
     // console.table({ itemName, itemDescription,itemPrice, user });
     axios
       .put(
-        `${window.location.hostname}/doctor/updateDoctor/` + props.match.params.id,
+        `${window.location.hostname}:5000/doctor/updateDoctor/` + props.match.params.id,
         { doctorId, doctorName, doctorSpeciality, bio, email }
       )
       .then((res) => {
