@@ -1,38 +1,29 @@
 import React ,{ useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
-
+import { useDispatch } from 'react-redux';
+import { deleteUser } from '../actions/adduser'
  function UserProfile(props, setCurrentId ){
    //console.log(props)
-      
+   const dispatch = useDispatch()
       const [user, setUser] = useState({})
-    
-    
      useEffect(() =>{
-         
         axios.get('http://localhost:5000/users/getOneUser/'+`${window.localStorage.userId}`)
-
         .then(res => {
         //console.log(res.data[0])
-             
            setUser(
                  {userName:res.data[0].userName,
                 age:res.data[0].age,
                 gender:res.data[0].gender,
                 email:res.data[0].email,
                 }
-
             )
         })
         .catch(err => {
             console.log(err)
         })
-     }, [props.match.params.id])
-
-
+     }, [window.localStorage.userId])
     return (
-        
         <div className="col-md-8">
         <div className="card mb-3">
           <div className="card-body">
@@ -74,19 +65,14 @@ import { Link } from 'react-router-dom';
             </div>
           </div>
           {/* </hr> */}
-
-
         </div>
         </div><div>
-        <Link type="button" className="btn btn-info btn-rounded" to={"/edit/"+props.match.params.id}>edit</Link> | <a href="/calender" type="button" className="btn btn-dark btn-rounded" onClick={() => {  }}>delete</a>
-
+        <Link type="button" className="btn btn-info btn-rounded" to={`/edit/${window.localStorage.userId}`}>edit</Link> | <a href="/" type="button" className="btn btn-dark btn-rounded" onClick={() => { dispatch(deleteUser(window.localStorage.userId)); window.localStorage.clear(); }}>delete</a>
         </div>
         </div>
-        
-
   )
 }
-
 export default UserProfile;
 
+//walaa
 

@@ -2,116 +2,97 @@ import React, { useState, useEffect } from "react";
 import {updateUser} from '../actions/adduser' 
 import { useDispatch, useSelector}  from 'react-redux';
 import axios from 'axios'
-
 export default function EditUser (props, { currentId, setCurrentId }) {
 
-   // console.log(props)
-
-    const [user, setUser] = useState({
+    const [editUser, setEditUser] = useState({
         userName:'',
         age:'',
         gender:'',
         email:'',
         password:''
-
     })
-
-
     useEffect(() =>{
-         
         axios.get('http://localhost:5000/users/getOneUser/'+`${window.localStorage.userId}`)
-
         .then(res => {
         //console.log(res.data[0])
-             
-           setUser(
+           setEditUser(
                  {userName:res.data[0].userName,
                 age:res.data[0].age,
                 gender:res.data[0].gender,
                 email:res.data[0].email,
-                }
+                password:res.data[0].password
 
+
+                }
             )
+            console.log(res.data[0])
         })
         .catch(err => {
             console.log(err)
         })
-     }, [props.match.params.id])
-
-
+     }, [window.localStorage.userId])
     const [submitted] = useState(false);
-
     const dispatch = useDispatch();
-    
     const clear = () => {
-      
-        setUser({  userName: '',
+        setEditUser({  userName: '',
         age: '',
         gender: '',
         email : '',
         password: '' });
       };
-
-
       function handleChange(e) {
         const { name, value } = e.target;
-        setUser(user => ({ ...user, [name]: value }));
+        setEditUser(editUser => ({ ...editUser, [name]: value }));
     }
-
-    function handleSubmit(e) {
-        
+    function editHandleSubmit(e) {
           e.preventDefault();
              var currentId = `${window.localStorage.userId}`
           if(currentId){
               console.log(currentId, "kkkkkkkk")
-              dispatch(updateUser(currentId, user))
+              dispatch(updateUser(currentId, editUser))
               clear();
           }
-             
-          window.location = "/userPro/"+`${window.localStorage.userId}`
-
+          window.location = `/userPro/${window.localStorage.userId}`
       }
-     
     return (
         <div className="col-lg-8 offset-lg-2">
              <h2>Edit Your Information </h2>
-             <form name="form" onSubmit = {handleSubmit}> 
+             <form name="form" onSubmit = {editHandleSubmit}> 
                  <div className="form-group">
                      <label>Username</label>
-                    <input type="text" name="userName" value={user.userName} onChange={handleChange} className={'form-control' + (submitted && !user.userName ? ' is-invalid' : '')}  />
-                    {submitted && !user.userName &&
+                    <input type="text" name="userName" value={editUser.userName} onChange={handleChange} className={'form-control' + (submitted && !editUser.userName ? ' is-invalid' : '')}  />
+                    {submitted && !editUser.userName &&
                         <div className="invalid-feedback">Username is required</div>
                     }
                 </div>
                 <div className="form-group">
                     <label>age</label>
-                    <input type="text" name="age" value={user.age} onChange={handleChange}  className={'form-control' + (submitted && !user.age ? ' is-invalid' : '')}/>
-                    {submitted && !user.age &&
+                    <input type="text" name="age" value={editUser.age} onChange={handleChange}  className={'form-control' + (submitted && !editUser.age ? ' is-invalid' : '')}/>
+                    {submitted && !editUser.age &&
                         <div className="invalid-feedback">Age is required</div>
                     }
                 </div>
                 <div className="form-group">
                     <label>gender</label>
-                    <input type="text" name="gender" value={user.gender} onChange={handleChange}  className={'form-control' + (submitted && !user.gender ? ' is-invalid' : '')}/>
-                    {submitted && !user.gender &&
+                    <input type="text" name="gender" value={editUser.gender} onChange={handleChange}  className={'form-control' + (submitted && !editUser.gender ? ' is-invalid' : '')}/>
+                    {submitted && !editUser.gender &&
                             <div className="invalid-feedback">gender is required</div>
                     }
                 </div>
                     <div className="form-group">
                         <label>Email</label>
-                        <input type="email" name="email" value={user.email} onChange={handleChange}  className={'form-control' + (submitted && !user.email ? ' is-invalid' : '')}/>
-                        {submitted && !user.email &&
+                        <input type="email" name="email" value={editUser.email} onChange={handleChange}  className={'form-control' + (submitted && !editUser.email ? ' is-invalid' : '')}/>
+                        {submitted && !editUser.email &&
                              <div className="invalid-feedback">Email is required</div>
                        }
                  </div>
                 <div className="form-group">
                     <label>Password</label>
-                    <input type="password" name="password" value={user.password} onChange={handleChange}  className={'form-control' + (submitted && !user.password ? ' is-invalid' : '')}/>
-                    {submitted && !user.password &&
+                    <input type="password" name="password" value={editUser.password} onChange={handleChange}  className={'form-control' + (submitted && !editUser.password ? ' is-invalid' : '')}/>
+                    {submitted && !editUser.password &&
                         <div className="invalid-feedback">Password is required</div>
                     }
                 </div>
-
                 <div className="form-group">
                     <button className="btn btn-primary" >
                         {/* {registering && <span className="spinner-border spinner-border-sm mr-1"></span>} */}

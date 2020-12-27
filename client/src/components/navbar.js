@@ -57,13 +57,13 @@ function Navbar() {
             >
               <li className="nav-item">SignUp</li>
             </Link> */}
-              <Link
+              {/* <Link
                 to="/doctorProfile"
                 className="nav-link  ml-3 mr-3"
                 style={{ fontSize: "16px" }}
               >
                 <li className="nav-item">Doctor Profile</li>
-              </Link>
+              </Link> */}
             </ul>
           </div>
 
@@ -103,6 +103,13 @@ function Navbar() {
               >
                 <li className="nav-item">Articles</li>
               </Link>
+              <Link
+                to="/askQuestions"
+                className="nav-link  ml-3 mr-3"
+                style={{ fontSize: "16px" }}
+              >
+                <li className="nav-item">Get Free Counseling Now</li>
+              </Link>
 
               <Link
                 to="/logout"
@@ -118,13 +125,13 @@ function Navbar() {
             >
               <li className="nav-item">SignUp</li>
             </Link> */}
-              <Link
+              {/* <Link
                 to="/doctorProfile"
                 className="nav-link  ml-3 mr-3"
                 style={{ fontSize: "16px" }}
               >
                 <li className="nav-item">Doctor Profile</li>
-              </Link>
+              </Link> */}
             </ul>
           </div>
         }
@@ -140,35 +147,3 @@ function logout() {
 
 
 export default Navbar;
-
-
-//         <div className="collapse navbar-collapse" id="navbarNavDropdown">
-//           <ul className="navbar-nav">
-//             <Link
-//               to="/"
-//               className="nav-link ml-3 mr-3"
-//               style={{ fontSize: "16px" }}
-//             >
-//               <img src={Logo} alt="logo"></img>
-//             </Link>
-//             <Link
-//               to="/doctors"
-//               className="nav-link ml-3 mr-3"
-//               style={{ fontSize: "16px" }}
-//             >
-//               <li className="nav-item">Doctors</li>
-//             </Link>
-//             <Link
-//               to="/questions"
-//               className="nav-link  ml-3 mr-3"
-//               style={{ fontSize: "16px" }}
-//             >
-//               <li className="nav-item">Questions</li>
-//             </Link>
-//             <Link
-//               to="/articles"
-//               className="nav-link  ml-3 mr-3"
-//               style={{ fontSize: "16px" }}
-//             >
-//               <li className="nav-item">Articles</li>
-//             </Link>

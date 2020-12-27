@@ -19,7 +19,7 @@ const Doctors = (props) => {
   });
 
   return (
-    <div className="container ml-5 mr-5" style={{ textAlign: "left" }}>
+    <div className="container ml-5 mr-5" style={{ textAlign: "left" }} className = "container">
       {doctors.map((doctor) => (
         <div
           className="row"
