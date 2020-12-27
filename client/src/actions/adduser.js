@@ -1,10 +1,10 @@
-
-import * as api from '../api/index.js'
+import * as api from '../api/index'
 
 export const Adduser = (user) => async (dispatch)=>{
     try {
         console.log('success user :' , user)
-      const {data} =  api.Adduser(user);
+      const {data} = await api.Adduser(user);
+      
       console.log('returnnnnnnn', data)
       dispatch({type :'Adduser' , payload: data})
 
@@ -14,14 +14,27 @@ export const Adduser = (user) => async (dispatch)=>{
         console.log('failed')
         console.log(error)
     }
-    // const action = { type : ' '}
+ //   const action = { type : ' '}
 }
 
+export const updateUser = (id, editUser) => async(dispatch) => {
+    try {
+      
+         const {data} = await api.updateUser(id, editUser); //data=response from server
+         dispatch({type :'UPDATE' , payload: data});
+        console.log(data, "rrrrrrrrrrrrr")
+    }
+    catch(err){
+        console.log(err);
+    }
+}
 
-// const {data} = await axios
-// .post("http://localhost:5000/user/createUser", user)
-// .then((response) => {
-//   console.log(response, "You saved in db");
-  
-// })
-// .catch((err) => alert("you didn't save in db"));
+export const deleteUser = (id) => async(dispatch) => {
+    try {
+        await api.deleteUser(id);
+        dispatch({ type: 'DELETE', payload: id})
+        window.localStorage.clear();
+    } catch (error) {
+        console.log(error)
+    }
+}

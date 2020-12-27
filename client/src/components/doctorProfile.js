@@ -1,43 +1,82 @@
-import React from "react";
-// import axios from "axios";
-import { Form } from "react-bootstrap";
+import { React, useState, useEffect } from "react";
+import axios from "axios";
+import Footer from "./footer";
+import { Link } from "react-router-dom";
 
-const DoctorProfile = () => {
+const DoctorProfile = (props) => {
+  const [doctorProfile, setDoctorProfile] = useState({});
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/doctor/getOneDoctor/" + props.match.params.id)
+      .then((res) => {
+        // console.log(res.data[0]);
+        setDoctorProfile({
+          doctorName: res.data[0].doctorName,
+          doctorSpeciality: res.data[0].doctorSpeciality,
+          bio: res.data[0].bio,
+          email: res.data[0].email,
+          password: res.data[0].password,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [props.match.params.id]);
+
   return (
-    <div className="col ml-auto mr-auto" style={{ textAlign: "left" }}>
-      <div>
-        <h3> Doctor Profile</h3>
+    <div className="container ml-5 mr-5">
+      <div style={{ textAlign: "left" }}>
+        <div
+          className="row"
+          key={doctorProfile.doctorId}
+          // style={{ borderBottom: "1px solid silver" }}
+        >
+          <div className="col pt-3 pb-2">
+            <div className="row">
+              <div className="col-md-10">
+                <h2>{doctorProfile.doctorName} </h2>
+                <h4>{doctorProfile.doctorSpeciality}</h4>
+                <p className="lead">{doctorProfile.bio}</p>
+                <p>
+                  <h4>
+                    {" "}
+                    <span class="badge bg-primary">{doctorProfile.email}</span>
+                  </h4>
+
+                  {/* <h4>
+                    {" "}
+                    <span class="badge bg-primary">
+                      {doctorProfile.password}
+                    </span>
+                  </h4> */}
+                  <br></br>
+                </p>
+              </div>
+         
+            </div>
+          </div>
+        </div>
+        <div className="col mr-5">
+        <Link
+                  //'/updateDoctor/:id'
+                  to={`/updateDoctor/${props.match.params.id}`}
+                  className="btn btn-info "
+                  style={{ marginLeft: "5px" }}
+                >
+                  Edit
+                </Link>
+        </div>
+        <br/>
+        {/* <button
+                  className="btn btn-danger "
+                  style={{ marginLeft: "5px" }}
+                  // onClick={() => deleteDoctor(doctor.doctorId)}
+                >
+                  Delete
+                </button> */}
       </div>
-      <div className="col ml-auto mr-auto" style={{ width: "50%" }}>
-        <Form variant="info">
-          <Form.Group>
-            <Form.File
-              id="exampleFormControlFile1"
-              label="Upload an profile pic"
-            />
-          </Form.Group>
-        </Form>
-      </div>
-      <div className="col ml-auto mr-auto" style={{ width: "50%" }}>
-        <Form>
-          <Form.Group controlId="exampleForm.ControlInput1">
-            <Form.Label className="ml-auto mr-auto">Doctor Name</Form.Label>
-            <Form.Control size="lg" type="name" placeholder="doctor name" />
-          </Form.Group>
-          <Form.Group controlId="exampleForm.ControlInput1">
-            <Form.Label>DoctorSpeciality</Form.Label>
-            <Form.Control
-              size="lg"
-              type="speciality"
-              placeholder="doctor speciality"
-            />
-          </Form.Group>
-          <Form.Group controlId="exampleForm.ControlSelect1">
-            <Form.Label>Bio</Form.Label>
-            <Form.Control size="lg" as="textarea" rows={3} />
-          </Form.Group>
-        </Form>
-      </div>
+
+      <Footer />
     </div>
   );
 };
