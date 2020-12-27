@@ -9,7 +9,7 @@ function PrivateRoute({ component: Component, ...rest }) {
         return <Component />
       }
       else {
-        return (<Redirect to={{ pathname: '/LogIn', state: { from: props.location } }}
+        return (<Redirect to={{ pathname: '/HomePage', state: { from: props.location } }}
         />)
       }
     }}
@@ -17,5 +17,3 @@ function PrivateRoute({ component: Component, ...rest }) {
   )
 }
 export default PrivateRoute;
-
-// Walaa
