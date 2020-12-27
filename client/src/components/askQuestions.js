@@ -11,21 +11,22 @@ function AddQ() {
 
   const [questions, setQuestion] = useState({
     question: '',
-    userId :'',
+    user_Id :'',
   });
 
   const dispatch = useDispatch();
 
-  function handleChange(e) {
-    setQuestion ({question : e.target.value
-      , user_Id : window.localStorage.userId});
-  }
+      function handleChange(e) {
+        setQuestion ({question : e.target.value
+          , user_Id : window.localStorage.userId});
+      }
 
-  function handleSubmit(e) {
-      e.preventDefault();
-      dispatch(AddQuestions(questions))
-      window.location = '/questions'
-  }
+      function handleSubmit(e) {
+        console.log(questions);
+          e.preventDefault();
+          dispatch(AddQuestions(questions))
+          window.location = '/questions'
+      }
 
   return (
     <div >

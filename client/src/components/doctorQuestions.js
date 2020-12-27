@@ -29,35 +29,31 @@ function DoctorQuestions() {
             console.log(answers, "from component"); 
         }
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        console.log(AddQuestion);
-        // console.log(e.target.value);
-        // console.log(AddQuestion.question_Id)
-
-        dispatch(createAnswer(answers))
-        window.location = '/questions'
-    }
+        function handleSubmit(e) {
+            e.preventDefault();
+            console.log(AddQuestion);
+            dispatch(createAnswer(answers))
+            window.location = '/questions'
+        }
 
     return (
         <div>
             <h2>Doctor Questions Page</h2>
             {AddQuestion.map((question, index) => (
-                <div key ={index}>
+                <div>
                     
                         <h3>{question.question}</h3>
-                        {/* <li>{question.questionId}</li> */}
-
                         <br />
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={handleSubmit} >
+                        <div key={index} >
                             <textarea rows="3" cols="50" 
                             name={question.questionId} 
-                            key={index} 
-                            value={answers.answer} 
                             id={question.questionId} 
-                            onChange={handleChange} />
+                            value={answers.answer} 
+                            onChange={handleChange}
+                            />
+                            </div>
                             <br/>
-
                             <Button type='submit' variant="info" style={{ width: "8%" }}>Reply</Button>
                         </form><br />
                    
