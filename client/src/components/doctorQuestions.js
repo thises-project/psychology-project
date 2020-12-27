@@ -55,7 +55,7 @@ function DoctorQuestions() {
                 <div key ={index}>
                     <ul >
                         <li>{question.question}</li>
-                        <li>{question.questionId}</li>
+                        {/* <li>{question.questionId}</li> */}
 
                         <br />
                         <form onSubmit={handleSubmit}>
