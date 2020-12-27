@@ -14,6 +14,7 @@ import UpdateDoctor from "./components/updateDoctor"
 import DoctorQuestions from "./components/doctorQuestions"
 import AddQuestion from "./components/askQuestions";
 import PrivateRoute from "./components/privateRoute";
+import UserQuestionAnswers from './components/userQuestionAnswers'
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
 
@@ -42,8 +43,7 @@ function App() {
       <PrivateRoute path="/edit/:id" component={EditUser} currentId={currentId} setCurrentId={setCurrentId}/>
       <PrivateRoute path="/askQuestions" component = {AddQuestion}/>
       <Route path = "/UserQuestionsAnswers/:id" currentId={currentId} setCurrentId={setCurrentId}  component={UserQuestionAnswers}/>
-       
-      
+          {/* doctor private components */}
 
           {/* doctor private components */}
           <Route path="/doctorProfile/:id" exact component={DoctorProfile} />
