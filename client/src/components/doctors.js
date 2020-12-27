@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Footer from "./footer";
-import { Link } from "react-router-dom";
+import { Badge } from "react-bootstrap";
+// import { Link } from "react-router-dom";
 
 const Doctors = (props) => {
   const [doctors, setDoctor] = useState([]);
@@ -18,7 +19,7 @@ const Doctors = (props) => {
   });
 
   return (
-    <div className="container ml-5 mr-5" style={{ textAlign: "left" }}>
+    <div className="container ml-5 mr-5" style={{ textAlign: "left" }} className = "container">
       {doctors.map((doctor) => (
         <div
           className="row"
@@ -28,26 +29,36 @@ const Doctors = (props) => {
           <div className="col pt-3 pb-2">
             <div className="row">
               <div className="col-md-10">
-                <h2>{doctor.doctorName}</h2>
+                <h2>{doctor.doctorName} </h2>
+                <h4>{doctor.doctorSpeciality}</h4>
                 <p className="lead">{doctor.bio}</p>
+                
                 <p>
-                  <span className="badge"> {doctor.email} </span>
-                  <span className="badge">{doctor.password} </span>
+                  
+                
+                  {/* <h4 className="badge">  </h4> */}
+                  {/* <span className="badge">{doctor.password} </span> */}
                 </p>
-                <Link
-                  //'/updateDoctor/:id'
-                  to={`/updateDoctor/${doctor.doctorId}`}
-                  className="btn btn-info "
-                  style={{ marginLeft: "5px" }}
-                >
-                  Edit
-                </Link>
+                <h5><Badge pill variant="secondary">
+                {doctor.email}
+            </Badge></h5>
+             
                 <button
                   className="btn btn-danger "
-                  style={{ marginLeft: "5px" }}
-                  // onClick={() => deleteDoctor(doctor.doctorId)}
+                  style={{
+                    borderWidth:1,
+                    borderColor:'rgba(0,0,0,0.2)',
+                    alignItems:'center',
+                    justifyContent:'center',
+                    width:100,
+                    height:23,
+                    backgroundColor:'blue',
+                    borderRadius:30,
+                    
+                  }}
+                  // to={}
                 >
-                  Delete
+                  Book Appointment
                 </button>
               </div>
             </div>

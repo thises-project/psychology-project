@@ -10,7 +10,7 @@ export const AddQuestions = (questions) => async (dispatch) => {
     catch (error) {
         console.log(error, 'failed')
     }
-}
+};
 
 // Get all question 
 export const GetQuestions = () => async (dispatch) => {
@@ -37,7 +37,7 @@ export const GetAllQuestionsAndAnswers = () => async (dispatch) => {
     catch (error) {
         console.log(error);
     }
-}
+};
 
 // Send The Answer ..
 export const createAnswer = (answers) => async (dispatch) => {
@@ -51,4 +51,7 @@ export const createAnswer = (answers) => async (dispatch) => {
     catch (error) {
         console.log(error, 'failed')
     }
-}
+
+};
+
+

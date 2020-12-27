@@ -1,6 +1,3 @@
-// CREATE ANSWER IS PUSHED FINALY ...
-
-
 import React, { useEffect } from 'react';
 import { useState } from "react";
 import { GetQuestions } from '.././actions/AddQuestion';
@@ -12,30 +9,25 @@ import { Button } from "react-bootstrap";
 // Take the value From Input Field ..
 
 function DoctorQuestions() {
+
     // Get All Questions ..
-    const dispatch = useDispatch();
-    const AddQuestion = useSelector((state) => state.AddQuestions);
+        const dispatch = useDispatch();
+        const AddQuestion = useSelector((state) => state.AddQuestions);
+        useEffect(() => {
+            dispatch(GetQuestions())
+        }, [dispatch]);
 
-    useEffect(() => {
-        dispatch(GetQuestions())
-    }, [dispatch]);
-    // console.log(AddQuestion)
     // Take The Input Value ..
-    const [answers, setAnswer] = useState({
-        answer: '',
-        questionId: ''
-    });
+        const [answers, setAnswer] = useState({
+            answer: '',
+            questionId: ''
+        });
 
-    function handleChange(e) {
-        // const {name, value} = e.target;
-        // setAnswer(answers => ({ ...answers, [name]: value}));
-
-        //Nour
-        setAnswer({ answer : e.target.value ,
-        questionId : e.target.name });
-        console.log(answers, "from component");
-
-    }
+        function handleChange(e) {
+            setAnswer({ answer : e.target.value ,
+            questionId : e.target.name });
+            console.log(answers, "from component"); 
+        }
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -50,26 +42,28 @@ function DoctorQuestions() {
     return (
         <div>
             <h2>Doctor Questions Page</h2>
-
             {AddQuestion.map((question, index) => (
                 <div key ={index}>
-                    <ul >
-                        <li>{question.question}</li>
+                    
+                        <h3>{question.question}</h3>
                         {/* <li>{question.questionId}</li> */}
 
                         <br />
                         <form onSubmit={handleSubmit}>
-                            <textarea rows="4" cols="50" name={question.questionId} key={index} value={answers.answer} onChange={handleChange} />
+                            <textarea rows="3" cols="50" 
+                            name={question.questionId} 
+                            key={index} 
+                            value={answers.answer} 
+                            id={question.questionId} 
+                            onChange={handleChange} />
                             <br/>
 
                             <Button type='submit' variant="info" style={{ width: "8%" }}>Reply</Button>
                         </form><br />
-                    </ul>
+                   
                 </div>
             ))}
-
         </div>
     )
 }
-
 export default DoctorQuestions;

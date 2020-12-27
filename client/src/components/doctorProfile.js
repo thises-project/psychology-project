@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from "react";
 import axios from "axios";
 import Footer from "./footer";
+import { Link } from "react-router-dom";
 
 const DoctorProfile = (props) => {
   const [doctorProfile, setDoctorProfile] = useState({});
@@ -21,27 +22,6 @@ const DoctorProfile = (props) => {
         console.log(err);
       });
   }, [props.match.params.id]);
-
-  // const deleteConfirm = (doctor) => {
-  //   let answer = window.confirm(
-  //     "Are you sure you want to delete this account?"
-  //   );
-  //   if (answer) {
-  //     deleteDoctor(doctor);
-  //   }
-  // };
-
-  // const deleteDoctor = (id) => {
-  //   // console.log('delete', id, ' doctor');
-  //   let url = `http://localhost:5000/doctor/deleteDoctor/${id}`;
-  //   axios
-  //     .delete(url)
-  //     .then((res) => {
-  //       alert(res.data);
-  //       console.log("Doctor Deleted Successfully");
-  //     })
-  //     .catch((err) => alert("Error Deleting this account"));
-  // };
 
   return (
     <div className="container ml-5 mr-5">
@@ -72,10 +52,28 @@ const DoctorProfile = (props) => {
                   <br></br>
                 </p>
               </div>
+         
             </div>
           </div>
         </div>
-        <div className="col mr-5"></div>
+        <div className="col mr-5">
+        <Link
+                  //'/updateDoctor/:id'
+                  to={`/updateDoctor/${props.match.params.id}`}
+                  className="btn btn-info "
+                  style={{ marginLeft: "5px" }}
+                >
+                  Edit
+                </Link>
+        </div>
+        <br/>
+        {/* <button
+                  className="btn btn-danger "
+                  style={{ marginLeft: "5px" }}
+                  // onClick={() => deleteDoctor(doctor.doctorId)}
+                >
+                  Delete
+                </button> */}
       </div>
 
       <Footer />
