@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {updateUser} from '../actions/adduser' 
-import { useDispatch, useSelector}  from 'react-redux';
+import { useDispatch }  from 'react-redux';
 import axios from 'axios'
 export default function EditUser (props, { currentId, setCurrentId }) {
 
@@ -12,7 +12,7 @@ export default function EditUser (props, { currentId, setCurrentId }) {
         password:''
     })
     useEffect(() =>{
-        axios.get('http://localhost:5000/users/getOneUser/'+`${window.localStorage.userId}`)
+        axios.get(`http://localhost:5000/users/getOneUser/+${window.localStorage.userId}`)
         .then(res => {
         //console.log(res.data[0])
            setEditUser(
@@ -38,7 +38,7 @@ export default function EditUser (props, { currentId, setCurrentId }) {
         age: '',
         gender: '',
         email : '',
-        password: '' });
+        password: '' ,});
       };
       function handleChange(e) {
         const { name, value } = e.target;
@@ -46,7 +46,7 @@ export default function EditUser (props, { currentId, setCurrentId }) {
     }
     function editHandleSubmit(e) {
           e.preventDefault();
-             var currentId = `${window.localStorage.userId}`
+             var currentId = window.localStorage.userId
           if(currentId){
               console.log(currentId, "kkkkkkkk")
               dispatch(updateUser(currentId, editUser))

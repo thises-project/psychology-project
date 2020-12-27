@@ -3,7 +3,7 @@ import { Card } from "react-bootstrap";
 
 const Footer = () => {
   return (
-    <div class = "container">
+    <div >
       <div className="row aboutus and contactus">
         <br></br>
         {/* card1 */}

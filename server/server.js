@@ -23,6 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/users", user);
 app.use("/doctor", doctor);
 app.use("/questions", questions);
+
 app.use(function (error, req, res, next) {
   if (error instanceof SyntaxError) {
     //Handle SyntaxError here.
@@ -31,6 +32,7 @@ app.use(function (error, req, res, next) {
     next();
   }
 });
+
 app.get("/", function (req, res) {
   res.send("Home Page");
 });
