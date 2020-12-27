@@ -55,18 +55,3 @@ export const createAnswer = (answers) => async (dispatch) => {
 
 
 
-
-
-// Get all question and answers for one user 
-export const getUserQuestionsAnswers = () => async (dispatch) => {
-    try {
-        // data represent the response 
-        const { data } = await api.getUserQuestionsAnswers();
-            console.log(data)
-        dispatch({ type: 'getUserQuestionsAnswers', payload: data });
-        console.log(data, "from get User Questions Answers");
-    }
-    catch (error) {
-        console.log(error);
-    }
-}
