@@ -52,6 +52,6 @@ export const createAnswer = (answers) => async (dispatch) => {
         console.log(error, 'failed')
     }
 
-};
+
 
 
