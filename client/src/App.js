@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Navbar from './components/navbar.js';
+import Navbar from './components/navbar';
 import { BrowserRouter as Router , Switch, Route } from  "react-router-dom";
 import Doctors from "./components/doctors";
 import Articles from "./components/articles"
