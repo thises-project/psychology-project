@@ -4,8 +4,9 @@ import { useState } from "react";
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { verifyUser } from '../actions/verifyUser';
+import { verifyDoctor } from '../actions/Doctors';
 
-
+var role = false;
 function Login() {
 
     const [inputs, setInputs] = useState({
@@ -31,9 +32,22 @@ function Login() {
         e.preventDefault();
         // console.log(inputs)
         if (validate() === true) {
-            dispatch(verifyUser(inputs))
-
+            if(role === false){
+               dispatch(verifyUser(inputs))
+            }
+           // console.log(window.localStorage.type )
+            else{
+                console.log("ddddddddddddddddddddddddd",inputs)
+                dispatch(verifyDoctor(inputs))
+            }
+  
         }
+    }
+
+    function setRole(e){
+        
+        if(e.target.value === "Doctor")
+           role = true;
     }
 
 
@@ -45,6 +59,7 @@ function Login() {
             usernameError =
                 "your username cannot be blank!";
         }
+       
 
         if (!inputs.password) {
             passwordError =
@@ -63,7 +78,35 @@ function Login() {
     return (
         <div className="col-lg-8 offset-lg-2">
             <h2>Login</h2>
+            <br></br>
+            <br></br>
             <form name="form" onSubmit={handleSubmit}>
+            <label>Your Role </label>
+           <div onChange={setRole}>
+            <div class="form-check form-check-inline" >
+                    <input
+                        class="form-check-input"
+                        type="radio"
+                        name="inlineRadioOptions"
+                        id="inlineRadio1"
+                        value="Doctor"
+                    />
+                    <label class="form-check-label" for="inlineRadio1">Doctor</label>
+             </div>
+
+            <div class="form-check form-check-inline">
+                    <input
+                        class="form-check-input"
+                        type="radio"
+                        name="inlineRadioOptions"
+                        id="inlineRadio2"
+                        value="Patient"
+                    />
+                    <label class="form-check-label" for="inlineRadio2">Patient</label>
+               </div>
+             </div> 
+             <br></br>
+            <br></br>
                 <div className="form-group">
                     <label>Username</label>
                     <input type="text" name="userName" value={userName} onChange={handleChange} className={'form-control' + (submitted && !userName ? ' is-invalid' : '')} />
