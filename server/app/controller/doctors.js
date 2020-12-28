@@ -1,7 +1,67 @@
 const db = require("../Models/database");
 const doctorModel = require("../Models/doctors");
+const bcrypt = require('bcrypt');
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
+
 
 module.exports = {
+
+  AuthDoctor: (req, res) => {
+    console.log("jjjjjjjjjjjjjjj")
+
+    const token = req.body.accessToken;
+
+    if (!token)
+      res.status(400).send("we need a token");
+    else {
+      console.log("auth", token)
+      jwt.verify(token, `${process.env.JWT_KEY}`, (err, user) => {
+        if (err) res.status(400).send("you failed to authenticate")
+        // console.log(user)
+        req.userId = user;
+        res.send(token);
+        // res.json({auth:true,  accessToken: accessToken , result:"you are Authenticated"});
+        //next()
+      })
+    }
+
+    //res.status(200).send("you are Authenticated");
+  },
+
+  verifyDoctor: async (req, res) => {
+
+    var params = [req.body.userName, req.body.password];
+    var password = req.body.password;
+    var doctorName = req.body.userName;
+    
+    console.log(password, doctorName, " verifyyyyyyyyyyyyyyyyyyy")
+   
+    doctorModel.verifyDoctorModel(params, async function (err, results) {
+      
+      if (results.length > 0) {
+        console.log(results[0].password, "comparrrrrrrrrrrrre",password)
+        
+         var id = results[0].doctorId
+       
+        const validpassword = await bcrypt.compare(password, results[0].password);
+        console.log(validpassword, "vaaaaaaaaaaaaaaaaaaaaaaaaaalid")
+        if (!validpassword) return res.status(400).send("Password not correct");
+        const accessToken = jwt.sign({ doctorName: doctorName }, `${process.env.JWT_KEY}`);
+        console.log("toooooooooooooooooooooooken..........", accessToken);
+        
+        res.json({ doctorId: id, doctorName: doctorName, accessToken: accessToken});
+        }
+      else {
+        res.send("User doesn't exist");
+     }
+    })
+    
+  },
+
+
+
+
   getAllDoctors: (req, res) => {
     doctorModel.getAllDoctors(function (err, results) {
       if (err) {
@@ -10,6 +70,7 @@ module.exports = {
       res.json(results);
     });
   },
+
   getOneDoctor: (req, res) => {
     var params = [req.params.id];
     doctorModel.getOneDoctor(params, function (err, result) {
@@ -19,13 +80,27 @@ module.exports = {
       res.json(result);
     });
   },
-  updateDoctor: (req, res) => {
+
+  updateDoctor: async (req, res) => {
+  
+
+    console.log(req.body.cpassword, "Current password", req.body.password)
+    var hashed ="";
+    const validpassword = await bcrypt.compare(req.body.cpassword, req.body.password);
+    console.log(validpassword, "vaaaaaaaaaaaaaaaaaaaaaaalllidddd")
+    if(validpassword){
+      
+      hashed = await bcrypt.hash(req.body.cpassword, 10);
+    }else{
+      hashed = await bcrypt.hash(req.body.password, 10);
+    }
+
     var params = [
       req.body.doctorName,
       req.body.doctorSpeciality,
       req.body.bio,
       req.body.email,
-      req.body.password,
+      hashed,
       req.body.image,
       req.params.id,
     ];
@@ -36,6 +111,7 @@ module.exports = {
       res.sendStatus(200);
     });
   },
+
   deleteDoctor: (req, res) => {
     var params = [req.params.id];
     doctorModel.deleteDoctor(params, function (err, result) {
