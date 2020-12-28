@@ -51,7 +51,7 @@ function DoctorQuestions() {
                             // type ="text"
                             name={question.questionId} 
                             // id={index} 
-                            value ={answers.answer.key }
+                            value ={answers.answer.key}
                             onChange={handleChange}
                             />
                             </div>
