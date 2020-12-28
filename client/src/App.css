@@ -50,3 +50,12 @@
       transform: translateY(0px);
     }
   }
+
+  input[name="rating"]{
+    display: none;
+  }
+
+  /* .star{
+    cursor: 
+    transition: color 100ms;
+  } */
