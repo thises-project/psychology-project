@@ -7,7 +7,7 @@ const DoctorProfile = (props) => {
   const [doctorProfile, setDoctorProfile] = useState({});
   useEffect(() => {
     axios
-      .get("http://localhost:5000/doctor/getOneDoctor/" + props.match.params.id)
+      .get("http://localhost:5000/doctor/getOneDoctor/" + `${window.localStorage.doctorId}`)
       .then((res) => {
         // console.log(res.data[0]);
         setDoctorProfile({
@@ -21,7 +21,7 @@ const DoctorProfile = (props) => {
       .catch((err) => {
         console.log(err);
       });
-  }, [props.match.params.id]);
+  }, [window.localStorage.doctorId]);
 
   return (
     <div className="container ml-5 mr-5">
@@ -59,7 +59,7 @@ const DoctorProfile = (props) => {
         <div className="col mr-5">
         <Link
                   //'/updateDoctor/:id'
-                  to={`/updateDoctor/${props.match.params.id}`}
+                  to={`/updateDoctor/${window.localStorage.doctorId}`}
                   className="btn btn-info "
                   style={{ marginLeft: "5px" }}
                 >

@@ -57,13 +57,13 @@ function Navbar() {
             >
               <li className="nav-item">SignUp</li>
             </Link> */}
-              <Link
+              {/* <Link
                 to="/doctorProfile"
                 className="nav-link  ml-3 mr-3"
                 style={{ fontSize: "16px" }}
               >
                 <li className="nav-item">Doctor Profile</li>
-              </Link>
+              </Link> */}
             </ul>
           </div>
 
@@ -103,6 +103,13 @@ function Navbar() {
               >
                 <li className="nav-item">Articles</li>
               </Link>
+              <Link
+                to="/askQuestions"
+                className="nav-link  ml-3 mr-3"
+                style={{ fontSize: "16px" }}
+              >
+                <li className="nav-item">Get Free Counseling Now</li>
+              </Link>
 
               <Link
                 to="/logout"
@@ -118,13 +125,13 @@ function Navbar() {
             >
               <li className="nav-item">SignUp</li>
             </Link> */}
-              <Link
+              {/* <Link
                 to="/doctorProfile"
                 className="nav-link  ml-3 mr-3"
                 style={{ fontSize: "16px" }}
               >
                 <li className="nav-item">Doctor Profile</li>
-              </Link>
+              </Link> */}
             </ul>
           </div>
         }

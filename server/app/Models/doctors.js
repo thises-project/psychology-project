@@ -1,6 +1,20 @@
 const db = require("./database")
 
 module.exports = {
+
+
+
+    verifyDoctorModel :(params, callback)=>{
+        console.log("i am a doctor modellllllllllllllllllllllll")
+        var queryStr = `SELECT * FROM doctors WHERE doctorName = ? `;
+        db.query(queryStr , params, function(err , result){
+            console.log("it entered" ,result)
+            callback(err,result)
+        })
+    },
+
+
+
     getAllDoctors:(callback)=>{
          var queryStr ="SELECT * From doctors";
          db.query(queryStr , function(err , results){
