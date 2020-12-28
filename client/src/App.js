@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Navbar from './components/navbar';
+import Navbar from './components/navbar.js';
 import { BrowserRouter as Router , Switch, Route } from  "react-router-dom";
 import Doctors from "./components/doctors";
 import Articles from "./components/articles"
@@ -14,6 +14,7 @@ import UpdateDoctor from "./components/updateDoctor"
 import DoctorQuestions from "./components/doctorQuestions"
 import AddQuestion from "./components/askQuestions";
 import PrivateRoute from "./components/privateRoute";
+import UserQuestionAnswers from './components/userQuestionAnswers'
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
 
@@ -38,9 +39,11 @@ function App() {
             
           {/* user private components */}
 
-          <PrivateRoute path="/userPro" component={UserProfile} currentId={currentId} setCurrentId={setCurrentId}/>
-          <PrivateRoute path="/edit/:id" component={EditUser} currentId={currentId} setCurrentId={setCurrentId}/>
-          <PrivateRoute path="/askQuestions" component = {AddQuestion}/>
+      <PrivateRoute path="/userPro" component={UserProfile} currentId={currentId} setCurrentId={setCurrentId}/>
+      <PrivateRoute path="/edit/:id" component={EditUser} currentId={currentId} setCurrentId={setCurrentId}/>
+      <PrivateRoute path="/askQuestions" component = {AddQuestion}/>
+      <Route path = "/UserQuestionsAnswers/:id" currentId={currentId} setCurrentId={setCurrentId}  component={UserQuestionAnswers}/>
+          {/* doctor private components */}
 
           {/* doctor private components */}
           <Route path="/doctorProfile/:id" exact component={DoctorProfile} />

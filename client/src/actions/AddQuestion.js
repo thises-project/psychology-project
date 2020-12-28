@@ -5,7 +5,7 @@ export const AddQuestions = (questions) => async (dispatch) => {
     try {
         const { data } = await api.AddQuestions(questions);
         dispatch({ type: 'AddQuestions', payload: data })
-
+        console.log(questions);
     }
     catch (error) {
         console.log(error, 'failed')
@@ -42,14 +42,16 @@ export const GetAllQuestionsAndAnswers = () => async (dispatch) => {
 // Send The Answer ..
 export const createAnswer = (answers) => async (dispatch) => {
     try {
+        console.log(answers);
         const { data } = await api.createAnswer(answers);
         dispatch({ type: 'CreateAnswer', payload: data })
+        // console.log(data,"from action");
 
     }
     catch (error) {
         console.log(error, 'failed')
     }
+}
 
-};
 
 

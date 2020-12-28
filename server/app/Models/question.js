@@ -5,7 +5,7 @@ const db = require('./database')
 module.exports= {
     //Create Questions ..
     createQuestions:(params,callback)=>{
-        var queryStr = `INSERT INTO questions ( question , user_Id ) VALUES (?,?)`;
+        var queryStr = `INSERT INTO questions ( question ,user_Id) VALUES (?,?)`;
         db.query(queryStr,params,function(err,result){ 
             callback(err,result)
         })
@@ -18,8 +18,7 @@ module.exports= {
         db.query(query,function(err,results){
             callback(err,results)
         })
-    }
-    ,
+    },
   
     // Get All Questions ..
     getAllQuestions:(callback) => {
@@ -31,7 +30,7 @@ module.exports= {
 
     //Create Answer ..
     createAnswer: (params, callback) => {
-        var query = `INSERT INTO answers (answer ,question_Id) VALUES (?,?)`;
+        var query = `INSERT INTO answers (answer,question_Id) VALUES (?,?)`;
         db.query(query, params, function (err, result) {
             callback(err, result)
         })
@@ -43,6 +42,5 @@ module.exports= {
         db.query(query,params ,function(err,results){
             callback(err,results)
         })
-    },
-    
+    }
 }

@@ -5,10 +5,10 @@ export const Adduser = (user) => async (dispatch)=>{
         console.log('success user :' , user)
       const {data} = await api.Adduser(user);
       
-      console.log('returnnnnnnn', data)
+      console.log('returnnnnnnn', data) 
+      window.localStorage.setItem("type", data.type);
       dispatch({type :'Adduser' , payload: data})
-
-        
+     
     }
     catch(error){
         console.log('failed')
