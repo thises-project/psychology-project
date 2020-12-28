@@ -5,9 +5,6 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 
-
-
-
 // call back function 
 module.exports =  {
 
@@ -25,9 +22,9 @@ module.exports =  {
    createUser: async (req, res) => {
     console.log("hiiiiiiiiiiiiii")
     //console.log(req.body.userName);
-  
+    var type = "user";
     //console.log(params);
-    const salt = await bcrypt.genSalt();
+    //const salt = await bcrypt.genSalt();
     //console.log('helllloooooooooooooooooo' , salt)
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
    // console.log(hashedPassword)
@@ -37,7 +34,7 @@ module.exports =  {
       if (err) console.log("you are have an error in controller", err)
 
       // res.sendStatus(200)
-      res.send(results)
+      res.send({ type:type});
 
     })
   },
@@ -70,6 +67,8 @@ module.exports =  {
     var params = [req.body.userName, req.body.password];
     var password = req.body.password;
     var username = req.body.userName;
+   
+   // var t = JSON.stringify({type:type});
     // console.log("hello",req.body)
     // console.log(password, username, " verifyyyyyyyyyyyyyyyyyyy")
 
@@ -83,8 +82,8 @@ module.exports =  {
         if (!validpassword) return res.status(400).send("Password not correct");
         const accessToken = jwt.sign({ username: username }, `${process.env.JWT_KEY}`);
         console.log("toooooooooooooooooooooooken ..........", accessToken);
-         var type = "user"
-        res.json({ userId: id, username: username, accessToken: accessToken, type : type });
+         
+        res.json({ userId: id, username: username, accessToken: accessToken});
 
       }
       else {
@@ -106,8 +105,14 @@ module.exports =  {
 /////////////////////////////////////////////////////////////////////////////////
 updateUser:  async (req, res) => {
    
-  
-  var hashed = await bcrypt.hash(req.body.password, 10);
+  console.log(req.body.cpassword, "Current password")
+   var hashed ="";
+   const validpassword = await bcrypt.compare(req.body.cpassword, req.body.password);
+   if(validpassword){
+     hashed = await bcrypt.hash(req.body.cpassword, 10);
+   }else{
+     hashed = await bcrypt.hash(req.body.password, 10);
+   }
 
   var params = [
     req.body.userName, 
