@@ -39,8 +39,24 @@ export default function EditUser (props, { currentId, setCurrentId }) {
                 gender: '',
                 email : '',
                 password: '',
-                cpassword: '' });
+                cpassword: '',
+               // passwordError:'' 
+            });
       };
+
+    //   function validate() {
+    //     let passwordError = "";
+    //     if (!editUser.password) {
+    //         passwordError =
+    //             "your password cannot be blank!";
+    //     }
+    //     if ( passwordError) {
+    //         setEditUser({ passwordError });
+    //         return false;
+    //     }
+    //     return true;
+    //   };
+
 
       function handlePassword(e) {
         const { name, value } = e.target;
