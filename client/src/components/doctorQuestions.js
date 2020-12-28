@@ -49,11 +49,7 @@ function DoctorQuestions() {
                         <form onSubmit={handleSubmit} >
                         <div key = {index}> 
                             <textarea rows="3" cols="50" 
-                            // key={question.id}
-                            // data-id={index}
-                            // type ="text"
                             name={question.questionId} 
-                            // id={index} 
                             value ={answers.answer.key}
                             onChange={handleChange}
                             />
