@@ -3,6 +3,11 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { deleteUser } from '../actions/adduser'
+
+
+
+
+
  function UserProfile(props, setCurrentId ){
    //console.log(props)
    const dispatch = useDispatch()

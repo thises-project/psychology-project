@@ -47,7 +47,10 @@ function Signup() {
       ageError =
         "your age cannot be blank, please write your true age!";
     }
-    
+    if (!user.gender) {
+      genderError =
+        "your gender cannot be blank, please write your gender(Male/Female)!";
+    }
     
     if (!user.email) {
       emailError =

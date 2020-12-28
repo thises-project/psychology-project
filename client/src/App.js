@@ -46,9 +46,9 @@ function App() {
           {/* doctor private components */}
 
           {/* doctor private components */}
-          <Route path="/doctorProfile/:id" exact component={DoctorProfile} />
-          <Route path="/updateDoctor/:id" component={UpdateDoctor} />
-          <Route path="/doctorQuestions" component={DoctorQuestions} />
+          <PrivateRoute path="/doctorProfile/:id" exact component={DoctorProfile} currentId={currentId} setCurrentId={setCurrentId}/>
+          <PrivateRoute path="/updateDoctor/:id" component={UpdateDoctor} currentId={currentId} setCurrentId={setCurrentId} />
+          <PrivateRoute path="/doctorQuestions" component={DoctorQuestions} currentId={currentId} setCurrentId={setCurrentId}/>
           
           </Switch>
       </div>
