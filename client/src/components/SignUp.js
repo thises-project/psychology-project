@@ -169,8 +169,8 @@ function Signup() {
           </button>
           {/* <Link to="/login" className="btn btn-link">Cancel</Link> */}
         </div>
-      </form >
-    </div >
+      </form>
+    </div>
   );
 }
 export default Signup;
