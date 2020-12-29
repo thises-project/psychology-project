@@ -17,11 +17,52 @@ const RateDoctor = () => {
       });
   });
 
-  //
+  return (
+    <div
+      className="container pb-5"
+      style={{ width: "50%", alignSelf: "center" }}
+    >
+      <br />
+      <h1> RATE DOCTOR FORM</h1>
 
-  //
+      <br />
 
-  return <StarRating />;
+      <div className=" container">
+        <form className="ratingForm ">
+          <label className=" ml-2 mr-2">Doctor Name: </label>
+
+          <select name="doctors" id="doctors">
+            {doctors.map((doctor) => (
+              <option value={doctor.doctorName}>{doctor.doctorName}</option>
+            ))}
+          </select>
+
+          <br />
+
+          <br />
+          <StarRating />
+          <br />
+          <button
+            className="btn btn-danger "
+            style={{
+              borderWidth: 1,
+              borderColor: "rgba(0,0,0,0.2)",
+              alignItems: "center",
+              justifyContent: "center",
+              width: 50,
+              height: 23,
+              backgroundColor: "grey",
+              borderRadius: 30,
+            }}
+          >
+            Submit
+          </button>
+          <br />
+          <br />
+        </form>
+      </div>
+    </div>
+  );
 };
 
 export default RateDoctor;
