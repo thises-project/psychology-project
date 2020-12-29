@@ -7,7 +7,7 @@ const DoctorProfile = (props) => {
   const [doctorProfile, setDoctorProfile] = useState({});
   useEffect(() => {
     axios
-      .get("http://localhost:5000/doctor/getOneDoctor/" + `${window.localStorage.doctorId}`)
+      .get(`http://localhost:5000/doctor/getOneDoctor/ + ${window.localStorage.doctorId}`)
       .then((res) => {
         // console.log(res.data[0]);
         setDoctorProfile({
@@ -21,6 +21,7 @@ const DoctorProfile = (props) => {
       .catch((err) => {
         console.log(err);
       });
+      // eslint-disable-next-line 
   }, [window.localStorage.doctorId]);
 
   return (

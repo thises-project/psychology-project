@@ -16,7 +16,7 @@ const UpdateDoctor = (props) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/doctor/getOneDoctor/" +`${window.localStorage.doctorId}`)
+      .get(`http://localhost:5000/doctor/getOneDoctor/ +${window.localStorage.doctorId}`)
       .then((res) => {
         // console.log(res.data[0]);
         setState({
@@ -73,27 +73,6 @@ const UpdateDoctor = (props) => {
       });
   };
 
-  // const handleSubmit = function (event) {
-  //   event.preventDefault();
-  //   axios
-  //     .post(
-  //       "http://localhost:5000/doctor/updateDoctor/" + props.match.params.id
-  //     )
-  //     .then((res) => {
-  //       // console.log(res.data[0]);
-  //       setState({
-  //         doctorId: res.data[0].doctotrId,
-  //         doctorName: res.data[0].doctorName,
-  //         doctorSpeciality: res.data[0].doctorSpeciality,
-  //         bio: res.data[0].bio,
-  //         email: res.data[0].email,
-  //         password: res.data[0].password,
-  //       });
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
 
   const showUpdateForm = () => (
     <form onSubmit={handleSubmit}>

@@ -19,6 +19,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
 
 
+import RateDoctor from "./components/rateDoctor"
+
+
 function App() {
 
   const [currentId, setCurrentId] = useState(null);
@@ -49,6 +52,7 @@ function App() {
           <Route path="/doctorProfile/:id" exact component={DoctorProfile} />
           <Route path="/updateDoctor/:id" component={UpdateDoctor} />
           <Route path="/doctorQuestions" component={DoctorQuestions} />
+          <Route path="/rateDoctor" component={RateDoctor} />
           
           </Switch>
       </div>
