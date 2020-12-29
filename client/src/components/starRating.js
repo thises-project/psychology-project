@@ -17,9 +17,7 @@ const StarRating = () => {
       })
       .catch((err) => {
         alert("Error fetching doctors List!");
-      })
-
-      .post("http://localhost:5000/doctor/postRating");
+      });
   });
 
   return (
