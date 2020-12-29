@@ -17,6 +17,7 @@ import PrivateRoute from "./components/privateRoute";
 import UserQuestionAnswers from './components/userQuestionAnswers'
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
+import VideoCall from './components/videoCall';
 
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
           <Route path="/questions" component={Questions}/>
           <Route path="/login" component={Login}/>
           <Route path="/signup" component={Signup}/>
-            
+          <Route path="/video" component={VideoCall}/> 
           {/* user private components */}
 
       <PrivateRoute path="/userPro" component={UserProfile} currentId={currentId} setCurrentId={setCurrentId}/>

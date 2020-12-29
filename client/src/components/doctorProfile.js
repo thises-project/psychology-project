@@ -75,6 +75,11 @@ const DoctorProfile = (props) => {
                   Delete
                 </button> */}
       </div>
+      <br />
+        <br />
+        <div>
+        <Link type="button" className="btn btn-info btn-rounded" to={'/video'}>Start Meeting</Link>
+        </div>
 
       <Footer />
     </div>
