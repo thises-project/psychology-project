@@ -16,12 +16,8 @@ import AddQuestion from "./components/askQuestions";
 import PrivateRoute from "./components/privateRoute";
 import UserQuestionAnswers from "./components/userQuestionAnswers";
 import "bootstrap/dist/css/bootstrap.min.css";
-<<<<<<< HEAD
-import "./App.css";
-=======
 import './App.css';
 import VideoCall from './components/videoCall';
->>>>>>> 17f3cde8efa8d74979ec2f301152023d94438f01
 
 import RateDoctor from "./components/rateDoctor";
 
