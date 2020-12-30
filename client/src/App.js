@@ -28,7 +28,7 @@ function App() {
       <Navbar />
       <Switch>
         {/* public components  */}
-      <Route path="/" exact component={Home}/>
+      {/* <Route path="/" exact component={Home}/> */}
       <Route path="/HomePage" exact component={Home} />
       <Route path="/doctors" component={Doctors}/>
       <Route path="/articles" component={Articles}/>
