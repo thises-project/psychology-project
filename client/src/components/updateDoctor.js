@@ -36,14 +36,14 @@ const UpdateDoctor = (props) => {
 
 
   const handleChange = (name) => (event) => {
-    // console.log('name', name, 'event', event.target.value);
+    
     setState({ ...state, [name]: event.target.value });
     console.log(state.cpassword)
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // console.table({ itemName, itemDescription,itemPrice, user });
+    
     axios
       .put(
         "http://localhost:5000/doctor/updateDoctor/" + `${window.localStorage.doctorId}`,
@@ -73,41 +73,11 @@ const UpdateDoctor = (props) => {
       });
   };
 
-  // const handleSubmit = function (event) {
-  //   event.preventDefault();
-  //   axios
-  //     .post(
-  //       "http://localhost:5000/doctor/updateDoctor/" + props.match.params.id
-  //     )
-  //     .then((res) => {
-  //       // console.log(res.data[0]);
-  //       setState({
-  //         doctorId: res.data[0].doctotrId,
-  //         doctorName: res.data[0].doctorName,
-  //         doctorSpeciality: res.data[0].doctorSpeciality,
-  //         bio: res.data[0].bio,
-  //         email: res.data[0].email,
-  //         password: res.data[0].password,
-  //       });
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
+ 
 
   const showUpdateForm = () => (
     <form onSubmit={handleSubmit}>
-      {/* <div className="form-group">
-        <label className="text-muted">Doctor ID</label>
-        <input
-          onChange={handleChange("doctorId")}
-          value={doctorId}
-          type="number"
-          className="form-control"
-          placeholder="doctorId"
-          required
-        />
-      </div> */}
+     
 
       <div className="form-group">
         <label className="text-muted">Please Enter Your Current Password before updating your Information</label>

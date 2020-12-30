@@ -28,6 +28,9 @@ import { deleteUser } from '../actions/adduser'
             console.log(err)
         })
      }, [window.localStorage.userId])
+
+    
+
     return (
         <div className="col-md-8">
         <div className="card mb-3">
