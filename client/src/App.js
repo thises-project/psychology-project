@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import Navbar from "./components/navbar.js";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React, { useState } from 'react';
+import Navbar from './components/navbar';
+import { BrowserRouter as Router , Switch, Route } from  "react-router-dom";
 import Doctors from "./components/doctors";
 import Articles from "./components/articles";
 import Questions from "./components/questions";
@@ -16,7 +16,12 @@ import AddQuestion from "./components/askQuestions";
 import PrivateRoute from "./components/privateRoute";
 import UserQuestionAnswers from "./components/userQuestionAnswers";
 import "bootstrap/dist/css/bootstrap.min.css";
+<<<<<<< HEAD
 import "./App.css";
+=======
+import './App.css';
+import VideoCall from './components/videoCall';
+>>>>>>> 17f3cde8efa8d74979ec2f301152023d94438f01
 
 import RateDoctor from "./components/rateDoctor";
 
@@ -31,12 +36,21 @@ function App() {
           {/* public components  */}
           <Route path="/" exact component={Home} />
           <Route path="/HomePage" exact component={Home} />
+<<<<<<< HEAD
           <Route path="/doctors" component={Doctors} />
           <Route path="/articles" component={Articles} />
           <Route path="/questions" component={Questions} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
 
+=======
+          <Route path="/doctors" component={Doctors}/>
+          <Route path="/articles" component={Articles}/>
+          <Route path="/questions" component={Questions}/>
+          <Route path="/login" component={Login}/>
+          <Route path="/signup" component={Signup}/>
+          <Route path="/video" component={VideoCall}/> 
+>>>>>>> 17f3cde8efa8d74979ec2f301152023d94438f01
           {/* user private components */}
 
           <PrivateRoute
@@ -61,11 +75,19 @@ function App() {
           {/* doctor private components */}
 
           {/* doctor private components */}
+<<<<<<< HEAD
           <Route path="/doctorProfile/:id" exact component={DoctorProfile} />
           <Route path="/updateDoctor/:id" component={UpdateDoctor} />
           <Route path="/doctorQuestions" component={DoctorQuestions} />
           <Route path="/rateDoctor" component={RateDoctor} />
         </Switch>
+=======
+          <PrivateRoute path="/doctorProfile/:id" exact component={DoctorProfile} currentId={currentId} setCurrentId={setCurrentId}/>
+          <PrivateRoute path="/updateDoctor/:id" component={UpdateDoctor} currentId={currentId} setCurrentId={setCurrentId} />
+          <PrivateRoute path="/doctorQuestions" component={DoctorQuestions} currentId={currentId} setCurrentId={setCurrentId}/>
+          
+          </Switch>
+>>>>>>> 17f3cde8efa8d74979ec2f301152023d94438f01
       </div>
     </Router>
   );
