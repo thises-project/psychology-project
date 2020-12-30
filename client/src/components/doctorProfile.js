@@ -7,7 +7,9 @@ const DoctorProfile = (props) => {
   const [doctorProfile, setDoctorProfile] = useState({});
   useEffect(() => {
     axios
-      .get("http://localhost:5000/doctor/getOneDoctor/" + `${window.localStorage.doctorId}`)
+      .get(
+        `http://localhost:5000/doctor/getOneDoctor/ + ${window.localStorage.doctorId}`
+      )
       .then((res) => {
         // console.log(res.data[0]);
         setDoctorProfile({
@@ -21,6 +23,7 @@ const DoctorProfile = (props) => {
       .catch((err) => {
         console.log(err);
       });
+    // eslint-disable-next-line
   }, [window.localStorage.doctorId]);
 
   return (
@@ -52,21 +55,20 @@ const DoctorProfile = (props) => {
                   <br></br>
                 </p>
               </div>
-         
             </div>
           </div>
         </div>
         <div className="col mr-5">
-        <Link
-                  //'/updateDoctor/:id'
-                  to={`/updateDoctor/${window.localStorage.doctorId}`}
-                  className="btn btn-info "
-                  style={{ marginLeft: "5px" }}
-                >
-                  Edit
-                </Link>
+          <Link
+            //'/updateDoctor/:id'
+            to={`/updateDoctor/${window.localStorage.doctorId}`}
+            className="btn btn-info "
+            style={{ marginLeft: "5px" }}
+          >
+            Edit
+          </Link>
         </div>
-        <br/>
+        <br />
         {/* <button
                   className="btn btn-danger "
                   style={{ marginLeft: "5px" }}

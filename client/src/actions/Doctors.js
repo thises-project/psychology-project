@@ -12,7 +12,7 @@ export const verifyDoctor = (user) => async (dispatch)=>{
 
       dispatch(AuthDoctor(data))
 
-      window.location = "/doctorProfile/" + `${window.localStorage.doctorId}`;
+      window.location = `/doctorProfile/ + ${window.localStorage.doctorId}`;
     }
     catch(error){
         console.log('failed')
