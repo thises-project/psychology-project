@@ -4,7 +4,8 @@ const cors = require("cors");
 const app = express();
 const http = require("http");
 const server = http.createServer(app);
-
+const socket = require("socket.io");
+const io = socket(server);
 
 const connection = require("./app/Models/database");
 // require user the route
@@ -15,8 +16,7 @@ const doctor = require("./app/routes/doctor");
 // require the question route
 const questions = require("./app/routes/questions.js");
 
-const socket = require("socket.io");
-const io = socket(server);
+
 
 app.use(cors());
 // set the port
@@ -42,13 +42,15 @@ app.use(function (error, req, res, next) {
 app.get("/", function (req, res) {
   res.send("Home Page");
 });
-app.listen(port, () => {
-  console.log(`Server is Running in port:http://localhost:${port}`);
-});
+
+// app.get("/hh", function (req, res) {
+//   res.render("room", {roomId: req.params.room});
+// });
+
 
 const peers = {};
 
-io.on('connection', socket => {  //
+io.on('connection', socket => {  // listen to 'connection' event comes from the client
   if(!peers[socket.id]) {
     peers[socket.id] = socket.id
   }
@@ -69,4 +71,8 @@ socket.on('acceptCall', (data) => {
   io.to(data.to).emit('callAccepted', data.signal)
 })
 
+});
+
+server.listen(port, () => {
+  console.log(`Server is Running in port:http://localhost:${port}`);
 });

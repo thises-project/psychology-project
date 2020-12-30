@@ -47,7 +47,7 @@ function VideoCall () {
         socket.current.on("yourID", (id) => {
             setYourID(id);
         })
-        socket.current.on("allPeers", (peers) => {
+        socket.current.on("allUsers", (peers) => {
             setPeers(peers)
         })
         socket.current.on("hello", (data) => {
