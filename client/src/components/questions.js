@@ -15,7 +15,18 @@ console.log(questionAndAnswersList)
 
 useEffect(()=>{
         dispatch(GetAllQuestionsAndAnswers())
-        },[dispatch])
+        },[dispatch]);
+
+        
+onSearch = e => {
+    const {questionAndAnswersList} = this.state
+    const search = e.target.value
+    if(search.length > 0){
+        const filterQuestions = questionAndAnswersList.filter(Question => Question.question.includes(search))
+        
+
+    }
+}        
     return (
         <div className = "containe"
 

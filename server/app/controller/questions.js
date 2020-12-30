@@ -47,9 +47,9 @@ module.exports =  {
     },
       // Create Answer ..  
   createAnswer: (req, res) => {
-    var params = [req.body.answer, req.body.questionId];
+    var params = [req.body.answer, req.body.questionId, req.body.doctorId];
 
-    console.log(req.body.answer, req.body.questionId, "createAnswer")
+    console.log(req.body.answer, req.body.questionId, req.body.doctorId, "createAnswer")
     questionsModel.createAnswer(params, function (err, results) {
       if (err) { console.log("you are have an error in questions controller in createAnswer", err) }
       res.json(results);

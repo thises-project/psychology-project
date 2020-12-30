@@ -22,7 +22,7 @@ module.exports= {
   
     // Get All Questions ..
     getAllQuestions:(callback) => {
-        var query = `SELECT * FROM questions`;
+        var query = `SELECT  question , questionId FROM questions LEFT JOIN answers ON questions.questionId = answers.question_Id WHERE answers.question_Id IS NULL`;
         db.query(query,function(err,result){
             callback(err,result)
         })
@@ -30,7 +30,7 @@ module.exports= {
 
     //Create Answer ..
     createAnswer: (params, callback) => {
-        var query = `INSERT INTO answers (answer,question_Id) VALUES (?,?)`;
+        var query = `INSERT INTO answers (answer,question_Id,doctor_Id) VALUES (?,?,?)`;
         db.query(query, params, function (err, result) {
             callback(err, result)
         })
