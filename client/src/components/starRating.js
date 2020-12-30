@@ -32,6 +32,16 @@ const StarRating = () => {
             <option value={doctor.doctorName}>{doctor.doctorName}</option>
           ))}
         </select>
+        <div>
+          {/* {doctors.map((doctor) => (
+            <div value={doctor.doctorId}>
+              <h4>
+                {doctor.doctorName} ratingSum: {doctor.ratingSum} ratingCount:{" "}
+                {doctor.ratingCount}
+              </h4>
+            </div>
+          ))} */}
+        </div>
 
         <br />
         <br />
