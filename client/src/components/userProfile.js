@@ -8,7 +8,7 @@ import { deleteUser } from '../actions/adduser'
    const dispatch = useDispatch()
       const [user, setUser] = useState({})
      useEffect(() =>{
-        axios.get(`${window.location.hostname}:5000/users/getOneUser/+${window.localStorage.userId}`)
+        axios.get(`${window.location.hostname}/users/getOneUser/+${window.localStorage.userId}`)
         .then(res => {
         //console.log(res.data[0])
            setUser(

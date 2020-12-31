@@ -8,7 +8,7 @@ const Doctors = (props) => {
   const [doctors, setDoctor] = useState([]);
   useEffect(() => {
     axios
-      .get(`${window.location.hostname}:5000/doctor/getAllDoctors`)
+      .get(`${window.location.hostname}/doctor/getAllDoctors`)
       .then((res) => {
         // console.log("HIIIIIII");
         setDoctor(res.data);

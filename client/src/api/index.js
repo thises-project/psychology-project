@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = `${window.location.hostname}:5000`;
+const url = `${window.location.hostname}`;
 
 
 export  const Adduser = (user) => axios.post(url+'/users/createUser', user);
