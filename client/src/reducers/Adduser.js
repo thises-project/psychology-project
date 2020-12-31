@@ -21,7 +21,8 @@ export default (state = [], action)=> {
        case 'DELETE':
                     
                return state.filter((user) => user.userId !== action.payload )
-       default:
+      
+        default:
               return 0;
        }
    }

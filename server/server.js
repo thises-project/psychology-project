@@ -12,6 +12,10 @@ const doctor = require("./app/routes/doctor");
 // require the question route
 const questions = require("./app/routes/questions.js");
 
+// require the schedule route 
+const schedule = require("./app/routes/schedule")
+const appointement = require('./app/routes/appointment')
+
 app.use(cors());
 // set the port
 const port = process.env.PORT || 5000;
@@ -24,6 +28,8 @@ app.use("/users", user);
 app.use("/doctor", doctor);
 app.use("/questions", questions);
 
+app.use("/schedule" , schedule);
+app.use('/appointment' , appointement)
 app.use(function (error, req, res, next) {
   if (error instanceof SyntaxError) {
     //Handle SyntaxError here.
