@@ -15,21 +15,17 @@ const DoctorProfile = (props) => {
     axios
       .get("http://localhost:5000/doctor/getOneDoctor/" + `${window.localStorage.doctorId}`)
       .then((res) => {
-        // console.log(res.data[0]);
+         console.log(res.data[0], " kkkkkkkkkkkkkkkkkkkkk");
         setDoctorProfile({
           doctorName: res.data[0].doctorName,
           doctorSpeciality: res.data[0].doctorSpeciality,
           bio: res.data[0].bio,
           email: res.data[0].email,
           password: res.data[0].password,
-          
-        });
-        setUrl({
-          url: url,
-         
+          url : res.data[0].image,
         });
        
-        console.log(url,"hiiiiiiiiii")
+        //console.log(url,"hiiiiiiiiii")
       })
       .catch((err) => {
         console.log(err);
@@ -61,16 +57,16 @@ function handleUpload() {
               .child(image.name)
               .getDownloadURL()
               .then((url) => {
-                
-                axios.put("http://localhost:5000/doctor/postOneDoctorImage/" + `${window.localStorage.doctorId}`,url)
+                setUrl(url)
+                axios.put("http://localhost:5000/doctor/postOneDoctorImage/" + `${window.localStorage.doctorId}`,{url})
                 .then((res) => {
                  // const { url} = res.data;
                    console.log(res.config.data, " this is a res from post image");
                    const { url } = res.config.data;
                    // empty state
-                   setUrl(
-                      res.config.data,
-                   );
+                  //  setUrl(
+                  //     {url : res.config.data,}
+                  //  );
                
                 })
                 .catch((err) => {
@@ -103,9 +99,9 @@ function handleUpload() {
                     <span class="badge bg-primary">{doctorProfile.email}</span>
                   </h4>
                   <br></br>
-                  <div>
+                  {/* <div>
                   <img src={url} alt="My Profile Image"/>
-                  </div>
+                  </div> */}
                 </p>
               </div>
          
@@ -127,10 +123,10 @@ function handleUpload() {
               <br></br>
               <button onClick={handleUpload}>Upload</button>
               <br />
-              {/* <img
-                src={url || "http://via.placeholder.com/200x200"}
+              <img
+                src={doctorProfile.url || "http://via.placeholder.com/200x200"}
                 alt="Upload-image"
-              /> */}
+              />
             
             </div></div>
 
