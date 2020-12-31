@@ -56,6 +56,11 @@ if(process.env.NODE_ENV === 'production'){
 }
 
 
+var server = app.listen();
+server.setTimeout(500000);
+
+
 app.listen(PORT, () => {
   console.log(`Server is Running in port:http://localhost:${PORT}`);
 });
+
