@@ -36,6 +36,22 @@ function Navbar() {
     )
   }
 }
+
+
+function DocIsLogged3(val){
+  if(val ){
+    return (
+    
+      <Link
+        to="/doctorSchedule"
+        className="nav-link  ml-3 mr-3"
+         style={{ fontSize: "16px" }}
+       >
+        <li className="nav-item" >My Schedule</li>
+       </Link>
+    )
+  }
+}
   
 function UserIsLogged(val){
   if(val ){
@@ -116,6 +132,13 @@ function UserIsLogged2(val){
               >
                 <li className="nav-item">Login</li>
               </Link>
+              <Link
+                to="/rateDoctor"
+                className="nav-link ml-3 mr-3"
+                style={{ fontSize: "16px" }}
+              >
+                <li className="nav-item">Rate Doctor</li>
+              </Link>
               {/* <Link
               to="/signup"
               className="nav-link  ml-3 mr-3"
@@ -161,6 +184,7 @@ function UserIsLogged2(val){
 
               {DocIsLogged(window.localStorage.doctorId)}
               {DocIsLogged2(window.localStorage.doctorId)}
+              {DocIsLogged3(window.localStorage.doctorId)}
 
               <Link
                 to="/questions"
