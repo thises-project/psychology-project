@@ -1,9 +1,11 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const path = require('path');
 const app = express();
 
-const connection = require("./app/Models/database");
+// const connection = require("./app/Models/database");
+
 // require user the route
 const user = require("./app/routes/user");
 // require the doctor route
@@ -34,20 +36,24 @@ app.use(function (error, req, res, next) {
   }
 });
 
-// app.get("/", function (req, res) {
-//   res.send("Home Page");
-// });
-
 //for the deployment
 
-if (process.env.NODE_ENV==="production"){
-  app.use(express.static('client/build'))
-  const path = require('path')
-  app.get('*',(req,res)=>{
-    res.sendFile(path.resolve(__dirname,'client','build','index.html'))
+// if (process.env.NODE_ENV==="production"){
+//   app.use(express.static('client/build'))
+//   const path = require('path')
+//   app.get('*',(req,res)=>{
+//     res.sendFile(path.resolve(__dirname,'client','build','index.html'))
+//   })
+// }
+
+app.use(express.static('client/build'))
+
+if(process.env.NODE_ENV === 'production'){
+  const path  =  require('path');
+  app.get('/*',(req,res)=>{
+      res.sendFile(path.resolve(__dirname,'client','build','index.html'))
   })
 }
-
 
 
 app.listen(PORT, () => {
