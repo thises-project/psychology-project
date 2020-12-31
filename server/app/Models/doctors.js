@@ -2,6 +2,14 @@ const db = require("./database")
 
 module.exports = {
 
+postOneDoctorImage: (params, callback)=>{
+    console.log("i am a doctor modellllllllllllllllllllllll")
+    var queryStr = `UPDATE doctors SET image = ? WHERE doctorId = ? `;
+    db.query(queryStr , params, function(err , result){
+        console.log("it entered" ,result)
+        callback(err,result)
+    })
+},
 
 
     verifyDoctorModel :(params, callback)=>{

@@ -2,7 +2,12 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Adduser } from '../actions/adduser';
+
+
+
+
 function Signup() {
+  
   const [user, setUser] = useState({
     userName: "",
     age: "",
@@ -15,17 +20,28 @@ function Signup() {
     emailError: "",
     passwordError: ""
   });
+
+
   const [submitted] = useState(false);
   const dispatch = useDispatch();
+
+
   function handleChange(e) {
     const { name, value } = e.target;
     setUser((user) => ({ ...user, [name]: value }));
   }
+
+
+
   function handleSubmit(e) {
-    e.preventDefault();
+   
+    e.preventDefault(); 
+    
     if (validate() === true) {
+      
       dispatch(Adduser(user));
      //console.log( window.localStorage.type) 
+    
        window.location = "/login";
     }
   }
@@ -35,12 +51,14 @@ function Signup() {
     let genderError = "";
     let emailError = "";
     let passwordError = "";
+  
+    
 
     if (!user.userName) {
       usernameError =
         "your username cannot be blank, please try to make it more than 3 characters!";
     }
-    if (user.userName.length <= 3) {
+    else if (user.userName.length > 0 && user.userName.length <= 3) {
       usernameError ="your username cannot be less than 3 characters!";
     }
     if (!user.age) {
@@ -61,16 +79,16 @@ function Signup() {
         "your password cannot be blank, please try to make it more than 8 characters";
     }
 
-    if(user.password.length < 8){
+    else if(user.password.length > 0 && user.password.length < 8){
       passwordError =
         "your password cannot be less than 8 characters";
     }
     
     if (usernameError || ageError || genderError || emailError || passwordError) {
-      setUser({ usernameError, ageError, genderError, emailError, passwordError });
-      return false;
+       setUser({ usernameError, ageError, genderError, emailError, passwordError });
+       return false;
     }
-    return true;
+       return true;  
   };
   return (
     <div className="col-lg-8 offset-lg-2">

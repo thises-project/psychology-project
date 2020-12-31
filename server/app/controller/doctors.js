@@ -14,16 +14,15 @@ module.exports = {
     else {
       console.log("auth", token);
       jwt.verify(token, `${process.env.JWT_KEY}`, (err, user) => {
-        if (err) res.status(400).send("you failed to authenticate");
-        // console.log(user)
+        if (err) res.status(400).send("you failed to authenticate")
+
         req.userId = user;
         res.send(token);
-        // res.json({auth:true,  accessToken: accessToken , result:"you are Authenticated"});
-        //next()
-      });
+
+      })
     }
 
-    //res.status(200).send("you are Authenticated");
+
   },
 
   verifyDoctor: async (req, res) => {
@@ -60,6 +59,23 @@ module.exports = {
         res.send("User doesn't exist");
       }
     });
+  },
+
+
+  postOneDoctorImage: (req, res) => {
+    console.log(" post om]ne imaaaaje from controller")
+    var params = [req.body.url, req.params.id];
+    console.log(params, "imaaaaage from controler")
+    doctorModel.postOneDoctorImage(params, function (err, result) {
+      if (err) {
+        console.log(`you have an error in doctor controller ${err}`);
+      }
+
+      res.json(result);
+    });
+
+
+
   },
 
   getAllDoctors: (req, res) => {
