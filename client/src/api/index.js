@@ -25,5 +25,6 @@ export const GetQuestions = (data) => axios.get(url + '/questions/getAllQuestion
 export const createAnswer = (answers) => axios.post(url + '/questions/createAnswer', answers);
 // Get All Questions And Answers ..
 export const GetAllQuestionsAndAnswers = (data) => axios.get(url + '/questions/GetAllQuestionsAndAnswers');
-
+// book Appointment to add appointment
+export const bookAppointment = (data) => axios.post(url+'/appointment/createAppointment') 
 
