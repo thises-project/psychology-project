@@ -3,9 +3,16 @@ const router = require("express").Router();
 
 const doctorsController = require("../controller/doctors");
 
+router.post('/authDoc',doctorsController.AuthDoctor);
+router.post('/verifyDoc',doctorsController.verifyDoctor);
 router.get("/getAllDoctors", doctorsController.getAllDoctors);
 router.get("/getOneDoctor/:id", doctorsController.getOneDoctor);
 router.put("/updateDoctor/:id", doctorsController.updateDoctor);
-router.delete("/deleteDoctor/:id", doctorsController.deleteDoctor);
+router.delete("/deleteDoctor/:id",doctorsController.deleteDoctor);
+
+
+//rating routes
+router.post("/postRating", doctorsController.postRating);
+// router.get("/getAllRatings", doctorsController.getAllRatings);
 
 module.exports = router;

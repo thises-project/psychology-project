@@ -25,6 +25,7 @@ function Signup() {
     e.preventDefault();
     if (validate() === true) {
       dispatch(Adduser(user));
+     //console.log( window.localStorage.type) 
        window.location = "/login";
     }
   }
@@ -34,9 +35,13 @@ function Signup() {
     let genderError = "";
     let emailError = "";
     let passwordError = "";
+
     if (!user.userName) {
       usernameError =
         "your username cannot be blank, please try to make it more than 3 characters!";
+    }
+    if (user.userName.length <= 3) {
+      usernameError ="your username cannot be less than 3 characters!";
     }
     if (!user.age) {
       ageError =
@@ -44,8 +49,9 @@ function Signup() {
     }
     if (!user.gender) {
       genderError =
-        "your phone gender cannot be blank, please write your gender!";
+        "your gender cannot be blank, please write your gender(Male/Female)!";
     }
+    
     if (!user.email) {
       emailError =
         "your email cannot be blank, please try to write a correct email";
@@ -54,6 +60,12 @@ function Signup() {
       passwordError =
         "your password cannot be blank, please try to make it more than 8 characters";
     }
+
+    if(user.password.length < 8){
+      passwordError =
+        "your password cannot be less than 8 characters";
+    }
+    
     if (usernameError || ageError || genderError || emailError || passwordError) {
       setUser({ usernameError, ageError, genderError, emailError, passwordError });
       return false;

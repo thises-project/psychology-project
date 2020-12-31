@@ -1,3 +1,6 @@
+//The Changes are up ..
+//Try to push for master directly ..
+
 import React, { useEffect } from 'react';
 import { useState } from "react";
 import { GetQuestions } from '.././actions/AddQuestion';
@@ -20,12 +23,14 @@ function DoctorQuestions() {
     // Take The Input Value ..
         const [answers, setAnswer] = useState({
             answer: '',
-            questionId: ''
+            questionId : '',
+            doctorId : ''
         });
 
         function handleChange(e) {
-            setAnswer({ answer : e.target.value ,
-            questionId : e.target.name });
+            setAnswer({ answer : e.target.value,
+            questionId : e.target.name ,
+            doctorId : window.localStorage.doctorId});
             console.log(answers, "from component"); 
         }
 
@@ -40,16 +45,14 @@ function DoctorQuestions() {
         <div>
             <h2>Doctor Questions Page</h2>
             {AddQuestion.map((question, index) => (
-                <div>
-                    
-                        <h3>{question.question}</h3>
+                <div key ={index}>  
+                     <h3>{question.question}</h3>
                         <br />
                         <form onSubmit={handleSubmit} >
-                        <div key={index} >
+                        <div key = {index}> 
                             <textarea rows="3" cols="50" 
                             name={question.questionId} 
-                            id={question.questionId} 
-                            value={answers.answer} 
+                            value ={answers.answer.key}
                             onChange={handleChange}
                             />
                             </div>

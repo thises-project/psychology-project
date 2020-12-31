@@ -1,3 +1,6 @@
+// check the pull ..
+// Merg ASAP 
+//test 
 const questionsModel = require('../Models/question');
 const db = require("../Models/database");
 
@@ -5,9 +8,9 @@ module.exports =  {
 
 // Create Question 
     createQuestions :  (req , res) => {
-       var params =[req.body.question , req.body.user_Id];
+       var params =[req.body.question,req.body.user_Id];
   
-      console.log(req.body.question,"createQuestion")
+      console.log(req.body.question,req.body.user_Id,"createQuestion")
       questionsModel.createQuestions(params,function(err , results){
           if(err){console.log("you are have an error in questions controller" , err)}
           res.json(results);
@@ -53,6 +56,7 @@ module.exports =  {
       // res.sendStatus(200)
 
     })
+  
 
   }
 }

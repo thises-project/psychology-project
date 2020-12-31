@@ -7,6 +7,64 @@ function Navbar() {
   if (window.localStorage.length > 0) {
     value = true;
   }
+  function DocIsLogged(val){
+    if(val ){
+      return (
+      
+        <Link
+        to="/doctorProfile/:id"
+        className="nav-link  ml-3 mr-3"
+        style={{ fontSize: "16px" }}
+      >
+        <li className="nav-item" >My Profile</li>
+      </Link>   
+      )
+    }
+ }
+
+ function DocIsLogged2(val){
+  if(val ){
+    return (
+    
+      <Link
+        to="/doctorQuestions"
+        className="nav-link  ml-3 mr-3"
+         style={{ fontSize: "16px" }}
+       >
+        <li className="nav-item" >Not Answered Questions</li>
+       </Link>
+    )
+  }
+}
+  
+function UserIsLogged(val){
+  if(val ){
+    return (
+    
+      <Link
+        to="/userPro"
+        className="nav-link  ml-3 mr-3"
+         style={{ fontSize: "16px" }}
+       >
+        <li className="nav-item" >My Profile</li>
+       </Link>
+    )
+  }
+}
+function UserIsLogged2(val){
+  if(val ){
+    return (
+    
+        <Link
+            to="/askQuestions"
+            className="nav-link  ml-3 mr-3"
+          style={{ fontSize: "16px" }}
+              >
+         <li className="nav-item">Get Free Counseling Now</li>
+         </Link> 
+    )
+  }
+}
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -42,14 +100,13 @@ function Navbar() {
               >
                 <li className="nav-item">Articles</li>
               </Link>
-
-              {/* // for test */}
+                
               <Link
-                to="/test"
+                to="/login"
                 className="nav-link  ml-3 mr-3"
                 style={{ fontSize: "16px" }}
               >
-                <li className="nav-item">Articles</li>
+                <li className="nav-item">Get Free Counseling Now</li>
               </Link>
 
               <Link
@@ -58,6 +115,13 @@ function Navbar() {
                 style={{ fontSize: "16px" }}
               >
                 <li className="nav-item">Login</li>
+              </Link>
+              <Link
+                to="/rateDoctor"
+                className="nav-link ml-3 mr-3"
+                style={{ fontSize: "16px" }}
+              >
+                <li className="nav-item">Rate Doctor</li>
               </Link>
               {/* <Link
               to="/signup"
@@ -91,6 +155,9 @@ function Navbar() {
               >
                 <img src={Logo} alt="logo"></img>
               </Link>
+
+              {UserIsLogged(window.localStorage.userId)}
+              {UserIsLogged2(window.localStorage.userId)}
               <Link
                 to="/doctors"
                 className="nav-link ml-3 mr-3"
@@ -98,6 +165,10 @@ function Navbar() {
               >
                 <li className="nav-item">Doctors</li>
               </Link>
+
+              {DocIsLogged(window.localStorage.doctorId)}
+              {DocIsLogged2(window.localStorage.doctorId)}
+
               <Link
                 to="/questions"
                 className="nav-link  ml-3 mr-3"
@@ -112,14 +183,7 @@ function Navbar() {
               >
                 <li className="nav-item">Articles</li>
               </Link>
-              <Link
-                to="/askQuestions"
-                className="nav-link  ml-3 mr-3"
-                style={{ fontSize: "16px" }}
-              >
-                <li className="nav-item">Get Free Counseling Now</li>
-              </Link>
-
+              
               <Link
                 to="/logout"
                 className="nav-link  ml-3 mr-3"
@@ -156,3 +220,4 @@ function logout() {
 
 
 export default Navbar;
+
