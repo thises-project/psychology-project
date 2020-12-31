@@ -36,17 +36,38 @@ postOneDoctorImage: (params, callback)=>{
             callback(err,result)
         })
     },
+
     updateDoctor:(params , callback)=>{
         var queryStr=`UPDATE doctors SET  doctorName = ?, doctorSpeciality = ? , bio = ?,email=? , password = ? , image = ? WHERE doctorId = ?`;
         db.query(queryStr , params , function(err , result){
             callback(err , result)
         })
     },
+
     deleteDoctor:(params , callback)=>{
         var queryStr=`DELETE FROM doctors WHERE doctorId = ?`;
         db.query(queryStr , params , function(err , result){
             callback(err , result)
         })
-    }   
+    }, 
+    
+    
+    //rating
+    postRating: (params,callback)=>{
+        // UPDATE doctors SET  doctorName = ?, doctorSpeciality = ? , bio = ?,email=? , password = ? , image = ? WHERE doctorId = ?
+        var queryStr=`UPDATE doctors SET ratingSum = ? , ratingCount = ? WHERE doctorName = ?`;
+        db.query(queryStr,params,function(err,result){
+            callback(err,result)
+        })
+
+    },
+
+    getAllRatings:(params,callback)=>{
+        var queryStr=`SELECT * From doctors`;
+        db.query(queryStr,params,function(err,result){
+            callback(err,result)
+        })
+    },
+
 
 }

@@ -12,11 +12,21 @@ const UpdateDoctor = (props) => {
     cpassword: "",
   });
 
-  const { doctorId, doctorName, doctorSpeciality, bio, email, password , cpassword} = state;
+  const {
+    doctorId,
+    doctorName,
+    doctorSpeciality,
+    bio,
+    email,
+    password,
+    cpassword,
+  } = state;
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/doctor/getOneDoctor/" +`${window.localStorage.doctorId}`)
+      .get(
+        `http://localhost:5000/doctor/getOneDoctor/ +${window.localStorage.doctorId}`
+      )
       .then((res) => {
         // console.log(res.data[0]);
         setState({
@@ -27,31 +37,47 @@ const UpdateDoctor = (props) => {
           email: res.data[0].email,
           password: res.data[0].password,
         });
-        console.log(res.data[0], "dddddddddddddddddddddddddddddd")
+        console.log(res.data[0], "dddddddddddddddddddddddddddddd");
       })
       .catch((err) => {
         console.log(err);
       });
   }, [window.localStorage.doctorId]);
 
-
   const handleChange = (name) => (event) => {
-    
+
     setState({ ...state, [name]: event.target.value });
-    console.log(state.cpassword)
+    console.log(state.cpassword);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    
+
     axios
       .put(
-        "http://localhost:5000/doctor/updateDoctor/" + `${window.localStorage.doctorId}`,
-        { doctorId, doctorName, doctorSpeciality, bio, email, password, cpassword }
+        "http://localhost:5000/doctor/updateDoctor/" +
+        `${window.localStorage.doctorId}`,
+        {
+          doctorId,
+          doctorName,
+          doctorSpeciality,
+          bio,
+          email,
+          password,
+          cpassword,
+        }
       )
       .then((res) => {
         console.log(res);
-        const { doctorId, doctorName, doctorSpeciality, bio, email, password, cpassword } = res.data;
+        const {
+          doctorId,
+          doctorName,
+          doctorSpeciality,
+          bio,
+          email,
+          password,
+          cpassword,
+        } = res.data;
         // empty state
         setState({
           ...state,
@@ -65,7 +91,7 @@ const UpdateDoctor = (props) => {
         });
         // show sucess alert
         alert(`Doctor was Edited`);
-        window.location = `/doctorProfile/${window.localStorage.doctorId}`
+        window.location = `/doctorProfile/${window.localStorage.doctorId}`;
       })
       .catch((error) => {
         console.log(error.res);
@@ -73,14 +99,16 @@ const UpdateDoctor = (props) => {
       });
   };
 
- 
+
 
   const showUpdateForm = () => (
     <form onSubmit={handleSubmit}>
-     
+
 
       <div className="form-group">
-        <label className="text-muted">Please Enter Your Current Password before updating your Information</label>
+        <label className="text-muted">
+          Please Enter Your Current Password before updating your Information
+        </label>
         <input
           onChange={handleChange("cpassword")}
           value={state.cpassword}
@@ -90,7 +118,6 @@ const UpdateDoctor = (props) => {
           required
         />
       </div>
-
 
       <div className="form-group">
         <label className="text-muted"> Doctor Name</label>
@@ -149,8 +176,6 @@ const UpdateDoctor = (props) => {
           required
         />
       </div>
-
-
 
       <div>
         <button className="btn btn-primary">Submit</button>
