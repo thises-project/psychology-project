@@ -58,11 +58,11 @@ function handleUpload() {
               .getDownloadURL()
               .then((url) => {
                 setUrl(url)
-                axios.put("http://localhost:5000/doctor/postOneDoctorImage/" + `${window.localStorage.doctorId}`,{url})
+                axios.post("http://localhost:5000/doctor/postOneDoctorImage/" + `${window.localStorage.doctorId}`,{url})
                 .then((res) => {
                  // const { url} = res.data;
                    console.log(res.config.data, " this is a res from post image");
-                   const { url } = res.config.data;
+                   //const { url } = res.config.data;
                    // empty state
                   //  setUrl(
                   //     {url : res.config.data,}
@@ -74,7 +74,7 @@ function handleUpload() {
                 });     
               });
           });     
-          console.log(url,"hiiiiiiiiii")    
+         // console.log(url,"hiiiiiiiiii")    
 }
 
 

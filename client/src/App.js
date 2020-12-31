@@ -15,6 +15,7 @@ import DoctorQuestions from "./components/doctorQuestions"
 import AddQuestion from "./components/askQuestions";
 import PrivateRoute from "./components/privateRoute";
 import UserQuestionAnswers from './components/userQuestionAnswers'
+import CreateDoctorsSchedule from './components/CreateDoctorsSchedule'
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
 
@@ -36,6 +37,7 @@ function App() {
           <Route path="/questions" component={Questions}/>
           <Route path="/login" component={Login}/>
           <Route path="/signup" component={Signup}/>
+          <Route path="/doctorSchedule" component={CreateDoctorsSchedule}/>
             
           {/* user private components */}
 
