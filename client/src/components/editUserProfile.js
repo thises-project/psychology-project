@@ -9,7 +9,8 @@ export default function EditUser (props, { currentId, setCurrentId }) {
         age:'',
         gender:'',
         email:'',
-        password:''
+        password:'',
+        cpassword:''
     })
     useEffect(() =>{
         axios.get('http://localhost:5000/users/getOneUser/'+`${window.localStorage.userId}`)
@@ -21,8 +22,6 @@ export default function EditUser (props, { currentId, setCurrentId }) {
                 gender:res.data[0].gender,
                 email:res.data[0].email,
                 password:res.data[0].password
-
-
                 }
             )
             console.log(res.data[0])
@@ -34,17 +33,45 @@ export default function EditUser (props, { currentId, setCurrentId }) {
     const [submitted] = useState(false);
     const dispatch = useDispatch();
     const clear = () => {
-        setEditUser({  userName: '',
-        age: '',
-        gender: '',
-        email : '',
-        password: '' });
+        setEditUser({  
+                userName: '',
+                age: '',
+                gender: '',
+                email : '',
+                password: '',
+                cpassword: '',
+               // passwordError:'' 
+            });
       };
+
+    //   function validate() {
+    //     let passwordError = "";
+    //     if (!editUser.password) {
+    //         passwordError =
+    //             "your password cannot be blank!";
+    //     }
+    //     if ( passwordError) {
+    //         setEditUser({ passwordError });
+    //         return false;
+    //     }
+    //     return true;
+    //   };
+
+
+      function handlePassword(e) {
+        const { name, value } = e.target;
+        setEditUser(cpassword => ({ ...cpassword, [name]: value }));
+       // console.log(editUser.cpassword)
+    }
+
+
       function handleChange(e) {
         const { name, value } = e.target;
         setEditUser(editUser => ({ ...editUser, [name]: value }));
     }
+
     function editHandleSubmit(e) {
+
           e.preventDefault();
              var currentId = `${window.localStorage.userId}`
           if(currentId){
@@ -55,9 +82,21 @@ export default function EditUser (props, { currentId, setCurrentId }) {
           window.location = `/userPro/${window.localStorage.userId}`
       }
     return (
-        <div className="col-lg-8 offset-lg-2">
+      
+
+            <div className="col-lg-8 offset-lg-2">
              <h2>Edit Your Information </h2>
              <form name="form" onSubmit = {editHandleSubmit}> 
+
+                 <div className="form-group">
+                    <label>Please Enter your Current Password Before you Update Your Information</label>
+                    <input type="cpassword" name="cpassword" value={editUser.cpassword} onChange={handlePassword} required className={'form-control' + (submitted && !editUser.cpassword ? ' is-invalid' : '')}/>
+                    {submitted && !editUser.cpassword &&
+                        <div className="invalid-feedback">Password is required</div>
+                    }
+                </div>
+
+
                  <div className="form-group">
                      <label>Username</label>
                     <input type="text" name="userName" value={editUser.userName} onChange={handleChange} className={'form-control' + (submitted && !editUser.userName ? ' is-invalid' : '')}  />

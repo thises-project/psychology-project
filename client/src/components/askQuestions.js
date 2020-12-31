@@ -22,6 +22,7 @@ function AddQ() {
       }
 
       function handleSubmit(e) {
+        console.log(questions);
           e.preventDefault();
           dispatch(AddQuestions(questions))
           window.location = '/questions'

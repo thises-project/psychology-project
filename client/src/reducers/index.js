@@ -5,11 +5,13 @@ import AddQuestions from './AddQuestion';
 import userQuestion from './Adduser'
 import bookAppointment from './Appointment';
 
+import Doctors from './Doctors';
 
 export default combineReducers({ 
      Adduser,
     AddQuestions,
     GetAllQuestionsAndAnswers,
-    bookAppointment
+    bookAppointment,
+    Doctors
  })
 
