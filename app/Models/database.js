@@ -22,9 +22,9 @@ const connection = mysql.createPool({
 });
 
 
-connection.query('select 1 + 1', (err, rows) => { 
-  if (err) throw err;  
-    console.log("Connected! , hello");
-});
+// connection.query('select 1 + 1', (err, rows) => { 
+//   if (err) throw err;  
+//     console.log("Connected! , hello");
+// });
 
 module.exports = connection;
