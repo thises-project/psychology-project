@@ -14,7 +14,7 @@ function UserQuestionsAnswers (){
             .then(res=>{
                 console.log(res.data)
                 setQuestionInfo({ questions : res.data })
-                
+                 
             })
             .catch(err =>{
                 console.log(err)

@@ -25,5 +25,7 @@ export const GetQuestions = (data) => axios.get(url + '/questions/getAllQuestion
 export const createAnswer = (answers) => axios.post(url + '/questions/createAnswer', answers);
 // Get All Questions And Answers ..
 export const GetAllQuestionsAndAnswers = (data) => axios.get(url + '/questions/GetAllQuestionsAndAnswers');
+// Get Questions And Answers For One User ..
+export const getAllQuestionsAndAnswersForOneUser = (data,id) => axios.get(url + '/questions/GetAllQuestionsAndAnswers/'+id);
 
 

@@ -17,6 +17,8 @@ import PrivateRoute from "./components/privateRoute";
 import UserQuestionAnswers from './components/userQuestionAnswers'
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
+import VideoCall from './components/videoCall';
+import Notification from './components/Notification'
 
 
 function App() {
@@ -36,13 +38,15 @@ function App() {
           <Route path="/questions" component={Questions}/>
           <Route path="/login" component={Login}/>
           <Route path="/signup" component={Signup}/>
-            
+          <Route path="/video" component={VideoCall}/> 
+          <Route path="/notification" component={Notification}/> 
+
           {/* user private components */}
 
       <PrivateRoute path="/userPro" component={UserProfile} currentId={currentId} setCurrentId={setCurrentId}/>
       <PrivateRoute path="/edit/:id" component={EditUser} currentId={currentId} setCurrentId={setCurrentId}/>
       <PrivateRoute path="/askQuestions" component = {AddQuestion}/>
-      <Route path = "/UserQuestionsAnswers/:id" currentId={currentId} setCurrentId={setCurrentId}  component={UserQuestionAnswers}/>
+      <Route path = "/UserQuestionsAnswers" currentId={currentId} setCurrentId={setCurrentId}  component={UserQuestionAnswers}/>
           {/* doctor private components */}
 
           {/* doctor private components */}

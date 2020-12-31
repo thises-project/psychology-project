@@ -6,6 +6,11 @@ module.exports= {
     //Create Questions ..
     createQuestions:(params,callback)=>{
         var queryStr = `INSERT INTO questions ( question ,user_Id) VALUES (?,?)`;
+        // var queryStr = `BEGIN;
+        //                 INSERT INTO users questions ( question ,user_Id) VALUES (?,?);
+        //                 INSERT INTO notification (user_Id, question_Id) VALUES (?,?);
+        //                 COMMIT;
+        // `;
         db.query(queryStr,params,function(err,result){ 
             callback(err,result)
         })
@@ -14,7 +19,7 @@ module.exports= {
    
     // Get All Questions And Answers ..
     getAllQuestionsAndAnswers:(callback)=>{
-        var query = ` SELECT questions.question , answers.answer ,doctors.doctorName  from  ((answers INNER JOIN questions ON answers.question_Id = questions.questionId) INNER JOIN doctors ON answers.doctor_Id = doctors.doctorId); `;
+        var query = ` SELECT questions.question , answers.answer ,doctors.doctorName ,questions.user_Id from  ((answers INNER JOIN questions ON answers.question_Id = questions.questionId) INNER JOIN doctors ON answers.doctor_Id = doctors.doctorId); `;
         db.query(query,function(err,results){
             callback(err,results)
         })
@@ -30,7 +35,7 @@ module.exports= {
 
     //Create Answer ..
     createAnswer: (params, callback) => {
-        var query = `INSERT INTO answers (answer,question_Id,doctor_Id) VALUES (?,?,?)`;
+        var query = `INSERT INTO answers (answer, questionId, doctorId) VALUES (?,?,?)`;
         db.query(query, params, function (err, result) {
             callback(err, result)
         })

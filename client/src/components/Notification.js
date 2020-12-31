@@ -6,8 +6,8 @@ import {GetAllQuestionsAndAnswers} from "../actions/AddQuestion"
 
 
 
-function QuestionsList (){
-
+function Notification (){
+var userId = window.localStorage.userId;
 const dispatch = useDispatch();
 // use selector to get access to all global store or all gllobal state  
 const questionAndAnswersList = useSelector((state) => state.GetAllQuestionsAndAnswers)
@@ -31,13 +31,15 @@ useEffect(()=>{
         <div className = "containe"
 
         >
-            <h1>Questions</h1>
+            <h1>Notification</h1>
 
-            {questionAndAnswersList.map((questions) =>(
+            {questionAndAnswersList.filter(questions => window.localStorage.user_Id = questions.user_Id).map(filterQuestion=>(
+  
                   <div className="questionList" >
-                        <h3 className="list-group-item question">{questions.question}</h3> 
-                        <h3 className="list-group-item answer">{ questions.answer}</h3> 
-                        <h5 className="list-group-item Dr">Dr. {questions.doctorName}</h5> 
+                        <h5 className="list-group-item Dr">Dr. {filterQuestion.doctorName}</h5> 
+                        <h5>{filterQuestion.user_Id}</h5>
+                        <h5>{window.localStorage.user_Id}</h5>  
+                        <h5>answered your question</h5>
                  </div>
                
                    
@@ -50,4 +52,4 @@ useEffect(()=>{
     )
 }
 
-export default  QuestionsList;
+export default  Notification;

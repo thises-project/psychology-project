@@ -38,6 +38,7 @@ function DoctorQuestions() {
             e.preventDefault();
             // console.log(AddQuestion);
             dispatch(createAnswer(answers))
+
             window.location = '/questions'
         }
 

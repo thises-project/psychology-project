@@ -65,6 +65,35 @@ function UserIsLogged2(val){
     )
   }
 }
+function UserIsLogged4(val){
+  if(val ){
+    return (
+    
+        <Link
+            to="/notification"
+            className="nav-link  ml-3 mr-3"
+          style={{ fontSize: "16px" }}
+              >
+         <li className="nav-item">Notification</li>
+         </Link> 
+    )
+  }
+}
+
+function UserIsLogged3(val){
+  if(val ){
+    return (
+    
+        <Link
+            to="/UserQuestionsAnswers"
+            className="nav-link  ml-3 mr-3"
+          style={{ fontSize: "16px" }}
+              >
+         <li className="nav-item">User Questions Answers</li>
+         </Link> 
+    )
+  }
+}
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -108,7 +137,6 @@ function UserIsLogged2(val){
               >
                 <li className="nav-item">Get Free Counseling Now</li>
               </Link>
-
               <Link
                 to="/login"
                 className="nav-link  ml-3 mr-3"
@@ -116,6 +144,7 @@ function UserIsLogged2(val){
               >
                 <li className="nav-item">Login</li>
               </Link>
+
               {/* <Link
               to="/signup"
               className="nav-link  ml-3 mr-3"
@@ -151,6 +180,10 @@ function UserIsLogged2(val){
 
               {UserIsLogged(window.localStorage.userId)}
               {UserIsLogged2(window.localStorage.userId)}
+              {UserIsLogged3(window.localStorage.userId)}
+              {UserIsLogged4(window.localStorage.userId)}
+
+
               <Link
                 to="/doctors"
                 className="nav-link ml-3 mr-3"
