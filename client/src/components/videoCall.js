@@ -38,6 +38,7 @@ function VideoCall () {
 
     useEffect (() => {
         socket.current = io.connect('/');
+        console.log("connected")
         navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then(stream => { // method prompts the user for permission to use a media input which produces a MediaStream
             setStream(stream);
             if(userVideo.current){
@@ -51,6 +52,7 @@ function VideoCall () {
             setPeers(peers)
         })
         socket.current.on("hello", (data) => {
+            console.log(data)
             setReceivingCall(true);
             setCaller(data.from);
             setCallerSignal(data.signal)
@@ -59,7 +61,8 @@ function VideoCall () {
 }, []);
 
 function callPeer(id){
-    const peer = new Peer ({
+    console.log("walaaaaa")
+    const peer = new Peer({
         initiator: true,
         trickle: false,
         config: {
@@ -80,6 +83,7 @@ function callPeer(id){
 
       stream: stream,
     });
+
     peer.on("signal", data => {
         socket.current.emit("callUser", { userTocall: id, signalData: data, from: yourID })
     })
@@ -169,3 +173,5 @@ function callPeer(id){
 
 
 export default VideoCall;
+
+//hiiii

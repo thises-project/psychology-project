@@ -21,6 +21,7 @@ const questions = require("./app/routes/questions.js");
 app.use(cors());
 // set the port
 const port = process.env.PORT || 5000;
+
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded
@@ -76,3 +77,4 @@ socket.on('acceptCall', (data) => {
 server.listen(port, () => {
   console.log(`Server is Running in port:http://localhost:${port}`);
 });
+
