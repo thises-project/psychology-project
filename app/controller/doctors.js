@@ -3,12 +3,13 @@ const doctorModel = require("../Models/doctors");
 
 module.exports = {
   getAllDoctors: (req, res) => {
+ 
     doctorModel.getAllDoctors(function (err, results) {
       if (err) {
-        console.log(`you have an error in doctor controller ${err}`);
+        console.log("you have an error in doctor controller",err);
       }
-      res.json(results);
-    });
+      res.json(results)
+    })
   },
   getOneDoctor: (req, res) => {
     var params = [req.params.id];

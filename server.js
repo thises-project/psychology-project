@@ -61,6 +61,6 @@ server.setTimeout(500000);
 
 
 app.listen(PORT, () => {
-  console.log(`Server is Running in port:http://localhost:${PORT}`);
+  console.log(`Server is Running in port:${PORT}`);
 });
 
