@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Footer from "./footer";
 import { Badge } from "react-bootstrap";
-
 // import { Link } from "react-router-dom";
-
 const Doctors = (props) => {
   const [doctors, setDoctor] = useState([]);
   useEffect(() => {
@@ -18,7 +16,6 @@ const Doctors = (props) => {
         alert("Error fetching doctors List!");
       });
   });
-
   return (
     <div className="container ml-5 mr-5" style={{ textAlign: "left" }}>
       {doctors.map((doctor,index) => (
@@ -30,16 +27,12 @@ const Doctors = (props) => {
           <div className="col pt-3 pb-2">
             <div className="row">
               <div className="col-md-10">
-                
                 <h2>
                   {doctor.doctorName} 
                 </h2><h6>{doctor.doctorId}</h6>
-                
                <br/>
-
                 <h4>{doctor.doctorSpeciality}</h4>
                 <p className="lead">{doctor.bio}</p>
-
                 <p>
                   {/* <h4 className="badge">  </h4> */}
                   {/* <span className="badge">{doctor.password} </span> */}
@@ -49,7 +42,6 @@ const Doctors = (props) => {
                     {doctor.email}
                   </Badge>
                 </h5>
-
                 <button
                   className="btn btn-danger "
                   style={{
@@ -79,5 +71,4 @@ const Doctors = (props) => {
     </div>
   );
 };
-
 export default Doctors;
