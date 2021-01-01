@@ -14,11 +14,21 @@ const mysql = require('mysql');
 
 
 
+
 const connection = mysql.createPool({
   HOST:"us-cdbr-east-02.cleardb.com",
   USER:"b0633d23088e42",
   PASSWORD:"a0a5e72a",
   DB:"heroku_f537f4068a5e975",
+});
+
+connection.connect(function(err) {
+  if (err) {
+    console.error('error connecting: ' + err.stack);
+    return;
+  }
+
+  console.log('connected as id ' + connection.threadId);
 });
 
 

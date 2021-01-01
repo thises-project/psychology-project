@@ -7,7 +7,9 @@ const DoctorProfile = (props) => {
   const [doctorProfile, setDoctorProfile] = useState({});
   useEffect(() => {
     axios
-      .get(`https://speakout-1.herokuapp.com/doctor/getOneDoctor/ + props.match.params.id`)
+      .get(
+        `https://speakout-1.herokuapp.com/doctor/getOneDoctor/ + ${window.localStorage.doctorId}`
+      )
       .then((res) => {
         // console.log(res.data[0]);
         setDoctorProfile({
@@ -21,7 +23,8 @@ const DoctorProfile = (props) => {
       .catch((err) => {
         console.log(err);
       });
-  }, [props.match.params.id]);
+    // eslint-disable-next-line
+  }, [window.localStorage.doctorId]);
 
   return (
     <div className="container ml-5 mr-5">
@@ -52,21 +55,20 @@ const DoctorProfile = (props) => {
                   <br></br>
                 </p>
               </div>
-         
             </div>
           </div>
         </div>
         <div className="col mr-5">
-        <Link
-                  //'/updateDoctor/:id'
-                  to={`/updateDoctor/${props.match.params.id}`}
-                  className="btn btn-info "
-                  style={{ marginLeft: "5px" }}
-                >
-                  Edit
-                </Link>
+          <Link
+            //'/updateDoctor/:id'
+            to={`/updateDoctor/${window.localStorage.doctorId}`}
+            className="btn btn-info "
+            style={{ marginLeft: "5px" }}
+          >
+            Edit
+          </Link>
         </div>
-        <br/>
+        <br />
         {/* <button
                   className="btn btn-danger "
                   style={{ marginLeft: "5px" }}
@@ -75,6 +77,11 @@ const DoctorProfile = (props) => {
                   Delete
                 </button> */}
       </div>
+      <br />
+        <br />
+        <div>
+        <Link type="button" className="btn btn-info btn-rounded" to={'/video'}>Start Meeting</Link>
+        </div>
 
       <Footer />
     </div>
