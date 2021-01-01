@@ -22,15 +22,6 @@ const connection = mysql.createPool({
   DB:"heroku_f537f4068a5e975",
 });
 
-connection.connect(function(err) {
-  if (err) {
-    console.error('error connecting: ' + err.stack);
-    return;
-  }
-
-  console.log('connected as id ' + connection.threadId);
-});
-
 
 // connection.query('select 1 + 1', (err, rows) => { 
 //   if (err) throw err;  
