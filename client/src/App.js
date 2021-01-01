@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from './components/navbar';
-import { BrowserRouter as Router , Switch, Route } from  "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Doctors from "./components/doctors";
 import Articles from "./components/articles";
 import Questions from "./components/questions";
@@ -17,6 +17,8 @@ import PrivateRoute from "./components/privateRoute";
 import UserQuestionAnswers from './components/userQuestionAnswers'
 import BookAppointment from "./components/bookAppointment";
 import AppointmentList from "./components/appointmentList"
+import CreateDoctorsSchedule from './components/CreateDoctorsSchedule'
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import 'react-datepicker/dist/react-datepicker.css'
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -41,6 +43,7 @@ function App() {
           <Route path="/questions" component={Questions} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
+
           <Route
            path="/bookAppointment/:id" 
            currentId={currentId}
@@ -52,6 +55,13 @@ function App() {
           <Route path="/video" component={VideoCall}/> 
          
          
+
+          <Route path="/doctorSchedule" component={CreateDoctorsSchedule} />
+          <Route path="/bookAppointment" component={BookAppointment} />
+          <Route path="/video" component={VideoCall} />
+
+          {/* user private components */}
+
           {/* user private components */}
 
           <PrivateRoute
@@ -74,11 +84,11 @@ function App() {
             component={UserQuestionAnswers}
           />
           {/* doctor private components */}
-          <PrivateRoute path="/doctorProfile/:id" exact component={DoctorProfile} currentId={currentId} setCurrentId={setCurrentId}/>
+          <PrivateRoute path="/doctorProfile/:id" exact component={DoctorProfile} currentId={currentId} setCurrentId={setCurrentId} />
           <PrivateRoute path="/updateDoctor/:id" component={UpdateDoctor} currentId={currentId} setCurrentId={setCurrentId} />
-          <PrivateRoute path="/doctorQuestions" component={DoctorQuestions} currentId={currentId} setCurrentId={setCurrentId}/>
+          <PrivateRoute path="/doctorQuestions" component={DoctorQuestions} currentId={currentId} setCurrentId={setCurrentId} />
           <Route path="/rateDoctor" component={RateDoctor} />
-          </Switch>
+        </Switch>
       </div>
     </Router>
   );
