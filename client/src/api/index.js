@@ -6,12 +6,11 @@ const url = 'http://localhost:5000';
 export  const Adduser = (user) => axios.post(url+'/users/createUser', user);
 
 
-
-    export  const verifyUser = (inputs) => axios.post(url+'/users/verifyUser', inputs);
-    export  const Auth = (authInputs) => axios.post(url+'/users/authUser', authInputs);
+export  const verifyUser = (inputs) => axios.post(url+'/users/verifyUser', inputs);
+export  const Auth = (authInputs) => axios.post(url+'/users/authUser', authInputs);
       
-    export  const verifyDoctor = (inputs) => axios.post(url+'/doctor/verifyDoc', inputs);
-    export  const AuthDoctor = (authInputs) => axios.post(url+'/doctor/authDoc', authInputs);
+export  const verifyDoctor = (inputs) => axios.post(url+'/doctor/verifyDoc', inputs);
+export  const AuthDoctor = (authInputs) => axios.post(url+'/doctor/authDoc', authInputs);
 
 
 export const updateUser = (id, editUser) => axios.patch(url+ '/users/updateUser/'+id , editUser);
@@ -26,5 +25,8 @@ export const createAnswer = (answers) => axios.post(url + '/questions/createAnsw
 // Get All Questions And Answers ..
 export const GetAllQuestionsAndAnswers = (data) => axios.get(url + '/questions/GetAllQuestionsAndAnswers');
 // book Appointment to add appointment
-export const bookAppointment = (data) => axios.post(url+'/appointment/createAppointment') 
+export const bookAppointment = (  id ,userId,appointmentInfo) => axios.post(url+'/appointment/createAppointment/'+id+'/'+userId , appointmentInfo) 
 
+// get Schedule to add appointment
+export const getScheduleForUser = (id , data) => axios.get(url+'/schedule/getScheduleForUser/'+id) 
+export const getAppointmentForOneUser = (  id ,data) => axios.get(url+'/appointment/getAppointmentForOneUser/'+id) 

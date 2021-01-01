@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Footer from "./footer";
 import { Badge } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 // import { Link } from "react-router-dom";
 
 const Doctors = (props) => {
+  const [currentId , setCurrrentId] = useState(null);
   const [doctors, setDoctor] = useState([]);
   useEffect(() => {
     axios
@@ -48,10 +50,14 @@ const Doctors = (props) => {
                   <Badge pill variant="secondary">
                     {doctor.email}
                   </Badge>
+            
                 </h5>
 
-                <button
-                  className="btn btn-danger "
+                <Link
+            //'/updateDoctor/:id'
+            to={`/bookAppointment/${doctor.doctorId}`}
+            
+            className="btn btn-danger "
                   style={{
                     borderWidth: 1,
                     borderColor: "rgba(0,0,0,0.2)",
@@ -62,10 +68,10 @@ const Doctors = (props) => {
                     backgroundColor: "blue",
                     borderRadius: 30,
                   }}
-                  // to={}
+                
                 >
-                  Book Video Session
-                </button>
+                Book Video Session
+              </Link>
               </div>
             </div>
           </div>
