@@ -10,10 +10,11 @@ module.exports = {
 
     },
     getScheduleForUser : (req , res)=>{
-        var params = [req.body.doctor_Id , req.body.date];
+        // var params = [req.body.doctor_Id , req.body.date];
+        var params = [req.params.id , req.params.date];
         scheduleModel.getScheduleForUser(params, function(err , result){
             if(err){console.log("you are have an error in schedule controller " )}
-            res.json(result);
+            res.send(result);
         })
 
     },

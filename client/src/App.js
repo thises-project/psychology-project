@@ -15,7 +15,8 @@ import DoctorQuestions from "./components/doctorQuestions";
 import AddQuestion from "./components/askQuestions";
 import PrivateRoute from "./components/privateRoute";
 import UserQuestionAnswers from './components/userQuestionAnswers'
-import BookAppointment from "./components/bookAppointment"
+import BookAppointment from "./components/bookAppointment";
+import AppointmentList from "./components/appointmentList"
 import "bootstrap/dist/css/bootstrap.min.css";
 import 'react-datepicker/dist/react-datepicker.css'
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -40,9 +41,17 @@ function App() {
           <Route path="/questions" component={Questions} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
-          <Route path="/bookAppointment" component={BookAppointment}/>
+          <Route
+           path="/bookAppointment/:id" 
+           currentId={currentId}
+            setCurrentId={setCurrentId}
+             component={BookAppointment}/>
+             <Route   path = "/appointmentList" 
+          component={AppointmentList}
+          />
           <Route path="/video" component={VideoCall}/> 
-
+         
+         
           {/* user private components */}
 
           <PrivateRoute
