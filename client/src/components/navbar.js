@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "./logo.jpg";
+import { useEffect } from 'react';
+import { useDispatch ,useSelector} from 'react-redux';
+import {GetAllQuestionsAndAnswers} from "../actions/AddQuestion";
 
 function Navbar() {
   var value = false;
@@ -66,16 +69,33 @@ function UserIsLogged2(val){
   }
 }
 function UserIsLogged4(val){
-  if(val ){
-    return (
+  const dispatch = useDispatch();
+  // use selector to get access to all global store or all gllobal state  
+  const questionAndAnswersList = useSelector((state) => state.GetAllQuestionsAndAnswers)
+  useEffect(()=>{
+          dispatch(GetAllQuestionsAndAnswers())
+          },[dispatch]);
+  function onClickOption(){
+    // window.location = '/UserQuestionsAnswers'
     
+          }
+  if(val ){
+    return ( 
+   
+      <div>
+      <select > 
+       <option>Notification</option>
         <Link
-            to="/notification"
-            className="nav-link  ml-3 mr-3"
-          style={{ fontSize: "16px" }}
-              >
-         <li className="nav-item">Notification</li>
-         </Link> 
+         to="/UserQuestionsAnswers"> 
+          {questionAndAnswersList.filter(questions => window.localStorage.user_Id = questions.user_Id).map(filterQuestion=>(
+        
+          <option >  
+        Dr. {filterQuestion.doctorName}  answered your question
+         </option>
+          ))}</Link>
+      </select>       
+  </div>
+        
     )
   }
 }
@@ -84,8 +104,8 @@ function UserIsLogged3(val){
   if(val ){
     return (
     
-        <Link
-            to="/UserQuestionsAnswers"
+      <Link
+         to="/UserQuestionsAnswers"
             className="nav-link  ml-3 mr-3"
           style={{ fontSize: "16px" }}
               >
