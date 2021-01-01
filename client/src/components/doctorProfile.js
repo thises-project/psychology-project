@@ -7,7 +7,7 @@ const DoctorProfile = (props) => {
   const [doctorProfile, setDoctorProfile] = useState({});
   useEffect(() => {
     axios
-      .get(`${window.location.hostname}/doctor/getOneDoctor/ + props.match.params.id`)
+      .get(`https://speakout-1.herokuapp.com/doctor/getOneDoctor/ + props.match.params.id`)
       .then((res) => {
         // console.log(res.data[0]);
         setDoctorProfile({

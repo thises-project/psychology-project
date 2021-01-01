@@ -12,7 +12,7 @@ export default function EditUser (props, { currentId, setCurrentId }) {
         password:''
     })
     useEffect(() =>{
-        axios.get(`${window.location.hostname}/users/getOneUser/+${window.localStorage.userId}`)
+        axios.get(`https://speakout-1.herokuapp.com/users/getOneUser/+${window.localStorage.userId}`)
         .then(res => {
         //console.log(res.data[0])
            setEditUser(
