@@ -7,7 +7,7 @@ const Doctors = (props) => {
   const [doctors, setDoctor] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/doctor/getAllDoctors")
+      .get("https://speakout-1.herokuapp.com/doctor/getAllDoctors")
       .then((res) => {
         // console.log("HIIIIIII");
         setDoctor(res.data);
