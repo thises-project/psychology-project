@@ -25,7 +25,7 @@ export const GetQuestions = () => async (dispatch) => {
     }
 };
 
-// Get all question 
+// Get all question And Answers ..
 export const GetAllQuestionsAndAnswers = () => async (dispatch) => {
     try {
         // data represent the response 
@@ -51,7 +51,21 @@ export const createAnswer = (answers) => async (dispatch) => {
     catch (error) {
         console.log(error, 'failed')
     }
-}
+};
+
+// // Get Question And Answers For One User ..
+// export const getAllQuestionsAndAnswersForOneUser = (userId) => async (dispatch) => {
+//     try {
+//         // data represent the response 
+//         const { data } = await api.getAllQuestionsAndAnswersForOneUser(userId);
+// console.log(userId)
+//         dispatch({ type: 'getAllQuestionsAndAnswersForOneUser', payload: data });
+//         console.log(data, "getAllQuestionsAndAnswersForOneUser");
+//     }
+//     catch (error) {
+//         console.log(error);
+//     }
+// };
 
 
 
