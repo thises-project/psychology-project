@@ -83,16 +83,16 @@ function UserIsLogged4(val){
     return ( 
    
       <div>
-      <select > 
+      <select  id="notification"> 
        <option>Notification</option>
-        <Link
-         to="/UserQuestionsAnswers"> 
+       
           {questionAndAnswersList.filter(questions => window.localStorage.user_Id = questions.user_Id).map(filterQuestion=>(
-        
-          <option >  
+        <option>
+            
         Dr. {filterQuestion.doctorName}  answered your question
+      
          </option>
-          ))}</Link>
+          ))}
       </select>       
   </div>
         
