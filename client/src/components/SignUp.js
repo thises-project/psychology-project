@@ -13,7 +13,9 @@ function Signup() {
     age: "",
     gender: "",
     email: "",
-    password: "",
+    password: ""
+  })
+  const [userE, setUserE] = useState({
     usernameError: "",
     ageError: "",
     genderError: "",
@@ -89,11 +91,13 @@ function Signup() {
     }
 
     if (usernameError || ageError || genderError || emailError || passwordError) {
-      setUser({ usernameError, ageError, genderError, emailError, passwordError });
+      setUserE({ usernameError, ageError, genderError, emailError, passwordError });
       return false;
     }
+    //setUser({user.userName, user.age, user.gender, user.email, user.password})
     return true;
   };
+
   return (
     <div className="col-lg-8 offset-lg-2">
       <h2>Register</h2>
@@ -113,7 +117,7 @@ function Signup() {
           {submitted && !user.userName && (
             <div className="invalid-feedback">Username is required</div>
           )}
-          <div style={{ color: "red" }}>{user.usernameError}</div>
+          <div style={{ color: "red" }}>{userE.usernameError}</div>
           <br></br>
         </div>
         <div className="form-group">
@@ -133,7 +137,7 @@ function Signup() {
             )
           }
         </div >
-        <div style={{ color: "red" }}>{user.ageError}</div>
+        <div style={{ color: "red" }}>{userE.ageError}</div>
         <br></br>
         <div className="form-group">
           <label>gender</label>
@@ -150,7 +154,7 @@ function Signup() {
             <div className="invalid-feedback">gender is required</div>
           )}
         </div>
-        <div style={{ color: "red" }}>{user.genderError}</div>
+        <div style={{ color: "red" }}>{userE.genderError}</div>
         <br></br>
         <div className="form-group">
           <label>Email</label>
@@ -167,7 +171,7 @@ function Signup() {
             <div className="invalid-feedback">Email is required</div>
           )}
         </div>
-        <div style={{ color: "red" }}>{user.emailError}</div>
+        <div style={{ color: "red" }}>{userE.emailError}</div>
         <br></br>
         <div className="form-group">
           <label>Password</label>
@@ -185,10 +189,10 @@ function Signup() {
             <div className="invalid-feedback">Password is required</div>
           )}
         </div>
-        <div style={{ color: "red" }}>{user.passwordError}</div>
+        <div style={{ color: "red" }}>{userE.passwordError}</div>
         <br></br>
         <div className="form-group">
-          <button className="btn btn-primary" onClick={handleSubmit}>
+          <button type="submit" className="btn btn-primary" onClick={handleSubmit}>
             {/* {registering && <span className="spinner-border spinner-border-sm mr-1"></span>} */}
             Sign Up
           </button>
