@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Navbar from './components/navbar';
+import Navbar from './components/thenavbar';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Doctors from "./components/doctors";
 import Articles from "./components/articles";
@@ -25,6 +25,7 @@ import 'react-datepicker/dist/react-datepicker.css'
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
 import VideoCall from './components/videoCall';
+import Notification from './components/Notification'
 
 import RateDoctor from "./components/rateDoctor";
 
@@ -44,21 +45,22 @@ function App() {
           <Route path="/questions" component={Questions} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
-
+          <Route path="/video" component={VideoCall} />
+          <Route path="/notification" component={Notification} />
           <Route path="/doctorSchedule/:id" component={CreateDoctorsSchedule} />
           {/* <Route path = "/scheduleForDoctor/:id" component = {ScheduleForDoctor}/>  */}
 
           <Route
-           path="/bookAppointment/:id" 
-           currentId={currentId}
+            path="/bookAppointment/:id"
+            currentId={currentId}
             setCurrentId={setCurrentId}
-             component={BookAppointment}/>
-            
-             <PrivateRoute   path = "/appointmentList" 
-          component={AppointmentList}
+            component={BookAppointment} />
+
+          <PrivateRoute path="/appointmentList"
+            component={AppointmentList}
           />
-  
-        
+
+
           <Route path="/video" component={VideoCall} />
 
           {/* user private components */}
@@ -78,6 +80,7 @@ function App() {
             setCurrentId={setCurrentId}
           />
           <PrivateRoute path="/askQuestions" component={AddQuestion} />
+          
           <Route
             path="/UserQuestionsAnswers/:id"
             currentId={currentId}
@@ -96,7 +99,7 @@ function App() {
             setCurrentId={setCurrentId}
             component={AppointmentListForOneDoctor}
           />
-          </Switch>
+        </Switch>
       </div>
     </Router>
   );

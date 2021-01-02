@@ -15,7 +15,18 @@ console.log(questionAndAnswersList)
 
 useEffect(()=>{
         dispatch(GetAllQuestionsAndAnswers())
-        },[dispatch])
+        },[dispatch]);
+
+        
+// onSearch = e => {
+//     const {questionAndAnswersList} = this.state
+//     const search = e.target.value
+//     if(search.length > 0){
+//         const filterQuestions = questionAndAnswersList.filter(Question => Question.question.includes(search))
+        
+
+//     }
+// }        
     return (
         <div className = "containe"
 
@@ -27,6 +38,7 @@ useEffect(()=>{
                         <h3 className="list-group-item question">{questions.question}</h3> 
                         <h3 className="list-group-item answer">{ questions.answer}</h3> 
                         <h5 className="list-group-item Dr">Dr. {questions.doctorName}</h5> 
+                        {/* <h2>{questions.user_Id}</h2> */}
                  </div>
                
                    
