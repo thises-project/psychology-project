@@ -11,7 +11,7 @@ export const verifyUser = (inputs) => async (dispatch) => {
             dispatch({ type: 'verifyUser', payload: data })
             dispatch(Auth(data))
 
-            window.location = `/userPro/ + ${window.localStorage.userId}`;
+            window.location = `/userPro/${window.localStorage.userId}`;
         } else {
             alert("User Doesn't Exist");
         }

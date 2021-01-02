@@ -1,31 +1,27 @@
-var scheduleModel = require('../Models/schedule')
+const db = require('./database');
 module.exports = {
-
-    createSchedule: (req, res) => {
-
-        var params = [req.params.id, req.body.selectedDate.date, req.body.selectedDate.startTime, req.body.selectedDate.endTime];
-        console.log(params)
-        scheduleModel.createSchedule(params, function (err, result) {
-            if (err) { console.log("you are have an error in schedule controller ") }
-            console.log("created", result)
-            res.json(result);
+    
+    createSchedule:(params , callback)=>{
+        var query = 'INSERT INTO schedule (doctor_Id , date , startAt,endAt) VALUES (?,?,?,?) ;';
+        db.query(query , params , function(err,result){
+            callback(err , result) 
         })
-
     },
-    getScheduleForUser: (req, res) => {
-        var params = [req.body.doctor_Id, req.body.date];
-        scheduleModel.getScheduleForUser(params, function (err, result) {
-            if (err) { console.log("you are have an error in schedule controller ") }
-            res.json(result);
+    getScheduleForUser:(params , callback)=>{
+        // var query = 'Select * from schedule  where doctor_Id = ? ';
+        // var query = 'Select * from schedule  where doctor_Id = ? and date = ?;';
+        var queryStr = 'Select DATE_FORMAT(date,"%Y-%m-%d") ,startAt , endAt from schedule where doctor_Id = ? and date = ?;';
+        db.query(queryStr , params , function(err,result){
+            callback(err , result) 
         })
-
     },
-    getScheduleForDoctor: (req, res) => {
-        var params = [req.body.doctor_Id];
-        scheduleModel.getScheduleForDoctor(params, function (err, result) {
-            if (err) { console.log("you are have an error in schedule controller ") }
-            res.json(result);
+    getScheduleForDoctor:(params , callback)=>{
+        var query = 'Select * from schedule  where doctor_Id = ? and date = ?;';
+        // var query = 'Select * from schedule;';
+
+        db.query(query , params , function(err,result){
+            callback(err , result) 
         })
-    }
+    },
 
 }
