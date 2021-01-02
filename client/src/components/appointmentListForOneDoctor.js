@@ -1,31 +1,32 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
+
 // import {useDispatch ,useSelector}  from 'react-redux';
 
 const url = 'http://localhost:5000';
 
-function AppointmentList (){
+function AppointmentListForOneDoctor (){
     // console.log(props.match.params,"props is ")
-   const currentId = window.localStorage.userId;
+   const currentId = window.localStorage.doctorId;
     // const date = props.match.params.date
    
-    const [userAppointment , setUserAppointment] = useState({
-        myAppointment :[]
+    const [doctorAppointment , setdoctorAppointment] = useState({
+        appointment :[]
     })
     useEffect(() => {
-       axios.get(`${url}/appointment/getAppointmentForOneUser/${currentId}`)
+       axios.get(`${url}/appointment/getAppointmentForDoctor/${currentId}`)
        .then(res=>{
            
-           setUserAppointment({myAppointment : res.data})
+        setdoctorAppointment({appointment : res.data})
            
-           console.log(res.data)
-           console.log(userAppointment.myAppointment[0])
+          //  console.log(res.data)
+          //  console.log(doctorAppointment.appointment , "hiiiiiiiiiiiiiiiiiiiii") 
        })
        .catch(err =>{
         console.log(err)
     })
-    },[window.localStorage.userId]);
+    },[window.localStorage.doctorId]);
 
 
     return (
@@ -34,30 +35,31 @@ function AppointmentList (){
             <table className="table">
               <thead className="thead-light">
                 <tr>
-                  <th>Doctor Name</th>
+                  <th>Patient Name</th>
                   <th>Date</th>
                   <th>Start Time</th>
-                  <th>End time</th>
+                  <th>End Time</th>
                 </tr>
               </thead>
-              
-              {userAppointment.myAppointment.map((appointment) =>(
+             
+                  
+                
+           
+            {doctorAppointment.appointment.map((appointment) =>(
               <tbody>
-                <td>{appointment.doctorName}</td>
+                <td>{appointment.userName}</td>
                 <td> {appointment.date}</td>
-                <td>{appointment.startTime}</td>
-                <td>{appointment.endTime}</td>
+                <td>{appointment.startTime}</td> 
+                <td>{appointment.endtime}</td>
                 
                 </tbody>
               
             )
             )}
-              
-            </table>
-            
-            
+               
+               </table>
         </div>
     )
 
 }
-export default AppointmentList;
+export default AppointmentListForOneDoctor;
