@@ -2,8 +2,9 @@ import React from 'react';
 import { useState } from 'react';
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import DatePicker from 'react-datepicker'
+// import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
+import ScheduleForDoctor from "./scheduleForDoctor"
 function CreateDoctorsSchedule() {
     const [selectedDate, setSelectedDate] = useState({
         // const [schedule, setSchedule] = useState({
@@ -31,6 +32,8 @@ function CreateDoctorsSchedule() {
     }
     return (
         <div className="col-lg-8 offset-lg-2">
+             <br></br>
+            <br></br>
             <h2>Create Your Schedule</h2><br></br><br></br><br></br>
             <form name='form' >
                 <div className="form-group">
@@ -52,40 +55,17 @@ function CreateDoctorsSchedule() {
                 </div>
                 <button type="submit" onClick={handleClick}>Add to the Schedule </button>
             </form>
-            {/* <form name = 'form' onSubmit ={handleSubmit}>
-                <div className = "form-group">
-                    <label>Date</label>
-                   <DatePicker selected={selectedDate} 
-                   onChange = {date =>{setSelectedDdate(date)}} 
-                   dateFormat = 'yyyy/MM/dd' />
-                </div>
-                <input data-provide="datepicker"></input>
-                <div className = "form-group">
-                    <label>Time</label>
-                    <select 
-                    required
-                    className = "form-control"
-                    >
-                        <option></option>
-                    </select>
-                </div>
-                <div className = "form-group">
-                    <label></label>
-                          <DatePicker id="example-datepicker"  onChange={handleChange} />
-                </div>
-                <div className="form-group row">
-                    <label for="example-date-input" className="col-2 col-form-label">Date</label>
-                    <div class="col-10">
-                        <input className="form-control" type="date" value="2011-08-19" id="example-date-input"/> 
-                    </div>
-                </div>
-                <div className="form-group row">
-                <label for="example-time-input" className="col-2 col-form-label">Time</label>
-                <div className="col-10">
-                    <input className="form-control" type="time" value="13:45:00" id="example-time-input"/>
-                </div>
-                </div>
-            </form> */}
+            <br>
+            </br>
+            <br>
+            </br>
+            <br>
+            </br>
+            <br>
+            </br>
+            <div>
+               <ScheduleForDoctor />
+               </div>
         </div>
     )
 }

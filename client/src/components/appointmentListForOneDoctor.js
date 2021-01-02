@@ -31,7 +31,7 @@ function AppointmentListForOneDoctor (){
 
     return (
         <div className="col-lg-8 offset-lg-2">
-            <h2>My Appointment</h2>
+            <h2>Patients Appointment</h2>
             <table className="table">
               <thead className="thead-light">
                 <tr>
@@ -59,9 +59,7 @@ function AppointmentListForOneDoctor (){
                
                </table>
 
-               <div>
-               <ScheduleForDoctor />
-               </div>
+               
         </div>
     )
 

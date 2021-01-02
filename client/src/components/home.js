@@ -92,7 +92,14 @@ const Home = () => {
       <a href={href} onClick={ handleClick ()}> Get Free Counsling NOW !</a>
         Get Free Counsling NOW !
       </Button> */}
-
+ <br></br>
+      <br></br>
+      <br></br>
+       <div>
+        <Link type="button" className="btn btn-info btn-rounded" to={"/video"}>
+          Start Meeting
+        </Link>
+      </div>
       <br></br>
       <br></br>
       <br></br>
