@@ -44,6 +44,21 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
 
+
+          <Route
+            path="/bookAppointment/:id"
+            currentId={currentId}
+            setCurrentId={setCurrentId}
+            component={BookAppointment} />
+          <Route path="/appointmentList"
+            component={AppointmentList}
+          />
+          <Route path="/video" component={VideoCall} />
+
+
+
+         
+
           <Route path="/doctorSchedule/:id" component={CreateDoctorsSchedule} />
 
 
@@ -56,7 +71,6 @@ function App() {
           component={AppointmentList}
           />
   
-          <Route path="/bookAppointment" component={BookAppointment} />
           <Route path="/video" component={VideoCall} />
 
           {/* user private components */}
