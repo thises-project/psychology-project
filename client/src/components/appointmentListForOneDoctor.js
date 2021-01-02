@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
-
+import ScheduleForDoctor from "./scheduleForDoctor"
 // import {useDispatch ,useSelector}  from 'react-redux';
 
 const url = 'http://localhost:5000';
@@ -58,6 +58,10 @@ function AppointmentListForOneDoctor (){
             )}
                
                </table>
+
+               <div>
+               <ScheduleForDoctor />
+               </div>
         </div>
     )
 

@@ -18,7 +18,7 @@ module.exports = {
         })
     },
     getScheduleForDoctor: (params, callback) => {
-        var query = 'Select * from schedule  where doctor_Id = ? and date = ?;';
+        var query = 'Select * from schedule  where doctor_Id = ? ';
         // var query = 'Select * from schedule;';
 
         db.query(query, params, function (err, result) {

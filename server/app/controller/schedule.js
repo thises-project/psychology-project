@@ -18,7 +18,7 @@ module.exports = {
         })
     },
     getScheduleForDoctor: (req, res) => {
-        var params = [req.body.doctor_Id];
+        var params = [req.params.id];
         scheduleModel.getScheduleForDoctor(params, function (err, result) {
             if (err) { console.log("you are have an error in schedule controller ") }
             res.json(result);

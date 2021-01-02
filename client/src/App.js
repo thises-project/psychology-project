@@ -19,7 +19,7 @@ import BookAppointment from "./components/bookAppointment";
 import AppointmentList from "./components/appointmentList";
 import AppointmentListForOneDoctor from "./components/appointmentListForOneDoctor"
 import CreateDoctorsSchedule from './components/CreateDoctorsSchedule'
-
+// import ScheduleForDoctor from './components/scheduleForDoctor'
 import "bootstrap/dist/css/bootstrap.min.css";
 import 'react-datepicker/dist/react-datepicker.css'
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -46,7 +46,7 @@ function App() {
           <Route path="/signup" component={Signup} />
 
           <Route path="/doctorSchedule/:id" component={CreateDoctorsSchedule} />
-
+          {/* <Route path = "/scheduleForDoctor/:id" component = {ScheduleForDoctor}/>  */}
 
           <Route
            path="/bookAppointment/:id" 
