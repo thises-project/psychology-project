@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 export default (state = [], action)=> { 
 
        switch (action.type){
@@ -21,7 +22,7 @@ export default (state = [], action)=> {
        case 'DELETE':
                     
                return state.filter((user) => user.userId !== action.payload )
-       default:
+        default:
               return 0;
        }
    }

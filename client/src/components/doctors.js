@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Footer from "./footer";
 import { Badge } from "react-bootstrap";
+
 // import { Link } from "react-router-dom";
 
 const Doctors = (props) => {
@@ -19,8 +20,8 @@ const Doctors = (props) => {
   });
 
   return (
-    <div className="container ml-5 mr-5" style={{ textAlign: "left" }} className = "container">
-      {doctors.map((doctor) => (
+    <div className="container ml-5 mr-5" style={{ textAlign: "left" }}>
+      {doctors.map((doctor,index) => (
         <div
           className="row"
           key={doctor.doctorId}
@@ -29,36 +30,41 @@ const Doctors = (props) => {
           <div className="col pt-3 pb-2">
             <div className="row">
               <div className="col-md-10">
-                <h2>{doctor.doctorName} </h2>
+                
+                <h2>
+                  {doctor.doctorName} 
+                </h2><h6>{doctor.doctorId}</h6>
+                
+               <br/>
+
                 <h4>{doctor.doctorSpeciality}</h4>
                 <p className="lead">{doctor.bio}</p>
-                
+
                 <p>
-                  
-                
                   {/* <h4 className="badge">  </h4> */}
                   {/* <span className="badge">{doctor.password} </span> */}
                 </p>
-                <h5><Badge pill variant="secondary">
-                {doctor.email}
-            </Badge></h5>
-             
+                <h5>
+                  <Badge pill variant="secondary">
+                    {doctor.email}
+                  </Badge>
+                </h5>
+
                 <button
                   className="btn btn-danger "
                   style={{
-                    borderWidth:1,
-                    borderColor:'rgba(0,0,0,0.2)',
-                    alignItems:'center',
-                    justifyContent:'center',
-                    width:100,
-                    height:23,
-                    backgroundColor:'blue',
-                    borderRadius:30,
-                    
+                    borderWidth: 1,
+                    borderColor: "rgba(0,0,0,0.2)",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: 100,
+                    height: 23,
+                    backgroundColor: "blue",
+                    borderRadius: 30,
                   }}
                   // to={}
                 >
-                  Book Appointment
+                  Book Video Session
                 </button>
               </div>
             </div>
