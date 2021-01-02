@@ -1,8 +1,6 @@
 var scheduleModel = require('../Models/schedule')
 module.exports = {
-
     createSchedule: (req, res) => {
-
         var params = [req.params.id, req.body.selectedDate.date, req.body.selectedDate.startTime, req.body.selectedDate.endTime];
         console.log(params)
         scheduleModel.createSchedule(params, function (err, result) {
@@ -10,7 +8,6 @@ module.exports = {
             console.log("created", result)
             res.json(result);
         })
-
     },
     getScheduleForUser: (req, res) => {
         // var params = [req.body.doctor_Id , req.body.date];
@@ -19,7 +16,6 @@ module.exports = {
             if (err) { console.log("you are have an error in schedule controller ") }
             res.send(result);
         })
-
     },
     getScheduleForDoctor: (req, res) => {
         var params = [req.body.doctor_Id];
@@ -28,5 +24,4 @@ module.exports = {
             res.json(result);
         })
     }
-
 }
