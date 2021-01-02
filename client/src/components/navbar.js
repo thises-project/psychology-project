@@ -134,13 +134,6 @@ function Navbar() {
               >
                 <li className="nav-item">Login</li>
               </Link>
-              <Link
-                to="/rateDoctor"
-                className="nav-link ml-3 mr-3"
-                style={{ fontSize: "16px" }}
-              >
-                <li className="nav-item">Rate Doctor</li>
-              </Link>
               {/* <Link
               to="/signup"
               className="nav-link  ml-3 mr-3"

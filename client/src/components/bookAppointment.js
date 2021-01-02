@@ -5,6 +5,7 @@ import axios from 'axios'
 import 'react-datepicker/dist/react-datepicker.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import {bookAppointment} from "../actions/Appointment";
+import { Link, Redirect } from "react-router-dom";
 
 const url = 'http://localhost:5000';
 
@@ -65,6 +66,8 @@ function BookAppointment (props,{currentId , setCurrrentId}){
         const userId =window.localStorage.userId;
         console.log(userId)
         dispatch(bookAppointment( currentId ,userId, appointmentInfo))
+        window.location = `/appointmentList/${window.localStorage.userId}`;
+        // `<Redirect to={{ pathname: '/appointmentList/'+${window.localStorage.userId}, state: { from: ${props.location } }}/>`
         
     }
     return (
@@ -131,8 +134,15 @@ function BookAppointment (props,{currentId , setCurrrentId}){
                     
                     <div className= "form-group">
                     <button className="btn btn-primary" >
+                        
                         book Appointement
                     </button>
+               
+       
+                  
+                   
+
+
                     </div>
 
 
