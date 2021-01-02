@@ -54,9 +54,7 @@ if(process.env.NODE_ENV === 'production'){
       res.sendFile(path.resolve(__dirname,'client','build','index.html'))
   })
 }
-app.get('/test',(req,res)=>{
-  res.send("testt !! ")
-})
+
 
 
 var server = app.listen();
