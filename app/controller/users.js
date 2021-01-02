@@ -136,11 +136,6 @@ updateUser:  async (req, res) => {
       if(err){console.log(`you have an error in deleteUser controller ${err}`)};
       res.sendStatus(200)
     })
-  },
-
-  test: (req,res)=>{
-    res.send("this is the test for the backend")
-    console.log("backend TESTT")
   }
 
 }

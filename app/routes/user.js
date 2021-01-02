@@ -15,7 +15,6 @@ router.get('/getOneUser/:id', controller.users.getOneUser);
 router.delete('/deleteUser/:id' , controller.users.deleteUser)
 router.patch('/updateUser/:id' , controller.users.updateUser)
 
-router.get('/test',controller.users.test)
 
 
 
