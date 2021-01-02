@@ -75,10 +75,12 @@ function UserIsLogged4(val){
   useEffect(()=>{
           dispatch(GetAllQuestionsAndAnswers())
           },[dispatch]);
+          console.log(questionAndAnswersList,"test filter");
   function onClickOption(){
     // window.location = '/UserQuestionsAnswers'
     
           }
+        
   if(val ){
     return ( 
    
@@ -86,11 +88,12 @@ function UserIsLogged4(val){
       <select  id="notification"> 
        <option>Notification</option>
        
-          {questionAndAnswersList.filter(questions => window.localStorage.user_Id = questions.user_Id).map(filterQuestion=>(
-        <option>
-            
+          {questionAndAnswersList.filter(questions => questions.user_Id == window.localStorage.userId   ).map(filterQuestion=>(
+        <option onClick = {onClickOption()}>
+           {window.localStorage.userId}
         Dr. {filterQuestion.doctorName}  answered your question
-      
+        {filterQuestion.user_Id}
+     
          </option>
           ))}
       </select>       
