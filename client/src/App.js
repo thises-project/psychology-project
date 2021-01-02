@@ -41,7 +41,7 @@ function App() {
           <Route path="/questions" component={Questions} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
-          <Route path="/doctorSchedule" component={CreateDoctorsSchedule} />
+          <Route path="/doctorSchedule/:id" component={CreateDoctorsSchedule} />
           <Route path="/bookAppointment" component={BookAppointment} />
           <Route path="/video" component={VideoCall} />
 
