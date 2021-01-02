@@ -7,64 +7,82 @@ function Navbar() {
   if (window.localStorage.length > 0) {
     value = true;
   }
-  function DocIsLogged(val){
-    if(val ){
+  function DocIsLogged(val) {
+    if (val) {
       return (
-      
+
         <Link
-        to="/doctorProfile/:id"
-        className="nav-link  ml-3 mr-3"
-        style={{ fontSize: "16px" }}
-      >
-        <li className="nav-item" >My Profile</li>
-      </Link>   
+          to={`/doctorProfile/${window.localStorage.doctorId}`}
+          className="nav-link  ml-3 mr-3"
+          style={{ fontSize: "16px" }
+          }
+        >
+          <li className="nav-item" >My Profile</li>
+        </Link >
       )
     }
- }
+  }
 
- function DocIsLogged2(val){
-  if(val ){
-    return (
-    
-      <Link
-        to="/doctorQuestions"
-        className="nav-link  ml-3 mr-3"
-         style={{ fontSize: "16px" }}
-       >
-        <li className="nav-item" >Not Answered Questions</li>
-       </Link>
-    )
-  }
-}
-  
-function UserIsLogged(val){
-  if(val ){
-    return (
-    
-      <Link
-        to="/userPro"
-        className="nav-link  ml-3 mr-3"
-         style={{ fontSize: "16px" }}
-       >
-        <li className="nav-item" >My Profile</li>
-       </Link>
-    )
-  }
-}
-function UserIsLogged2(val){
-  if(val ){
-    return (
-    
+  function DocIsLogged2(val) {
+    if (val) {
+      return (
+
         <Link
-            to="/askQuestions"
-            className="nav-link  ml-3 mr-3"
+          to="/doctorQuestions"
+          className="nav-link  ml-3 mr-3"
           style={{ fontSize: "16px" }}
-              >
-         <li className="nav-item">Get Free Counseling Now</li>
-         </Link> 
-    )
+        >
+          <li className="nav-item" >Not Answered Questions</li>
+        </Link>
+      )
+    }
   }
-}
+
+
+  function DocIsLogged3(val) {
+    if (val) {
+      return (
+
+        <Link
+
+          to={`/doctorSchedule/${window.localStorage.doctorId}`}
+          className="nav-link  ml-3 mr-3"
+          style={{ fontSize: "16px" }}
+        >
+          <li className="nav-item" >My Schedule</li>
+        </Link>
+      )
+    }
+  }
+
+  function UserIsLogged(val) {
+    if (val) {
+      return (
+
+        <Link
+          to="/userPro"
+          className="nav-link  ml-3 mr-3"
+          style={{ fontSize: "16px" }}
+        >
+          <li className="nav-item" >My Profile</li>
+        </Link>
+      )
+    }
+  }
+  function UserIsLogged2(val) {
+    if (val) {
+      return (
+
+        <Link
+          to="/askQuestions"
+          className="nav-link  ml-3 mr-3"
+          style={{ fontSize: "16px" }}
+        >
+          <li className="nav-item">Get Free Counseling Now</li>
+        </Link>
+      )
+    }
+  }
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -100,7 +118,7 @@ function UserIsLogged2(val){
               >
                 <li className="nav-item">Articles</li>
               </Link>
-                
+
               <Link
                 to="/login"
                 className="nav-link  ml-3 mr-3"
@@ -161,6 +179,7 @@ function UserIsLogged2(val){
 
               {DocIsLogged(window.localStorage.doctorId)}
               {DocIsLogged2(window.localStorage.doctorId)}
+              {DocIsLogged3(window.localStorage.doctorId)}
 
               <Link
                 to="/questions"
@@ -176,7 +195,7 @@ function UserIsLogged2(val){
               >
                 <li className="nav-item">Articles</li>
               </Link>
-              
+
               <Link
                 to="/logout"
                 className="nav-link  ml-3 mr-3"
