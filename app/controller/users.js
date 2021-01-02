@@ -12,7 +12,7 @@ module.exports =  {
   getAllUsers:(req,res) =>{ 
     usersModel.getAllUsers(function(err,results){
        
-       if (err) { console.log('error in users controller',err)}
+       if (err) { console.log('error in getAllUsers controller',err)}
        res.json(results);
    
     })
@@ -31,7 +31,7 @@ module.exports =  {
     var params = [req.body.userName, req.body.age, req.body.gender, req.body.email, hashedPassword];
     // console.log(req.body.userName,"create")
     usersModel.createUser(params, function (err, results) {
-      if (err) console.log("you are have an error in controller", err)
+      if (err) console.log("you are have an error in createUser controller", err)
 
       // res.sendStatus(200)
       res.send({ type:type});
@@ -50,7 +50,7 @@ module.exports =  {
     else {
       console.log("auth", token)
       jwt.verify(token, `${process.env.JWT_KEY}`, (err, user) => {
-        if (err) res.status(400).send("you failed to authenticate")
+        if (err) res.status(400).send("you failed to authenticate error in Auth controller")
         // console.log(user)
         req.userId = user;
         res.send(token);
@@ -81,7 +81,7 @@ module.exports =  {
         const validpassword = await bcrypt.compare(password, dbPassword);
         if (!validpassword) return res.status(400).send("Password not correct");
         const accessToken = jwt.sign({ username: username }, `${process.env.JWT_KEY}`);
-        console.log("toooooooooooooooooooooooken ..........", accessToken);
+        // console.log("toooooooooooooooooooooooken ..........", accessToken);
          
         res.json({ userId: id, username: username, accessToken: accessToken});
 
@@ -97,7 +97,7 @@ module.exports =  {
     var params = [req.params.id];
     usersModel.getOneUser(params, function (err, result) {
       if (err) {
-        console.log(err)
+        console.log("error in getOneUser controller",err)
       } res.send(result)
     })
   },
@@ -125,7 +125,7 @@ updateUser:  async (req, res) => {
    console.log(params)
   usersModel.updateUser(params, function (err, results) {
     if (err) { 
-      console.log("you are have an error in controller", err) 
+      console.log("you are have an error in updateUser controller", err) 
     }
     res.sendStatus(200)
   })
@@ -133,7 +133,7 @@ updateUser:  async (req, res) => {
   deleteUser:(req,res)=>{
     var params = [req.params.id];
     usersModel.deleteUser(params,function(err,result){
-      if(err){console.log(`you have an error in doctor controller ${err}`)};
+      if(err){console.log(`you have an error in deleteUser controller ${err}`)};
       res.sendStatus(200)
     })
   }

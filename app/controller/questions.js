@@ -12,7 +12,7 @@ module.exports =  {
   
       console.log(req.body.question,req.body.user_Id,"createQuestion")
       questionsModel.createQuestions(params,function(err , results){
-          if(err){console.log("you are have an error in questions controller" , err)}
+          if(err){console.log("you are have an error in createQuestions controller" , err)}
           res.json(results);
           // res.sendStatus(200)
       
@@ -21,7 +21,7 @@ module.exports =  {
 
     getAllQuestionsAndAnswers:(req , res)=>{
       questionsModel.getAllQuestionsAndAnswers(function(err,results){
-          if(err){console.log("you are have an error in your question controller",err)}
+          if(err){console.log("you are have an error in your getAllQuestionsAndAnswers controller",err)}
           res.json(results)
           
       })
@@ -31,7 +31,7 @@ module.exports =  {
     getAllQuestions : (req, res) => {
       questionsModel.getAllQuestions(function(err, results){
         if(err){
-          console.log("you are have an error in questions controller", err)
+          console.log("you are have an error in getAllQuestions controller", err)
         }
         res.json(results);
       })
@@ -40,7 +40,7 @@ module.exports =  {
       var params = [req.params.id]
       questionsModel.getAllQuestionsAndAnswersForOneUser(params ,function(err , results){
         if(err){
-          console.log("you are have an error in questions controller", err)
+          console.log("you are have an error in getAllQuestionsAndAnswersForOneUser controller", err)
         }
         res.json(results);
       })
@@ -51,7 +51,7 @@ module.exports =  {
 
     console.log(req.body.answer, req.body.questionId, "createAnswer")
     questionsModel.createAnswer(params, function (err, results) {
-      if (err) { console.log("you are have an error in questions controller in createAnswer", err) }
+      if (err) { console.log("you are have an error in createAnswer controller in createAnswer", err) }
       res.json(results);
       // res.sendStatus(200)
 

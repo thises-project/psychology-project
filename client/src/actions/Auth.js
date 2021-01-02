@@ -13,7 +13,7 @@ export const Auth = (authInputs) => async (dispatch) => {
         
     }
     catch (error) {
-        console.log('failed to Auth')
+        console.log('failed to Auth error in auth actions')
         console.log(error)
     }
 

@@ -65,7 +65,7 @@ module.exports = {
   getAllDoctors: (req, res) => {
     doctorModel.getAllDoctors(function (err, results) {
       if (err) {
-        console.log(`you have an error in doctor controller ${err}`);
+        console.log(`you have an error in get all doctors controller ${err}`);
       }
       res.json(results);
     });
@@ -75,7 +75,7 @@ module.exports = {
     var params = [req.params.id];
     doctorModel.getOneDoctor(params, function (err, result) {
       if (err) {
-        console.log(`you have an error in doctor controller ${err}`);
+        console.log(`you have an error in get one doctor controller ${err}`);
       }
       res.json(result);
     });
@@ -106,7 +106,7 @@ module.exports = {
     ];
     doctorModel.updateDoctor(params, function (err, result) {
       if (err) {
-        console.log(`you have an error in doctor controller ${err}`);
+        console.log(`you have an error in update doctor controller ${err}`);
       }
       res.sendStatus(200);
     });
@@ -116,7 +116,7 @@ module.exports = {
     var params = [req.params.id];
     doctorModel.deleteDoctor(params, function (err, result) {
       if (err) {
-        console.log(`you have an error in doctor controller ${err}`);
+        console.log(`you have an error in delete doctor controller ${err}`);
       }
       res.sendStatus(200);
     });

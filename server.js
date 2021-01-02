@@ -54,6 +54,9 @@ if(process.env.NODE_ENV === 'production'){
       res.sendFile(path.resolve(__dirname,'client','build','index.html'))
   })
 }
+app.get('/test',(req,res)=>{
+  res.send("testt !! ")
+})
 
 
 var server = app.listen();
@@ -61,6 +64,6 @@ server.setTimeout(500000);
 
 
 app.listen(PORT, () => {
-  console.log(`Server is Running in port:${PORT}`);
+  console.log(`Server is Running on port:${PORT}`);
 });
 

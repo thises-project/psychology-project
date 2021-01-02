@@ -5,7 +5,7 @@ export const AddQuestions = (questions) => async (dispatch) => {
     try {
         const { data } = await api.AddQuestions(questions);
         dispatch({ type: 'AddQuestions', payload: data })
-        console.log(questions);
+        // console.log(questions);
     }
     catch (error) {
         console.log(error, 'failed')
@@ -18,7 +18,7 @@ export const GetQuestions = () => async (dispatch) => {
         const { data } = await api.GetQuestions();
 
         dispatch({ type: 'GetAllQuestions', payload: data });
-        console.log(data);
+        // console.log(data);
     }
     catch (error) {
         console.log(error.message);

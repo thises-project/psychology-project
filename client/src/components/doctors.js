@@ -6,19 +6,23 @@ import { Badge } from "react-bootstrap";
 const Doctors = (props) => {
   const [doctors, setDoctor] = useState([]);
   useEffect(() => {
+    console.log("doctooorsss",doctors);
     axios
-      .get("https://speakout-1.herokuapp.com/doctor/getAllDoctors")
+      .get(`https://speakout-1.herokuapp.com/doctor/getAllDoctors`)
       .then((res) => {
         // console.log("HIIIIIII");
         setDoctor(res.data);
       })
       .catch((err) => {
-        alert("Error fetching doctors List!");
+        console.log("Error fetching doctors List!",err);
       });
   });
+
   return (
+    
     <div className="container ml-5 mr-5" style={{ textAlign: "left" }}>
-      {doctors.map((doctor,index) => (
+      
+      {doctors.map((doctor) => (
         <div
           className="row"
           key={doctor.doctorId}
