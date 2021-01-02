@@ -25,6 +25,7 @@ function UserProfile(props, setCurrentId) {
       .catch((err) => {
         console.log(err);
       });
+    // eslint-disable-next-line
   }, [window.localStorage.userId]);
   return (
     <div className="col-md-8">

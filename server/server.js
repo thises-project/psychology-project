@@ -5,7 +5,6 @@ const app = express();
 const http = require("http");
 const server = http.createServer(app);
 
-
 const connection = require("./app/Models/database");
 // require user the route
 const user = require("./app/routes/user");
@@ -42,31 +41,35 @@ app.use(function (error, req, res, next) {
 app.get("/", function (req, res) {
   res.send("Home Page");
 });
-app.listen(port, () => {
+
+server.listen(port, () => {
   console.log(`Server is Running in port:http://localhost:${port}`);
 });
 
 const peers = {};
 
-io.on('connection', socket => {  //
-  if(!peers[socket.id]) {
-    peers[socket.id] = socket.id
+io.on("connection", (socket) => {
+  //
+  if (!peers[socket.id]) {
+    peers[socket.id] = socket.id;
   }
-  
-  socket.emit('yourID', socket.id); //  allows you to emit custom events on the server and client
 
-io.sockets.emit('allUsers', peers); //will send to all the clients ......socket.broadcast.emit will send the message to all the other clients except the newly created connection
+  socket.emit("yourID", socket.id); //  allows you to emit custom events on the server and client
 
-socket.on('disconnect', () => {
-  delete peers[socket.id];         //after the user leave the room
-})
+  io.sockets.emit("allUsers", peers); //will send to all the clients ......socket.broadcast.emit will send the message to all the other clients except the newly created connection
 
-socket.on('callUser', (data) => {
-  io.to(data.userToCall).emit('hello', {signal: data.signalData, from: data.from}); //io.to('some room').emit('some event');
-})
+  socket.on("disconnect", () => {
+    delete peers[socket.id]; //after the user leave the room
+  });
 
-socket.on('acceptCall', (data) => {
-  io.to(data.to).emit('callAccepted', data.signal)
-})
+  socket.on("callUser", (data) => {
+    io.to(data.userToCall).emit("hello", {
+      signal: data.signalData,
+      from: data.from,
+    }); //io.to('some room').emit('some event');
+  });
 
+  socket.on("acceptCall", (data) => {
+    io.to(data.to).emit("callAccepted", data.signal);
+  });
 });

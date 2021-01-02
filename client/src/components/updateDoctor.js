@@ -42,6 +42,7 @@ const UpdateDoctor = (props) => {
       .catch((err) => {
         console.log(err);
       });
+    // eslint-disable-next-line
   }, [window.localStorage.doctorId]);
 
   const handleChange = (name) => (event) => {
