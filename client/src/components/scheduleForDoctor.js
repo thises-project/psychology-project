@@ -5,45 +5,45 @@ import axios from 'axios';
 
 const url = 'http://localhost:5000';
 
-function AppointmentList (){
+function ScheduleForDoctor (){
     // console.log(props.match.params,"props is ")
-   const currentId = window.localStorage.userId;
+   const currentId = window.localStorage.doctorId;
     // const date = props.match.params.date
    
-    const [userAppointment , setUserAppointment] = useState({
-        myAppointment :[]
+    const [doctorSchedule , setDoctorSchedule] = useState({
+        schedules :[]
     })
     useEffect(() => {
-       axios.get(`${url}/appointment/getAppointmentForOneUser/${currentId}`)
+       axios.get(`${url}/schedule/getScheduleForDoctor/${currentId}`)
        .then(res=>{
            
-           setUserAppointment({myAppointment : res.data})
+        setDoctorSchedule({schedules : res.data})
            
            console.log(res.data)
-           console.log(userAppointment.myAppointment[0])
+           console.log(doctorSchedule.schedules[0])
        })
        .catch(err =>{
         console.log(err)
     })
-    },[window.localStorage.userId]);
+    },[window.localStorage.doctorId]);
 
 
     return (
         <div className="col-lg-8 offset-lg-2">
-            <h2>My Appointment</h2>
+            <h2>My Schedule</h2>
             <table className="table">
               <thead className="thead-light">
                 <tr>
-                  <th>Doctor Name</th>
+                  <th>Patient Name</th>
                   <th>Date</th>
                   <th>Start Time</th>
                   <th>End time</th>
                 </tr>
               </thead>
               
-              {userAppointment.myAppointment.map((appointment) =>(
+              {/* {userAppointment.myAppointment.map((appointment) =>(
               <tbody>
-                <td>{appointment.doctorName}</td>
+                <td>{appointment.userName}</td>
                 <td> {appointment.date}</td>
                 <td>{appointment.startTime}</td>
                 <td>{appointment.endTime}</td>
@@ -51,7 +51,7 @@ function AppointmentList (){
                 </tbody>
               
             )
-            )}
+            )} */}
               
             </table>
             
@@ -60,4 +60,4 @@ function AppointmentList (){
     )
 
 }
-export default AppointmentList;
+export default ScheduleForDoctor;
