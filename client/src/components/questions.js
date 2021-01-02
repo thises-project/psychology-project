@@ -38,7 +38,7 @@ useEffect(()=>{
                         <h3 className="list-group-item question">{questions.question}</h3> 
                         <h3 className="list-group-item answer">{ questions.answer}</h3> 
                         <h5 className="list-group-item Dr">Dr. {questions.doctorName}</h5> 
-                        <h2>{questions.user_Id}</h2>
+                        {/* <h2>{questions.user_Id}</h2> */}
                  </div>
                
                    

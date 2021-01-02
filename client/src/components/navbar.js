@@ -90,9 +90,9 @@ function UserIsLogged4(val){
        
           {questionAndAnswersList.filter(questions => questions.user_Id == window.localStorage.userId   ).map(filterQuestion=>(
         <option onClick = {onClickOption()}>
-           {window.localStorage.userId}
+           {/* {window.localStorage.userId} */}
         Dr. {filterQuestion.doctorName}  answered your question
-        {filterQuestion.user_Id}
+        {/* {filterQuestion.user_Id} */}
      
          </option>
           ))}
