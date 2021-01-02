@@ -58,7 +58,7 @@ function App() {
           component={AppointmentList}
           />
   
-          <Route path="/bookAppointment" component={BookAppointment} />
+        
           <Route path="/video" component={VideoCall} />
 
           {/* user private components */}
