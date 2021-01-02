@@ -37,8 +37,9 @@ function DoctorQuestions() {
 
         function handleSubmit(e) {
             e.preventDefault();
-            console.log(AddQuestion);
+            // console.log(AddQuestion);
             dispatch(createAnswer(answers))
+
             window.location = '/questions'
         }
 
