@@ -1,9 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "./logo.jpg";
-import { useEffect } from 'react';
-import { useDispatch ,useSelector} from 'react-redux';
-import {GetAllQuestionsAndAnswers} from "../actions/AddQuestion";
 
 function Navbar() {
   var value = false;
@@ -68,55 +65,6 @@ function UserIsLogged2(val){
     )
   }
 }
-function UserIsLogged4(val){
-  const dispatch = useDispatch();
-  // use selector to get access to all global store or all gllobal state  
-  const questionAndAnswersList = useSelector((state) => state.GetAllQuestionsAndAnswers)
-  useEffect(()=>{
-          dispatch(GetAllQuestionsAndAnswers())
-          },[dispatch]);
-          console.log(questionAndAnswersList,"test filter");
-  function onClickOption(){
-    // window.location = '/UserQuestionsAnswers'
-    
-          }
-        
-  if(val ){
-    return ( 
-   
-      <div>
-      <select  id="notification"> 
-       <option>Notification</option>
-       
-          {questionAndAnswersList.filter(questions => questions.user_Id == window.localStorage.userId   ).map(filterQuestion=>(
-        <option onClick = {onClickOption()}>
-           {/* {window.localStorage.userId} */}
-        Dr. {filterQuestion.doctorName}  answered your question
-        {/* {filterQuestion.user_Id} */}
-     
-         </option>
-          ))}
-      </select>       
-  </div>
-        
-    )
-  }
-}
-
-function UserIsLogged3(val){
-  if(val ){
-    return (
-    
-      <Link
-         to="/UserQuestionsAnswers"
-            className="nav-link  ml-3 mr-3"
-          style={{ fontSize: "16px" }}
-              >
-         <li className="nav-item">User Questions Answers</li>
-         </Link> 
-    )
-  }
-}
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -160,6 +108,7 @@ function UserIsLogged3(val){
               >
                 <li className="nav-item">Get Free Counseling Now</li>
               </Link>
+
               <Link
                 to="/login"
                 className="nav-link  ml-3 mr-3"
@@ -167,7 +116,6 @@ function UserIsLogged3(val){
               >
                 <li className="nav-item">Login</li>
               </Link>
-
               {/* <Link
               to="/signup"
               className="nav-link  ml-3 mr-3"
@@ -203,10 +151,6 @@ function UserIsLogged3(val){
 
               {UserIsLogged(window.localStorage.userId)}
               {UserIsLogged2(window.localStorage.userId)}
-              {UserIsLogged3(window.localStorage.userId)}
-              {UserIsLogged4(window.localStorage.userId)}
-
-
               <Link
                 to="/doctors"
                 className="nav-link ml-3 mr-3"
