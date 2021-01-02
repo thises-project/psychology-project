@@ -1,11 +1,12 @@
-//The Changes are up ..
-//Try to push for master directly ..
-
 import React, { useEffect } from 'react';
 import { useState } from "react";
 import { GetQuestions } from '.././actions/AddQuestion';
 import { createAnswer } from '../actions/AddQuestion';
+
+
+// use Selector to use Data from global store 
 import { useDispatch, useSelector } from 'react-redux';
+
 import { Button } from "react-bootstrap";
 
 // Render All Questions With Textarea For Doctors To answer ..
@@ -36,8 +37,9 @@ function DoctorQuestions() {
 
         function handleSubmit(e) {
             e.preventDefault();
-            console.log(AddQuestion);
+            // console.log(AddQuestion);
             dispatch(createAnswer(answers))
+
             window.location = '/questions'
         }
 

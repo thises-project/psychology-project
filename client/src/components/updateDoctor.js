@@ -46,18 +46,18 @@ const UpdateDoctor = (props) => {
   }, [window.localStorage.doctorId]);
 
   const handleChange = (name) => (event) => {
-    // console.log('name', name, 'event', event.target.value);
+
     setState({ ...state, [name]: event.target.value });
     console.log(state.cpassword);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // console.table({ itemName, itemDescription,itemPrice, user });
+
     axios
       .put(
         "http://localhost:5000/doctor/updateDoctor/" +
-          `${window.localStorage.doctorId}`,
+        `${window.localStorage.doctorId}`,
         {
           doctorId,
           doctorName,
@@ -100,19 +100,11 @@ const UpdateDoctor = (props) => {
       });
   };
 
+
+
   const showUpdateForm = () => (
     <form onSubmit={handleSubmit}>
-      {/* <div className="form-group">
-        <label className="text-muted">Doctor ID</label>
-        <input
-          onChange={handleChange("doctorId")}
-          value={doctorId}
-          type="number"
-          className="form-control"
-          placeholder="doctorId"
-          required
-        />
-      </div> */}
+
 
       <div className="form-group">
         <label className="text-muted">
