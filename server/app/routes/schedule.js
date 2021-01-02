@@ -2,7 +2,7 @@ const express = require('express')
 const router = require('express').Router();
 const controller = require("../controller/schedule");
 
-router.post('/createSchedule', controller.createSchedule);
+router.post('/createSchedule/:id', controller.createSchedule);
 router.get('/getScheduleForUser/:id/:date', controller.getScheduleForUser);
 
 
