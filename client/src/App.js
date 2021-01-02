@@ -44,6 +44,9 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
 
+          <Route path="/doctorSchedule/:id" component={CreateDoctorsSchedule} />
+
+
           <Route
            path="/bookAppointment/:id" 
            currentId={currentId}
@@ -52,11 +55,7 @@ function App() {
              <Route   path = "/appointmentList" 
           component={AppointmentList}
           />
-          <Route path="/video" component={VideoCall}/> 
-         
-         
-
-          <Route path="/doctorSchedule" component={CreateDoctorsSchedule} />
+  
           <Route path="/bookAppointment" component={BookAppointment} />
           <Route path="/video" component={VideoCall} />
 

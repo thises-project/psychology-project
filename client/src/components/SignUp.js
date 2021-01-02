@@ -7,7 +7,7 @@ import { Adduser } from '../actions/adduser';
 
 
 function Signup() {
-  
+
   const [user, setUser] = useState({
     userName: "",
     age: "",
@@ -31,19 +31,23 @@ function Signup() {
     setUser((user) => ({ ...user, [name]: value }));
   }
 
+  function handleValidation() {
+    return validate()
 
+  }
+  function handleDis() {
+    dispatch(Adduser(user));
+  }
 
   function handleSubmit(e) {
-   
-    e.preventDefault(); 
-    
-    if (validate() === true) {
-      
-      dispatch(Adduser(user));
-     //console.log( window.localStorage.type) 
-    
-       window.location = "/login";
+
+    e.preventDefault();
+    if (handleValidation()) {
+      handleDis()
+      //console.log( window.localStorage.type) 
+      window.location = "/login";
     }
+
   }
   function validate() {
     let usernameError = "";
@@ -51,15 +55,15 @@ function Signup() {
     let genderError = "";
     let emailError = "";
     let passwordError = "";
-  
-    
+
+    console.log(user.userName)
 
     if (!user.userName) {
       usernameError =
         "your username cannot be blank, please try to make it more than 3 characters!";
     }
     else if (user.userName.length > 0 && user.userName.length <= 3) {
-      usernameError ="your username cannot be less than 3 characters!";
+      usernameError = "your username cannot be less than 3 characters!";
     }
     if (!user.age) {
       ageError =
@@ -69,7 +73,7 @@ function Signup() {
       genderError =
         "your gender cannot be blank, please write your gender(Male/Female)!";
     }
-    
+
     if (!user.email) {
       emailError =
         "your email cannot be blank, please try to write a correct email";
@@ -79,21 +83,21 @@ function Signup() {
         "your password cannot be blank, please try to make it more than 8 characters";
     }
 
-    else if(user.password.length > 0 && user.password.length < 8){
+    else if (user.password.length > 0 && user.password.length < 8) {
       passwordError =
         "your password cannot be less than 8 characters";
     }
-    
+
     if (usernameError || ageError || genderError || emailError || passwordError) {
-       setUser({ usernameError, ageError, genderError, emailError, passwordError });
-       return false;
+      setUser({ usernameError, ageError, genderError, emailError, passwordError });
+      return false;
     }
-       return true;  
+    return true;
   };
   return (
     <div className="col-lg-8 offset-lg-2">
       <h2>Register</h2>
-      <form name="form" onSubmit={handleSubmit}>
+      <form name="form" >
         <div className="form-group">
           <label>Username</label>
           <input
@@ -184,7 +188,7 @@ function Signup() {
         <div style={{ color: "red" }}>{user.passwordError}</div>
         <br></br>
         <div className="form-group">
-          <button className="btn btn-primary">
+          <button className="btn btn-primary" onClick={handleSubmit}>
             {/* {registering && <span className="spinner-border spinner-border-sm mr-1"></span>} */}
             Sign Up
           </button>
