@@ -1,4 +1,4 @@
-export default (schedules = [], action) => {
+const Schedules = (schedules = [], action) => {
   switch (action.type) {
     case "getScheduleForUser":
       return schedules.filter(
@@ -9,3 +9,5 @@ export default (schedules = [], action) => {
       return schedules;
   }
 };
+
+export default Schedules;

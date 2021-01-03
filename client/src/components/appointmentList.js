@@ -25,6 +25,7 @@ function AppointmentList() {
       .catch((err) => {
         console.log(err);
       });
+    // eslint-disable-next-line
   }, [window.localStorage.userId]);
 
   return (

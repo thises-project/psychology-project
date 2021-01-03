@@ -66,10 +66,14 @@ function AddQ() {
             type="submi"
             variant="info"
             size="lg"
-            style={{ width: "10%", marginTop: 30, width: 50, height: 30 }}
+            style={{ width: "auto", marginTop: 30, height: 30 }}
           >
-            Ask ..
+            SpeakOut
           </Button>
+          <br />
+          <br />
+          <br />
+          <h6> one of our doctors will reply you soon</h6>
         </form>
       </div>
       {/* footer div */}

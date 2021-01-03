@@ -4,10 +4,8 @@ import Footer from "./footer";
 import { Badge } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-// import { Link } from "react-router-dom";
-
 const Doctors = (props) => {
-  const [currentId, setCurrrentId] = useState(null);
+  // const [currentId, setCurrrentId] = useState(null);
   const [doctors, setDoctor] = useState([]);
   useEffect(() => {
     axios

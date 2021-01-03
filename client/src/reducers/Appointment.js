@@ -1,4 +1,4 @@
-export default (state = [], action) => {
+const Appointment = (state = [], action) => {
   switch (action.type) {
     case "bookAppointment":
       return [state, action.payload];
@@ -8,3 +8,5 @@ export default (state = [], action) => {
       return 0;
   }
 };
+
+export default Appointment;

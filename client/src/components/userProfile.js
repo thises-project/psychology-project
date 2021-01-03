@@ -29,7 +29,7 @@ function UserProfile(props, setCurrentId) {
   }, [window.localStorage.userId]);
   return (
     <div
-      className="container w-100"
+      className="container w-50 p-3 mt-5"
       style={{
         textAlign: "left",
         backgroundColor: "beige",
@@ -42,7 +42,7 @@ function UserProfile(props, setCurrentId) {
       {" "}
       <br />
       <div style={{ marginLeft: 10 }}>
-        <h2> {user.userName} Profile</h2>
+        <h2> {user.userName}'s Profile</h2>
       </div>
       <br />
       <div

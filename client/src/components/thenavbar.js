@@ -72,7 +72,7 @@ function Navbar() {
           className="nav-link  ml-3 mr-3"
           style={{ fontSize: "12px" }}
         >
-          <li className="nav-item">Get Free Counseling Now</li>
+          <li className="nav-item"> SpeakOut to Us</li>
         </Link>
       );
     }
@@ -111,7 +111,7 @@ function Navbar() {
             <option>Notification</option>
             {questionAndAnswersList
               .filter(
-                (questions) => questions.user_Id == window.localStorage.userId
+                (questions) => questions.user_Id === window.localStorage.userId
               )
               .map((filterQuestion) => (
                 <option onClick={onClickOption()}>
@@ -165,7 +165,7 @@ function Navbar() {
                 className="nav-link  ml-3 mr-3"
                 style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
               >
-                <li className="nav-item">Get Free Counseling Now</li>
+                <li className="nav-item">SpeakOut to Us</li>
               </Link>
               <Link
                 to="/login"

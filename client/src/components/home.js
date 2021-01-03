@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div>
+    <div className="container w-100 mt-5 mb-5">
       {/* Carousel begins */}
       <Carousel>
         <Carousel.Item>
@@ -181,7 +181,18 @@ const Home = () => {
       <br></br>
       <br></br>
       <br></br>
-      <Footer />
+      {/* footer div */}
+      <div
+        className="container w-100 mt-5 mb-5"
+        style={{
+          textAlign: "center",
+          marginLeft: "auto",
+          marginRight: "auto",
+        }}
+      >
+        <Footer />
+      </div>
+      {/* footer div ends*/}
     </div>
   );
 };
