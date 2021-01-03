@@ -5,12 +5,7 @@ const db = require('./database')
 module.exports = {
     //Create Questions ..
     createQuestions: (params, callback) => {
-        var queryStr = `INSERT INTO questions ( question ,user_Id) VALUES (?,?)`;
-        // var queryStr = `BEGIN;
-        //                 INSERT INTO users questions ( question ,user_Id) VALUES (?,?);
-        //                 INSERT INTO notification (user_Id, question_Id) VALUES (?,?);
-        //                 COMMIT;
-        // `;
+        var queryStr = `INSERT INTO questions ( question , user_Id, questionType) VALUES (?,?,?)`;
         db.query(queryStr, params, function (err, result) {
             callback(err, result)
         })
