@@ -141,20 +141,7 @@ function Navbar() {
               >
                 <li className="nav-item">Rate Doctor</li>
               </Link>
-              {/* <Link
-              to="/signup"
-              className="nav-link  ml-3 mr-3"
-              style={{ fontSize: "16px" }}
-            >
-              <li className="nav-item">SignUp</li>
-            </Link> */}
-              {/* <Link
-                to="/doctorProfile"
-                className="nav-link  ml-3 mr-3"
-                style={{ fontSize: "16px" }}
-              >
-                <li className="nav-item">Doctor Profile</li>
-              </Link> */}
+
             </ul>
           </div>
 
@@ -210,20 +197,7 @@ function Navbar() {
               >
                 <li className="nav-item" onClick={logout} >Logout</li>
               </Link>
-              {/* <Link
-              to="/signup"
-              className="nav-link  ml-3 mr-3"
-              style={{ fontSize: "16px" }}
-            >
-              <li className="nav-item">SignUp</li>
-            </Link> */}
-              {/* <Link
-                to="/doctorProfile"
-                className="nav-link  ml-3 mr-3"
-                style={{ fontSize: "16px" }}
-              >
-                <li className="nav-item">Doctor Profile</li>
-              </Link> */}
+
             </ul>
           </div>
         }
