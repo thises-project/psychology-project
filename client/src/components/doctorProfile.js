@@ -4,16 +4,17 @@ import Footer from "./footer";
 import { Link } from "react-router-dom";
 import { storage } from "../firebase";
 
-
-
 const DoctorProfile = (props) => {
   const [doctorProfile, setDoctorProfile] = useState({});
   const [image, setImage] = useState(null);
-  const [url, setUrl] = useState({});
+  const [setUrl] = useState({});
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/doctor/getOneDoctor/" + `${window.localStorage.doctorId}`)
+      .get(
+        `http://localhost:5000/doctor/getOneDoctor/` +
+          `${window.localStorage.doctorId}`
+      )
       .then((res) => {
         console.log(res.data[0], " kkkkkkkkkkkkkkkkkkkkk");
         setDoctorProfile({
@@ -30,24 +31,22 @@ const DoctorProfile = (props) => {
       .catch((err) => {
         console.log(err);
       });
+    // eslint-disable-next-line
   }, [window.localStorage.doctorId]);
-
 
   function onChangeimg(e) {
     if (e.target.files[0]) {
-      setImage(
-        e.target.files[0]
-      );
+      setImage(e.target.files[0]);
     } else console.log("error in onchangeimg");
-
   }
 
   function handleUpload() {
-
-    console.log("imageeeeeeeee", image)
+    // console.log("imageeeeeeeee", image);
     // e.preventDefault();
     const uploadTask = storage.ref(`/images/${image.name}`).put(image);
-    uploadTask.on("state_changed", (snapshot) => { },
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {},
       (error) => {
         console.log(error, "error");
       },
@@ -57,8 +56,13 @@ const DoctorProfile = (props) => {
           .child(image.name)
           .getDownloadURL()
           .then((url) => {
-            setUrl(url)
-            axios.post("http://localhost:5000/doctor/postOneDoctorImage/" + `${window.localStorage.doctorId}`, { url })
+            setUrl(url);
+            axios
+              .post(
+                "http://localhost:5000/doctor/postOneDoctorImage/" +
+                  `${window.localStorage.doctorId}`,
+                { url }
+              )
               .then((res) => {
                 // const { url} = res.data;
                 console.log(res.config.data, " this is a res from post image");
@@ -67,17 +71,15 @@ const DoctorProfile = (props) => {
                 //  setUrl(
                 //     {url : res.config.data,}
                 //  );
-
               })
               .catch((err) => {
                 console.log("there is an errrrrrrrooooorrrr", err);
               });
           });
-      });
-    // console.log(url,"hiiiiiiiiii")    
+      }
+    );
+    // console.log(url,"hiiiiiiiiii")
   }
-
-
 
   return (
     <div className="container ml-5 mr-5">
@@ -85,7 +87,7 @@ const DoctorProfile = (props) => {
         <div
           className="row"
           key={doctorProfile.doctorId}
-        // style={{ borderBottom: "1px solid silver" }}
+          // style={{ borderBottom: "1px solid silver" }}
         >
           <div className="col pt-3 pb-2">
             <div className="row">
@@ -100,11 +102,16 @@ const DoctorProfile = (props) => {
                   </h4>
                   <br></br>
                   <div>
-                    <img src={doctorProfile.url || "http://via.placeholder.com/200x200"} />
+                    <img
+                      alt="not found"
+                      src={
+                        doctorProfile.url ||
+                        "http://via.placeholder.com/200x200"
+                      }
+                    />
                   </div>
                 </p>
               </div>
-
             </div>
           </div>
         </div>
@@ -127,8 +134,8 @@ const DoctorProfile = (props) => {
               src={doctorProfile.url || "http://via.placeholder.com/200x200"}
               alt="Upload-image"
             /> */}
-
-          </div></div>
+          </div>
+        </div>
 
         <div className="col mr-5">
           <Link
@@ -137,10 +144,9 @@ const DoctorProfile = (props) => {
             style={{ marginLeft: "5px" }}
           >
             Edit
-                </Link>
+          </Link>
         </div>
         <br />
-
       </div>
 
       <Footer />
