@@ -3,11 +3,11 @@ import { Card } from "react-bootstrap";
 
 const Footer = () => {
   return (
-    <div >
+    <div>
       <div className="row aboutus and contactus">
         <br></br>
         {/* card1 */}
-        <Card style={{ width: "50%" }}>
+        <Card style={{ width: "50%", backgroundColor: "grey" }}>
           <Card.Body>
             <Card.Title>
               <h3 className="info">Our Mission</h3>
@@ -23,7 +23,7 @@ const Footer = () => {
           </Card.Body>
         </Card>
         {/* card2 */}
-        <Card style={{ width: "50%" }}>
+        <Card style={{ width: "50%", backgroundColor: "grey" }}>
           <Card.Body>
             <Card.Title>
               <h3>Contact US</h3>
