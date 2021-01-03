@@ -9,6 +9,7 @@ import { GiAges } from "react-icons/gi";
 import { BsLockFill } from "react-icons/bs";
 import { CgGenderFemale } from "react-icons/cg";
 import { CgGenderMale } from "react-icons/cg";
+import Footer from "./footer";
 
 function Signup() {
   const [user, setUser] = useState({
@@ -104,122 +105,138 @@ function Signup() {
   }
 
   return (
-    <div
-      className="container w-50 p-3 mt-5"
-      style={{ backgroundColor: "beige", borderRadius: "20px" }}
-    >
-      <br />
-      <form className="form-group mr-5 ml-5">
-        <h2>Signup</h2>
+    <di>
+      <div
+        className="container w-50 p-3 mt-5"
+        style={{ backgroundColor: "beige", borderRadius: "20px" }}
+      >
         <br />
-        <div className="form-group ">
-          <BsFillPersonFill size={20} />
-          <input
-            type="text"
-            placeholder="Username"
-            name="userName"
-            value={user.userName}
-            onChange={handleChange}
-            className={
-              "form-control" +
-              (submitted && !user.userName ? " is-invalid" : "")
-            }
-          />
-          {submitted && !user.userName && (
-            <div className="invalid-feedback">Username is required</div>
-          )}
-          <div style={{ color: "red" }}>{userE.usernameError}</div>
+        <form className="form-group mr-5 ml-5">
+          <h2>Signup</h2>
+          <br />
+          <div className="form-group ">
+            <BsFillPersonFill size={20} />
+            <input
+              type="text"
+              placeholder="Username"
+              name="userName"
+              value={user.userName}
+              onChange={handleChange}
+              className={
+                "form-control" +
+                (submitted && !user.userName ? " is-invalid" : "")
+              }
+            />
+            {submitted && !user.userName && (
+              <div className="invalid-feedback">Username is required</div>
+            )}
+            <div style={{ color: "red" }}>{userE.usernameError}</div>
+            <br></br>
+          </div>
+          <div className="form-group">
+            <GiAges size={20} />
+            <input
+              placeholder="age"
+              type="text"
+              name="age"
+              value={user.age}
+              onChange={handleChange}
+              className={
+                "form-control" + (submitted && !user.age ? " is-invalid" : "")
+              }
+            />
+            {submitted && !user.age && (
+              <div className="invalid-feedback">Age is required</div>
+            )}
+          </div>
+          <div style={{ color: "red" }}>{userE.ageError}</div>
           <br></br>
-        </div>
-        <div className="form-group">
-          <GiAges size={20} />
-          <input
-            placeholder="age"
-            type="text"
-            name="age"
-            value={user.age}
-            onChange={handleChange}
-            className={
-              "form-control" + (submitted && !user.age ? " is-invalid" : "")
-            }
-          />
-          {submitted && !user.age && (
-            <div className="invalid-feedback">Age is required</div>
-          )}
-        </div>
-        <div style={{ color: "red" }}>{userE.ageError}</div>
-        <br></br>
-        <div className="form-group">
-          <CgGenderFemale size={20} style={{ marginRight: "0" }} />{" "}
-          <CgGenderMale size={20} style={{ marginLeft: "0" }} />
-          <input
-            placeholder="gender"
-            type="text"
-            name="gender"
-            value={user.gender}
-            onChange={handleChange}
-            className={
-              "form-control" + (submitted && !user.gender ? " is-invalid" : "")
-            }
-          />
-          {submitted && !user.gender && (
-            <div className="invalid-feedback">gender is required</div>
-          )}
-        </div>
-        <div style={{ color: "red" }}>{userE.genderError}</div>
-        <br></br>
-        <div className="form-group">
-          <BsFillEnvelopeFill size={20} />
-          <input
-            placeholder="Email"
-            type="email"
-            name="email"
-            value={user.email}
-            onChange={handleChange}
-            className={
-              "form-control" + (submitted && !user.email ? " is-invalid" : "")
-            }
-          />
-          {submitted && !user.email && (
-            <div className="invalid-feedback">Email is required</div>
-          )}
-        </div>
-        <div style={{ color: "red" }}>{userE.emailError}</div>
-        <br></br>
-        <div className="form-group">
-          <BsLockFill size={20} />
-          <input
-            placeholder="password"
-            type="password"
-            name="password"
-            value={user.password}
-            onChange={handleChange}
-            className={
-              "form-control" +
-              (submitted && !user.password ? " is-invalid" : "")
-            }
-          />
-          {submitted && !user.password && (
-            <div className="invalid-feedback">Password is required</div>
-          )}
-        </div>
-        <div style={{ color: "red" }}>{userE.passwordError}</div>
-        <br></br>
-        {/* button div */}
-        <div className="form-group text-center">
-          <button
-            type="submit"
-            className="btn btn-primary"
-            onClick={handleSubmit}
-          >
-            {/* {registering && <span className="spinner-border spinner-border-sm mr-1"></span>} */}
-            Sign Up
-          </button>
-          {/* <Link to="/login" className="btn btn-link">Cancel</Link> */}
-        </div>
-        {/* button div ends */}
-      </form>
-    </div>
+          <div className="form-group">
+            <CgGenderFemale size={20} style={{ marginRight: "0" }} />{" "}
+            <CgGenderMale size={20} style={{ marginLeft: "0" }} />
+            <input
+              placeholder="gender"
+              type="text"
+              name="gender"
+              value={user.gender}
+              onChange={handleChange}
+              className={
+                "form-control" +
+                (submitted && !user.gender ? " is-invalid" : "")
+              }
+            />
+            {submitted && !user.gender && (
+              <div className="invalid-feedback">gender is required</div>
+            )}
+          </div>
+          <div style={{ color: "red" }}>{userE.genderError}</div>
+          <br></br>
+          <div className="form-group">
+            <BsFillEnvelopeFill size={20} />
+            <input
+              placeholder="Email"
+              type="email"
+              name="email"
+              value={user.email}
+              onChange={handleChange}
+              className={
+                "form-control" + (submitted && !user.email ? " is-invalid" : "")
+              }
+            />
+            {submitted && !user.email && (
+              <div className="invalid-feedback">Email is required</div>
+            )}
+          </div>
+          <div style={{ color: "red" }}>{userE.emailError}</div>
+          <br></br>
+          <div className="form-group">
+            <BsLockFill size={20} />
+            <input
+              placeholder="password"
+              type="password"
+              name="password"
+              value={user.password}
+              onChange={handleChange}
+              className={
+                "form-control" +
+                (submitted && !user.password ? " is-invalid" : "")
+              }
+            />
+            {submitted && !user.password && (
+              <div className="invalid-feedback">Password is required</div>
+            )}
+          </div>
+          <div style={{ color: "red" }}>{userE.passwordError}</div>
+          <br></br>
+          {/* button div */}
+          <div className="form-group text-center">
+            <button
+              type="submit"
+              className="btn btn-primary"
+              onClick={handleSubmit}
+            >
+              {/* {registering && <span className="spinner-border spinner-border-sm mr-1"></span>} */}
+              Sign Up
+            </button>
+            {/* <Link to="/login" className="btn btn-link">Cancel</Link> */}
+          </div>
+          {/* button div ends */}
+        </form>
+      </div>
+
+      {/* footer div */}
+      <div
+        className="container w-100 mt-5 mb-5"
+        style={{
+          textAlign: "center",
+          marginLeft: "auto",
+          marginRight: "auto",
+        }}
+      >
+        <Footer />
+      </div>
+      {/* footer div ends*/}
+    </di>
   );
 }
 export default Signup;
