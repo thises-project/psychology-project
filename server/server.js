@@ -14,9 +14,9 @@ const doctor = require("./app/routes/doctor");
 // require the question route
 const questions = require("./app/routes/questions.js");
 
-// require the schedule route 
-const schedule = require("./app/routes/schedule")
-const appointement = require('./app/routes/appointment')
+// require the schedule route
+const schedule = require("./app/routes/schedule");
+const appointement = require("./app/routes/appointment");
 const socket = require("socket.io");
 const io = socket(server);
 
@@ -32,8 +32,8 @@ app.use("/users", user);
 app.use("/doctor", doctor);
 app.use("/questions", questions);
 
-app.use("/schedule" , schedule);
-app.use('/appointment' , appointement)
+app.use("/schedule", schedule);
+app.use("/appointment", appointement);
 app.use(function (error, req, res, next) {
   if (error instanceof SyntaxError) {
     //Handle SyntaxError here.
@@ -48,7 +48,7 @@ app.get("/", function (req, res) {
 });
 
 server.listen(port, () => {
-  console.log(`Server is Running in port:http://localhost:${port}`);
+  console.log(`Server is Running in port:${port}`);
 });
 
 const peers = {};
