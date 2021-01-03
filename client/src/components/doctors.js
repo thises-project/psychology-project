@@ -3,6 +3,7 @@ import axios from "axios";
 import Footer from "./footer";
 import { Badge } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { TiVideo } from "react-icons/ti";
 
 const Doctors = (props) => {
   // const [currentId, setCurrrentId] = useState(null);
@@ -46,7 +47,6 @@ const Doctors = (props) => {
                   {/* Doctor name container */}
                   <h3> {doctor.doctorName}</h3>
                   {/* <h6>{doctor.doctorId}</h6> */}
-
                   <h4> Doctor Speciality: {doctor.doctorSpeciality}</h4>
                   <p
                     className="lead mt-4 mb-5"
@@ -57,7 +57,7 @@ const Doctors = (props) => {
                       height: "auto",
                       fontSize: 14,
                       borderWidth: 1,
-                      borderColor: "rgba(0,0,0,0.6)",
+                      borderColor: "blue",
                       alignItems: "center",
                       alignContent: "center",
                       justifyContent: "center",
@@ -65,7 +65,6 @@ const Doctors = (props) => {
                   >
                     {doctor.bio}
                   </p>
-
                   <p>
                     {/* <h4 className="badge">  </h4> */}
                     {/* <span className="badge">{doctor.password} </span> */}
@@ -75,7 +74,6 @@ const Doctors = (props) => {
                       {doctor.email}
                     </Badge>
                   </h5>
-
                   <Link
                     //'/updateDoctor/:id'
                     to={`/bookAppointment/${doctor.doctorId}`}
@@ -85,14 +83,16 @@ const Doctors = (props) => {
                       borderColor: "rgba(0,0,0,0.2)",
                       alignItems: "center",
                       justifyContent: "center",
-                      width: 100,
+                      width: "auto",
                       height: 23,
                       backgroundColor: "blue",
                       borderRadius: 30,
                     }}
                   >
-                    Book Video Session
-                  </Link>
+                    {" "}
+                    Book A Session
+                  </Link>{" "}
+                  <TiVideo size={30} />
                 </div>
               </div>
             </div>
