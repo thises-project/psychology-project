@@ -27,7 +27,7 @@ module.exports = {
 
     // Get All Questions ..
     getAllQuestions: (callback) => {
-        var query = `SELECT  question , questionId FROM questions LEFT JOIN answers ON questions.questionId = answers.question_Id WHERE answers.question_Id IS NULL`;
+        var query = `SELECT  question , questionId  FROM questions LEFT JOIN answers ON questions.questionId = answers.question_Id WHERE answers.question_Id IS NULL`;
         db.query(query, function (err, result) {
             callback(err, result)
         })

@@ -1,9 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "./logo.jpg";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { GetAllQuestionsAndAnswers } from "../actions/AddQuestion";
+import { Dropdown } from 'react-bootstrap';
+// import { NotificationManager } from 'react-notifications';
+
 
 
 function Navbar() {
@@ -93,30 +96,47 @@ function Navbar() {
   }
 
   function UserIsLogged4(val) {
+    const history = [];
     const dispatch = useDispatch();
-    // use selector to get access to all global store or all gllobal state
-    const questionAndAnswersList = useSelector((state) => state.GetAllQuestionsAndAnswers)
+    const questionAndAnswersList = useSelector((state) => state.GetAllQuestionsAndAnswers);
     useEffect(() => {
       dispatch(GetAllQuestionsAndAnswers())
     }, [dispatch]);
-    console.log(questionAndAnswersList, "test filter");
-    function onClickOption() {
-      // window.location = '/UserQuestionsAnswers'
-    }
+
+    // const [counter, setCounter] = useState({
+    //   number: questionAndAnswersList = useSelector((state) => state.GetAllQuestionsAndAnswers),
+    // });
+
+    // function handleChange() {
+    //   // var num = 0
+    //   var realNum = questionAndAnswersList.filter(questions => questions.user_Id == window.localStorage.userId).length;
+    //   console.log(history)
+    //   history.push(realNum);
+    //   // setCounter({ number: questionAndAnswersList.filter(questions => questions.user_Id == window.localStorage.userId).length });
+    //   // num = num + realNum;
+    //   // console.log(num);
+    // }
+    // function handleSubmit() {
+
+    // }
+    // console.log(questionAndAnswersList.length, "test filter");
+
     if (val) {
       return (
-        <div>
-          <select id="notification">
-            <option>Notification</option>
-            {questionAndAnswersList.filter(questions => questions.user_Id == window.localStorage.userId).map(filterQuestion => (
-              <option onClick={onClickOption()}>
-                {/* {window.localStorage.userId} */}
-        Dr. {filterQuestion.doctorName}  answered your question
-                {/* {filterQuestion.user_Id} */}
-              </option>
-            ))}
-          </select>
-        </div>
+
+        // <div onClick={handleChange()}>
+          <Dropdown >
+            <Dropdown.Toggle variant="info" id="dropdown-basic">
+              <span class="dot">{ questionAndAnswersList.filter(questions => questions.user_Id == window.localStorage.userId).length}</span>
+              Notification
+                </Dropdown.Toggle>
+            <Dropdown.Menu >
+              {questionAndAnswersList.filter(questions => questions.user_Id == window.localStorage.userId).map(filterQuestion => (
+                <Dropdown.Item href="http://localhost:3000/UserQuestionsAnswers/:id">  Dr. {filterQuestion.doctorName}  answered your question</Dropdown.Item>
+              ))}
+            </Dropdown.Menu>
+          </Dropdown>
+        // </div>
       )
     }
   }
@@ -193,6 +213,7 @@ function Navbar() {
               {UserIsLogged2(window.localStorage.userId)}
               {UserIsLogged3(window.localStorage.userId)}
               {UserIsLogged4(window.localStorage.userId)}
+
               <Link
                 to="/doctors"
                 className="nav-link ml-3 mr-3"
