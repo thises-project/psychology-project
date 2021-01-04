@@ -130,6 +130,7 @@ updateUser:  async (req, res) => {
     res.sendStatus(200)
   })
 },
+
   deleteUser:(req,res)=>{
     var params = [req.params.id];
     usersModel.deleteUser(params,function(err,result){
