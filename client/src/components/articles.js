@@ -7,7 +7,7 @@ const Articles = () => {
       <h2>Selected articles - Topics in Mental Health</h2>
       <br />
       <br />
-      <div className="container ml-5 mr-5" style={{ textAlign: "left" }} className = "container">
+      <div className="container ml-5 mr-5" style={{ textAlign: "left" }} >
         <div className="article1" style={{ borderBottom: "1px solid silver" }}>
           {" "}
           <h3>

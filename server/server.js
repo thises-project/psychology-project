@@ -2,6 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
+const http = require("http");
+const server = http.createServer(app);
 
 const connection = require("./app/Models/database");
 // require user the route
@@ -11,6 +13,12 @@ const doctor = require("./app/routes/doctor");
 
 // require the question route
 const questions = require("./app/routes/questions.js");
+
+// require the schedule route
+const schedule = require("./app/routes/schedule");
+const appointement = require("./app/routes/appointment");
+const socket = require("socket.io");
+const io = socket(server);
 
 app.use(cors());
 // set the port
@@ -24,6 +32,8 @@ app.use("/users", user);
 app.use("/doctor", doctor);
 app.use("/questions", questions);
 
+app.use("/schedule", schedule);
+app.use("/appointment", appointement);
 app.use(function (error, req, res, next) {
   if (error instanceof SyntaxError) {
     //Handle SyntaxError here.
@@ -36,6 +46,35 @@ app.use(function (error, req, res, next) {
 app.get("/", function (req, res) {
   res.send("Home Page");
 });
-app.listen(port, () => {
-  console.log(`Server is Running in port:http://localhost:${port}`);
+
+server.listen(port, () => {
+  console.log(`Server is Running in port:${port}`);
+});
+
+const peers = {};
+
+io.on("connection", (socket) => {
+  //
+  if (!peers[socket.id]) {
+    peers[socket.id] = socket.id;
+  }
+
+  socket.emit("yourID", socket.id); //  allows you to emit custom events on the server and client
+
+  io.sockets.emit("allUsers", peers); //will send to all the clients ......socket.broadcast.emit will send the message to all the other clients except the newly created connection
+
+  socket.on("disconnect", () => {
+    delete peers[socket.id]; //after the user leave the room
+  });
+
+  socket.on("callUser", (data) => {
+    io.to(data.userToCall).emit("hello", {
+      signal: data.signalData,
+      from: data.from,
+    }); //io.to('some room').emit('some event');
+  });
+
+  socket.on("acceptCall", (data) => {
+    io.to(data.to).emit("callAccepted", data.signal);
+  });
 });
