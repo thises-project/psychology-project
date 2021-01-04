@@ -5,7 +5,14 @@ const app = express();
 const http = require("http");
 const server = http.createServer(app);
 const socket = require("socket.io");
-const io = socket(server);
+// const io = socket(server);
+const io = socket(server, {
+  cors: {
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"]
+  }
+});
+
 
 const connection = require("./app/Models/database");
 // require user the route
@@ -44,10 +51,6 @@ app.get("/", function (req, res) {
   res.send("Home Page");
 });
 
-// app.get("/hh", function (req, res) {
-//   res.render("room", {roomId: req.params.room});
-// });
-
 
 const peers = {};
 
@@ -56,19 +59,23 @@ io.on('connection', socket => {  // listen to 'connection' event comes from the 
     peers[socket.id] = socket.id
   }
   
-  socket.emit('yourID', socket.id); //  allows you to emit custom events on the server and client
+  socket.emit('yourID', socket.id);//  allows you to emit custom events on the server and client
+  console.log(socket.id) 
 
-io.sockets.emit('allUsers', peers); //will send to all the clients ......socket.broadcast.emit will send the message to all the other clients except the newly created connection
+io.sockets.emit('allUsers', peers); 
+console.log(peers)//will send to all the clients ......socket.broadcast.emit will send the message to all the other clients except the newly created connection
 
 socket.on('disconnect', () => {
   delete peers[socket.id];         //after the user leave the room
 })
 
 socket.on('callUser', (data) => {
+  // console.log(data)
   io.to(data.userToCall).emit('hello', {signal: data.signalData, from: data.from}); //io.to('some room').emit('some event');
 })
 
 socket.on('acceptCall', (data) => {
+ // console.log(data)
   io.to(data.to).emit('callAccepted', data.signal)
 })
 
