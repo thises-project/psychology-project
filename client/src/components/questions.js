@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { GetAllQuestionsAndAnswers } from "../actions/AddQuestion";
 import Footer from "./footer";
 import { FaCommentMedical } from "react-icons/fa";
-import { FaCommentDots } from "react-icons/fa";
+import { FaComment } from "react-icons/fa";
 
 function QuestionsList() {
   const dispatch = useDispatch();
@@ -54,7 +54,7 @@ function QuestionsList() {
                 height: "auto",
               }}
             >
-              <FaCommentDots style={{ marginRight: 20 }} size={25} />
+              <FaComment style={{ marginRight: 20 }} size={25} />
               User: {questions.question}
             </div>
             {/* doctor */}
