@@ -1,19 +1,18 @@
-import {combineReducers} from 'redux';
-import  Adduser from './Adduser';
-import GetAllQuestionsAndAnswers from './AddQuestion';
-import AddQuestions from './AddQuestion';
-import userQuestion from './Adduser'
-import bookAppointment from './Appointment';
-import getScheduleForUser from './schedule'
+import { combineReducers } from "redux";
+import Adduser from "./Adduser";
+import GetAllQuestionsAndAnswers from "./AddQuestion";
+import AddQuestions from "./AddQuestion";
 
-import Doctors from './Doctors';
+import bookAppointment from "./Appointment";
+import getScheduleForUser from "./schedule";
 
-export default combineReducers({ 
-     Adduser,
-    AddQuestions,
-    GetAllQuestionsAndAnswers,
-    bookAppointment,
-    Doctors,
-    getScheduleForUser
- })
+import Doctors from "./Doctors";
 
+export default combineReducers({
+  Adduser,
+  AddQuestions,
+  GetAllQuestionsAndAnswers,
+  bookAppointment,
+  Doctors,
+  getScheduleForUser,
+});

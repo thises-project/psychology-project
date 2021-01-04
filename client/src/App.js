@@ -14,14 +14,14 @@ import UpdateDoctor from "./components/updateDoctor";
 import DoctorQuestions from "./components/doctorQuestions";
 import AddQuestion from "./components/askQuestions";
 import PrivateRoute from "./components/privateRoute";
-import UserQuestionAnswers from './components/userQuestionAnswers'
+import UserQuestionAnswers from "./components/userQuestionAnswers";
 import BookAppointment from "./components/bookAppointment";
 import AppointmentList from "./components/appointmentList";
-import AppointmentListForOneDoctor from "./components/appointmentListForOneDoctor"
-import CreateDoctorsSchedule from './components/CreateDoctorsSchedule'
+import AppointmentListForOneDoctor from "./components/appointmentListForOneDoctor";
+import CreateDoctorsSchedule from "./components/CreateDoctorsSchedule";
 // import ScheduleForDoctor from './components/scheduleForDoctor'
 import "bootstrap/dist/css/bootstrap.min.css";
-import 'react-datepicker/dist/react-datepicker.css'
+import "react-datepicker/dist/react-datepicker.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
 import VideoCall from './components/videoCall';
@@ -58,12 +58,10 @@ function App() {
             path="/bookAppointment/:id"
             currentId={currentId}
             setCurrentId={setCurrentId}
-            component={BookAppointment} />
-
-          <PrivateRoute path="/appointmentList"
-            component={AppointmentList}
+            component={BookAppointment}
           />
 
+          <PrivateRoute path="/appointmentList" component={AppointmentList} />
 
           <Route path="/video" component={VideoCall} />
 
@@ -93,9 +91,25 @@ function App() {
           />
 
           {/* doctor private components */}
-          <PrivateRoute path="/doctorProfile/:id" exact component={DoctorProfile} currentId={currentId} setCurrentId={setCurrentId} />
-          <PrivateRoute path="/updateDoctor/:id" component={UpdateDoctor} currentId={currentId} setCurrentId={setCurrentId} />
-          <PrivateRoute path="/doctorQuestions" component={DoctorQuestions} currentId={currentId} setCurrentId={setCurrentId} />
+          <PrivateRoute
+            path="/doctorProfile/:id"
+            exact
+            component={DoctorProfile}
+            currentId={currentId}
+            setCurrentId={setCurrentId}
+          />
+          <PrivateRoute
+            path="/updateDoctor/:id"
+            component={UpdateDoctor}
+            currentId={currentId}
+            setCurrentId={setCurrentId}
+          />
+          <PrivateRoute
+            path="/doctorQuestions"
+            component={DoctorQuestions}
+            currentId={currentId}
+            setCurrentId={setCurrentId}
+          />
           <Route path="/rateDoctor" component={RateDoctor} />
           <PrivateRoute
             path="/AppointmentListForOneDoctor/:id"

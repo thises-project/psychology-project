@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Logo from "./logo.jpg";
+import Logo from "./Logo.png";
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { GetAllQuestionsAndAnswers } from "../actions/AddQuestion";
@@ -107,17 +107,17 @@ function Navbar() {
     if (val) {
       return (
 
-          <Dropdown >
-            <Dropdown.Toggle variant="info" id="dropdown-basic">
-              <span class="dot">{ questionAndAnswersList.filter(questions => questions.user_Id == window.localStorage.userId).length}</span>
+        <Dropdown >
+          <Dropdown.Toggle variant="info" id="dropdown-basic">
+            <span class="dot">{questionAndAnswersList.filter(questions => questions.user_Id == window.localStorage.userId).length}</span>
               Notification
                 </Dropdown.Toggle>
-            <Dropdown.Menu >
-              {questionAndAnswersList.filter(questions => questions.user_Id == window.localStorage.userId).map(filterQuestion => (
-                <Dropdown.Item href="http://localhost:3000/UserQuestionsAnswers/:id">  Dr. {filterQuestion.doctorName}  answered your question</Dropdown.Item>
-              ))}
-            </Dropdown.Menu>
-          </Dropdown>
+          <Dropdown.Menu >
+            {questionAndAnswersList.filter(questions => questions.user_Id == window.localStorage.userId).map(filterQuestion => (
+              <Dropdown.Item href="http://localhost:3000/UserQuestionsAnswers/:id">  Dr. {filterQuestion.doctorName}  answered your question</Dropdown.Item>
+            ))}
+          </Dropdown.Menu>
+        </Dropdown>
       )
     }
   }
