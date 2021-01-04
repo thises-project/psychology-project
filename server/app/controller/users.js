@@ -83,7 +83,7 @@ module.exports = {
           { username: username },
           `${process.env.JWT_KEY}`
         );
-        console.log("toooooooooooooooooooooooken ..........", accessToken);
+        console.log("tooken ..........", accessToken);
 
         res.json({ userId: id, username: username, accessToken: accessToken });
       } else {

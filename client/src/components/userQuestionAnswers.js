@@ -38,7 +38,7 @@ function UserQuestionsAnswers() {
         }}
       >
         <br />
-        <h2>User Questions Answers</h2>
+        <h2>My Questions</h2>
         <div>
           {questionInfo.questions.map((questions) => (
             <ul>

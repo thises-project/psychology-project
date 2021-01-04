@@ -38,7 +38,7 @@ function Login() {
       }
       // console.log(window.localStorage.type )
       else {
-        console.log("ddddddddddddddddddddddddd", inputs);
+        console.log("inside handlesubmit login", inputs);
         dispatch(verifyDoctor(inputs));
       }
     }

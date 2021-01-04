@@ -29,9 +29,9 @@ function Navbar() {
         <Link
           to="/doctorQuestions"
           className="nav-link  ml-3 mr-3"
-          style={{ fontSize: "12px" }}
+          style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
         >
-          <li className="nav-item">Not Answered Questions</li>
+          <li className="nav-item"> Patient's Questions</li>
         </Link>
       );
     }
@@ -43,7 +43,7 @@ function Navbar() {
         <Link
           to={`/doctorSchedule/${window.localStorage.doctorId}`}
           className="nav-link  ml-3 mr-3"
-          style={{ fontSize: "12px" }}
+          style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
         >
           <li className="nav-item">My Schedule</li>
         </Link>
@@ -57,7 +57,7 @@ function Navbar() {
         <Link
           to="/userPro"
           className="nav-link  ml-3 mr-3"
-          style={{ fontSize: "12px" }}
+          style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
         >
           <li className="nav-item">My Profile</li>
         </Link>
@@ -70,7 +70,7 @@ function Navbar() {
         <Link
           to="/askQuestions"
           className="nav-link  ml-3 mr-3"
-          style={{ fontSize: "12px" }}
+          style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
         >
           <li className="nav-item"> SpeakOut to Us</li>
         </Link>
@@ -85,7 +85,7 @@ function Navbar() {
           className="nav-link  ml-3 mr-3"
           style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
         >
-          <li className="nav-item">User Questions Answers</li>
+          <li className="nav-item">My Questions</li>
         </Link>
       );
     }
@@ -135,7 +135,7 @@ function Navbar() {
               <Link
                 to="/"
                 className="nav-link  ml-3 mr-3"
-                style={{ fontSize: "12px" }}
+                style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
               >
                 <img src={Logo} alt="logo"></img>
               </Link>
@@ -151,7 +151,7 @@ function Navbar() {
                 className="nav-link  ml-3 mr-3"
                 style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
               >
-                <li className="nav-item">Questions</li>
+                <li className="nav-item"> Recent SpeakOut's</li>
               </Link>
               <Link
                 to="/articles"
@@ -174,13 +174,13 @@ function Navbar() {
               >
                 <li className="nav-item">Login</li>
               </Link>
-              <Link
+              {/* <Link
                 to="/rateDoctor"
                 className="nav-link ml-3 mr-3"
                 style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
               >
                 <li className="nav-item">Rate Doctor</li>
-              </Link>
+              </Link> */}
             </ul>
           </div>
         ) : (
@@ -212,7 +212,7 @@ function Navbar() {
                 className="nav-link  ml-3 mr-3"
                 style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
               >
-                <li className="nav-item">Questions</li>
+                <li className="nav-item"> Recent SpeakOut's </li>
               </Link>
               <Link
                 to="/articles"
