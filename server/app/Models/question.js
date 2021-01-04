@@ -14,7 +14,7 @@ module.exports = {
 
     // Get All Questions And Answers ..
     getAllQuestionsAndAnswers: (callback) => {
-        var query = ` SELECT questions.question , answers.answer ,doctors.doctorName ,questions.user_Id from  ((answers INNER JOIN questions ON answers.question_Id = questions.questionId) INNER JOIN doctors ON answers.doctor_Id = doctors.doctorId); `;
+        var query = ` SELECT questions.question , answers.answer ,doctors.doctorName ,questions.user_Id , questions.questionType from  ((answers INNER JOIN questions ON answers.question_Id = questions.questionId) INNER JOIN doctors ON answers.doctor_Id = doctors.doctorId); `;
         db.query(query, function (err, results) {
             callback(err, results)
         })
