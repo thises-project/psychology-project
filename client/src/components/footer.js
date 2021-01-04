@@ -35,6 +35,10 @@ const Footer = () => {
             </Card.Title>
 
             <Card.Text>
+              <p>Phone Number <a href="tel:+962 785 200 215">+962 785 200 215</a></p>
+              <p>Phone Number <a href="tel:+962 785 200 220">+962 785 200 220</a></p>
+              <br />
+              <p><a href="mailto:contact@Speakout.com">Speakout.com</a></p>
               SpeakOut 990 Villa Street, Mountain View, CA 94041
               contact@Speakout.com
             </Card.Text>

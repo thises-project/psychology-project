@@ -13,7 +13,7 @@ const DoctorProfile = (props) => {
     axios
       .get(
         `http://localhost:5000/doctor/getOneDoctor/` +
-          `${window.localStorage.doctorId}`
+        `${window.localStorage.doctorId}`
       )
       .then((res) => {
         console.log(res.data[0], " kkkkkkkkkkkkkkkkkkkkk");
@@ -46,7 +46,7 @@ const DoctorProfile = (props) => {
     const uploadTask = storage.ref(`/images/${image.name}`).put(image);
     uploadTask.on(
       "state_changed",
-      (snapshot) => {},
+      (snapshot) => { },
       (error) => {
         console.log(error, "error");
       },
@@ -60,7 +60,7 @@ const DoctorProfile = (props) => {
             axios
               .post(
                 "http://localhost:5000/doctor/postOneDoctorImage/" +
-                  `${window.localStorage.doctorId}`,
+                `${window.localStorage.doctorId}`,
                 { url }
               )
               .then((res) => {
@@ -87,11 +87,20 @@ const DoctorProfile = (props) => {
         <div
           className="row"
           key={doctorProfile.doctorId}
-          // style={{ borderBottom: "1px solid silver" }}
+        // style={{ borderBottom: "1px solid silver" }}
         >
           <div className="col pt-3 pb-2">
             <div className="row">
               <div className="col-md-10">
+                <div>
+                  <img
+                    alt="not found"
+                    src={
+                      doctorProfile.url ||
+                      "http://via.placeholder.com/200x200"
+                    }
+                  />
+                </div>
                 <h2>{doctorProfile.doctorName} </h2>
                 <h4>{doctorProfile.doctorSpeciality}</h4>
                 <p className="lead">{doctorProfile.bio}</p>
@@ -100,16 +109,8 @@ const DoctorProfile = (props) => {
                     {" "}
                     <span class="badge bg-primary">{doctorProfile.email}</span>
                   </h4>
+                  
                   <br></br>
-                  <div>
-                    <img
-                      alt="not found"
-                      src={
-                        doctorProfile.url ||
-                        "http://via.placeholder.com/200x200"
-                      }
-                    />
-                  </div>
                 </p>
               </div>
             </div>
