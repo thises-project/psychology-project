@@ -1,11 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SpeakoutLogo from "./Logo.png";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import Logo from "./Logo.png";
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { GetAllQuestionsAndAnswers } from "../actions/AddQuestion";
+import { Dropdown } from 'react-bootstrap';
+// import { NotificationManager } from 'react-notifications';
 
-// import { Nav } from "react-bootstrap";
+
 
 function Navbar() {
   var value = false;
@@ -17,12 +19,12 @@ function Navbar() {
       return (
         <Link
           to="/doctorProfile/:id"
-          className="nav-link"
-          style={{ marginTop: 10, marginLeft: "auto" }}
+          className="nav-link  ml-3 mr-3"
+          style={{ fontSize: "16px" }}
         >
-          My Profile
+          <li className="nav-item" >My Profile</li>
         </Link>
-      );
+      )
     }
   }
   function DocIsLogged2(val) {
@@ -30,12 +32,12 @@ function Navbar() {
       return (
         <Link
           to="/doctorQuestions"
-          className="nav-link"
-          style={{ marginTop: 10, marginLeft: "auto" }}
+          className="nav-link  ml-3 mr-3"
+          style={{ fontSize: "16px" }}
         >
-          Patient's Questions
+          <li className="nav-item" >Not Answered Questions</li>
         </Link>
-      );
+      )
     }
   }
 
@@ -44,12 +46,12 @@ function Navbar() {
       return (
         <Link
           to={`/doctorSchedule/${window.localStorage.doctorId}`}
-          className="nav-link"
-          style={{ marginTop: 10, marginLeft: "auto" }}
+          className="nav-link  ml-3 mr-3"
+          style={{ fontSize: "16px" }}
         >
-          My Schedule
+          <li className="nav-item" >My Schedule</li>
         </Link>
-      );
+      )
     }
   }
 
@@ -58,12 +60,12 @@ function Navbar() {
       return (
         <Link
           to="/userPro"
-          className="nav-link"
-          style={{ marginTop: 10, marginLeft: "auto" }}
+          className="nav-link  ml-3 mr-3"
+          style={{ fontSize: "16px" }}
         >
-          My Profile
+          <li className="nav-item" >My Profile</li>
         </Link>
-      );
+      )
     }
   }
   function UserIsLogged2(val) {
@@ -71,12 +73,12 @@ function Navbar() {
       return (
         <Link
           to="/askQuestions"
-          className="nav-link"
-          style={{ marginTop: 10, marginLeft: "auto" }}
+          className="nav-link  ml-3 mr-3"
+          style={{ fontSize: "16px" }}
         >
-          SpeakOut to Us
+          <li className="nav-item">Get Free Counseling Now</li>
         </Link>
-      );
+      )
     }
   }
   function UserIsLogged3(val) {
@@ -84,159 +86,151 @@ function Navbar() {
       return (
         <Link
           to="/UserQuestionsAnswers/:id"
-          className="nav-link "
-          style={{ marginTop: 10, marginLeft: "auto" }}
+          className="nav-link  ml-3 mr-3"
+          style={{ fontSize: "16px" }}
         >
-          My Questions
+          <li className="nav-item">User Questions Answers</li>
         </Link>
-      );
+      )
     }
   }
 
   function UserIsLogged4(val) {
+    const history = [];
     const dispatch = useDispatch();
-    // use selector to get access to all global store or all gllobal state
-    const questionAndAnswersList = useSelector(
-      (state) => state.GetAllQuestionsAndAnswers
-    );
+    const questionAndAnswersList = useSelector((state) => state.GetAllQuestionsAndAnswers);
     useEffect(() => {
-      dispatch(GetAllQuestionsAndAnswers());
+      dispatch(GetAllQuestionsAndAnswers())
     }, [dispatch]);
-    console.log(questionAndAnswersList, "test filter");
-    function onClickOption() {
-      // window.location = '/UserQuestionsAnswers'
-    }
+
+
     if (val) {
       return (
-        <div>
-          <select
-            id="notification"
-            style={{
-              borderColor: "none",
-              backgroundColor: "white",
-              borderRadius: 10,
-              marginRight: 5,
-              marginLeft: 5,
-            }}
-          >
-            <option>My Notifications</option>
-            {questionAndAnswersList
-              .filter(
-                (questions) => questions.user_Id === window.localStorage.userId
-              )
-              .map((filterQuestion) => (
-                <option onClick={onClickOption()}>
-                  {/* {window.localStorage.userId} */}
-                  Dr. {filterQuestion.doctorName} answered your question
-                  {/* {filterQuestion.user_Id} */}
-                </option>
-              ))}
-          </select>
-        </div>
-      );
+
+        <Dropdown >
+          <Dropdown.Toggle variant="info" id="dropdown-basic">
+            <span class="dot">{questionAndAnswersList.filter(questions => questions.user_Id == window.localStorage.userId).length}</span>
+              Notification
+                </Dropdown.Toggle>
+          <Dropdown.Menu >
+            {questionAndAnswersList.filter(questions => questions.user_Id == window.localStorage.userId).map(filterQuestion => (
+              <Dropdown.Item href="http://localhost:3000/UserQuestionsAnswers/:id">  Dr. {filterQuestion.doctorName}  answered your question</Dropdown.Item>
+            ))}
+          </Dropdown.Menu>
+        </Dropdown>
+      )
     }
   }
 
   return (
-    <nav className="navbar navbar-expand-sm navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid mt-3">
-        {value === false ? (
+        {value === false ?
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav">
-              <Link to="/" className="nav-link ">
-                <img className="logo" src={SpeakoutLogo} alt="logo"></img>
+              <Link
+                to="/"
+                className="nav-link  ml-3 mr-3"
+                style={{ fontSize: "16px" }}
+              >
+                <img src={Logo} alt="logo"></img>
               </Link>
               <Link
                 to="/doctors"
-                className="nav-link "
-                style={{ marginTop: 10, marginLeft: "auto" }}
+                className="nav-link ml-3 mr-3"
+                style={{ fontSize: "16px" }}
               >
-                Doctors
+                <li className="nav-item">Doctors</li>
               </Link>
               <Link
                 to="/questions"
-                className="nav-link "
-                style={{ marginTop: 10, marginLeft: "auto" }}
+                className="nav-link  ml-3 mr-3"
+                style={{ fontSize: "16px" }}
               >
-                Recent SpeakOut's
+                <li className="nav-item">Questions</li>
               </Link>
               <Link
                 to="/articles"
-                className="nav-link "
-                style={{ marginTop: 10, marginLeft: "auto" }}
+                className="nav-link  ml-3 mr-3"
+                style={{ fontSize: "16px" }}
               >
-                Articles
+                <li className="nav-item">Articles</li>
               </Link>
               <Link
                 to="/login"
-                className="nav-link"
-                style={{ marginTop: 10, marginLeft: "auto" }}
+                className="nav-link  ml-3 mr-3"
+                style={{ fontSize: "16px" }}
               >
-                SpeakOut to Us
+                <li className="nav-item">Get Free Counseling Now</li>
               </Link>
               <Link
                 to="/login"
-                className="nav-link"
-                style={{ marginTop: 10, marginLeft: "auto" }}
+                className="nav-link  ml-3 mr-3"
+                style={{ fontSize: "16px" }}
               >
-                Login
+                <li className="nav-item">Login</li>
               </Link>
-              {/* <Link
+              <Link
                 to="/rateDoctor"
                 className="nav-link ml-3 mr-3"
-                style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
+                style={{ fontSize: "16px" }}
               >
                 <li className="nav-item">Rate Doctor</li>
-              </Link> */}
+              </Link>
+
             </ul>
           </div>
-        ) : (
-          <div className="collapse navbar-collapse" id="navbar NavDropdown">
+          :
+          <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav">
-              <Link to="/" className="nav-link">
-                <img className="logo" src={SpeakoutLogo} alt="logo"></img>
+              <Link
+                to="/"
+                className="nav-link  ml-3 mr-3"
+                style={{ fontSize: "16px" }}
+              >
+                <img src={Logo} alt="logo"></img>
               </Link>
               {UserIsLogged(window.localStorage.userId)}
               {UserIsLogged2(window.localStorage.userId)}
               {UserIsLogged3(window.localStorage.userId)}
+              {UserIsLogged4(window.localStorage.userId)}
 
               <Link
                 to="/doctors"
-                className="nav-link "
-                style={{ marginTop: 10, marginLeft: "auto" }}
+                className="nav-link ml-3 mr-3"
+                style={{ fontSize: "16px" }}
               >
-                Doctors
+                <li className="nav-item">Doctors</li>
               </Link>
               {DocIsLogged(window.localStorage.doctorId)}
               {DocIsLogged2(window.localStorage.doctorId)}
               {DocIsLogged3(window.localStorage.doctorId)}
               <Link
                 to="/questions"
-                className="nav-link"
-                style={{ marginTop: 10, marginLeft: "auto" }}
+                className="nav-link  ml-3 mr-3"
+                style={{ fontSize: "16px" }}
               >
-                Recent SpeakOut's
+                <li className="nav-item">Questions</li>
               </Link>
               <Link
                 to="/articles"
-                className="nav-link"
-                style={{ marginTop: 10, marginLeft: "auto" }}
+                className="nav-link  ml-3 mr-3"
+                style={{ fontSize: "16px" }}
               >
-                Articles
+                <li className="nav-item">Articles</li>
               </Link>
               <Link
                 to="/logout"
-                className="nav-link"
-                style={{ marginTop: 10, marginLeft: "auto" }}
-                onClick={logout}
+                className="nav-link  ml-3 mr-3"
+                style={{ fontSize: "16px" }}
               >
-                Logout
+                <li className="nav-item" onClick={logout} >Logout</li>
               </Link>
+
             </ul>
           </div>
-        )}
+        }
       </div>
-      <nav>{UserIsLogged4(window.localStorage.userId)}</nav>
     </nav>
   );
 }

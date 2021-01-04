@@ -102,7 +102,6 @@ module.exports = {
     });
   },
 
-  /////////////////////////////////////////////////////////////////////////////////
   updateUser: async (req, res) => {
     // console.log(req.body.cpassword, "Current password")
     var hashed = "";
@@ -115,6 +114,17 @@ module.exports = {
     } else {
       hashed = await bcrypt.hash(req.body.password, 10);
     }
+    res.sendStatus(200)
+
+  },
+
+  deleteUser: (req, res) => {
+    var params = [req.params.id];
+    usersModel.deleteUser(params, function (err, result) {
+      if (err) { console.log(`you have an error in doctor controller ${err}`) };
+      res.sendStatus(200)
+    })
+
 
     var params = [
       req.body.userName,
@@ -132,6 +142,7 @@ module.exports = {
       res.sendStatus(200);
     });
   },
+
   deleteUser: (req, res) => {
     var params = [req.params.id];
     usersModel.deleteUser(params, function (err, result) {

@@ -23,6 +23,16 @@ input[name="rating"] {
     transition: color 100ms;
   } */
 
+
+  
+.dot {
+  height: 25px;
+  width: 25px;
+  background-color: rgb(240, 57, 57);
+  border-radius: 50%;
+  display: inline-block;
+}
+
 /* star rating CSS ends */
 
 /* notification CSS  */

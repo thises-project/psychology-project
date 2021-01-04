@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import Navbar from "./components/thenavbar";
+import React, { useState } from 'react';
+import Navbar from './components/thenavbar';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Doctors from "./components/doctors";
 import Articles from "./components/articles";
@@ -23,10 +23,12 @@ import CreateDoctorsSchedule from "./components/CreateDoctorsSchedule";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-datepicker/dist/react-datepicker.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
-import VideoCall from "./components/videoCall";
-import Notification from "./components/Notification";
-
+import './App.css';
+import VideoCall from './components/videoCall';
+// React Notification
+import 'react-notifications/lib/notifications.css';
+// import { NotificationContainer } from 'react-notifications';
+import Notification from './components/Notification'
 import RateDoctor from "./components/rateDoctor";
 
 function App() {
@@ -48,6 +50,8 @@ function App() {
           <Route path="/video" component={VideoCall} />
           <Route path="/notification" component={Notification} />
           <Route path="/doctorSchedule/:id" component={CreateDoctorsSchedule} />
+
+
           {/* <Route path = "/scheduleForDoctor/:id" component = {ScheduleForDoctor}/>  */}
 
           <Route
@@ -114,6 +118,7 @@ function App() {
             component={AppointmentListForOneDoctor}
           />
         </Switch>
+        {/* <NotificationContainer /> */}
       </div>
     </Router>
   );

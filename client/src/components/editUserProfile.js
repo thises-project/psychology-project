@@ -17,7 +17,7 @@ export default function EditUser(props, { currentId, setCurrentId }) {
     axios
       .get(
         "http://localhost:5000/users/getOneUser/" +
-          `${window.localStorage.userId}`
+        `${window.localStorage.userId}`
       )
       .then((res) => {
         //console.log(res.data[0])

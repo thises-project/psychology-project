@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { AddQuestions } from "../actions/AddQuestion";
 import { Button } from "react-bootstrap";
+import { Dropdown } from 'react-bootstrap';
+
 import Footer from "./footer";
 
 // build ask question component
@@ -10,24 +12,27 @@ import Footer from "./footer";
 
 function AddQ() {
   const [questions, setQuestion] = useState({
-    question: "",
-    user_Id: "",
+    question: '',
+    user_Id: window.localStorage.userId,
+    questionType: 'Individual Counseling',
   });
+
+  const { question, questionType } = questions;
 
   const dispatch = useDispatch();
 
+
   function handleChange(e) {
-    setQuestion({
-      question: e.target.value,
-      user_Id: window.localStorage.userId,
-    });
+    const { name, value } = e.target;
+    setQuestion(questions => ({ ...questions, [name]: value }));
+
   }
 
   function handleSubmit(e) {
-    console.log(questions);
+    // console.log(questions);
     e.preventDefault();
-    dispatch(AddQuestions(questions));
-    window.location = "/questions";
+    dispatch(AddQuestions(questions))
+    window.location = '/questions'
   }
 
   return (
@@ -50,10 +55,27 @@ function AddQ() {
         <br />
         <h3>WE ARE HERE FOR YOU ..</h3>
         <h3>How can we help you ?</h3>
-        <form
-          onSubmit={handleSubmit}
-          style={{ marginTop: 30, marginBottom: 30 }}
-        >
+
+        <form onSubmit={handleSubmit}
+          style={{ marginTop: 30, marginBottom: 30 }}>
+
+          {/* <Dropdown name="questionType" onChange={handleChange} value={questions.questionType}>
+          <Dropdown.Toggle variant="info" id="dropdown-basic">
+            Choose Counseling Type ..
+                </Dropdown.Toggle>
+          <Dropdown.Menu >
+            <Dropdown.Item value="Teenager Counseling" > Teenager Counseling </Dropdown.Item>
+            <Dropdown.Item value="Couple Counseling" > Couple Counseling </Dropdown.Item>
+            <Dropdown.Item value="Individual Counseling" > Individual Counseling </Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown> */}
+          <label>Choose Counseling Type ..</label><br />
+          <select name="questionType" onChange={handleChange} value={questions.questionType} >
+            <option value="Teenager Counseling" > Teenager Counseling </option>
+            <option value="Couple Counseling" > Couple Counseling </option>
+            <option value="Individual Counseling" > Individual Counseling </option>
+          </select>
+          <br />
           <textarea
             style={{ width: 900, height: "auto" }}
             type="text"
@@ -61,13 +83,9 @@ function AddQ() {
             value={questions.question}
             onChange={handleChange}
           />
+          <br />
 
-          <Button
-            type="submi"
-            variant="info"
-            size="lg"
-            style={{ width: "auto", marginTop: 30, height: 30 }}
-          >
+          <Button type="submi" variant="info" size="lg" style={{ width: "auto", marginTop: 30, height: 30 }}>
             SpeakOut
           </Button>
           <br />
@@ -75,19 +93,19 @@ function AddQ() {
           <br />
           <h6> one of our doctors will reply you soon</h6>
         </form>
+        {/* footer div */}
+        <div
+          className="container w-100 mt-5 mb-5"
+          style={{
+            textAlign: "center",
+            marginLeft: "auto",
+            marginRight: "auto",
+          }}
+        >
+          <Footer />
+        </div>
+        {/* footer div ends*/}
       </div>
-      {/* footer div */}
-      <div
-        className="container w-100 mt-5 mb-5"
-        style={{
-          textAlign: "center",
-          marginLeft: "auto",
-          marginRight: "auto",
-        }}
-      >
-        <Footer />
-      </div>
-      {/* footer div ends*/}
     </div>
   );
 }
