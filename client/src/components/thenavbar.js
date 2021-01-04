@@ -103,28 +103,10 @@ function Navbar() {
       dispatch(GetAllQuestionsAndAnswers())
     }, [dispatch]);
 
-    // const [counter, setCounter] = useState({
-    //   number: questionAndAnswersList = useSelector((state) => state.GetAllQuestionsAndAnswers),
-    // });
-
-    // function handleChange() {
-    //   // var num = 0
-    //   var realNum = questionAndAnswersList.filter(questions => questions.user_Id == window.localStorage.userId).length;
-    //   console.log(history)
-    //   history.push(realNum);
-    //   // setCounter({ number: questionAndAnswersList.filter(questions => questions.user_Id == window.localStorage.userId).length });
-    //   // num = num + realNum;
-    //   // console.log(num);
-    // }
-    // function handleSubmit() {
-
-    // }
-    // console.log(questionAndAnswersList.length, "test filter");
 
     if (val) {
       return (
 
-        // <div onClick={handleChange()}>
           <Dropdown >
             <Dropdown.Toggle variant="info" id="dropdown-basic">
               <span class="dot">{ questionAndAnswersList.filter(questions => questions.user_Id == window.localStorage.userId).length}</span>
@@ -136,7 +118,6 @@ function Navbar() {
               ))}
             </Dropdown.Menu>
           </Dropdown>
-        // </div>
       )
     }
   }
