@@ -12,7 +12,7 @@ const Home = () => {
         <Carousel.Item>
           {" "}
           <img
-            src={process.env.PUBLIC_URL + "./Images/pic3.jpg"}
+            src={process.env.PUBLIC_URL + "./Images/one.jpg"}
             alt="not found"
             width="100%"
             height="500px"
@@ -25,7 +25,7 @@ const Home = () => {
         <Carousel.Item>
           {" "}
           <img
-            src={process.env.PUBLIC_URL + "./Images/pic4.jpg"}
+            src={process.env.PUBLIC_URL + "./Images/three.jpg"}
             alt="not found"
             width="100%"
             height="500px"
@@ -37,7 +37,7 @@ const Home = () => {
         <Carousel.Item>
           {" "}
           <img
-            src={process.env.PUBLIC_URL + "./Images/pic5.jpg"}
+            src={process.env.PUBLIC_URL + "./Images/four.jpg"}
             alt="not found"
             width="100%"
             height="500px"
@@ -72,7 +72,7 @@ const Home = () => {
         className="btn btn-info "
         style={{ marginLeft: "5px" }}
       >
-        Get Free Counsling NOW !
+        SpeakOut to Us
       </Link>
       {/* <Button variant="info" size="lg" style={{ width: "30%" }}>
       <a href={href} onClick={ handleClick ()}> Get Free Counsling NOW !</a>
@@ -84,11 +84,10 @@ const Home = () => {
       <br></br>
       <br></br>
       <br></br>
-
-      <div className="row feedback">
-        {/* feedbacks starts */}
+      {/* feedbacks starts */}
+      <div className="row w-100 mt-5 mb-5">
         {/* person1 */}
-        <div className="card testimonial-card" style={{ width: "33%" }}>
+        <div className="card testimonial-card " style={{ width: "33%" }}>
           {/* <!-- Background color --> */}
           <div className="card-up indigo lighten-1"></div>
 
@@ -117,7 +116,7 @@ const Home = () => {
         </div>
 
         {/* person2 */}
-        <div className="card testimonial-card" style={{ width: "33%" }}>
+        <div className="card testimonial-card" style={{ width: "34%" }}>
           {/* <!-- Background color --> */}
           <div className="card-up indigo lighten-1"></div>
 
@@ -173,8 +172,12 @@ const Home = () => {
             </p>
           </div>
         </div>
-        {/* feedbacks ends */}
       </div>
+      {/* feedbacks ends */}
+
+      {/* <div className="row w-100 mt-5 mb-5">
+       
+      </div> */}
 
       <br></br>
       <br></br>

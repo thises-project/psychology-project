@@ -148,8 +148,18 @@ const DoctorProfile = (props) => {
         </div>
         <br />
       </div>
-
-      <Footer />
+      {/* footer div */}
+      <div
+        className="container w-100 mt-5 mb-5"
+        style={{
+          textAlign: "center",
+          marginLeft: "auto",
+          marginRight: "auto",
+        }}
+      >
+        <Footer />
+      </div>
+      {/* footer div ends*/}
     </div>
   );
 };

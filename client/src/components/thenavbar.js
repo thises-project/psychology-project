@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Logo from "./logo.jpg";
+import SpeakoutLogo from "./Logo.png";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { GetAllQuestionsAndAnswers } from "../actions/AddQuestion";
+
+// import { Nav } from "react-bootstrap";
 
 function Navbar() {
   var value = false;
@@ -13,12 +15,8 @@ function Navbar() {
   function DocIsLogged(val) {
     if (val) {
       return (
-        <Link
-          to="/doctorProfile/:id"
-          className="nav-link  ml-3 mr-3"
-          style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
-        >
-          <li className="nav-item">My Profile</li>
+        <Link to="/doctorProfile/:id" className="nav-link">
+          My Profile
         </Link>
       );
     }
@@ -26,11 +24,7 @@ function Navbar() {
   function DocIsLogged2(val) {
     if (val) {
       return (
-        <Link
-          to="/doctorQuestions"
-          className="nav-link  ml-3 mr-3"
-          style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
-        >
+        <Link to="/doctorQuestions" className="nav-link">
           <li className="nav-item"> Patient's Questions</li>
         </Link>
       );
@@ -42,8 +36,7 @@ function Navbar() {
       return (
         <Link
           to={`/doctorSchedule/${window.localStorage.doctorId}`}
-          className="nav-link  ml-3 mr-3"
-          style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
+          className="nav-link"
         >
           <li className="nav-item">My Schedule</li>
         </Link>
@@ -54,11 +47,7 @@ function Navbar() {
   function UserIsLogged(val) {
     if (val) {
       return (
-        <Link
-          to="/userPro"
-          className="nav-link  ml-3 mr-3"
-          style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
-        >
+        <Link to="/userPro" className="nav-link">
           <li className="nav-item">My Profile</li>
         </Link>
       );
@@ -67,11 +56,7 @@ function Navbar() {
   function UserIsLogged2(val) {
     if (val) {
       return (
-        <Link
-          to="/askQuestions"
-          className="nav-link  ml-3 mr-3"
-          style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
-        >
+        <Link to="/askQuestions" className="nav-link">
           <li className="nav-item"> SpeakOut to Us</li>
         </Link>
       );
@@ -80,11 +65,7 @@ function Navbar() {
   function UserIsLogged3(val) {
     if (val) {
       return (
-        <Link
-          to="/UserQuestionsAnswers/:id"
-          className="nav-link  ml-3 mr-3"
-          style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
-        >
+        <Link to="/UserQuestionsAnswers/:id" className="nav-link ">
           <li className="nav-item">My Questions</li>
         </Link>
       );
@@ -127,51 +108,31 @@ function Navbar() {
   }
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-sm navbar-light bg-light">
       <div className="container-fluid mt-3">
         {value === false ? (
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav">
-              <Link
-                to="/"
-                className="nav-link  ml-3 mr-3"
-                style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
-              >
-                <img src={Logo} alt="logo"></img>
+              <Link to="/" className="nav-link ">
+                <img
+                  src={SpeakoutLogo}
+                  alt="logo"
+                  stule={{ marginTop: "auto", marginBottom: "auto" }}
+                ></img>
               </Link>
-              <Link
-                to="/doctors"
-                className="nav-link ml-3 mr-3"
-                style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
-              >
+              <Link to="/doctors" className="nav-link ">
                 <li className="nav-item">Doctors</li>
               </Link>
-              <Link
-                to="/questions"
-                className="nav-link  ml-3 mr-3"
-                style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
-              >
+              <Link to="/questions" className="nav-link ">
                 <li className="nav-item"> Recent SpeakOut's</li>
               </Link>
-              <Link
-                to="/articles"
-                className="nav-link  ml-3 mr-3"
-                style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
-              >
+              <Link to="/articles" className="nav-link ">
                 <li className="nav-item">Articles</li>
               </Link>
-              <Link
-                to="/login"
-                className="nav-link  ml-3 mr-3"
-                style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
-              >
+              <Link to="/login" className="nav-link">
                 <li className="nav-item">SpeakOut to Us</li>
               </Link>
-              <Link
-                to="/login"
-                className="nav-link  ml-3 mr-3"
-                style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
-              >
+              <Link to="/login" className="nav-link">
                 <li className="nav-item">Login</li>
               </Link>
               {/* <Link
@@ -186,46 +147,30 @@ function Navbar() {
         ) : (
           <div className="collapse navbar-collapse" id="navbar NavDropdown">
             <ul className="navbar-nav">
-              <Link
-                to="/"
-                className="nav-link  ml-3 mr-3"
-                style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
-              >
-                <img src={Logo} alt="logo"></img>
+              <Link to="/" className="nav-link">
+                <img
+                  src={SpeakoutLogo}
+                  alt="logo"
+                  stule={{ marginTop: "auto", marginBottom: "auto" }}
+                ></img>
               </Link>
               {UserIsLogged(window.localStorage.userId)}
               {UserIsLogged2(window.localStorage.userId)}
               {UserIsLogged3(window.localStorage.userId)}
               {UserIsLogged4(window.localStorage.userId)}
-              <Link
-                to="/doctors"
-                className="nav-link ml-3 mr-3"
-                style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
-              >
+              <Link to="/doctors" className="nav-link ">
                 <li className="nav-item">Doctors</li>
               </Link>
               {DocIsLogged(window.localStorage.doctorId)}
               {DocIsLogged2(window.localStorage.doctorId)}
               {DocIsLogged3(window.localStorage.doctorId)}
-              <Link
-                to="/questions"
-                className="nav-link  ml-3 mr-3"
-                style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
-              >
+              <Link to="/questions" className="nav-link ">
                 <li className="nav-item"> Recent SpeakOut's </li>
               </Link>
-              <Link
-                to="/articles"
-                className="nav-link  ml-3 mr-3"
-                style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
-              >
+              <Link to="/articles" className="nav-link ">
                 <li className="nav-item">Articles</li>
               </Link>
-              <Link
-                to="/logout"
-                className="nav-link  ml-3 mr-3"
-                style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
-              >
+              <Link to="/logout" className="nav-link ">
                 <li className="nav-item" onClick={logout}>
                   Logout
                 </li>
