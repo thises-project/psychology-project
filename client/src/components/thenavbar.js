@@ -1,9 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Logo from "./logo.jpg";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import Logo from "./Logo.png";
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { GetAllQuestionsAndAnswers } from "../actions/AddQuestion";
+import { Dropdown } from 'react-bootstrap';
+// import { NotificationManager } from 'react-notifications';
+
 
 function Navbar() {
   var value = false;
@@ -92,37 +95,29 @@ function Navbar() {
   }
 
   function UserIsLogged4(val) {
+    const history = [];
     const dispatch = useDispatch();
-    // use selector to get access to all global store or all gllobal state
-    const questionAndAnswersList = useSelector(
-      (state) => state.GetAllQuestionsAndAnswers
-    );
+    const questionAndAnswersList = useSelector((state) => state.GetAllQuestionsAndAnswers);
     useEffect(() => {
       dispatch(GetAllQuestionsAndAnswers());
     }, [dispatch]);
-    console.log(questionAndAnswersList, "test filter");
-    function onClickOption() {
-      // window.location = '/UserQuestionsAnswers'
-    }
+
+
     if (val) {
       return (
-        <div>
-          <select id="notification">
-            <option>Notification</option>
-            {questionAndAnswersList
-              .filter(
-                (questions) => questions.user_Id === window.localStorage.userId
-              )
-              .map((filterQuestion) => (
-                <option onClick={onClickOption()}>
-                  {/* {window.localStorage.userId} */}
-                  Dr. {filterQuestion.doctorName} answered your question
-                  {/* {filterQuestion.user_Id} */}
-                </option>
-              ))}
-          </select>
-        </div>
-      );
+
+        <Dropdown >
+          <Dropdown.Toggle variant="info" id="dropdown-basic">
+            <span class="dot">{questionAndAnswersList.filter(questions => questions.user_Id == window.localStorage.userId).length}</span>
+              Notification
+                </Dropdown.Toggle>
+          <Dropdown.Menu >
+            {questionAndAnswersList.filter(questions => questions.user_Id == window.localStorage.userId).map(filterQuestion => (
+              <Dropdown.Item href="http://localhost:3000/UserQuestionsAnswers/:id">  Dr. {filterQuestion.doctorName}  answered your question</Dropdown.Item>
+            ))}
+          </Dropdown.Menu>
+        </Dropdown>
+      )
     }
   }
 
@@ -184,55 +179,56 @@ function Navbar() {
             </ul>
           </div>
         ) : (
-          <div className="collapse navbar-collapse" id="navbar NavDropdown">
-            <ul className="navbar-nav">
-              <Link
-                to="/"
-                className="nav-link  ml-3 mr-3"
-                style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
-              >
-                <img src={Logo} alt="logo"></img>
-              </Link>
-              {UserIsLogged(window.localStorage.userId)}
-              {UserIsLogged2(window.localStorage.userId)}
-              {UserIsLogged3(window.localStorage.userId)}
-              {UserIsLogged4(window.localStorage.userId)}
-              <Link
-                to="/doctors"
-                className="nav-link ml-3 mr-3"
-                style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
-              >
-                <li className="nav-item">Doctors</li>
-              </Link>
-              {DocIsLogged(window.localStorage.doctorId)}
-              {DocIsLogged2(window.localStorage.doctorId)}
-              {DocIsLogged3(window.localStorage.doctorId)}
-              <Link
-                to="/questions"
-                className="nav-link  ml-3 mr-3"
-                style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
-              >
-                <li className="nav-item"> Recent SpeakOut's </li>
-              </Link>
-              <Link
-                to="/articles"
-                className="nav-link  ml-3 mr-3"
-                style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
-              >
-                <li className="nav-item">Articles</li>
-              </Link>
-              <Link
-                to="/logout"
-                className="nav-link  ml-3 mr-3"
-                style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
-              >
-                <li className="nav-item" onClick={logout}>
-                  Logout
+            <div className="collapse navbar-collapse" id="navbar NavDropdown">
+              <ul className="navbar-nav">
+                <Link
+                  to="/"
+                  className="nav-link  ml-3 mr-3"
+                  style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
+                >
+                  <img src={Logo} alt="logo"></img>
+                </Link>
+                {UserIsLogged(window.localStorage.userId)}
+                {UserIsLogged2(window.localStorage.userId)}
+                {UserIsLogged3(window.localStorage.userId)}
+                {UserIsLogged4(window.localStorage.userId)}
+
+                <Link
+                  to="/doctors"
+                  className="nav-link ml-3 mr-3"
+                  style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
+                >
+                  <li className="nav-item">Doctors</li>
+                </Link>
+                {DocIsLogged(window.localStorage.doctorId)}
+                {DocIsLogged2(window.localStorage.doctorId)}
+                {DocIsLogged3(window.localStorage.doctorId)}
+                <Link
+                  to="/questions"
+                  className="nav-link  ml-3 mr-3"
+                  style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
+                >
+                  <li className="nav-item"> Recent SpeakOut's </li>
+                </Link>
+                <Link
+                  to="/articles"
+                  className="nav-link  ml-3 mr-3"
+                  style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
+                >
+                  <li className="nav-item">Articles</li>
+                </Link>
+                <Link
+                  to="/logout"
+                  className="nav-link  ml-3 mr-3"
+                  style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
+                >
+                  <li className="nav-item" onClick={logout}>
+                    Logout
                 </li>
-              </Link>
-            </ul>
-          </div>
-        )}
+                </Link>
+              </ul>
+            </div>
+          )}
       </div>
     </nav>
   );

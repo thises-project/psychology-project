@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { verifyUser } from "../actions/verifyUser";
@@ -36,7 +35,6 @@ function Login() {
     if (validate() === true) {
       if (role === false) {
         dispatch(verifyUser(inputs));
-
       }
       // console.log(window.localStorage.type )
       else {

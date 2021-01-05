@@ -102,7 +102,6 @@ module.exports = {
     });
   },
 
-  /////////////////////////////////////////////////////////////////////////////////
   updateUser: async (req, res) => {
     // console.log(req.body.cpassword, "Current password")
     var hashed = "";
@@ -115,7 +114,6 @@ module.exports = {
     } else {
       hashed = await bcrypt.hash(req.body.password, 10);
     }
-
     var params = [
       req.body.userName,
       req.body.age,

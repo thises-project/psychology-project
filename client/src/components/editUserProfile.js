@@ -113,6 +113,7 @@ export default function EditUser(props, { currentId, setCurrentId }) {
             name="userName"
             value={editUser.userName}
             onChange={handleChange}
+            required
             className={
               "form-control" +
               (submitted && !editUser.userName ? " is-invalid" : "")
@@ -128,6 +129,7 @@ export default function EditUser(props, { currentId, setCurrentId }) {
             name="age"
             value={editUser.age}
             onChange={handleChange}
+            required
             className={
               "form-control" + (submitted && !editUser.age ? " is-invalid" : "")
             }
@@ -142,6 +144,7 @@ export default function EditUser(props, { currentId, setCurrentId }) {
             name="gender"
             value={editUser.gender}
             onChange={handleChange}
+            required
             className={
               "form-control" +
               (submitted && !editUser.gender ? " is-invalid" : "")
@@ -157,6 +160,7 @@ export default function EditUser(props, { currentId, setCurrentId }) {
             name="email"
             value={editUser.email}
             onChange={handleChange}
+            required
             className={
               "form-control" +
               (submitted && !editUser.email ? " is-invalid" : "")
@@ -172,6 +176,7 @@ export default function EditUser(props, { currentId, setCurrentId }) {
             name="password"
             value={editUser.password}
             onChange={handleChange}
+            required
             className={
               "form-control" +
               (submitted && !editUser.password ? " is-invalid" : "")

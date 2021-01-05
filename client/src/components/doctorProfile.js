@@ -4,8 +4,6 @@ import Footer from "./footer";
 import { Link } from "react-router-dom";
 import { storage } from "../firebase";
 
-
-
 const DoctorProfile = (props) => {
   const [doctorProfile, setDoctorProfile] = useState({});
   const [image, setImage] = useState(null);
@@ -13,7 +11,10 @@ const DoctorProfile = (props) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/doctor/getOneDoctor/" + `${window.localStorage.doctorId}`)
+      .get(
+        `http://localhost:5000/doctor/getOneDoctor/` +
+        `${window.localStorage.doctorId}`
+      )
       .then((res) => {
         console.log(res.data[0], " kkkkkkkkkkkkkkkkkkkkk");
         setDoctorProfile({
@@ -30,16 +31,13 @@ const DoctorProfile = (props) => {
       .catch((err) => {
         console.log(err);
       });
+    // eslint-disable-next-line
   }, [window.localStorage.doctorId]);
-
 
   function onChangeimg(e) {
     if (e.target.files[0]) {
-      setImage(
-        e.target.files[0]
-      );
+      setImage(e.target.files[0]);
     } else console.log("error in onchangeimg");
-
   }
 
   function handleUpload(e) {
@@ -47,7 +45,9 @@ const DoctorProfile = (props) => {
     console.log("imageeeeeeeee", image)
 
     const uploadTask = storage.ref(`/images/${image.name}`).put(image);
-    uploadTask.on("state_changed", (snapshot) => { },
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => { },
       (error) => {
         console.log(error, "error");
       },
@@ -72,8 +72,6 @@ const DoctorProfile = (props) => {
 
   }
 
-
-
   return (
     <div className="container ml-5 mr-5">
       <div style={{ textAlign: "left" }}>
@@ -85,6 +83,15 @@ const DoctorProfile = (props) => {
           <div className="col pt-3 pb-2">
             <div className="row">
               <div className="col-md-10">
+                <div>
+                  <img
+                    alt="not found"
+                    src={
+                      doctorProfile.url ||
+                      "http://via.placeholder.com/200x200"
+                    }
+                  />
+                </div>
                 <h2>{doctorProfile.doctorName} </h2>
                 <h4>{doctorProfile.doctorSpeciality}</h4>
                 <p className="lead">{doctorProfile.bio}</p>
@@ -93,13 +100,13 @@ const DoctorProfile = (props) => {
                     {" "}
                     <span class="badge bg-primary">{doctorProfile.email}</span>
                   </h4>
+
                   <br></br>
                   <div>
                     <img width="200" height="200" src={doctorProfile.imgURL || "http://via.placeholder.com/200x200"} />
                   </div>
                 </p>
               </div>
-
             </div>
           </div>
         </div>
@@ -124,14 +131,23 @@ const DoctorProfile = (props) => {
             style={{ marginLeft: "5px" }}
           >
             Edit
-                </Link>
+          </Link>
         </div>
         <br />
-
-      </div>
-
-      <Footer />
-    </div>
+      </div >
+      {/* footer div */}
+      < div
+        className="container w-100 mt-5 mb-5"
+        style={{
+          textAlign: "center",
+          marginLeft: "auto",
+          marginRight: "auto",
+        }}
+      >
+        <Footer />
+      </div >
+      {/* footer div ends*/}
+    </div >
   );
 };
 

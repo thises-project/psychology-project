@@ -41,15 +41,15 @@ const UpdateDoctor = (props) => {
           image: res.data[0].image,
           password: res.data[0].password,
         });
-        console.log(res.data[0], "dddddddddddddddddddddddddddddd");
+        console.log(res.data[0], "ddddddd");
       })
       .catch((err) => {
         console.log(err);
       });
+    // eslint-disable-next-line
   }, [window.localStorage.doctorId]);
 
   const handleChange = (name) => (event) => {
-
     setState({ ...state, [name]: event.target.value });
     console.log(state.cpassword);
   };
@@ -60,7 +60,7 @@ const UpdateDoctor = (props) => {
     axios
       .put(
         "http://localhost:5000/doctor/updateDoctor/" +
-        `${window.localStorage.doctorId}`,
+          `${window.localStorage.doctorId}`,
         {
           doctorId,
           doctorName,
@@ -108,12 +108,8 @@ const UpdateDoctor = (props) => {
       });
   };
 
-
-
   const showUpdateForm = () => (
     <form onSubmit={handleSubmit}>
-
-
       <div className="form-group">
         <label className="text-muted">
           Please Enter Your Current Password before updating your Information

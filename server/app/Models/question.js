@@ -5,12 +5,7 @@ const db = require('./database')
 module.exports = {
     //Create Questions ..
     createQuestions: (params, callback) => {
-        var queryStr = `INSERT INTO questions ( question ,user_Id) VALUES (?,?)`;
-        // var queryStr = `BEGIN;
-        //                 INSERT INTO users questions ( question ,user_Id) VALUES (?,?);
-        //                 INSERT INTO notification (user_Id, question_Id) VALUES (?,?);
-        //                 COMMIT;
-        // `;
+        var queryStr = `INSERT INTO questions ( question , user_Id, questionType) VALUES (?,?,?)`;
         db.query(queryStr, params, function (err, result) {
             callback(err, result)
         })
@@ -19,7 +14,7 @@ module.exports = {
 
     // Get All Questions And Answers ..
     getAllQuestionsAndAnswers: (callback) => {
-        var query = ` SELECT questions.question , answers.answer ,doctors.doctorName ,questions.user_Id from  ((answers INNER JOIN questions ON answers.question_Id = questions.questionId) INNER JOIN doctors ON answers.doctor_Id = doctors.doctorId); `;
+        var query = ` SELECT questions.question , answers.answer ,doctors.doctorName ,questions.user_Id , questions.questionType from  ((answers INNER JOIN questions ON answers.question_Id = questions.questionId) INNER JOIN doctors ON answers.doctor_Id = doctors.doctorId); `;
         db.query(query, function (err, results) {
             callback(err, results)
         })
@@ -27,7 +22,7 @@ module.exports = {
 
     // Get All Questions ..
     getAllQuestions: (callback) => {
-        var query = `SELECT  question , questionId FROM questions LEFT JOIN answers ON questions.questionId = answers.question_Id WHERE answers.question_Id IS NULL`;
+        var query = `SELECT  question , questionId  FROM questions LEFT JOIN answers ON questions.questionId = answers.question_Id WHERE answers.question_Id IS NULL`;
         db.query(query, function (err, result) {
             callback(err, result)
         })
