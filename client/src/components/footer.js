@@ -42,11 +42,11 @@ const Footer = () => {
               contact@Speakout.com
             </Card.Text>
             <div>
-              <TiSocialFacebookCircular size={40} />
-              <TiSocialInstagramCircular size={40} />
-              <TiSocialLinkedinCircular size={40} />
-              <TiSocialTwitterCircular size={40} />
-              <TiSocialYoutubeCircular size={40} />
+              <a href="https://www.facebook.com/"><TiSocialFacebookCircular size={40} /></a> 
+              <a href="https://www.instagram.com/"><TiSocialInstagramCircular size={40} /></a>
+              <a href="https://www.linkedin.com/"><TiSocialLinkedinCircular size={40} /></a>
+              <a href="https://twitter.com/?lang=en"><TiSocialTwitterCircular size={40} /></a>
+              <a href="https://www.youtube.com/"><TiSocialYoutubeCircular size={40} /></a>
             </div>
             {/* <Card.Link href="#">Card Link</Card.Link>
             <Card.Link href="#">Another Link</Card.Link> */}

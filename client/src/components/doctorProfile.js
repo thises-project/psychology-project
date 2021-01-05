@@ -94,6 +94,7 @@ const DoctorProfile = (props) => {
               <div className="col-md-10">
                 <div>
                   <img
+                    style={{ width: "400px", height: "400px" }}
                     alt="not found"
                     src={
                       doctorProfile.url ||
@@ -101,7 +102,8 @@ const DoctorProfile = (props) => {
                     }
                   />
                 </div>
-                <h2>{doctorProfile.doctorName} </h2>
+                <h1>{doctorProfile.doctorName} </h1>
+                <br/>
                 <h4>{doctorProfile.doctorSpeciality}</h4>
                 <p className="lead">{doctorProfile.bio}</p>
                 <p>
@@ -109,7 +111,7 @@ const DoctorProfile = (props) => {
                     {" "}
                     <span class="badge bg-primary">{doctorProfile.email}</span>
                   </h4>
-                  
+
                   <br></br>
                 </p>
               </div>
