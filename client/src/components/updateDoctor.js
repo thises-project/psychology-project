@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import swal from 'sweetalert';
 
 const UpdateDoctor = (props) => {
   const [state, setState] = useState({
@@ -8,6 +9,7 @@ const UpdateDoctor = (props) => {
     doctorSpeciality: "",
     bio: "",
     email: "",
+    image: "",
     password: "",
     cpassword: "",
   });
@@ -18,6 +20,7 @@ const UpdateDoctor = (props) => {
     doctorSpeciality,
     bio,
     email,
+    image,
     password,
     cpassword,
   } = state;
@@ -35,6 +38,7 @@ const UpdateDoctor = (props) => {
           doctorSpeciality: res.data[0].doctorSpeciality,
           bio: res.data[0].bio,
           email: res.data[0].email,
+          image: res.data[0].image,
           password: res.data[0].password,
         });
         console.log(res.data[0], "dddddddddddddddddddddddddddddd");
@@ -63,6 +67,7 @@ const UpdateDoctor = (props) => {
           doctorSpeciality,
           bio,
           email,
+          image,
           password,
           cpassword,
         }
@@ -75,6 +80,7 @@ const UpdateDoctor = (props) => {
           doctorSpeciality,
           bio,
           email,
+          image,
           password,
           cpassword,
         } = res.data;
@@ -86,12 +92,15 @@ const UpdateDoctor = (props) => {
           doctorSpeciality,
           bio,
           email,
+          image,
           password,
           cpassword,
         });
         // show sucess alert
-        alert(`Doctor was Edited`);
-        window.location = `/doctorProfile/${window.localStorage.doctorId}`;
+        // alert(`Doctor was Edited`);
+        swal("INFORMATION UPDATED SUCCESSFULLY!", "success");
+        setInterval(function () { window.location = `/doctorProfile/${window.localStorage.doctorId}`; }, 3000);
+
       })
       .catch((error) => {
         console.log(error.res);
@@ -112,7 +121,7 @@ const UpdateDoctor = (props) => {
         <input
           onChange={handleChange("cpassword")}
           value={state.cpassword}
-          type="cpassword"
+          type="password"
           className="form-control"
           placeholder="current password"
           required

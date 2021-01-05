@@ -1,55 +1,93 @@
 import React from "react";
 import { useState } from "react";
-import { useDispatch } from 'react-redux';
-import { AddQuestions } from '../actions/AddQuestion';
+import { useDispatch } from "react-redux";
+import { AddQuestions } from "../actions/AddQuestion";
 import { Button } from "react-bootstrap";
+import Footer from "./footer";
 
 // build ask question component
 // take the input value
 
 function AddQ() {
-
   const [questions, setQuestion] = useState({
-    question: '',
-    user_Id :'',
+    question: "",
+    user_Id: "",
   });
 
   const dispatch = useDispatch();
 
-      function handleChange(e) {
-        setQuestion ({question : e.target.value
-          , user_Id : window.localStorage.userId});
-      }
+  function handleChange(e) {
+    setQuestion({
+      question: e.target.value,
+      user_Id: window.localStorage.userId,
+    });
+  }
 
-      function handleSubmit(e) {
-        console.log(questions);
-          e.preventDefault();
-          dispatch(AddQuestions(questions))
-          window.location = '/questions'
-      }
+  function handleSubmit(e) {
+    console.log(questions);
+    e.preventDefault();
+    dispatch(AddQuestions(questions));
+    window.location = "/questions";
+  }
 
   return (
-    <div >
-      <h3>WE ARE HERE FOR YOU ..</h3>
-      <h3>How can we help you ?</h3>
-
-      <form onSubmit={handleSubmit}>
-
-        <textarea 
-            rows="7" 
-            cols="100"
+    <div
+      className="container w-100"
+      style={{ marginLeft: "auto", marginRight: "auto" }}
+    >
+      <div
+        className="container w-100"
+        style={{
+          textAlign: "left",
+          backgroundColor: "beige",
+          alignSelf: "center",
+          width: "100%",
+          height: "auto",
+          borderRadius: 5,
+        }}
+      >
+        <br />
+        <br />
+        <h3>WE ARE HERE FOR YOU ..</h3>
+        <h3>How can we help you ?</h3>
+        <form
+          onSubmit={handleSubmit}
+          style={{ marginTop: 30, marginBottom: 30 }}
+        >
+          <textarea
+            style={{ width: 900, height: "auto" }}
             type="text"
             name="question"
             value={questions.question}
-            onChange={handleChange} 
-         />
-          <br/>
+            onChange={handleChange}
+          />
 
-          <Button type="submi" variant="info" size="lg" style={{ width: "10%" }}>
-            Ask ..
+          <Button
+            type="submi"
+            variant="info"
+            size="lg"
+            style={{ width: "auto", marginTop: 30, height: 30 }}
+          >
+            SpeakOut
           </Button>
-
-      </form>
+          <br />
+          <br />
+          <br />
+          <h6> one of our doctors will reply you soon</h6>
+        </form>
+      </div>
+      {/* footer div */}
+      <div
+        className="container w-100 mt-5 mb-5"
+        style={{
+          textAlign: "center",
+          marginLeft: "auto",
+          marginRight: "auto",
+        }}
+      >
+        <Footer />
+      </div>
+      {/* footer div ends*/}
     </div>
   );
 }
