@@ -64,7 +64,7 @@ module.exports = {
 
   postOneDoctorImage: (req, res) => {
     console.log(" post om]ne imaaaaje from controller")
-    var params = [req.body.url, req.params.id];
+    var params = [req.body.firstUrl, req.params.id];
     console.log(params, "imaaaaage from controler")
     doctorModel.postOneDoctorImage(params, function (err, result) {
       if (err) {

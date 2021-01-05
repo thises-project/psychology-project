@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import Navbar from './components/thenavbar';
+import React, { useState } from "react";
+import Navbar from "./components/thenavbar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Doctors from "./components/doctors";
 import Articles from "./components/articles";
@@ -54,7 +54,7 @@ function App() {
 
           {/* <Route path = "/scheduleForDoctor/:id" component = {ScheduleForDoctor}/>  */}
 
-          <Route
+          <PrivateRoute
             path="/bookAppointment/:id"
             currentId={currentId}
             setCurrentId={setCurrentId}

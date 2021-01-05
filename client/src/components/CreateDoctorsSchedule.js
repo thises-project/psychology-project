@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+//import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 function CreateDoctorsSchedule() {
@@ -10,6 +11,8 @@ function CreateDoctorsSchedule() {
     startTime: "",
     endTime: "",
   });
+
+  //const [today, setDate] = useState(new Date());
 
   const handleChange = (name) => (event) => {
     setSelectedDate({ ...selectedDate, [name]: event.target.value });
@@ -21,7 +24,7 @@ function CreateDoctorsSchedule() {
     axios
       .post(
         `http://localhost:5000/schedule/createSchedule/` +
-          `${window.localStorage.doctorId}`,
+        `${window.localStorage.doctorId}`,
         { selectedDate }
       )
       .then((res) => {
