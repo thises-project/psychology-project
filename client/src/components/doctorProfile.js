@@ -4,16 +4,17 @@ import Footer from "./footer";
 import { Link } from "react-router-dom";
 import { storage } from "../firebase";
 
-
-
 const DoctorProfile = (props) => {
   const [doctorProfile, setDoctorProfile] = useState({});
   const [image, setImage] = useState(null);
-  const [url, setUrl] = useState({});
+  const [firstUrl, setUrl] = useState({});
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/doctor/getOneDoctor/" + `${window.localStorage.doctorId}`)
+      .get(
+        `http://localhost:5000/doctor/getOneDoctor/` +
+        `${window.localStorage.doctorId}`
+      )
       .then((res) => {
         console.log(res.data[0], " kkkkkkkkkkkkkkkkkkkkk");
         setDoctorProfile({
@@ -22,32 +23,31 @@ const DoctorProfile = (props) => {
           bio: res.data[0].bio,
           email: res.data[0].email,
           password: res.data[0].password,
-          url: res.data[0].image,
+          imgURL: res.data[0].image,
         });
 
-        //console.log(url,"hiiiiiiiiii")
+
       })
       .catch((err) => {
         console.log(err);
       });
+    // eslint-disable-next-line
   }, [window.localStorage.doctorId]);
-
 
   function onChangeimg(e) {
     if (e.target.files[0]) {
-      setImage(
-        e.target.files[0]
-      );
+      setImage(e.target.files[0]);
     } else console.log("error in onchangeimg");
-
   }
 
-  function handleUpload() {
-
+  function handleUpload(e) {
+    e.preventDefault();
     console.log("imageeeeeeeee", image)
-    // e.preventDefault();
+
     const uploadTask = storage.ref(`/images/${image.name}`).put(image);
-    uploadTask.on("state_changed", (snapshot) => { },
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => { },
       (error) => {
         console.log(error, "error");
       },
@@ -56,28 +56,21 @@ const DoctorProfile = (props) => {
           .ref("images")
           .child(image.name)
           .getDownloadURL()
-          .then((url) => {
-            setUrl(url)
-            axios.post("http://localhost:5000/doctor/postOneDoctorImage/" + `${window.localStorage.doctorId}`, { url })
+          .then((firstUrl) => {
+            setUrl(firstUrl)
+            // console.log(firstUrl, " fiiiiiiiiiiiiiiiiiiiiiiiirts")
+            axios.post("http://localhost:5000/doctor/postOneDoctorImage/" + `${window.localStorage.doctorId}`, { firstUrl })
               .then((res) => {
-                // const { url} = res.data;
                 console.log(res.config.data, " this is a res from post image");
-                //const { url } = res.config.data;
-                // empty state
-                //  setUrl(
-                //     {url : res.config.data,}
-                //  );
-
+                window.location = "http://localhost:3000/doctorProfile/" + `${window.localStorage.doctorId}`
               })
               .catch((err) => {
                 console.log("there is an errrrrrrrooooorrrr", err);
               });
           });
       });
-    // console.log(url,"hiiiiiiiiii")    
+
   }
-
-
 
   return (
     <div className="container ml-5 mr-5">
@@ -85,11 +78,20 @@ const DoctorProfile = (props) => {
         <div
           className="row"
           key={doctorProfile.doctorId}
-        // style={{ borderBottom: "1px solid silver" }}
+
         >
           <div className="col pt-3 pb-2">
             <div className="row">
               <div className="col-md-10">
+                <div>
+                  <img
+                    alt="not found"
+                    src={
+                      doctorProfile.url ||
+                      "http://via.placeholder.com/200x200"
+                    }
+                  />
+                </div>
                 <h2>{doctorProfile.doctorName} </h2>
                 <h4>{doctorProfile.doctorSpeciality}</h4>
                 <p className="lead">{doctorProfile.bio}</p>
@@ -98,36 +100,28 @@ const DoctorProfile = (props) => {
                     {" "}
                     <span class="badge bg-primary">{doctorProfile.email}</span>
                   </h4>
+
                   <br></br>
                   <div>
-                    <img src={doctorProfile.url || "http://via.placeholder.com/200x200"} />
+                    <img width="200" height="200" src={doctorProfile.imgURL || "http://via.placeholder.com/200x200"} />
                   </div>
                 </p>
               </div>
-
             </div>
           </div>
         </div>
         <div class="row justify-content-end">
-          {/* <div class="col-md-4 order-md-2 mb-4"> */}
-          {/* <div class="float-md-right"> */}
+
           <div class="form-group">
             <label>Add Your Profile Image </label>
             <input
               type="file"
-              // required="true"
-              // className="form-control"
-              //value = {image}
+
               onChange={onChangeimg}
             />
             <br></br>
             <button onClick={handleUpload}>Upload</button>
             <br />
-            {/* <img
-              src={doctorProfile.url || "http://via.placeholder.com/200x200"}
-              alt="Upload-image"
-            /> */}
-
           </div></div>
 
         <div className="col mr-5">
@@ -137,14 +131,23 @@ const DoctorProfile = (props) => {
             style={{ marginLeft: "5px" }}
           >
             Edit
-                </Link>
+          </Link>
         </div>
         <br />
-
-      </div>
-
-      <Footer />
-    </div>
+      </div >
+      {/* footer div */}
+      < div
+        className="container w-100 mt-5 mb-5"
+        style={{
+          textAlign: "center",
+          marginLeft: "auto",
+          marginRight: "auto",
+        }}
+      >
+        <Footer />
+      </div >
+      {/* footer div ends*/}
+    </div >
   );
 };
 

@@ -18,5 +18,8 @@ router.get('/getAllQuestions', controller.questions.getAllQuestions);
 // Create Answer ..
 router.post('/createAnswer', controller.questions.createAnswer);
 
+// // Create Notification ..
+// router.post('/createNotification', controller.questions.createNotification);
+
 // export the router folder 
 module.exports = router;

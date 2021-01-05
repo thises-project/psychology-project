@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import Navbar from './components/navbar';
+import React, { useState } from "react";
+import Navbar from "./components/thenavbar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Doctors from "./components/doctors";
 import Articles from "./components/articles";
@@ -14,17 +14,21 @@ import UpdateDoctor from "./components/updateDoctor";
 import DoctorQuestions from "./components/doctorQuestions";
 import AddQuestion from "./components/askQuestions";
 import PrivateRoute from "./components/privateRoute";
-import UserQuestionAnswers from './components/userQuestionAnswers'
+import UserQuestionAnswers from "./components/userQuestionAnswers";
 import BookAppointment from "./components/bookAppointment";
-import AppointmentList from "./components/appointmentList"
-import CreateDoctorsSchedule from './components/CreateDoctorsSchedule'
-
+import AppointmentList from "./components/appointmentList";
+import AppointmentListForOneDoctor from "./components/appointmentListForOneDoctor";
+import CreateDoctorsSchedule from "./components/CreateDoctorsSchedule";
+// import ScheduleForDoctor from './components/scheduleForDoctor'
 import "bootstrap/dist/css/bootstrap.min.css";
-import 'react-datepicker/dist/react-datepicker.css'
+import "react-datepicker/dist/react-datepicker.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
 import VideoCall from './components/videoCall';
-
+// React Notification
+import 'react-notifications/lib/notifications.css';
+// import { NotificationContainer } from 'react-notifications';
+import Notification from './components/Notification'
 import RateDoctor from "./components/rateDoctor";
 
 function App() {
@@ -43,20 +47,22 @@ function App() {
           <Route path="/questions" component={Questions} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
-
+          <Route path="/video" component={VideoCall} />
+          <Route path="/notification" component={Notification} />
           <Route path="/doctorSchedule/:id" component={CreateDoctorsSchedule} />
 
 
-          <Route
-           path="/bookAppointment/:id" 
-           currentId={currentId}
+          {/* <Route path = "/scheduleForDoctor/:id" component = {ScheduleForDoctor}/>  */}
+
+          <PrivateRoute
+            path="/bookAppointment/:id"
+            currentId={currentId}
             setCurrentId={setCurrentId}
-             component={BookAppointment}/>
-             <Route   path = "/appointmentList" 
-          component={AppointmentList}
+            component={BookAppointment}
           />
-  
-          <Route path="/bookAppointment" component={BookAppointment} />
+
+          <PrivateRoute path="/appointmentList" component={AppointmentList} />
+
           <Route path="/video" component={VideoCall} />
 
           {/* user private components */}
@@ -76,18 +82,43 @@ function App() {
             setCurrentId={setCurrentId}
           />
           <PrivateRoute path="/askQuestions" component={AddQuestion} />
+
           <Route
             path="/UserQuestionsAnswers/:id"
             currentId={currentId}
             setCurrentId={setCurrentId}
             component={UserQuestionAnswers}
           />
+
           {/* doctor private components */}
-          <PrivateRoute path="/doctorProfile/:id" exact component={DoctorProfile} currentId={currentId} setCurrentId={setCurrentId} />
-          <PrivateRoute path="/updateDoctor/:id" component={UpdateDoctor} currentId={currentId} setCurrentId={setCurrentId} />
-          <PrivateRoute path="/doctorQuestions" component={DoctorQuestions} currentId={currentId} setCurrentId={setCurrentId} />
+          <PrivateRoute
+            path="/doctorProfile/:id"
+            exact
+            component={DoctorProfile}
+            currentId={currentId}
+            setCurrentId={setCurrentId}
+          />
+          <PrivateRoute
+            path="/updateDoctor/:id"
+            component={UpdateDoctor}
+            currentId={currentId}
+            setCurrentId={setCurrentId}
+          />
+          <PrivateRoute
+            path="/doctorQuestions"
+            component={DoctorQuestions}
+            currentId={currentId}
+            setCurrentId={setCurrentId}
+          />
           <Route path="/rateDoctor" component={RateDoctor} />
+          <PrivateRoute
+            path="/AppointmentListForOneDoctor/:id"
+            currentId={currentId}
+            setCurrentId={setCurrentId}
+            component={AppointmentListForOneDoctor}
+          />
         </Switch>
+        {/* <NotificationContainer /> */}
       </div>
     </Router>
   );
