@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
-
+import ScheduleForDoctor from "./scheduleForDoctor"
 import "react-datepicker/dist/react-datepicker.css";
 function CreateDoctorsSchedule() {
   const [selectedDate, setSelectedDate] = useState({
@@ -75,7 +75,13 @@ function CreateDoctorsSchedule() {
           Add to the Schedule{" "}
         </button>
       </form>
+
+    <div>
+      <ScheduleForDoctor/>      
     </div>
+    </div>
+
+
   );
 }
 export default CreateDoctorsSchedule;
