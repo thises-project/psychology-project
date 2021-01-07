@@ -74,11 +74,11 @@ import { deleteUser } from '../actions/adduser'
         </div><div>
         <Link type="button" className="btn btn-info btn-rounded" to={`/edit/${window.localStorage.userId}`}>edit</Link> | <a href="/" type="button" className="btn btn-dark btn-rounded" onClick={() => { dispatch(deleteUser(window.localStorage.userId)); window.localStorage.clear(); }}>delete</a>
         </div>
-        <br />
+        {/* <br />
         <br />
         <div>
         <Link type="button" className="btn btn-info btn-rounded" to={'/video'}>Start Meeting</Link>
-        </div>
+        </div> */}
         </div>
   )
 }

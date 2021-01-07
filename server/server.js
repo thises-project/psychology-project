@@ -2,16 +2,16 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
-const http = require("http");
-const server = http.createServer(app);
-const socket = require("socket.io");
-// const io = socket(server);
-const io = socket(server, {
-  cors: {
-    origin: "http://localhost:3000/",
-    methods: ["GET", "POST"]
-  }
-});
+// const http = require("http");
+// const server = http.createServer(app);
+// const socket = require("socket.io");
+// // const io = socket(server);
+// const io = socket(server, {
+//   cors: {
+//     origin: "http://localhost:3000/",
+//     methods: ["GET", "POST"]
+//   }
+// });
 /**
  * 
  */
@@ -55,38 +55,38 @@ app.get("/", function (req, res) {
 });
 
 
-const peers = {};
+// const peers = {};
 
-io.on('connection', socket => {  // listen to 'connection' event comes from the client
-  if(!peers[socket.id]) {
-    peers[socket.id] = socket.id
-  }
+// io.on('connection', socket => {  // listen to 'connection' event comes from the client
+//   if(!peers[socket.id]) {
+//     peers[socket.id] = socket.id
+//   }
   
-  socket.emit('yourID', socket.id);//  allows you to emit custom events on the server and client
-  // console.log(socket.id) 
+//   socket.emit('yourID', socket.id);//  allows you to emit custom events on the server and client
+//   // console.log(socket.id) 
 
-io.sockets.emit('allUsers', peers); 
-// console.log(peers)//will send to all the clients ......socket.broadcast.emit will send the message to all the other clients except the newly created connection
+// io.sockets.emit('allUsers', peers); 
+// // console.log(peers)//will send to all the clients ......socket.broadcast.emit will send the message to all the other clients except the newly created connection
 
-socket.on('disconnect', () => {
-  delete peers[socket.id];         //after the user leave the room
-})
+// socket.on('disconnect', () => {
+//   delete peers[socket.id];         //after the user leave the room
+// })
 
-socket.on('callUser', (data) => {
-   //console.log(data)
-  io.to(data.userToCall).emit('hey', {signal: data.signalData, from: data.from}); //io.to('some room').emit('some event');
- //console.log({signal: data.signalData, from: data.from})
- //console.log("============================")
-})
+// socket.on('callUser', (data) => {
+//    //console.log(data)
+//   io.to(data.userToCall).emit('hey', {signal: data.signalData, from: data.from}); //io.to('some room').emit('some event');
+//  //console.log({signal: data.signalData, from: data.from})
+//  //console.log("============================")
+// })
 
-socket.on('acceptCall', (data) => {
- // console.log(data)
-  io.to(data.to).emit('callAccepted', data.signal)
-})
+// socket.on('acceptCall', (data) => {
+//  // console.log(data)
+//   io.to(data.to).emit('callAccepted', data.signal)
+// })
 
-});
+// });
 
-server.listen(port, () => {
+app.listen(port, () => {
   console.log(`Server is Running in port:http://localhost:${port}`);
 });
 
