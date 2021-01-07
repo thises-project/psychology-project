@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+//comment for deployment
 const cors = require("cors");
 const app = express();
 const http = require("http");
@@ -19,7 +20,7 @@ const schedule = require("./app/routes/schedule");
 const appointement = require("./app/routes/appointment");
 const socket = require("socket.io");
 const io = socket(server);
-
+//comment for deployment next line
 app.use(cors());
 // set the port
 const port = process.env.PORT || 5000;
@@ -43,10 +44,11 @@ app.use(function (error, req, res, next) {
   }
 });
 
-app.get("/", function (req, res) {
-  res.send("Home Page");
+app.get("/test", function (req, res) {
+  res.send("test");
 });
 
+//add code to serve static files before server.listen
 server.listen(port, () => {
   console.log(`Server is Running in port:${port}`);
 });
