@@ -2,6 +2,8 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 //import DatePicker from "react-datepicker";
+import { Link } from "react-router-dom";
+
 
 import "react-datepicker/dist/react-datepicker.css";
 function CreateDoctorsSchedule() {
@@ -78,6 +80,12 @@ function CreateDoctorsSchedule() {
           Add to the Schedule{" "}
         </button>
       </form>
+      <Link
+            type="button"
+            className="btn btn-info btn-rounded mr-2 ml-2"
+            to={"/AppointmentListForOneDoctor/:id"}
+          >
+My Schedule          </Link>
     </div>
   );
 }
