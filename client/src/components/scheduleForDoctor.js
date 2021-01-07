@@ -38,6 +38,7 @@ function ScheduleForDoctor() {
             <th>Date</th>
             <th>Start Time</th>
             <th>End time</th>
+
           </tr>
         </thead>
 
@@ -57,3 +58,9 @@ function ScheduleForDoctor() {
   );
 }
 export default ScheduleForDoctor;
+
+
+
+/**
+ * 
+ */
