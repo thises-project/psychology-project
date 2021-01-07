@@ -127,7 +127,7 @@ function BookAppointment(props, { currentId, setCurrrentId }) {
         </div>
 
         <div className="form-group">
-          <button className="btn btn-primary">book Appointement</button>
+          <button className="button">book Appointement</button>
         </div>
       </form>
     </div>

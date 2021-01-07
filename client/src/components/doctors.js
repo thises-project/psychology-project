@@ -45,6 +45,12 @@ const Doctors = (props) => {
               <div className="row">
                 <div className="col-md-10">
                   {/* Doctor name container */}
+                  <img
+                    src={doctor.image}
+                    className="rounded-circle z-depth-2"
+                    style={{ width: 200, height: 200 }}
+                  />
+                  <br />
                   <h3> {doctor.doctorName}</h3>
                   {/* <h6>{doctor.doctorId}</h6> */}
                   <h4> Doctor Speciality: {doctor.doctorSpeciality}</h4>

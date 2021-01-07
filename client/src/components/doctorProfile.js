@@ -13,7 +13,7 @@ const DoctorProfile = (props) => {
     axios
       .get(
         `http://localhost:5000/doctor/getOneDoctor/` +
-        `${window.localStorage.doctorId}`
+          `${window.localStorage.doctorId}`
       )
       .then((res) => {
         console.log(res.data[0], " kkkkkkkkkkkkkkkkkkkkk");
@@ -25,8 +25,6 @@ const DoctorProfile = (props) => {
           password: res.data[0].password,
           imgURL: res.data[0].image,
         });
-
-
       })
       .catch((err) => {
         console.log(err);
@@ -42,12 +40,12 @@ const DoctorProfile = (props) => {
 
   function handleUpload(e) {
     e.preventDefault();
-    console.log("imageeeeeeeee", image)
+    console.log("imageeeeeeeee", image);
 
     const uploadTask = storage.ref(`/images/${image.name}`).put(image);
     uploadTask.on(
       "state_changed",
-      (snapshot) => { },
+      (snapshot) => {},
       (error) => {
         console.log(error, "error");
       },
@@ -57,86 +55,85 @@ const DoctorProfile = (props) => {
           .child(image.name)
           .getDownloadURL()
           .then((firstUrl) => {
-            setUrl(firstUrl)
+            setUrl(firstUrl);
             // console.log(firstUrl, " fiiiiiiiiiiiiiiiiiiiiiiiirts")
-            axios.post("http://localhost:5000/doctor/postOneDoctorImage/" + `${window.localStorage.doctorId}`, { firstUrl })
+            axios
+              .post(
+                "http://localhost:5000/doctor/postOneDoctorImage/" +
+                  `${window.localStorage.doctorId}`,
+                { firstUrl }
+              )
               .then((res) => {
                 console.log(res.config.data, " this is a res from post image");
-                window.location = "http://localhost:3000/doctorProfile/" + `${window.localStorage.doctorId}`
+                window.location =
+                  "http://localhost:3000/doctorProfile/" +
+                  `${window.localStorage.doctorId}`;
               })
               .catch((err) => {
                 console.log("there is an errrrrrrrooooorrrr", err);
               });
           });
-      });
-
+      }
+    );
   }
 
   return (
-    <div className="container ml-5 mr-5">
-      <div style={{ textAlign: "left" }}>
-        <div
-          className="row"
-          key={doctorProfile.doctorId}
-
-        >
-          <div className="col pt-3 pb-2">
-            <div className="row">
-              <div className="col-md-10">
-                <div>
-                  <img
-                    alt="not found"
-                    src={
-                      doctorProfile.url ||
-                      "http://via.placeholder.com/200x200"
-                    }
-                  />
-                </div>
-                <h2>{doctorProfile.doctorName} </h2>
-                <h4>{doctorProfile.doctorSpeciality}</h4>
-                <p className="lead">{doctorProfile.bio}</p>
-                <p>
-                  <h4>
-                    {" "}
-                    <span class="badge bg-primary">{doctorProfile.email}</span>
-                  </h4>
-
-                  <br></br>
-                  <div>
-                    <img width="200" height="200" src={doctorProfile.imgURL || "http://via.placeholder.com/200x200"} />
-                  </div>
-                </p>
+    <div>
+      <div className="container w-100" style={{ backgroundColor: "yellow" }}>
+        <div>
+          <table className="row w-100">
+            {/* image div */}
+            <div className="col" style={{ backgroundColor: "blue" }}>
+              <br />
+              <img
+                className="rounded-circle z-depth-2"
+                style={{
+                  width: 200,
+                  height: 200,
+                  marginBottom: 4,
+                  marginTop: 4,
+                  marginRight: 4,
+                  marginLeft: 4,
+                }}
+                src={
+                  doctorProfile.imgURL || "http://via.placeholder.com/200x200"
+                }
+              />
+              <br />
+              <br />
+              <input type="file" onChange={onChangeimg} />
+              <button onClick={handleUpload}>Upload</button>
+              {/* edit button starts */}
+              <div className="container">
+                <Link
+                  to={`/updateDoctor/${window.localStorage.doctorId}`}
+                  className="btn btn-info "
+                  style={{ marginLeft: "5px" }}
+                >
+                  Edit
+                </Link>
               </div>
+
+              {/* edit button ends */}
             </div>
-          </div>
+            {/* info div */}
+            <div
+              className="col"
+              key={doctorProfile.doctorId}
+              style={{ backgroundColor: "beige", width: "80%" }}
+            >
+              <h2>{doctorProfile.doctorName} </h2>
+              <h4>{doctorProfile.doctorSpeciality}</h4>
+              <p className="lead">{doctorProfile.bio}</p>
+              <span class="badge bg-primary">{doctorProfile.email}</span>
+            </div>
+          </table>
         </div>
-        <div class="row justify-content-end">
+      </div>
 
-          <div class="form-group">
-            <label>Add Your Profile Image </label>
-            <input
-              type="file"
-
-              onChange={onChangeimg}
-            />
-            <br></br>
-            <button onClick={handleUpload}>Upload</button>
-            <br />
-          </div></div>
-
-        <div className="col mr-5">
-          <Link
-            to={`/updateDoctor/${window.localStorage.doctorId}`}
-            className="btn btn-info "
-            style={{ marginLeft: "5px" }}
-          >
-            Edit
-          </Link>
-        </div>
-        <br />
-      </div >
       {/* footer div */}
-      < div
+      <br />
+      <div
         className="container w-100 mt-5 mb-5"
         style={{
           textAlign: "center",
@@ -145,9 +142,9 @@ const DoctorProfile = (props) => {
         }}
       >
         <Footer />
-      </div >
+      </div>
       {/* footer div ends*/}
-    </div >
+    </div>
   );
 };
 
