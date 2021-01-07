@@ -73,42 +73,29 @@ const DoctorProfile = (props) => {
   }
 
   return (
-    <div className="container ml-5 mr-5">
-      <div style={{ textAlign: "left" }}>
+    <div>
+      <div className="container" style={{ textAlign: "left" }}>
         <div
           className="row"
           key={doctorProfile.doctorId}
-
         >
-          <div className="col pt-3 pb-2">
-            <div className="row">
-              <div className="col-md-10">
-                <div>
-                  <img
-                    alt="not found"
-                    src={
-                      doctorProfile.url ||
-                      "http://via.placeholder.com/200x200"
-                    }
-                  />
-                </div>
-                <h2>{doctorProfile.doctorName} </h2>
-                <h4>{doctorProfile.doctorSpeciality}</h4>
-                <p className="lead">{doctorProfile.bio}</p>
-                <p>
-                  <h4>
-                    {" "}
-                    <span class="badge bg-primary">{doctorProfile.email}</span>
-                  </h4>
-
-                  <br></br>
-                  <div>
-                    <img width="200" height="200" src={doctorProfile.imgURL || "http://via.placeholder.com/200x200"} />
-                  </div>
-                </p>
-              </div>
-            </div>
+          <div>
+            <img class="rounded-circle z-depth-2" width="200" height="200" src={doctorProfile.imgURL || "http://via.placeholder.com/200x200"} />
           </div>
+
+          <br></br>
+          <h1 >{doctorProfile.doctorName} </h1>
+          <br></br>
+          <h4 >{doctorProfile.doctorSpeciality}</h4>
+          <p className="lead">{doctorProfile.bio}</p>
+          <p>
+            <h4>
+              {" "}
+              <span class="badge bg-primary">{doctorProfile.email}</span>
+            </h4>
+          </p>
+
+
         </div>
         <div class="row justify-content-end">
 
@@ -134,20 +121,10 @@ const DoctorProfile = (props) => {
           </Link>
         </div>
         <br />
-      </div >
+      </div>
       {/* footer div */}
-      < div
-        className="container w-100 mt-5 mb-5"
-        style={{
-          textAlign: "center",
-          marginLeft: "auto",
-          marginRight: "auto",
-        }}
-      >
-        <Footer />
-      </div >
-      {/* footer div ends*/}
-    </div >
+      <Footer />
+    </div>
   );
 };
 
