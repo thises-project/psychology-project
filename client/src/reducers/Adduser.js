@@ -1,27 +1,25 @@
-export default (state = [], action)=> { 
+const Adduser = (state = [], action) => {
+  switch (action.type) {
+    case "Adduser":
+      return [state, action.payload];
 
-       switch (action.type){
-          case 'Adduser':
-              
-                return [state, action.payload];   
-   
-        case 'verifyUser':
-            
-               console.log(action, "action.payload ")
-               return [state, action.payload]; 
-   
-        case 'Auth':
-            
-               console.log(action, "action.payload ")
-               return [state, action.payload];
+    case "verifyUser":
+      console.log(action, "action.payload ");
+      return [state, action.payload];
 
-       case 'UPDATE':
-                    
-               return state.map((editUser) => editUser.userId === action.payload.userId ? action.payload : editUser);
-       case 'DELETE':
-                    
-               return state.filter((user) => user.userId !== action.payload )
-       default:
-              return 0;
-       }
-   }
+    case "Auth":
+      console.log(action, "action.payload ");
+      return [state, action.payload];
+
+    case "UPDATE":
+      return state.map((editUser) =>
+        editUser.userId === action.payload.userId ? action.payload : editUser
+      );
+    case "DELETE":
+      return state.filter((user) => user.userId !== action.payload);
+    default:
+      return 0;
+  }
+};
+
+export default Adduser;
