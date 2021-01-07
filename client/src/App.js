@@ -14,7 +14,7 @@ import UpdateDoctor from "./components/updateDoctor"
 import DoctorQuestions from "./components/doctorQuestions"
 import AddQuestion from "./components/askQuestions";
 import PrivateRoute from "./components/privateRoute";
-// import ZoomComponent from './components/videoCall';
+import ZoomComponent from './components/videoCall';
 
 import UserQuestionAnswers from './components/userQuestionAnswers'
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -39,7 +39,7 @@ function App() {
           <Route path="/questions" component={Questions}/>
           <Route path="/login" component={Login}/>
           <Route path="/signup" component={Signup}/>
-          {/* <Route path="/video" component={ZoomComponent}/>  */}
+          <Route path="/video" component={ZoomComponent}/> 
           {/* user private components */}
 
       <PrivateRoute path="/userPro" component={UserProfile} currentId={currentId} setCurrentId={setCurrentId}/>
