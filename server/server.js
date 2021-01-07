@@ -8,10 +8,13 @@ const socket = require("socket.io");
 // const io = socket(server);
 const io = socket(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "http://localhost:3000/",
     methods: ["GET", "POST"]
   }
 });
+/**
+ * 
+ */
 
 
 const connection = require("./app/Models/database");
@@ -60,18 +63,20 @@ io.on('connection', socket => {  // listen to 'connection' event comes from the 
   }
   
   socket.emit('yourID', socket.id);//  allows you to emit custom events on the server and client
-  console.log(socket.id) 
+  // console.log(socket.id) 
 
 io.sockets.emit('allUsers', peers); 
-console.log(peers)//will send to all the clients ......socket.broadcast.emit will send the message to all the other clients except the newly created connection
+// console.log(peers)//will send to all the clients ......socket.broadcast.emit will send the message to all the other clients except the newly created connection
 
 socket.on('disconnect', () => {
   delete peers[socket.id];         //after the user leave the room
 })
 
 socket.on('callUser', (data) => {
-  // console.log(data)
-  io.to(data.userToCall).emit('hello', {signal: data.signalData, from: data.from}); //io.to('some room').emit('some event');
+   //console.log(data)
+  io.to(data.userToCall).emit('hey', {signal: data.signalData, from: data.from}); //io.to('some room').emit('some event');
+ //console.log({signal: data.signalData, from: data.from})
+ //console.log("============================")
 })
 
 socket.on('acceptCall', (data) => {
