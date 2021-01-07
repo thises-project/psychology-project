@@ -123,8 +123,23 @@ const DoctorProfile = (props) => {
         <br />
       </div>
       {/* footer div */}
-      <Footer />
-    </div>
+      < div
+        className="container w-100 mt-5 mb-5"
+        style={{
+          textAlign: "center",
+          marginLeft: "auto",
+          marginRight: "auto",
+        }}
+      >
+         <br></br>
+      <br></br>
+      <div>
+        <Link type="button" className="btn btn-info btn-rounded" to={'/video'}>Start Meeting</Link>
+        </div>
+        <Footer />
+      </div >
+      {/* footer div ends*/}
+    </div >
   );
 };
 
