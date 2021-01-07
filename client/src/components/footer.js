@@ -9,11 +9,11 @@ import { TiSocialYoutubeCircular } from "react-icons/ti";
 const Footer = () => {
   return (
     <div>
-      <div className="row">
+      <div style={{ backgroundColor: "grey" }}>
         <br></br>
         {/* card1 */}
-        <Card style={{ width: "50%", backgroundColor: "grey" }}>
-          <Card.Body>
+        <Card style={{ width: "25%", backgroundColor: "teal-500" }}>
+          <Card.Body class="text-center">
             <Card.Title>
               <h3 className="info">Our Mission</h3>
             </Card.Title>
@@ -28,8 +28,8 @@ const Footer = () => {
           </Card.Body>
         </Card>
         {/* card2 */}
-        <Card style={{ width: "50%", backgroundColor: "grey" }}>
-          <Card.Body>
+        <Card style={{ width: "25%", backgroundColor: "grey" }}>
+          <Card.Body class="text-center">
             <Card.Title>
               <h3>Contact US</h3>
             </Card.Title>
@@ -47,11 +47,21 @@ const Footer = () => {
               contact@Speakout.com
             </Card.Text>
             <div>
-              <TiSocialFacebookCircular size={40} />
-              <TiSocialInstagramCircular size={40} />
-              <TiSocialLinkedinCircular size={40} />
-              <TiSocialTwitterCircular size={40} />
-              <TiSocialYoutubeCircular size={40} />
+              <a href="https://www.facebook.com/">
+                <TiSocialFacebookCircular size={40} />
+              </a>
+              <a href="https://www.instagram.com/">
+                <TiSocialInstagramCircular size={40} />
+              </a>
+              <a href="https://www.linkedin.com/">
+                <TiSocialLinkedinCircular size={40} />
+              </a>
+              <a href="https://twitter.com/?lang=en">
+                <TiSocialTwitterCircular size={40} />
+              </a>
+              <a href="https://www.youtube.com/">
+                <TiSocialYoutubeCircular size={40} />
+              </a>
             </div>
             {/* <Card.Link href="#">Card Link</Card.Link>
             <Card.Link href="#">Another Link</Card.Link> */}
