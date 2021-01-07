@@ -72,7 +72,7 @@ const Home = () => {
         className="btn btn-info "
         style={{ marginLeft: "5px" }}
       >
-        SpeakOut to Us
+        Get Free Counsling NOW !
       </Link>
       {/* <Button variant="info" size="lg" style={{ width: "30%" }}>
       <a href={href} onClick={ handleClick ()}> Get Free Counsling NOW !</a>

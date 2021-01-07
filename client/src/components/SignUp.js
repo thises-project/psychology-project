@@ -71,7 +71,10 @@ function Signup() {
     if (!user.gender) {
       genderError =
         "your gender cannot be blank, please write your gender(Male/Female)!";
+    } else if (user.userName.length > 0 && user.userName.length <= 3) {
+      usernameError = "your username cannot be less than 3 characters!";
     }
+
 
     if (!user.email) {
       emailError =
@@ -122,6 +125,7 @@ function Signup() {
               name="userName"
               value={user.userName}
               onChange={handleChange}
+              required
               className={
                 "form-control" +
                 (submitted && !user.userName ? " is-invalid" : "")
@@ -141,6 +145,7 @@ function Signup() {
               name="age"
               value={user.age}
               onChange={handleChange}
+              required
               className={
                 "form-control" + (submitted && !user.age ? " is-invalid" : "")
               }
@@ -160,6 +165,7 @@ function Signup() {
               name="gender"
               value={user.gender}
               onChange={handleChange}
+              required
               className={
                 "form-control" +
                 (submitted && !user.gender ? " is-invalid" : "")
@@ -179,6 +185,7 @@ function Signup() {
               name="email"
               value={user.email}
               onChange={handleChange}
+              required
               className={
                 "form-control" + (submitted && !user.email ? " is-invalid" : "")
               }
@@ -197,6 +204,7 @@ function Signup() {
               name="password"
               value={user.password}
               onChange={handleChange}
+              required
               className={
                 "form-control" +
                 (submitted && !user.password ? " is-invalid" : "")
