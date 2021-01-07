@@ -116,13 +116,18 @@ function Navbar() {
               marginRight: 3,
               marginLeft: 50,
               fontSize: "12px",
-              marginTop: 15,
+
               marginBottom: 3,
             }}
           >
             <span
               className="dot"
-              style={{ width: 20, height: 20, marginTop: 5 }}
+              style={{
+                width: 25,
+                height: 25,
+                marginTop: "auto",
+                marginBottom: "auto",
+              }}
             >
               {
                 questionAndAnswersList.filter(
@@ -151,52 +156,54 @@ function Navbar() {
 
   return (
     <nav
-      className="navbar navbar-dark mdb-color darken-3 navbar-expand-lg"
-      style={{ height: 30, backgroundColor: "#C8E6C9" }}
+      className="navbar navbar-expand-lg navbar-light bg-light"
+      style={{ height: 30 }}
     >
+      <Link
+        to="/"
+        className="nav-link  ml-3 mr-3"
+        style={{
+          marginRight: 2,
+          marginLeft: 2,
+          marginTop: 15,
+          marginBottom: 15,
+        }}
+      >
+        <img src={Logo} alt="logo"></img>
+      </Link>
+      <Link
+        to="/questions"
+        className="nav-link  ml-3 mr-3"
+        style={{ fontSize: "12px", marginTop: 15, marginBottom: 3 }}
+      >
+        SpeakOut's
+      </Link>
+      <Link
+        to="/articles"
+        className="nav-link  ml-3 mr-3"
+        style={{ fontSize: "12px", marginTop: 15, marginBottom: 3 }}
+      >
+        Articles
+      </Link>
+
       <div className="container-fluid mt-3">
         {value === false ? (
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav">
               <Link
-                to="/"
-                className="nav-link  ml-3 mr-3"
-                style={{
-                  marginRight: 2,
-                  marginLeft: 2,
-                  marginTop: 2,
-                  marginBottom: 15,
-                }}
-              >
-                <img src={Logo} alt="logo"></img>
-              </Link>
-              <Link
                 to="/doctors"
                 className="nav-link ml-3 mr-3"
                 style={{ fontSize: "12px", marginTop: 15, marginBottom: 3 }}
               >
-                <li className="nav-item">Doctors</li>
+                Doctors
               </Link>
-              <Link
-                to="/questions"
-                className="nav-link  ml-3 mr-3"
-                style={{ fontSize: "12px", marginTop: 15, marginBottom: 3 }}
-              >
-                <li className="nav-item"> Recent SpeakOut's</li>
-              </Link>
-              <Link
-                to="/articles"
-                className="nav-link  ml-3 mr-3"
-                style={{ fontSize: "12px", marginTop: 15, marginBottom: 3 }}
-              >
-                <li className="nav-item">Articles</li>
-              </Link>
+
               <Link
                 to="/login"
                 className="nav-link  ml-3 mr-3"
                 style={{ fontSize: "12px", marginTop: 15, marginBottom: 3 }}
               >
-                <li className="nav-item">SpeakOut to Us</li>
+                SpeakOut to Us
               </Link>
               <Link
                 to="/login"
@@ -205,25 +212,18 @@ function Navbar() {
               >
                 <li className="nav-item">Login</li>
               </Link>
-              {/* <Link
-                to="/rateDoctor"
-                className="nav-link ml-3 mr-3"
-                style={{ fontSize: "12px", marginTop: 10, marginBottom: 3 }}
-              >
-                <li className="nav-item">Rate Doctor</li>
-              </Link> */}
             </ul>
           </div>
         ) : (
           <div className="collapse navbar-collapse" id="navbar NavDropdown">
             <ul className="navbar-nav">
-              <Link
+              {/* <Link
                 to="/"
                 className="nav-link  ml-3 mr-3"
                 style={{ fontSize: "12px", marginTop: 2, marginBottom: 3 }}
               >
                 <img src={Logo} alt="logo"></img>
-              </Link>
+              </Link> */}
               {UserIsLogged(window.localStorage.userId)}
               {UserIsLogged2(window.localStorage.userId)}
               {UserIsLogged3(window.localStorage.userId)}
@@ -238,20 +238,7 @@ function Navbar() {
               {DocIsLogged(window.localStorage.doctorId)}
               {DocIsLogged2(window.localStorage.doctorId)}
               {DocIsLogged3(window.localStorage.doctorId)}
-              <Link
-                to="/questions"
-                className="nav-link  ml-3 mr-3"
-                style={{ fontSize: "12px", marginTop: 15, marginBottom: 3 }}
-              >
-                <li className="nav-item"> Recent SpeakOut's </li>
-              </Link>
-              <Link
-                to="/articles"
-                className="nav-link  ml-3 mr-3"
-                style={{ fontSize: "12px", marginTop: 15, marginBottom: 3 }}
-              >
-                <li className="nav-item">Articles</li>
-              </Link>
+
               <Link
                 to="/logout"
                 className="nav-link  ml-3 mr-3"
