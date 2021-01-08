@@ -19,15 +19,12 @@ import BookAppointment from "./components/bookAppointment";
 import AppointmentList from "./components/appointmentList";
 import AppointmentListForOneDoctor from "./components/appointmentListForOneDoctor";
 import CreateDoctorsSchedule from "./components/CreateDoctorsSchedule";
-// import ScheduleForDoctor from './components/scheduleForDoctor'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-datepicker/dist/react-datepicker.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import VideoCall from "./components/videoCall";
-// React Notification
 import "react-notifications/lib/notifications.css";
-// import { NotificationContainer } from 'react-notifications';
 import Notification from "./components/Notification";
 import RateDoctor from "./components/rateDoctor";
 

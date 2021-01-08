@@ -122,7 +122,7 @@ const DoctorProfile = (props) => {
             <div
               className="col"
               key={doctorProfile.doctorId}
-              style={{ backgroundColor: "beige", width: "80%" }}
+              style={{ backgroundColor: "#E3F2FD", width: "80%" }}
             >
               <h2>{doctorProfile.doctorName} </h2>
               <h4>{doctorProfile.doctorSpeciality}</h4>
@@ -135,17 +135,8 @@ const DoctorProfile = (props) => {
 
       {/* footer div */}
       <br />
-      <div
-        className="container w-100 mt-5 mb-5"
-        style={{
-          textAlign: "center",
-          marginLeft: "auto",
-          marginRight: "auto",
-        }}
-      >
-        <Footer />
-      </div>
-      {/* footer div ends*/}
+
+      <Footer />
     </div>
   );
 };

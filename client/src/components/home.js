@@ -6,11 +6,11 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div>
+    <div style={{ width: "100%", backgroundColor: "#E3F2FD" }}>
       {/* slider */}
       <div>
         {/* Carousel begins */}
-        <Carousel style={{ marginBottom: 150 }}>
+        <Carousel style={{ marginBottom: 100 }}>
           <Carousel.Item>
             {" "}
             <img
@@ -27,7 +27,7 @@ const Home = () => {
           <Carousel.Item>
             {" "}
             <img
-              src={process.env.PUBLIC_URL + "./Images/three.jpg"}
+              src={process.env.PUBLIC_URL + "./Images/two.jpg"}
               alt="not found"
               width="100%"
               height="500px"
@@ -39,7 +39,7 @@ const Home = () => {
           <Carousel.Item>
             {" "}
             <img
-              src={process.env.PUBLIC_URL + "./Images/four.jpg"}
+              src={process.env.PUBLIC_URL + "./Images/three.jpg"}
               alt="not found"
               width="100%"
               height="500px"
@@ -54,9 +54,9 @@ const Home = () => {
 
       {/* feedback */}
       <div>
-        <h1 style={{ textAlign: "center", marginBottom: 20 }}>
+        <h1 style={{ textAlign: "center", marginBottom: 50 }}>
           {" "}
-          Patient Feedback on SpeakOut
+          Patients Feedback on SpeakOut
         </h1>
       </div>
       <div
@@ -144,10 +144,12 @@ const Home = () => {
         }}
       >
         {/* Qoute starts */}
-        <Card>
-          {/* <Card.Header>Quote</Card.Header> */}
+        <Card style={{ backgroundColor: "#E3F2FD" }}>
           <Card.Body>
-            <blockquote className="blockquote mb-0">
+            <blockquote
+              className="blockquote mb-5"
+              style={{ borderColor: "primary" }}
+            >
               <h2>
                 “What mental health needs is more sunlight, more candor, and
                 more unashamed conversation.”
@@ -168,15 +170,7 @@ const Home = () => {
         {/* qoute ends */}
       </div>
 
-      {/* footer div */}
-      <div
-        style={{
-          textAlign: "center",
-        }}
-      >
-        <Footer />
-        {/* footer div ends*/}
-      </div>
+      <Footer />
     </div>
   );
 };

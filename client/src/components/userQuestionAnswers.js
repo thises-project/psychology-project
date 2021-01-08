@@ -27,7 +27,7 @@ function UserQuestionsAnswers() {
         className="container w-100"
         style={{
           textAlign: "left",
-          backgroundColor: "beige",
+          backgroundColor: "#E3F2FD",
           alignSelf: "center",
           width: "100%",
           height: "auto",
@@ -86,18 +86,7 @@ function UserQuestionsAnswers() {
         </div>
       </div>
 
-      {/* footer div */}
-      <div
-        className="container w-100 mt-5 mb-5"
-        style={{
-          textAlign: "center",
-          marginLeft: "auto",
-          marginRight: "auto",
-        }}
-      >
-        <Footer />
-      </div>
-      {/* footer div ends*/}
+      <Footer />
     </div>
   );
 }

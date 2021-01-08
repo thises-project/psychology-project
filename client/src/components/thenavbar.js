@@ -72,6 +72,7 @@ function Navbar() {
   }
 
   function UserIsLogged4(val) {
+    // eslint-disable-next-line
     const history = [];
     const dispatch = useDispatch();
     const questionAndAnswersList = useSelector(
@@ -119,7 +120,7 @@ function Navbar() {
           <Dropdown.Menu style={{ backgroundColor: "blue" }}>
             {questionAndAnswersList
               .filter(
-                (questions) => questions.user_Id == window.localStorage.userId
+                (questions) => questions.user_Id === window.localStorage.userId
               )
               .map((filterQuestion) => (
                 <Dropdown.Item href="http://localhost:3000/UserQuestionsAnswers/:id">
@@ -134,11 +135,8 @@ function Navbar() {
   }
 
   return (
-    <nav
-      className="navbar navbar-expand-lg navbar-light bg-light"
-      style={{ height: 30 }}
-    >
-      <div className="collapse navbar-collapse">
+    <nav className="navbar navbar-expand-lg " style={{ height: 50 }}>
+      <div>
         <ul className="navbar-nav">
           <Link
             to="/"

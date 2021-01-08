@@ -10,7 +10,14 @@ const Footer = () => {
   return (
     <div
       className="row"
-      style={{ width: "100%", marginLeft: 5, marginRight: 5 }}
+      style={{
+        width: "100%",
+        marginLeft: 5,
+        marginRight: 5,
+        textAlign: "center",
+        marginTop: 30,
+        marginBottom: 30,
+      }}
     >
       <br />
       <Card border="primary" style={{ width: "50%" }}>
@@ -19,11 +26,11 @@ const Footer = () => {
           <h3>Our Mission</h3>
         </Card.Header>
         <Card.Body>
-          <Card.Title>Primary Card Title</Card.Title>
+          <Card.Title>Available for everyone</Card.Title>
           <Card.Text>
-            Making professional counseling accessible, affordable, convenient //
-            - so anyone who struggles with life’s challenges can get help, //
-            anytime, anywhere.
+            Making professional counseling accessible, affordable, convenient so
+            anyone who struggles with life’s challenges can get help, anytime,
+            anywhere.
           </Card.Text>
         </Card.Body>
       </Card>
@@ -52,57 +59,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-// <div className="row">
-//   <div style={{ width: "100%", backgroundColor: "grey" }}>
-//     <br></br>
-//     {/* card1 */}
-//     <Card className="col" style={{ width: "50%", backgroundColor: "grey" }}>
-//       <Card.Body>
-//         <Card.Title>
-//
-//         </Card.Title>
-
-//         <Card.Text>
-//
-//         </Card.Text>
-//       </Card.Body>
-//     </Card>
-//     {/* card2 */}
-//     <Card className="col" style={{ width: "50%", backgroundColor: "grey" }}>
-//       <Card.Body>
-//         <Card.Title>
-//
-//         </Card.Title>
-
-//         <Card.Text>
-//
-//         </Card.Text>
-//         <div>
-//           <a href="https://www.facebook.com/">
-//
-//           </a>
-//           <a href="https://www.instagram.com/">
-//
-//           </a>
-//           <a href="https://www.linkedin.com/">
-//
-//           </a>
-//           <a href="https://twitter.com/?lang=en">
-//
-//           </a>
-//           <a href="https://www.youtube.com/">
-//
-//           </a>
-//         </div>
-//         {/* <Card.Link href="#">Card Link</Card.Link>
-//         <Card.Link href="#">Another Link</Card.Link> */}
-//       </Card.Body>
-//     </Card>
-//   </div>
-//   {/* aboutus and contactus ends here */}
-//   {/* Copyright */}
-//   <div className="footer-copyright text-center py-3">
-//     <p> © 2020 Copyright:SpeakOut.com</p>
-//   </div>
-// </div>
