@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { deleteUser } from "../actions/adduser";
 import Footer from "./footer";
+import { BsFillPersonFill } from "react-icons/bs";
 
 function UserProfile(props, setCurrentId) {
   //console.log(props)
@@ -48,6 +49,7 @@ function UserProfile(props, setCurrentId) {
         <div style={{ marginLeft: 10 }}>
           <h2 style={{ borderBottom: "5px solid silver" }}>
             {" "}
+            <BsFillPersonFill size={70} />
             {user.userName}'s Profile
           </h2>
         </div>

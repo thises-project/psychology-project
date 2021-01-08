@@ -81,7 +81,15 @@ const DoctorProfile = (props) => {
 
   return (
     <div>
-      <div className="container w-100" style={{ backgroundColor: "#E3F2FD" }}>
+      <div
+        className="container w-100"
+        style={{
+          textAlign: "left",
+          backgroundColor: "#E3F2FD",
+          alignSelf: "center",
+          width: "100%",
+        }}
+      >
         <div>
           <table className="row w-100">
             {/* image div */}
@@ -125,6 +133,7 @@ const DoctorProfile = (props) => {
                   backgroundColor: "white",
                   borderRadius: 10,
                   marginLeft: 5,
+                  marginRight: 5,
                   marginBottom: 5,
                   height: "auto",
                   fontSize: 14,
@@ -137,21 +146,27 @@ const DoctorProfile = (props) => {
               >
                 {doctorProfile.bio}
               </p>
-              <br />
-              <input
-                className="btn btn-info"
-                type="file"
-                onChange={onChangeimg}
-              />
-              <br />
-              <button className="btn btn-info" onClick={handleUpload}>
-                Upload
-              </button>
-              <br />
-              <br />
-              <br />
-              {/* edit button starts */}
-              <div className="container">
+
+              <div
+                style={{
+                  marginLeft: 10,
+                  alignItems: "center",
+                  paddingRight: 15,
+                  paddingLeft: 15,
+                  paddingTop: 15,
+                  paddingBottom: 15,
+                }}
+              >
+                <input
+                  className="btn btn-info"
+                  type="file"
+                  onChange={onChangeimg}
+                />
+
+                <button className="btn btn-info" onClick={handleUpload}>
+                  Upload
+                </button>
+
                 <Link
                   to={`/updateDoctor/${window.localStorage.doctorId}`}
                   className="btn btn-info "
@@ -159,12 +174,10 @@ const DoctorProfile = (props) => {
                 >
                   Edit Profile
                 </Link>
-                <br />
-                <br />
               </div>
-            </div>
 
-            {/* <p className="lead">{doctorProfile.bio}</p> */}
+              {/* <p className="lead">{doctorProfile.bio}</p> */}
+            </div>
           </table>
         </div>
       </div>

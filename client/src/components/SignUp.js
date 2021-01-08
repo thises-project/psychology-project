@@ -114,7 +114,7 @@ function Signup() {
       >
         <br />
         <form className="form-group mr-5 ml-5">
-          <h2>Signup</h2>
+          <h2>Sign Up</h2>
           <br />
           <div className="form-group ">
             <BsFillPersonFill size={20} />

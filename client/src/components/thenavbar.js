@@ -86,17 +86,17 @@ function Navbar() {
       return (
         <Dropdown>
           <Dropdown.Toggle
-            variant="info"
+            variant="light"
             id="dropdown-basic"
             style={{
-              borderColor: "#C8E6C9",
-              backgroundColor: "#C8E6C9",
               borderRadius: 10,
               marginRight: 3,
-              marginLeft: 50,
-              fontSize: "12px",
+              marginLeft: 110,
 
+              fontSize: "12px",
               marginBottom: 3,
+              paddingRight: 4,
+              paddingLeft: 4,
             }}
           >
             <span
@@ -104,8 +104,14 @@ function Navbar() {
               style={{
                 width: 25,
                 height: 25,
-                marginTop: "auto",
-                marginBottom: "auto",
+
+                borderRadius: 10,
+                marginRight: 3,
+
+                fontSize: "12px",
+                marginBottom: 3,
+                paddingRight: 4,
+                paddingLeft: 4,
               }}
             >
               {
@@ -115,7 +121,7 @@ function Navbar() {
                 ).length
               }
             </span>
-            My Notification
+            Notifications
           </Dropdown.Toggle>
           <Dropdown.Menu style={{ backgroundColor: "blue" }}>
             {questionAndAnswersList
@@ -171,7 +177,7 @@ function Navbar() {
                 <li className="nav-item">SpeakOut to Us</li>
               </Link>
               <Link to="/login" className="nav-link  ml-3 mr-3">
-                <li className="nav-item">Login</li>
+                <li className="nav-item">Log In</li>
               </Link>
             </ul>
           </div>
@@ -191,7 +197,7 @@ function Navbar() {
 
               <Link to="/logout" className="nav-link  ml-3 mr-3">
                 <li className="nav-item" onClick={logout}>
-                  Logout
+                  Log Out
                 </li>
               </Link>
               {UserIsLogged4(window.localStorage.userId)}
