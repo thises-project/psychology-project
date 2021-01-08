@@ -6,13 +6,11 @@ import { Link } from "react-router-dom";
 import { TiVideo } from "react-icons/ti";
 
 const Doctors = (props) => {
-  // const [currentId, setCurrrentId] = useState(null);
   const [doctors, setDoctor] = useState([]);
   useEffect(() => {
     axios
       .get("http://localhost:5000/doctor/getAllDoctors")
       .then((res) => {
-        // console.log("HIIIIIII");
         setDoctor(res.data);
       })
       .catch((err) => {
@@ -46,6 +44,7 @@ const Doctors = (props) => {
                 <div className="col-md-10">
                   {/* Doctor name container */}
                   <img
+                    alt="not found"
                     src={doctor.image}
                     className="rounded-circle z-depth-2"
                     style={{ width: 200, height: 200 }}
@@ -99,25 +98,25 @@ const Doctors = (props) => {
                     Book A Session
                   </Link>{" "}
                   <TiVideo size={30} />
-                    <div>
-                  <Link
-                    //'/updateDoctor/:id'
-                    to={`/rateDoctor`}
-                    className="btn btn-danger "
-                    style={{
-                      borderWidth: 1,
-                      borderColor: "rgba(0,0,0,0.2)",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      width: "auto",
-                      height: 23,
-                      backgroundColor: "blue",
-                      borderRadius: 30,
-                    }}
-                  >
-                    {" "}
-                    Rate Doctor
-                  </Link>{" "}
+                  <div>
+                    <Link
+                      //'/updateDoctor/:id'
+                      to={`/rateDoctor`}
+                      className="btn btn-danger "
+                      style={{
+                        borderWidth: 1,
+                        borderColor: "rgba(0,0,0,0.2)",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        width: "auto",
+                        height: 23,
+                        backgroundColor: "blue",
+                        borderRadius: 30,
+                      }}
+                    >
+                      {" "}
+                      Rate Doctor
+                    </Link>{" "}
                   </div>
                 </div>
               </div>

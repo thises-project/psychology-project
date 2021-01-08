@@ -3,12 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { AddQuestions } from "../actions/AddQuestion";
 import { Button } from "react-bootstrap";
-import { Dropdown } from "react-bootstrap";
-
 import Footer from "./footer";
-
-// build ask question component
-// take the input value
 
 function AddQ() {
   const [questions, setQuestion] = useState({
@@ -17,7 +12,7 @@ function AddQ() {
     questionType: "Individual Counseling",
   });
 
-  const { question, questionType } = questions;
+  // const { question, questionType } = questions;
 
   const dispatch = useDispatch();
 
@@ -58,16 +53,6 @@ function AddQ() {
           onSubmit={handleSubmit}
           style={{ marginTop: 30, marginBottom: 30 }}
         >
-          {/* <Dropdown name="questionType" onChange={handleChange} value={questions.questionType}>
-          <Dropdown.Toggle variant="info" id="dropdown-basic">
-            Choose Counseling Type ..
-                </Dropdown.Toggle>
-          <Dropdown.Menu >
-            <Dropdown.Item value="Teenager Counseling" > Teenager Counseling </Dropdown.Item>
-            <Dropdown.Item value="Couple Counseling" > Couple Counseling </Dropdown.Item>
-            <Dropdown.Item value="Individual Counseling" > Individual Counseling </Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown> */}
           <label>Choose Counseling Type ..</label>
           <br />
           <select

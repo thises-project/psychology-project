@@ -7,6 +7,7 @@ import { storage } from "../firebase";
 const DoctorProfile = (props) => {
   const [doctorProfile, setDoctorProfile] = useState({});
   const [image, setImage] = useState(null);
+  // eslint-disable-next-line
   const [firstUrl, setUrl] = useState({});
 
   useEffect(() => {
@@ -86,6 +87,7 @@ const DoctorProfile = (props) => {
             <div className="col" style={{ backgroundColor: "blue" }}>
               <br />
               <img
+                alt="not found"
                 className="rounded-circle z-depth-2"
                 style={{
                   width: 200,

@@ -1,11 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "./Logo.png";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { GetAllQuestionsAndAnswers } from "../actions/AddQuestion";
 import { Dropdown } from "react-bootstrap";
-// import { NotificationManager } from 'react-notifications';
 
 function Navbar() {
   var value = false;
@@ -94,6 +93,7 @@ function Navbar() {
   }
 
   function UserIsLogged4(val) {
+    // eslint-disable-next-line
     const history = [];
     const dispatch = useDispatch();
     const questionAndAnswersList = useSelector(
@@ -131,7 +131,8 @@ function Navbar() {
             >
               {
                 questionAndAnswersList.filter(
-                  (questions) => questions.user_Id == window.localStorage.userId
+                  (questions) =>
+                    questions.user_Id === window.localStorage.userId
                 ).length
               }
             </span>
@@ -140,7 +141,7 @@ function Navbar() {
           <Dropdown.Menu style={{ backgroundColor: "blue" }}>
             {questionAndAnswersList
               .filter(
-                (questions) => questions.user_Id == window.localStorage.userId
+                (questions) => questions.user_Id === window.localStorage.userId
               )
               .map((filterQuestion) => (
                 <Dropdown.Item href="http://localhost:3000/UserQuestionsAnswers/:id">
