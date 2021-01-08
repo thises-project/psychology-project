@@ -32,10 +32,11 @@ function UserProfile(props, setCurrentId) {
   return (
     <div>
       <div
-        className="container w-50 p-3 mt-5"
+        className="container w-100 p-3 mt-5"
         style={{
           textAlign: "left",
-          backgroundColor: "beige",
+          fontSize: "14px",
+          backgroundColor: "#E3F2FD",
           alignSelf: "center",
           width: "100%",
           height: "auto",
@@ -45,14 +46,17 @@ function UserProfile(props, setCurrentId) {
         {" "}
         <br />
         <div style={{ marginLeft: 10 }}>
-          <h2> {user.userName}'s Profile</h2>
+          <h2 style={{ borderBottom: "5px solid silver" }}>
+            {" "}
+            {user.userName}'s Profile
+          </h2>
         </div>
         <br />
         <div
           className="row"
           style={{
             textAlign: "left",
-            backgroundColor: "white",
+
             alignSelf: "center",
             width: "800",
             marginLeft: 10,
@@ -81,7 +85,7 @@ function UserProfile(props, setCurrentId) {
           className="row"
           style={{
             textAlign: "left",
-            backgroundColor: "white",
+
             alignSelf: "center",
             width: "800",
             marginLeft: 10,
@@ -108,7 +112,7 @@ function UserProfile(props, setCurrentId) {
           className="row"
           style={{
             textAlign: "left",
-            backgroundColor: "white",
+
             alignSelf: "center",
             width: "800",
             marginLeft: 10,
@@ -130,12 +134,10 @@ function UserProfile(props, setCurrentId) {
             {user.gender}
           </div>
         </div>
-        {/* </hr> */}
         <div
           className="row "
           style={{
             textAlign: "left",
-            backgroundColor: "white",
             alignSelf: "center",
             width: "800",
             marginLeft: 10,
@@ -226,18 +228,7 @@ function UserProfile(props, setCurrentId) {
         {/* buttons div ends*/}
       </div>
 
-      {/* footer div */}
-      <div
-        className="container w-100 mt-5 mb-5"
-        style={{
-          textAlign: "center",
-          marginLeft: "auto",
-          marginRight: "auto",
-        }}
-      >
-        <Footer />
-      </div>
-      {/* footer div ends*/}
+      <Footer />
     </div>
   );
 }

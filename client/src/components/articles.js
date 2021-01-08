@@ -1,14 +1,14 @@
 import React from "react";
 import { Badge } from "react-bootstrap";
+import Footer from "./footer";
 
 const Articles = () => {
   return (
     <div>
-     
-      <div className="container ml-5 mr-5" style={{ textAlign: "left" }} >
-      <h2>Selected articles - Topics in Mental Health</h2>
-      <br />
-      <br />
+      <div className="container ml-5 mr-5" style={{ textAlign: "left" }}>
+        <h2>Selected articles - Topics in Mental Health</h2>
+        <br />
+        <br />
         <div className="article1" style={{ borderBottom: "1px solid silver" }}>
           {" "}
           <h3>
@@ -167,6 +167,7 @@ const Articles = () => {
           <br />
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

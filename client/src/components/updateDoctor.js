@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import swal from "sweetalert";
+import Footer from "./footer";
 
 const UpdateDoctor = (props) => {
   const [state, setState] = useState({
@@ -114,7 +115,7 @@ const UpdateDoctor = (props) => {
       <div
         className="container w-50 p-3 mt-5"
         style={{
-          backgroundColor: "beige",
+          backgroundColor: "#E3F2FD",
           borderRadius: "20px",
           marginBottom: 20,
         }}
@@ -195,10 +196,11 @@ const UpdateDoctor = (props) => {
           </div>
 
           <div>
-            <button className="btn btn-primary">Submit</button>
+            <button className="btn btn-info">Submit</button>
           </div>
         </form>
       </div>
+      <Footer />
     </div>
   );
 

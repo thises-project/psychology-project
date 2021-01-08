@@ -37,7 +37,7 @@ function AddQ() {
         className="container w-100"
         style={{
           textAlign: "left",
-          backgroundColor: "beige",
+          backgroundColor: "#E3F2FD",
           alignSelf: "center",
           width: "100%",
           height: "auto",
@@ -46,14 +46,20 @@ function AddQ() {
       >
         <br />
         <br />
-        <h3>WE ARE HERE FOR YOU ..</h3>
-        <h3>How can we help you ?</h3>
+        <h3>
+          Relax,Speak Out your issue, and one of our counslers will support you
+          as soon as possible!{" "}
+        </h3>
+        <h5>
+          {" "}
+          explain to us how do you feel ? .. express your feelings and thoughts
+        </h5>
 
         <form
           onSubmit={handleSubmit}
           style={{ marginTop: 30, marginBottom: 30 }}
         >
-          <label>Choose Counseling Type ..</label>
+          <label>Choose Counseling Type</label>
           <br />
           <select
             name="questionType"
@@ -67,6 +73,7 @@ function AddQ() {
               Individual Counseling{" "}
             </option>
           </select>
+          <br />
           <br />
           <textarea
             style={{ width: 900, height: "auto" }}
@@ -88,21 +95,11 @@ function AddQ() {
           <br />
           <br />
           <br />
-          <h6> one of our doctors will reply you soon</h6>
+          <h6> Stay Strong .. everything shall pass </h6>
         </form>
         <br />
-        {/* footer div */}
-        <div
-          className="container w-100 mt-5 mb-5"
-          style={{
-            textAlign: "center",
-            marginLeft: "auto",
-            marginRight: "auto",
-          }}
-        >
-          <Footer />
-        </div>
-        {/* footer div ends*/}
+
+        <Footer />
       </div>
     </div>
   );
