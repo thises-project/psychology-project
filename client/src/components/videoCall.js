@@ -189,11 +189,3 @@ function callPeer(id){
 
 
 export default VideoCall;
-
-//hiiii
-
-
-
-
-
-
