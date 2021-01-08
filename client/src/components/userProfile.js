@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import swal from 'sweetalert';
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { deleteUser } from "../actions/adduser";
@@ -179,14 +180,45 @@ function UserProfile(props, setCurrentId) {
           >
             Start Meeting
           </Link>
+
+          {/* <Link
+            type="button"
+            className="btn btn-info btn-rounded mr-2 ml-2"
+           
+          >
+            Delete
+          </Link> */}
+
           <a
-            href="/"
+            // href="/"
             style={{ backgroundColor: "red", borderColor: "red" }}
             type="button"
             className="btn btn-dark btn-rounded  mr-2 ml-2"
             onClick={() => {
-              dispatch(deleteUser(window.localStorage.userId));
-              window.localStorage.clear();
+
+              return swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to retrun to this account!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+              })
+                .then((willDelete) => {
+                  if (willDelete) {
+
+
+                    swal("Poof! Your account has been deleted!", {
+                      icon: "success",
+
+                    });
+                    dispatch(deleteUser(window.localStorage.userId));
+                    setInterval(function () { logout(); }, 3000);
+
+                  } else {
+                    swal("Your account is safe!");
+                  }
+                });
+
             }}
           >
             delete
@@ -213,4 +245,10 @@ function UserProfile(props, setCurrentId) {
     </div>
   );
 }
+
+function logout() {
+  window.localStorage.clear();
+  window.location = "/";
+}
+
 export default UserProfile;

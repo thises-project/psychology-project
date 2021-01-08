@@ -3,6 +3,7 @@ import { updateUser } from "../actions/adduser";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import Footer from "./footer";
+import swal from 'sweetalert';
 
 export default function EditUser(props, { currentId, setCurrentId }) {
   const [editUser, setEditUser] = useState({
@@ -68,8 +69,11 @@ export default function EditUser(props, { currentId, setCurrentId }) {
       dispatch(updateUser(currentId, editUser));
       clear();
     }
-    window.location = `/userPro/${window.localStorage.userId}`;
+    swal("INFORMATION UPDATED SUCCESSFULLY!", "success");
+    setInterval(function () { window.location = `/userPro/${window.localStorage.userId}`; }, 3000);
+
   }
+
   return (
     <div>
       <div
@@ -89,7 +93,7 @@ export default function EditUser(props, { currentId, setCurrentId }) {
           <h2>Edit Profile </h2>
           <label className="text-left mb-3"> Old Password</label>
           <input
-            type="cpassword"
+            type="password"
             name="cpassword"
             value={editUser.cpassword}
             onChange={handlePassword}
@@ -109,6 +113,7 @@ export default function EditUser(props, { currentId, setCurrentId }) {
             name="userName"
             value={editUser.userName}
             onChange={handleChange}
+            required
             className={
               "form-control" +
               (submitted && !editUser.userName ? " is-invalid" : "")
@@ -124,6 +129,7 @@ export default function EditUser(props, { currentId, setCurrentId }) {
             name="age"
             value={editUser.age}
             onChange={handleChange}
+            required
             className={
               "form-control" + (submitted && !editUser.age ? " is-invalid" : "")
             }
@@ -138,6 +144,7 @@ export default function EditUser(props, { currentId, setCurrentId }) {
             name="gender"
             value={editUser.gender}
             onChange={handleChange}
+            required
             className={
               "form-control" +
               (submitted && !editUser.gender ? " is-invalid" : "")
@@ -153,6 +160,7 @@ export default function EditUser(props, { currentId, setCurrentId }) {
             name="email"
             value={editUser.email}
             onChange={handleChange}
+            required
             className={
               "form-control" +
               (submitted && !editUser.email ? " is-invalid" : "")
@@ -168,6 +176,7 @@ export default function EditUser(props, { currentId, setCurrentId }) {
             name="password"
             value={editUser.password}
             onChange={handleChange}
+            required
             className={
               "form-control" +
               (submitted && !editUser.password ? " is-invalid" : "")

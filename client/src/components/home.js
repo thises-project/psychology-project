@@ -72,20 +72,14 @@ const Home = () => {
         className="btn btn-info "
         style={{ marginLeft: "5px" }}
       >
-        SpeakOut to Us
+        Get Free Counsling NOW !
       </Link>
       {/* <Button variant="info" size="lg" style={{ width: "30%" }}>
       <a href={href} onClick={ handleClick ()}> Get Free Counsling NOW !</a>
         Get Free Counsling NOW !
       </Button> */}
- <br></br>
-      <br></br>
-      <br></br>
-       <div>
-        <Link type="button" className="btn btn-info btn-rounded" to={"/video"}>
-          Start Meeting
-        </Link>
-      </div>
+      
+
       <br></br>
       <br></br>
       <br></br>
