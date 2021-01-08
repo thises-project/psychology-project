@@ -1,12 +1,9 @@
-# speak_out
+# SPEAK OUT APP
 
 # Thesis Project
 
-​
-
 # Project title:
 
-​
 Psychological health Project
 ​
 Our website is a middleware between the psychological doctor and the patient.
@@ -31,31 +28,34 @@ This website is basically built because the psychological health for people arou
 Technologies built with:
 
 - Backend:
-  - mySQL for the database
-  - NodeJS && ExpressJS in server side.
-  - bcrypt && JWT for autherization and authentication.
-  - axios for making requests.
-- Frontend - ReactJS, Redux and hocks in the client side.
+- mySQL for the database
+- NodeJS && ExpressJS in server side.
+- bcrypt && JWT for autherization and authentication.
+- axios for making requests.
+- Frontend
+- ReactJS, Redux and hocks in the client side.
   ​
   ​
 
 # Features:
 
-​-Booking an appointment for the user.
--Making a schdule for the Doctor.
--the user asking questions.
--the doctor reply to the questions.
--login && logout for two users(patient and doctor)
--signup
--Notifications.
--Video Call between user and doctor.
--edit users profile and doctors profile
--delete users profile.
--Uploading images using firebase.
--validation form.
-​
-​
-Installation:
+​- Booking an appointment for the user.
+
+- Making a schdule for the Doctor.
+- The user asking questions.
+- The doctor reply to the questions.
+- Login && logout for two users(patient and doctor)
+- Signup
+- Notifications.
+- Video Call between user and doctor.
+- Edit users profile and doctors profile
+- Delete users profile.
+- Uploading images using firebase.
+- Validation form.
+  ​
+  ​
+
+# Installation:
 
 - npm install for server side and client side separately
 - npm start for client side

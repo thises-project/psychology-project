@@ -96,7 +96,7 @@ function Login() {
               <div className="invalid-feedback">Username is required</div>
             )}
           </div>
-          <div style={{ color: "red" }}>{inputs.usernameError}</div>
+          <div style={{ color: "#E65100" }}>{inputs.usernameError}</div>
           <br></br>
           <div className="form-group">
             <BsLockFill size={20} />
@@ -114,7 +114,7 @@ function Login() {
               <div className="invalid-feedback">Password is required</div>
             )}
           </div>
-          <div style={{ color: "red" }}>{inputs.passwordError}</div>
+          <div style={{ color: "#E65100" }}>{inputs.passwordError}</div>
           <br></br>
           <label>Your Role </label>
           {/* radio buttons */}

@@ -133,7 +133,7 @@ function Signup() {
             {submitted && !user.userName && (
               <div className="invalid-feedback">Username is required</div>
             )}
-            <div style={{ color: "red" }}>{userE.usernameError}</div>
+            <div style={{ color: "#E65100" }}>{userE.usernameError}</div>
             <br></br>
           </div>
           <div className="form-group">
@@ -153,7 +153,7 @@ function Signup() {
               <div className="invalid-feedback">Age is required</div>
             )}
           </div>
-          <div style={{ color: "red" }}>{userE.ageError}</div>
+          <div style={{ color: "#E65100" }}>{userE.ageError}</div>
           <br></br>
           <div className="form-group">
             <CgGenderFemale size={20} style={{ marginRight: "0" }} />{" "}
@@ -174,7 +174,7 @@ function Signup() {
               <div className="invalid-feedback">gender is required</div>
             )}
           </div>
-          <div style={{ color: "red" }}>{userE.genderError}</div>
+          <div style={{ color: "#E65100" }}>{userE.genderError}</div>
           <br></br>
           <div className="form-group">
             <BsFillEnvelopeFill size={20} />
@@ -193,7 +193,7 @@ function Signup() {
               <div className="invalid-feedback">Email is required</div>
             )}
           </div>
-          <div style={{ color: "red" }}>{userE.emailError}</div>
+          <div style={{ color: "#E65100" }}>{userE.emailError}</div>
           <br></br>
           <div className="form-group">
             <BsLockFill size={20} />
@@ -213,7 +213,7 @@ function Signup() {
               <div className="invalid-feedback">Password is required</div>
             )}
           </div>
-          <div style={{ color: "red" }}>{userE.passwordError}</div>
+          <div style={{ color: "#E65100" }}>{userE.passwordError}</div>
           <br></br>
           {/* button div */}
           <div className="form-group text-center">
