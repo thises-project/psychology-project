@@ -76,7 +76,7 @@ function Login() {
         <form className="form-group mr-5 ml-5" onSubmit={handleSubmit}>
           <br />
 
-          <h2>Login</h2>
+          <h2>Log In</h2>
           <br />
           <div className="form-group">
             {/* <label>Username</label> */}

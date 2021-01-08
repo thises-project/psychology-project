@@ -56,7 +56,10 @@ function QuestionsList() {
                 height: "auto",
               }}
             >
-              <FaCommentDots style={{ marginRight: 20 }} size={25} />
+              <FaCommentDots
+                style={{ marginRight: 20, color: "#E65100" }}
+                size={25}
+              />
               Question: {questions.question}
             </div>
             {/* doctor */}
@@ -71,8 +74,11 @@ function QuestionsList() {
                 height: "auto",
               }}
             >
-              <FaCommentMedical style={{ marginRight: 20 }} size={25} />
-              Answer by Dr. {questions.doctorName}: {questions.answer}
+              <FaCommentMedical
+                style={{ marginRight: 20, color: "#E65100" }}
+                size={25}
+              />
+              Answered by Dr. {questions.doctorName}: {questions.answer}
             </div>
           </div>
         ))}

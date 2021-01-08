@@ -41,11 +41,11 @@ const Footer = () => {
         </Card.Header>
         <Card.Body>
           <Card.Title>
-            <TiSocialFacebookCircular size={40} />
-            <TiSocialInstagramCircular size={40} />
-            <TiSocialLinkedinCircular size={40} />
-            <TiSocialTwitterCircular size={40} />
-            <TiSocialYoutubeCircular size={40} />
+            <TiSocialFacebookCircular size={40} style={{ color: "#E65100" }} />
+            <TiSocialInstagramCircular size={40} style={{ color: "#E65100" }} />
+            <TiSocialLinkedinCircular size={40} style={{ color: "#E65100" }} />
+            <TiSocialTwitterCircular size={40} style={{ color: "#E65100" }} />
+            <TiSocialYoutubeCircular size={40} style={{ color: "#E65100" }} />
           </Card.Title>
           <Card.Text>
             SpeakOut 990 Villa Street, Mountain View, CA 94041 //

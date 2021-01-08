@@ -1,6 +1,8 @@
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
 import Footer from "./footer";
+import { FaCommentMedical } from "react-icons/fa";
+import { FaCommentDots } from "react-icons/fa";
 
 const url = "http://localhost:5000";
 
@@ -39,9 +41,9 @@ function UserQuestionsAnswers() {
         <h2>My Questions</h2>
         <div>
           {questionInfo.questions.map((questions) => (
-            <ul>
+            <div>
               <br />
-              <li
+              <div
                 style={{
                   width: "100%",
                   height: "auto",
@@ -52,9 +54,25 @@ function UserQuestionsAnswers() {
                   marginBottom: 10,
                 }}
               >
-                {questions.question}
-              </li>
-              <li
+                <FaCommentDots
+                  style={{ marginRight: 20, color: "#E65100" }}
+                  size={25}
+                />
+                Question: {questions.question}
+              </div>
+
+              <div
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  borderRadius: 5,
+                  backgroundColor: "white",
+                  fontSize: 14,
+                  marginTop: 10,
+                  marginBottom: 10,
+                }}
+              ></div>
+              <div
                 style={{
                   width: "100%",
                   height: "auto",
@@ -65,23 +83,14 @@ function UserQuestionsAnswers() {
                   marginBottom: 10,
                 }}
               >
-                {questions.answer}
-              </li>
-              <li
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  borderRadius: 5,
-                  backgroundColor: "white",
-                  fontSize: 14,
-                  marginTop: 10,
-                  marginBottom: 10,
-                }}
-              >
-                Dr.{questions.doctorName}
-              </li>
+                <FaCommentMedical
+                  style={{ marginRight: 20, color: "#E65100" }}
+                  size={25}
+                />
+                Answered by Dr.{questions.doctorName} : {questions.answer}
+              </div>
               <br />
-            </ul>
+            </div>
           ))}
         </div>
       </div>
