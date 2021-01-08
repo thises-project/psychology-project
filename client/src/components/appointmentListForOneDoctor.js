@@ -37,8 +37,8 @@ function AppointmentListForOneDoctor (){
                 <tr>
                   <th>Patient Name</th>
                   <th>Date</th>
-                  <th>Start Time</th>
-                  <th>End Time</th>
+                  <th> Time</th>
+                  
                 </tr>
               </thead>
              
@@ -50,7 +50,7 @@ function AppointmentListForOneDoctor (){
                 <td>{appointment.userName}</td>
                 <td> {appointment.date}</td>
                 <td>{appointment.startTime}</td> 
-                <td>{appointment.endtime}</td>
+               
                 
                 </tbody>
               

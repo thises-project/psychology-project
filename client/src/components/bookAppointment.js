@@ -80,6 +80,7 @@ function BookAppointment(props, { currentId, setCurrrentId }) {
               value={appointmentInfo.date}
               id="example-date-input"
               onChange={handleSchedule}
+              required 
             />
           </div>
         </div>
@@ -88,38 +89,18 @@ function BookAppointment(props, { currentId, setCurrrentId }) {
           <label className="col-2 col-form-label">Start Time: </label>
           <div class="col-10">
             <select
-              required
               className="form-control"
               // value={schedules.schedule.startAt}
               value={appointmentInfo.startTime}
               onChange={handleChange}
               name="startTime"
+              required 
             >
+              <option></option>
               {schedules.schedule.map(function (schedule) {
                 return (
                   <option key={schedule.scheduleId} value={schedule.scheduleId}>
-                    {schedule.startAt}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
-        </div>
-
-        <div className="form-group row">
-          <label className="col-2 col-form-label">end Time: </label>
-          <div class="col-10">
-            <select
-              required
-              className="form-control"
-              value={appointmentInfo.endtime}
-              onChange={handleChange}
-              name="endtime"
-            >
-              {schedules.schedule.map(function (schedule) {
-                return (
-                  <option key={schedule.scheduleId} value={schedule.scheduleId}>
-                    {schedule.endAt}
+                    {schedule.startAt} - {schedule.endAt} 
                   </option>
                 );
               })}
