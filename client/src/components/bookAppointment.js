@@ -1,4 +1,3 @@
-  
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -80,7 +79,7 @@ function BookAppointment(props, { currentId, setCurrrentId }) {
               value={appointmentInfo.date}
               id="example-date-input"
               onChange={handleSchedule}
-              required 
+              required
             />
           </div>
         </div>
@@ -94,13 +93,13 @@ function BookAppointment(props, { currentId, setCurrrentId }) {
               value={appointmentInfo.startTime}
               onChange={handleChange}
               name="startTime"
-              required 
+              required
             >
               <option></option>
               {schedules.schedule.map(function (schedule) {
                 return (
                   <option key={schedule.scheduleId} value={schedule.scheduleId}>
-                    {schedule.startAt} - {schedule.endAt} 
+                    {schedule.startAt} - {schedule.endAt}
                   </option>
                 );
               })}
@@ -109,7 +108,7 @@ function BookAppointment(props, { currentId, setCurrrentId }) {
         </div>
 
         <div className="form-group">
-          <button className="btn btn-primary">book Appointement</button>
+          <button className="button">book Appointement</button>
         </div>
       </form>
     </div>

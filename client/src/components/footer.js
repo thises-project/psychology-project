@@ -18,7 +18,7 @@ const Footer = () => {
               <h3 className="info">Our Mission</h3>
             </Card.Title>
 
-            <Card.Text >
+            <Card.Text>
               Making professional counseling accessible, affordable, convenient
               - so anyone who struggles with life’s challenges can get help,
               anytime, anywhere.
@@ -35,18 +35,33 @@ const Footer = () => {
             </Card.Title>
 
             <Card.Text>
-              <p>Phone Number : <a href="tel:+962 785 200 215">+962 785 200 215</a></p>
-              <p>Phone Number : <a href="tel:+962 785 200 220">+962 785 200 220</a></p>
-              <p>Email : <a href="mailto:contact@Speakout.com">Speakout.com</a></p>
-             Location : SpeakOut 990 Villa Street, Mountain View, CA 94041
+              {/* <p>
+                Phone Number <a href="tel:+962 785 200 215">+962 785 200 215</a>
+              </p>
+              <p>
+                Phone Number <a href="tel:+962 785 200 220">+962 785 200 220</a>
+              </p> */}
+              {/* <br /> */}
+              <p></p>
+              SpeakOut 990 Villa Street, Mountain View, CA 94041
               contact@Speakout.com
             </Card.Text>
             <div>
-              <a href="https://www.facebook.com/"><TiSocialFacebookCircular size={40} /></a>
-              <a href="https://www.instagram.com/"><TiSocialInstagramCircular size={40} /></a>
-              <a href="https://www.linkedin.com/"><TiSocialLinkedinCircular size={40} /></a>
-              <a href="https://twitter.com/?lang=en"><TiSocialTwitterCircular size={40} /></a>
-              <a href="https://www.youtube.com/"><TiSocialYoutubeCircular size={40} /></a>
+              <a href="https://www.facebook.com/">
+                <TiSocialFacebookCircular size={40} />
+              </a>
+              <a href="https://www.instagram.com/">
+                <TiSocialInstagramCircular size={40} />
+              </a>
+              <a href="https://www.linkedin.com/">
+                <TiSocialLinkedinCircular size={40} />
+              </a>
+              <a href="https://twitter.com/?lang=en">
+                <TiSocialTwitterCircular size={40} />
+              </a>
+              <a href="https://www.youtube.com/">
+                <TiSocialYoutubeCircular size={40} />
+              </a>
             </div>
             {/* <Card.Link href="#">Card Link</Card.Link>
             <Card.Link href="#">Another Link</Card.Link> */}
@@ -58,7 +73,7 @@ const Footer = () => {
       <div className="footer-copyright text-center py-3">
         <p> © 2020 Copyright:SpeakOut.com</p>
       </div>
-    </div >
+    </div>
   );
 };
 

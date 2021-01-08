@@ -23,12 +23,12 @@ import CreateDoctorsSchedule from "./components/CreateDoctorsSchedule";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-datepicker/dist/react-datepicker.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import './App.css';
-import VideoCall from './components/videoCall';
+import "./App.css";
+import VideoCall from "./components/videoCall";
 // React Notification
-import 'react-notifications/lib/notifications.css';
+import "react-notifications/lib/notifications.css";
 // import { NotificationContainer } from 'react-notifications';
-import Notification from './components/Notification'
+import Notification from "./components/Notification";
 import RateDoctor from "./components/rateDoctor";
 
 function App() {
@@ -50,7 +50,6 @@ function App() {
           <Route path="/video" component={VideoCall} />
           <Route path="/notification" component={Notification} />
           <Route path="/doctorSchedule/:id" component={CreateDoctorsSchedule} />
-
 
           {/* <Route path = "/scheduleForDoctor/:id" component = {ScheduleForDoctor}/>  */}
 
