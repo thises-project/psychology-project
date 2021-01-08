@@ -87,6 +87,8 @@ function CreateDoctorsSchedule() {
           >
 My Schedule          </Link>
     </div>
+
+
   );
 }
 export default CreateDoctorsSchedule;

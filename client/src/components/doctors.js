@@ -99,6 +99,26 @@ const Doctors = (props) => {
                     Book A Session
                   </Link>{" "}
                   <TiVideo size={30} />
+                    <div>
+                  <Link
+                    //'/updateDoctor/:id'
+                    to={`/rateDoctor`}
+                    className="btn btn-danger "
+                    style={{
+                      borderWidth: 1,
+                      borderColor: "rgba(0,0,0,0.2)",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      width: "auto",
+                      height: 23,
+                      backgroundColor: "blue",
+                      borderRadius: 30,
+                    }}
+                  >
+                    {" "}
+                    Rate Doctor
+                  </Link>{" "}
+                  </div>
                 </div>
               </div>
             </div>
