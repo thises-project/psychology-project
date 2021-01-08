@@ -10,7 +10,7 @@ const Home = () => {
       {/* slider */}
       <div>
         {/* Carousel begins */}
-        <Carousel>
+        <Carousel style={{ marginBottom: 150 }}>
           <Carousel.Item>
             {" "}
             <img
@@ -52,146 +52,129 @@ const Home = () => {
         {/* Carousel ends */}
       </div>
 
-      {/* qoute div */}
-      <div>
-        {/* Qoute starts */}
-        <Card>
-          {/* <Card.Header>Quote</Card.Header> */}
-          <Card.Body>
-            <blockquote className="blockquote mb-0" style={{ width: "100%" }}>
-              <h2>
-                “What mental health needs is more sunlight, more candor, and
-                more unashamed conversation.”
-              </h2>
-              <footer className="blockquote-footer"> – Glenn Close</footer>
-            </blockquote>
-          </Card.Body>
-        </Card>
-        <Link
-          to={"/askQuestions"}
-          className="btn btn-info "
-          style={{ marginLeft: "5px" }}
-        >
-          Speak Out
-        </Link>
-        {/* qoute ends */}
-      </div>
-
       {/* feedback */}
       <div>
-        {" "}
-        {/* feedbacks starts */}
-        <h6 style={{ alignContent: "center" }}>
+        <h1 style={{ textAlign: "center", marginBottom: 20 }}>
           {" "}
-          Patient's Feedback after SpeakOut
-        </h6>
-        <div className="row w-100 mt-5 mb-5">
-          {/* person1 */}
-          <div className="card testimonial-card " style={{ width: "33%" }}>
-            {/* <!-- Background color --> */}
-            <div className="card-up indigo lighten-1"></div>
-
-            {/* <!-- Avatar --> */}
-            <div className="avatar mx-auto white">
+          Patient Feedback on SpeakOut
+        </h1>
+      </div>
+      <div
+        className="row"
+        style={{
+          width: "100%",
+          marginLeft: 2,
+          marginRight: 2,
+          textAlign: "center",
+        }}
+      >
+        {/* person1 */}
+        <Card border="primary" style={{ width: "33%" }}>
+          <Card.Header>
+            <h4>Christopher Hunt</h4>
+          </Card.Header>
+          <Card.Body>
+            <Card.Title>
               <img
                 src={process.env.PUBLIC_URL + "./Images/person4.jpg"}
                 className="rounded-circle"
                 alt="woman avatar"
                 style={{ width: 150, height: 150 }}
               />
-            </div>
-
-            {/* <!-- Content --> */}
-            <div className="card-body">
-              {/* <!-- Name --> */}
-              <h4 className="card-title">Christopher Hunt</h4>
-
-              {/* <!-- Quotation --> */}
-              <p>
-                <i className="fas fa-quote-left"></i> "The biggest achievement
-                I've made is, truly, fighting for myself. Through working with
-                Aiko and taking the time to discuss various issues with her,
-                I've become a bigger advocate for myself, and I'm so proud of
-                that."
-              </p>
-            </div>
-          </div>
-
+            </Card.Title>
+            <Card.Text>
+              "The biggest achievement I've made is, truly, fighting for myself.
+              Through working with Aiko and taking the time to discuss various
+              issues with her, I've become a bigger advocate for myself, and I'm
+              so proud of that."
+            </Card.Text>
+          </Card.Body>
           {/* person2 */}
-          <div className="card testimonial-card" style={{ width: "34%" }}>
-            {/* <!-- Background color --> */}
-            <div className="card-up indigo lighten-1"></div>
-
-            {/* <!-- Avatar --> */}
-            <div className="avatar mx-auto white">
+        </Card>
+        <Card border="primary" style={{ width: "33%" }}>
+          <Card.Header>
+            <h4>Nicole Kirkpatrick</h4>
+          </Card.Header>
+          <Card.Body>
+            <Card.Title>
               <img
                 src={process.env.PUBLIC_URL + "./Images/person7.jpg"}
                 className="rounded-circle"
                 alt="woman avatar"
                 style={{ width: 150, height: 150 }}
               />
-            </div>
-
-            {/* <!-- Content --> */}
-            <div className="card-body">
-              {/* <!-- Name --> */}
-              <h4 className="card-title">Nicole Kirkpatrick</h4>
-
-              {/* <!-- Quotation --> */}
-              <p>
-                <i className="fas fa-quote-left"></i> "I have now been working
-                with Sheilah on BetterHelp for about 4 weeks, and can
-                confidently say that I am a lot less anxious about my career
-                path now than when I first signed up...I am so much better off
-                now than I was before."
-              </p>
-            </div>
-          </div>
+            </Card.Title>
+            <Card.Text>
+              "I have now been working with Sheilah on BetterHelp for about 4
+              weeks, and can confidently say that I am a lot less anxious about
+              my career path now than when I first signed up...I am so much
+              better off now than I was before."
+            </Card.Text>
+          </Card.Body>
           {/* person3 */}
-          <div className="card testimonial-card" style={{ width: "33%" }}>
-            {/* <!-- Background color --> */}
-            <div className="card-up indigo lighten-1"></div>
-
-            {/* <!-- Avatar --> */}
-            <div className="avatar mx-auto white">
+        </Card>
+        <Card border="primary" style={{ width: "33%" }}>
+          <Card.Header>
+            {" "}
+            <h4>Mitchell Blocker</h4>
+          </Card.Header>
+          <Card.Body>
+            <Card.Title>
               <img
                 src={process.env.PUBLIC_URL + "./Images/person3.jpg"}
                 className="rounded-circle"
                 alt="woman avatar"
                 style={{ width: 150, height: 150 }}
               />
-            </div>
-
-            {/* <!-- Content --> */}
-            <div className="card-body">
-              {/* <!-- Name --> */}
-              <h4 className="card-title">Mitchell Blocker</h4>
-
-              {/* <!-- Quotation --> */}
-              <p>
-                <i className="fas fa-quote-left"></i> "I am a totally different
-                person now than when I signed up 19 months ago. I have found my
-                voice and can speak up for myself now....My confidence level is
-                also better than it ever has been."
-              </p>
-            </div>
-          </div>
-        </div>
-        {/* feedbacks ends */}
+            </Card.Title>
+            <Card.Text>
+              "I am a totally different person now than when I signed up 19
+              months ago. I have found my voice and can speak up for myself
+              now....My confidence level is also better than it ever has been."
+            </Card.Text>
+          </Card.Body>
+        </Card>
       </div>
+      <div
+        style={{
+          width: "100%",
+          textAlign: "center",
+          marginBottom: 60,
+          marginTop: 60,
+        }}
+      >
+        {/* Qoute starts */}
+        <Card>
+          {/* <Card.Header>Quote</Card.Header> */}
+          <Card.Body>
+            <blockquote className="blockquote mb-0">
+              <h2>
+                “What mental health needs is more sunlight, more candor, and
+                more unashamed conversation.”
+              </h2>
+              <footer className="blockquote-footer"> – Glenn Close</footer>
+            </blockquote>
 
-      {/* footer */}
+            <Link
+              to={"/askQuestions"}
+              className="btn btn-info  "
+              style={{ width: "150px" }}
+            >
+              Speak Out
+            </Link>
+          </Card.Body>
+        </Card>
+
+        {/* qoute ends */}
+      </div>
 
       {/* footer div */}
       <div
         style={{
           textAlign: "center",
-          marginLeft: "auto",
-          marginRight: "auto",
         }}
       >
         <Footer />
-
         {/* footer div ends*/}
       </div>
     </div>

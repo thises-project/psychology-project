@@ -14,12 +14,8 @@ function Navbar() {
   function DocIsLogged(val) {
     if (val) {
       return (
-        <Link
-          to="/doctorProfile/:id"
-          className="nav-link  ml-3 mr-3"
-          style={{ fontSize: "12px", marginTop: 15, marginBottom: 3 }}
-        >
-          <li className="nav-item">My Profile</li>
+        <Link to="/doctorProfile/:id">
+          <li className="nav-link  ml-3 mr-3"> My Profile</li>
         </Link>
       );
     }
@@ -27,11 +23,7 @@ function Navbar() {
   function DocIsLogged2(val) {
     if (val) {
       return (
-        <Link
-          to="/doctorQuestions"
-          className="nav-link  ml-3 mr-3"
-          style={{ fontSize: "12px", marginTop: 15, marginBottom: 3 }}
-        >
+        <Link to="/doctorQuestions" className="nav-link  ml-3 mr-3">
           <li className="nav-item"> Patient's Questions</li>
         </Link>
       );
@@ -44,7 +36,6 @@ function Navbar() {
         <Link
           to={`/doctorSchedule/${window.localStorage.doctorId}`}
           className="nav-link  ml-3 mr-3"
-          style={{ fontSize: "12px", marginTop: 15, marginBottom: 3 }}
         >
           <li className="nav-item">My Schedule</li>
         </Link>
@@ -55,11 +46,7 @@ function Navbar() {
   function UserIsLogged(val) {
     if (val) {
       return (
-        <Link
-          to="/userPro"
-          className="nav-link  ml-3 mr-3"
-          style={{ fontSize: "12px", marginTop: 15, marginBottom: 3 }}
-        >
+        <Link to="/userPro" className="nav-link  ml-3 mr-3">
           <li className="nav-item">My Profile</li>
         </Link>
       );
@@ -68,11 +55,7 @@ function Navbar() {
   function UserIsLogged2(val) {
     if (val) {
       return (
-        <Link
-          to="/askQuestions"
-          className="nav-link  ml-3 mr-3"
-          style={{ fontSize: "12px", marginTop: 15, marginBottom: 3 }}
-        >
+        <Link to="/askQuestions" className="nav-link  ml-3 mr-3">
           <li className="nav-item"> SpeakOut to Us</li>
         </Link>
       );
@@ -81,11 +64,7 @@ function Navbar() {
   function UserIsLogged3(val) {
     if (val) {
       return (
-        <Link
-          to="/UserQuestionsAnswers/:id"
-          className="nav-link  ml-3 mr-3"
-          style={{ fontSize: "12px", marginTop: 15, marginBottom: 3 }}
-        >
+        <Link to="/UserQuestionsAnswers/:id" className="nav-link  ml-3 mr-3">
           <li className="nav-item">My Questions</li>
         </Link>
       );
@@ -93,7 +72,6 @@ function Navbar() {
   }
 
   function UserIsLogged4(val) {
-    // eslint-disable-next-line
     const history = [];
     const dispatch = useDispatch();
     const questionAndAnswersList = useSelector(
@@ -141,7 +119,7 @@ function Navbar() {
           <Dropdown.Menu style={{ backgroundColor: "blue" }}>
             {questionAndAnswersList
               .filter(
-                (questions) => questions.user_Id === window.localStorage.userId
+                (questions) => questions.user_Id == window.localStorage.userId
               )
               .map((filterQuestion) => (
                 <Dropdown.Item href="http://localhost:3000/UserQuestionsAnswers/:id">
@@ -160,57 +138,41 @@ function Navbar() {
       className="navbar navbar-expand-lg navbar-light bg-light"
       style={{ height: 30 }}
     >
-      <Link
-        to="/"
-        className="nav-link  ml-3 mr-3"
-        style={{
-          marginRight: 2,
-          marginLeft: 2,
-          marginTop: 15,
-          marginBottom: 15,
-        }}
-      >
-        <img src={Logo} alt="logo"></img>
-      </Link>
-      <Link
-        to="/questions"
-        className="nav-link  ml-3 mr-3"
-        style={{ fontSize: "12px", marginTop: 15, marginBottom: 3 }}
-      >
-        SpeakOut's
-      </Link>
-      <Link
-        to="/articles"
-        className="nav-link  ml-3 mr-3"
-        style={{ fontSize: "12px", marginTop: 15, marginBottom: 3 }}
-      >
-        Articles
-      </Link>
+      <div className="collapse navbar-collapse">
+        <ul className="navbar-nav">
+          <Link
+            to="/"
+            className="nav-link ml-3 mr-3"
+            style={{
+              marginRight: 2,
+              marginLeft: 2,
+              marginTop: 15,
+              marginBottom: 15,
+            }}
+          >
+            <img src={Logo} alt="logo"></img>
+          </Link>
+          <Link to="/questions" className="nav-link ml-3 mr-3">
+            <li className="nav-item mt-5">SpeakOut's</li>
+          </Link>
+          <Link to="/articles" className="nav-link ml-3 mr-3">
+            <li className="nav-item mt-5">Articles</li>
+          </Link>
+        </ul>
+      </div>
 
       <div className="container-fluid mt-3">
         {value === false ? (
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav">
-              <Link
-                to="/doctors"
-                className="nav-link ml-3 mr-3"
-                style={{ fontSize: "12px", marginTop: 15, marginBottom: 3 }}
-              >
-                Doctors
+              <Link to="/doctors" className="nav-link ml-3 mr-3">
+                <li className="nav-item">Doctors</li>
               </Link>
 
-              <Link
-                to="/login"
-                className="nav-link  ml-3 mr-3"
-                style={{ fontSize: "12px", marginTop: 15, marginBottom: 3 }}
-              >
-                SpeakOut to Us
+              <Link to="/login" className="nav-link  ml-3 mr-3">
+                <li className="nav-item">SpeakOut to Us</li>
               </Link>
-              <Link
-                to="/login"
-                className="nav-link  ml-3 mr-3"
-                style={{ fontSize: "12px", marginTop: 15, marginBottom: 3 }}
-              >
+              <Link to="/login" className="nav-link  ml-3 mr-3">
                 <li className="nav-item">Login</li>
               </Link>
             </ul>
@@ -218,33 +180,18 @@ function Navbar() {
         ) : (
           <div className="collapse navbar-collapse" id="navbar NavDropdown">
             <ul className="navbar-nav">
-              {/* <Link
-                to="/"
-                className="nav-link  ml-3 mr-3"
-                style={{ fontSize: "12px", marginTop: 2, marginBottom: 3 }}
-              >
-                <img src={Logo} alt="logo"></img>
-              </Link> */}
               {UserIsLogged(window.localStorage.userId)}
               {UserIsLogged2(window.localStorage.userId)}
               {UserIsLogged3(window.localStorage.userId)}
 
-              <Link
-                to="/doctors"
-                className="nav-link ml-3 mr-3"
-                style={{ fontSize: "12px", marginTop: 15, marginBottom: 3 }}
-              >
+              <Link to="/doctors" className="nav-link ml-3 mr-3">
                 <li className="nav-item">Doctors</li>
               </Link>
               {DocIsLogged(window.localStorage.doctorId)}
               {DocIsLogged2(window.localStorage.doctorId)}
               {DocIsLogged3(window.localStorage.doctorId)}
 
-              <Link
-                to="/logout"
-                className="nav-link  ml-3 mr-3"
-                style={{ fontSize: "12px", marginTop: 15, marginBottom: 3 }}
-              >
+              <Link to="/logout" className="nav-link  ml-3 mr-3">
                 <li className="nav-item" onClick={logout}>
                   Logout
                 </li>

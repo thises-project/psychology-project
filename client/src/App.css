@@ -49,3 +49,11 @@ input[name="rating"] {
   border-color: #599c57;
   border-radius: 30;
 }
+
+.nav-link {
+  margin-top: 10;
+  margin-bottom: 5;
+  margin-left: 3;
+  margin-right: 3;
+  font-size: 14px;
+}
