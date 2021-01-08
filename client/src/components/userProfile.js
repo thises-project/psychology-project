@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import swal from 'sweetalert';
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { deleteUser } from "../actions/adduser";
+import Footer from "./footer";
 
 function UserProfile(props, setCurrentId) {
   //console.log(props)
@@ -25,72 +27,228 @@ function UserProfile(props, setCurrentId) {
       .catch((err) => {
         console.log(err);
       });
+    // eslint-disable-next-line
   }, [window.localStorage.userId]);
   return (
-    <div className="col-md-8">
-      <div className="card mb-3">
-        <div className="card-body">
-          <div className="row">
-            <div className="col-sm-3">
-              <h6 className="mb-0">User Name :</h6>
-            </div>
-            <div className="col-sm-9 text-secondary">{user.userName}</div>
-          </div>
-          {/* <hr> */}
-          <div className="row">
-            <div className="col-sm-3">
-              <h6 className="mb-0">Age :</h6>
-            </div>
-            <div className="col-sm-9 text-secondary">{user.age}</div>
-          </div>
-          {/* </hr> */}
-          {/* <hr> */}
-          <div className="row">
-            <div className="col-sm-3">
-              <h6 className="mb-0">Gender :</h6>
-            </div>
-            <div className="col-sm-9 text-secondary">{user.gender}</div>
-          </div>
-          {/* </hr> */}
-          {/* <hr> */}
-          <div className="row">
-            <div className="col-sm-3">
-              <h6 className="mb-0">Email :</h6>
-            </div>
-            <div className="col-sm-9 text-secondary">{user.email}</div>
-          </div>
-          {/* </hr> */}
+    <div>
+      <div
+        className="container w-50 p-3 mt-5"
+        style={{
+          textAlign: "left",
+          backgroundColor: "beige",
+          alignSelf: "center",
+          width: "100%",
+          height: "auto",
+          borderRadius: 5,
+        }}
+      >
+        {" "}
+        <br />
+        <div style={{ marginLeft: 10 }}>
+          <h2> {user.userName}'s Profile</h2>
         </div>
-      </div>
-      <div>
-        <Link
-          type="button"
-          className="btn btn-info btn-rounded"
-          to={`/edit/${window.localStorage.userId}`}
-        >
-          edit
-        </Link>{" "}
-        |{" "}
-        <a
-          href="/"
-          type="button"
-          className="btn btn-dark btn-rounded"
-          onClick={() => {
-            dispatch(deleteUser(window.localStorage.userId));
-            window.localStorage.clear();
+        <br />
+        <div
+          className="row"
+          style={{
+            textAlign: "left",
+            backgroundColor: "white",
+            alignSelf: "center",
+            width: "800",
+            marginLeft: 10,
+            marginRight: 10,
+            marginTop: 10,
+            marginBottom: 10,
           }}
         >
-          delete
-        </a>
+          <br />
+
+          <h4 style={{ marginLeft: 15 }}>User Name :</h4>
+
+          <div
+            className="col-sm-9 text-secondary "
+            style={{
+              textAlign: "left",
+              marginLeft: 5,
+              fontSize: 14,
+            }}
+          >
+            {user.userName}
+          </div>
+        </div>
+        {/* <hr> */}
+        <div
+          className="row"
+          style={{
+            textAlign: "left",
+            backgroundColor: "white",
+            alignSelf: "center",
+            width: "800",
+            marginLeft: 10,
+            marginRight: 10,
+            marginTop: 10,
+            marginBottom: 10,
+          }}
+        >
+          <h4 style={{ marginLeft: 15 }}>Age :</h4>
+
+          <div
+            className="col-sm-9 text-secondary"
+            style={{
+              textAlign: "left",
+              marginLeft: 5,
+              fontSize: 14,
+            }}
+          >
+            {user.age}
+          </div>
+        </div>
+        {/* </hr> */}
+        <div
+          className="row"
+          style={{
+            textAlign: "left",
+            backgroundColor: "white",
+            alignSelf: "center",
+            width: "800",
+            marginLeft: 10,
+            marginRight: 10,
+            marginTop: 10,
+            marginBottom: 10,
+          }}
+        >
+          <h4 style={{ marginLeft: 15 }}> Gender :</h4>
+
+          <div
+            className="col-sm-9 text-secondary"
+            style={{
+              textAlign: "left",
+              marginLeft: 5,
+              fontSize: 14,
+            }}
+          >
+            {user.gender}
+          </div>
+        </div>
+        {/* </hr> */}
+        <div
+          className="row "
+          style={{
+            textAlign: "left",
+            backgroundColor: "white",
+            alignSelf: "center",
+            width: "800",
+            marginLeft: 10,
+            marginRight: 10,
+            marginTop: 10,
+            marginBottom: 10,
+          }}
+        >
+          <h4 style={{ marginLeft: 15 }}>Email :</h4>
+
+          <div
+            className="col-sm-9 text-secondary"
+            style={{
+              textAlign: "left",
+              marginLeft: 5,
+              fontSize: 14,
+            }}
+          >
+            {user.email}
+          </div>
+        </div>
+        {/* buttons div starts */}
+        <br />
+        <div
+          style={{
+            marginLeft: 10,
+            alignItems: "center",
+          }}
+        >
+          <Link
+            type="button"
+            className="btn btn-info btn-rounded  mr-2"
+            to={`/edit/${window.localStorage.userId}`}
+          >
+            edit
+          </Link>
+
+          <Link
+            type="button"
+            className="btn btn-info btn-rounded mr-2 ml-2"
+            to={"/video"}
+          >
+            Start Meeting
+          </Link>
+
+          {/* <Link
+            type="button"
+            className="btn btn-info btn-rounded mr-2 ml-2"
+           
+          >
+            Delete
+          </Link> */}
+
+          <a
+            // href="/"
+            style={{ backgroundColor: "red", borderColor: "red" }}
+            type="button"
+            className="btn btn-dark btn-rounded  mr-2 ml-2"
+            onClick={() => {
+
+              return swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to retrun to this account!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+              })
+                .then((willDelete) => {
+                  if (willDelete) {
+
+
+                    swal("Poof! Your account has been deleted!", {
+                      icon: "success",
+
+                    });
+                    dispatch(deleteUser(window.localStorage.userId));
+                    setInterval(function () { logout(); }, 3000);
+
+                  } else {
+                    swal("Your account is safe!");
+                  }
+                });
+
+            }}
+          >
+            delete
+          </a>
+          <br />
+          <br />
+          <br />
+        </div>
+        {/* buttons div ends*/}
       </div>
-      <br />
-      <br />
-      <div>
-        <Link type="button" className="btn btn-info btn-rounded" to={"/video"}>
-          Start Meeting
-        </Link>
+
+      {/* footer div */}
+      <div
+        className="container w-100 mt-5 mb-5"
+        style={{
+          textAlign: "center",
+          marginLeft: "auto",
+          marginRight: "auto",
+        }}
+      >
+        <Footer />
       </div>
+      {/* footer div ends*/}
     </div>
   );
 }
+
+function logout() {
+  window.localStorage.clear();
+  window.location = "/";
+}
+
 export default UserProfile;
