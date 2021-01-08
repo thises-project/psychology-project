@@ -60,4 +60,9 @@ input[name="rating"] {
 
 .App {
   background-color: "#E3F2FD";
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
+
+/* font-family: Verdana, Geneva, Tahoma, sans-serif;
+"Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */

@@ -35,12 +35,14 @@ function QuestionsList() {
         {questionAndAnswersList.map((questions) => (
           <div
             style={{
-              backgroundColor: "white",
+              backgroundColor: "#FFB74D",
               borderRadius: 20,
               borderWidth: 1,
               borderColor: "blue",
               marginTop: 20,
               marginBottom: 20,
+              paddingTop: 10,
+              paddingBottom: 10,
             }}
           >
             {/* user */}

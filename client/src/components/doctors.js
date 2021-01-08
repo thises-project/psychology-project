@@ -38,7 +38,7 @@ const Doctors = (props) => {
             <div
               className="row"
               key={doctor.doctorId}
-              style={{ borderBottom: "1px solid silver" }}
+              style={{ borderBottom: "20px solid white" }}
             >
               <div className="col pt-3 pb-2">
                 <div className="row">
@@ -58,12 +58,12 @@ const Doctors = (props) => {
                         {doctor.email}
                       </Badge>
                     </h4>
-                    {/* <h6>{doctor.doctorId}</h6> */}
+                    <br />
                     <h4> Doctor Speciality: {doctor.doctorSpeciality}</h4>
                     <p
                       className="lead mt-4 mb-5"
                       style={{
-                        backgroundColor: "white",
+                        backgroundColor: "#FFB74D",
                         borderRadius: 10,
                         width: 900,
                         height: "auto",
@@ -100,8 +100,6 @@ const Doctors = (props) => {
               </div>
             </div>
           ))}
-          <br></br>
-          <br></br>
         </div>
       </div>
       <div>
