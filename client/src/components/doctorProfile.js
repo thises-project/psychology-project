@@ -3,6 +3,7 @@ import axios from "axios";
 import Footer from "./footer";
 import { Link } from "react-router-dom";
 import { storage } from "../firebase";
+import { Badge } from "react-bootstrap";
 
 const DoctorProfile = (props) => {
   const [doctorProfile, setDoctorProfile] = useState({});
@@ -80,12 +81,26 @@ const DoctorProfile = (props) => {
 
   return (
     <div>
-      <div className="container w-100" style={{ backgroundColor: "yellow" }}>
+      <div className="container w-100" style={{ backgroundColor: "#E3F2FD" }}>
         <div>
           <table className="row w-100">
             {/* image div */}
-            <div className="col" style={{ backgroundColor: "blue" }}>
+            <div className="col">
               <br />
+              <h2>
+                {" "}
+                DR. {doctorProfile.doctorName} <br />
+                <Badge
+                  pill
+                  variant="secondary"
+                  style={{ marginTop: 20, backgroundColor: "#E65100" }}
+                >
+                  {doctorProfile.email}
+                </Badge>
+                <br />
+              </h2>
+              {/* <span class="badge bg-primary">{doctorProfile.email}</span> */}
+
               <img
                 alt="not found"
                 className="rounded-circle z-depth-2"
@@ -103,8 +118,38 @@ const DoctorProfile = (props) => {
               />
               <br />
               <br />
-              <input type="file" onChange={onChangeimg} />
-              <button onClick={handleUpload}>Upload</button>
+
+              <h4>{doctorProfile.doctorSpeciality}</h4>
+              <p
+                style={{
+                  backgroundColor: "white",
+                  borderRadius: 10,
+                  marginLeft: 5,
+                  marginBottom: 5,
+                  height: "auto",
+                  fontSize: 14,
+
+                  paddingRight: 15,
+                  paddingLeft: 15,
+                  paddingTop: 15,
+                  paddingBottom: 15,
+                }}
+              >
+                {doctorProfile.bio}
+              </p>
+              <br />
+              <input
+                className="btn btn-info"
+                type="file"
+                onChange={onChangeimg}
+              />
+              <br />
+              <button className="btn btn-info" onClick={handleUpload}>
+                Upload
+              </button>
+              <br />
+              <br />
+              <br />
               {/* edit button starts */}
               <div className="container">
                 <Link
@@ -112,23 +157,14 @@ const DoctorProfile = (props) => {
                   className="btn btn-info "
                   style={{ marginLeft: "5px" }}
                 >
-                  Edit
+                  Edit Profile
                 </Link>
+                <br />
+                <br />
               </div>
+            </div>
 
-              {/* edit button ends */}
-            </div>
-            {/* info div */}
-            <div
-              className="col"
-              key={doctorProfile.doctorId}
-              style={{ backgroundColor: "#E3F2FD", width: "80%" }}
-            >
-              <h2>{doctorProfile.doctorName} </h2>
-              <h4>{doctorProfile.doctorSpeciality}</h4>
-              <p className="lead">{doctorProfile.bio}</p>
-              <span class="badge bg-primary">{doctorProfile.email}</span>
-            </div>
+            {/* <p className="lead">{doctorProfile.bio}</p> */}
           </table>
         </div>
       </div>

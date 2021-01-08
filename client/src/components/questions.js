@@ -35,7 +35,7 @@ function QuestionsList() {
         {questionAndAnswersList.map((questions) => (
           <div
             style={{
-              backgroundColor: "#FFB74D",
+              backgroundColor: "white",
               borderRadius: 20,
               borderWidth: 1,
               borderColor: "blue",

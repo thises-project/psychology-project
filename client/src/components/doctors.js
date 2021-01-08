@@ -54,7 +54,11 @@ const Doctors = (props) => {
                     <br />
                     <h4>
                       {" "}
-                      <Badge pill variant="secondary" style={{ marginTop: 20 }}>
+                      <Badge
+                        pill
+                        variant="secondary"
+                        style={{ marginTop: 20, backgroundColor: "#E65100" }}
+                      >
                         {doctor.email}
                       </Badge>
                     </h4>
@@ -63,7 +67,7 @@ const Doctors = (props) => {
                     <p
                       className="lead mt-4 mb-5"
                       style={{
-                        backgroundColor: "#FFB74D",
+                        backgroundColor: "white",
                         borderRadius: 10,
                         width: 900,
                         height: "auto",
